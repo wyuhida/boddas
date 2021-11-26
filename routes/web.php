@@ -8,6 +8,8 @@ use App\Http\Controllers\HomeController;
  * FOR SUPER ADMIN
  */
 use App\Http\Controllers\SuperAdmin\SuperAdminDashboardController;
+use App\Http\Controllers\SuperAdmin\UsersActivityController;
+use App\Http\Controllers\SuperAdmin\BlogController;
 
 /**
  * FOR ADMIN
@@ -17,6 +19,7 @@ use App\Http\Controllers\Admin\AdminSettingsController;
 use App\Http\Controllers\Admin\AdminCompanyController;
 use App\Http\Controllers\Admin\ProdukController;
 use App\Http\Controllers\Admin\AdminKategoriController;
+use App\Http\Controllers\Admin\AdminBlogController;
 
 /**
  * For customer
@@ -65,6 +68,9 @@ Route::post('registers', [AuthController::class, 'registers'])->name(
     'registers'
 );
 
+/**
+ * ADMIN GROUP
+ */
 Route::group(
     [
         'as' => 'admin.',
@@ -206,11 +212,49 @@ Route::group(
         ])->name('delete_admin_produk');
 
         /**
-         *
+         * ADMIN BLOG
          */
+
+        Route::get('show_admin_blog', [
+            AdminBlogController::class,
+            'show_admin_blog',
+        ])->name('show_admin_blog');
+
+        Route::get('create_admin_blog', [
+            AdminBlogController::class,
+            'create_admin_blog',
+        ])->name('create_admin_blog');
+
+        Route::get('detail_admin_blog/{id}/show', [
+            AdminBlogController::class,
+            'detail_admin_blog',
+        ])->name('detail_admin_blog');
+
+        Route::post('store_admin_blog', [
+            AdminBlogController::class,
+            'store_admin_blog',
+        ])->name('store_admin_blog');
+
+        Route::get('edit_admin_blog/{id}/edit', [
+            AdminBlogController::class,
+            'edit_admin_blog',
+        ])->name('edit_admin_blog');
+
+        Route::put('update_admin_blog/{id}/update', [
+            AdminBlogController::class,
+            'update_admin_blog',
+        ])->name('update_admin_blog');
+
+        Route::delete('delete_admin_blog/{id}/delete', [
+            AdminBlogController::class,
+            'delete_admin_blog',
+        ])->name('delete_admin_blog');
     }
 );
 
+/**
+ * SUPER ADMIN GROUP
+ */
 Route::group(
     [
         'as' => 'superadmin.',
@@ -223,6 +267,78 @@ Route::group(
             SuperAdminDashboardController::class,
             'index',
         ])->name('dashboard');
+
+        /**
+         *  ADMIN
+         */
+        Route::get('show_user_admin', [
+            UsersActivityController::class,
+            'show_user_admin',
+        ])->name('show_user_admin');
+
+        Route::get('create_user_admin', [
+            UsersActivityController::class,
+            'create_user_admin',
+        ])->name('create_user_admin');
+
+        Route::post('store_user_admin', [
+            UsersActivityController::class,
+            'store_user_admin',
+        ])->name('store_user_admin');
+
+        Route::get('edit_user_admin/{id}/edit', [
+            UsersActivityController::class,
+            'edit_user_admin',
+        ])->name('edit_user_admin');
+
+        Route::put('update_user_admin/{id}/update', [
+            UsersActivityController::class,
+            'update_user_admin',
+        ])->name('update_user_admin');
+
+        Route::delete('delete_user_admin/{id}/delete', [
+            UsersActivityController::class,
+            'delete_user_admin',
+        ])->name('delete_user_admin');
+
+        /**
+         * BLOG
+         */
+
+        Route::get('show_superadmin_blog', [
+            BlogController::class,
+            'show_superadmin_blog',
+        ])->name('show_superadmin_blog');
+
+        Route::get('create_superadmin_blog', [
+            BlogController::class,
+            'create_superadmin_blog',
+        ])->name('create_superadmin_blog');
+
+        Route::get('detail_superadmin_blog/{id}/show', [
+            BlogController::class,
+            'detail_superadmin_blog',
+        ])->name('detail_superadmin_blog');
+
+        Route::post('store_superadmin_blog', [
+            BlogController::class,
+            'store_superadmin_blog',
+        ])->name('store_superadmin_blog');
+
+        Route::get('edit_superadmin_blog/{id}/edit', [
+            BlogController::class,
+            'edit_superadmin_blog',
+        ])->name('edit_superadmin_blog');
+
+        Route::put('update_superadmin_blog/{id}/update', [
+            BlogController::class,
+            'update_superadmin_blog',
+        ])->name('update_superadmin_blog');
+
+        Route::delete('delete_superadmin_blog/{id}/delete', [
+            BlogController::class,
+            'delete_superadmin_blog',
+        ])->name('delete_superadmin_blog');
     }
 );
 

@@ -38,12 +38,13 @@
 
     <link href="{{asset('assets/css/animate.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@9.17.2/dist/sweetalert2.min.css">
-    <link href={{ asset('assets/css/plugins/summernote/summernote.css')}} rel="stylesheet">
-        <link href={{ asset('assets/css/plugins/summernote/summernote-bs3.css')}} rel="stylesheet">
+    
         <link href={{ asset('assets/css/plugins/sweetalert/sweetalert.css')}} rel="stylesheet">
          <!-- FooTable -->
     <link href="{{asset('assets/css/plugins/footable/footable.core.css')}}" rel="stylesheet">
     <link href="{{ asset('assets/css/plugins/jasny/jasny-bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css')}}" rel="stylesheet">
+
     <link href="{{asset('assets/css/style.css')}}" rel="stylesheet">
 
     @stack('css')
@@ -95,12 +96,6 @@
 <script src="{{ asset('assets/js/inspinia.js')}}"></script>
 <script src="{{ asset('assets/js/plugins/pace/pace.min.js')}}"></script>
 
-<!-- jQuery UI -->
-@if(isset($tooltip))
-
-@else
-    <script src="{{ asset('assets/js/plugins/jquery-ui/jquery-ui.min.js')}}"></script>
-@endif
 
 <!-- GITTER -->
 <script src="{{ asset('assets/js/plugins/gritter/jquery.gritter.min.js')}}"></script>
@@ -198,24 +193,17 @@
         toastr.info("{{ Session::get('info') }}");
     @endif
 </script>
-<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 
-<script type="text/javascript">
-    $(document).ready(function(){
 
-        $('.summernote').summernote();
 
-});
-</script>
 {!! Toastr::message() !!}
 <script src="{{asset('assets/js/plugins/footable/footable.all.min.js')}}"></script>
+<script src="{{asset('assets/js/plugins/iCheck/icheck.min.js')}}"></script>
 
 <!-- Page-Level Scripts -->
 <script>
     $(document).ready(function() {
-
         $('.footable').footable();
-
     });
 
 </script>

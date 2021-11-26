@@ -11,4 +11,9 @@ class DashboardController extends Controller
     {
         return view('superadmin.dashboard');
     }
+
+    public function show_admin()
+    {
+        return view('SuperAdmin.admin.show');
+    }
 }

@@ -34,16 +34,20 @@ class AdminDashboardController extends Controller
             ->where('update_by', $ids)
             ->sum('total_sold');
 
-        // $total_reseler = DB::table('buyers')
-        //     ->join('users', 'buyers.id', '=', 'users.id_buyer')
-        //     ->where('users.id_buyer', 3)
-        //     ->where('buyer.id', 2)
-        //     ->get();
-        // dd($total_reseler);
+        $total_reseler = DB::table('users')
+            ->join('buyers', 'users.id_buyer', '=', 'buyers.id')
+            ->where('users.id_buyer', 2)
+            ->count();
+
+        $total_afiliate = DB::table('users')
+            ->join('buyers', 'users.id_buyer', '=', 'buyers.id')
+            ->where('users.id_buyer', 3)
+            ->count();
 
         return view('admin.dashboard', [
             'total_penjualan' => $total_penjualan,
             'total_reseler' => $total_reseler,
+            'total_afiliate' => $total_afiliate,
         ]);
     }
 }

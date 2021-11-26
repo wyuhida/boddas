@@ -24,6 +24,10 @@
                     <a name="kategori" href="{{ route('admin.show_admin_kategori')}}"><i class="fa fa-folder"></i> <span class="nav-label">Kategori</span></a>
                 </li>
 
+                <li class="{{Request::is('admin/show_admin_blog') ? 'active' : ''}}">
+                    <a name ="show_admin_blog" href="{{ route('admin.show_admin_blog')}}"><i class="fa fa-book"></i> <span class="nav-label">Blog</span></a>
+                </li>
+
                   <li class="{{Request::is('admin/show_admin_produk') ? 'active' : ''}}">
                     <a href="">
                       <i class="fa fa-archive"></i>
@@ -64,15 +68,20 @@
         @endif
 
             @if(Request::is('superadmin*'))
-                <li>
-                    <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Buyer</span><span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level collapse">
-                        <li><a href="graph_flot.html">Reseler</a></li>
-                        <li><a href="graph_morris.html">User</a></li>
-                        <li><a href="graph_rickshaw.html">Aafiliate</a></li>
-                    </ul>
-                </li>
-                <li>
+            <li class="{{Request::is('superadmin/dashboard') ? 'active' : ''}}">
+                <a name ="dashboard" href="{{ route('superadmin.dashboard')}}"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span></a>
+            </li>
+            
+            <li class="{{Request::is('superadmin/show_user_admin') ? 'active' : ''}}">
+                <a name ="show_user_admin" href="{{ route('superadmin.show_user_admin')}}"><i class="fa fa-users"></i> <span class="nav-label">Admin</span></a>
+            </li>
+            
+            <li class="{{Request::is('superadmin/show_superadmin_blog') ? 'active' : ''}}">
+                <a name ="show_superadmin_blog" href="{{ route('superadmin.show_superadmin_blog')}}"><i class="fa fa-book"></i> <span class="nav-label">Blog</span></a>
+            </li>
+
+              
+                {{-- <li>
                     <a href="mailbox.html"><i class="fa fa-envelope"></i> <span class="nav-label">Mailbox </span><span class="label label-warning pull-right">16/24</span></a>
                     <ul class="nav nav-second-level collapse">
                         <li><a href="mailbox.html">Inbox</a></li>
@@ -80,10 +89,7 @@
                         <li><a href="mail_compose.html">Compose email</a></li>
                         <li><a href="email_template.html">Email templates</a></li>
                     </ul>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Blog</span></a>
-                </li>
+                </li> --}}
             @endif
           
             @if(Request::is('reseler*'))
