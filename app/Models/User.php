@@ -57,4 +57,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(News::class);
     }
+
+    public function content_statuses()
+    {
+        return $this->hasMany(Content_Status::class);
+    }
 }

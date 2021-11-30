@@ -1,121 +1,76 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link href={{ asset('assets/css/bootstrap.min.css')}} rel="stylesheet">
-    <link href={{ asset('assets/font-awesome/css/font-awesome.css')}} rel="stylesheet">
+      
+                <!-- Plugins CSS -->
+      
+         <title>Home</title>    
+         <!-- Plugins CSS -->
+         <link href={{ asset('vendors/css/plugins/plugins.css')}} rel="stylesheet">
+         <!-- REVOLUTION STYLE SHEETS -->
+         <link rel="stylesheet" type="text/css" href={{ asset('vendors/revolution/css/settings.css')}}>
+         <!-- REVOLUTION LAYERS STYLES -->
+         <link rel="stylesheet" type="text/css" href={{ asset('vendors/revolution/css/layers.css')}}>
+         <!-- REVOLUTION NAVIGATION STYLES -->
+         <link rel="stylesheet" type="text/css" href={{ asset('vendors/revolution/css/navigation.css')}}>
+         <!-- load css for cubeportfolio -->
+         <link rel="stylesheet" type="text/css" href={{ asset('vendors/cubeportfolio/css/cubeportfolio.min.css')}}>     
+         <link href={{ asset('vendors/css/style.css')}} rel="stylesheet">
 
-    <link href={{ asset('assets/css/animate.css')}} rel="stylesheet">
-
-    
-    <link href="{{ asset('assets/css/plugins/jasny/jasny-bootstrap.min.css')}}" rel="stylesheet">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-    <link href={{ asset('assets/css/style.css')}} rel="stylesheet">
-
-        <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+   
+         <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+ 
     
     @stack('css')
 
 </head>
 <body>
-    <div id="wrapper">
-        @include('sweetalert::alert')
-        @include('layouts.backend.partials.side-navigation')
+    <div id="preloader">
+        <div id="preloader-inner"></div>
+    </div><!--/preloader-->
+
+     <!--top bar-->
+    @include('layouts.frontend.partials.topbar')
+    <!--/top bar-->
+
+     <!--/nav bar-->
+    @include('layouts.frontend.partials.navbar')
+     <!--/nav bar-->
+
+    @yield('content')
+    
+
+    @include('layouts.frontend.partials.footer')
+
+
+        <!-- jQuery first, then Tether, then Bootstrap JS. -->
+        <script type="text/javascript" src={{ asset('vendors/js/plugins/plugins.js')}}></script> 
+        <script type="text/javascript" src={{ asset('vendors/js/assan.custom.js')}}></script> 
+        <!-- load cubeportfolio -->
+        <script type="text/javascript" src={{ asset('vendors/cubeportfolio/js/jquery.cubeportfolio.min.js')}}></script>
+        <!-- REVOLUTION JS FILES -->
+        <script type="text/javascript" src={{ asset('vendors/revolution/js/jquery.themepunch.tools.min.js')}}></script>
+        <script type="text/javascript" src={{ asset('vendors/revolution/js/jquery.themepunch.revolution.min.js')}}></script>
+        <!-- SLIDER REVOLUTION 5.0 EXTENSIONS  (Load Extensions only on Local File Systems !  The following part can be removed on Server for On Demand Loading) -->	
+        <script type="text/javascript" src={{ asset('vendors/revolution/js/extensions/revolution.extension.actions.min.js')}}></script>
+        <script type="text/javascript" src={{ asset('vendors/revolution/js/extensions/revolution.extension.carousel.min.js')}}></script>
+        <script type="text/javascript" src={{ asset('vendors/revolution/js/extensions/revolution.extension.kenburn.min.js')}}></script>
+        <script type="text/javascript" src={{ asset('vendors/revolution/js/extensions/revolution.extension.layeranimation.min.js')}}></script>
+        <script type="text/javascript" src={{ asset('vendors/revolution/js/extensions/revolution.extension.migration.min.js')}}></script>
+        <script type="text/javascript" src={{ asset('vendors/revolution/js/extensions/revolution.extension.navigation.min.js')}}></script>
+        <script type="text/javascript" src={{ asset('vendors/revolution/js/extensions/revolution.extension.parallax.min.js')}}></script>
+        <script type="text/javascript" src={{ asset('vendors/revolution/js/extensions/revolution.extension.slideanims.min.js')}}></script>
+        <script type="text/javascript" src={{ asset('vendors/revolution/js/extensions/revolution.extension.video.min.js')}}></script>
        
-       
-
-        <div id="page-wrapper" class="gray-bg">
-            @include('layouts.backend.partials.top-navigation')
-          
-            @yield('content')
-
-            @include('layouts.backend.partials.footer')
-
-        </div>
-        
-
-     
-    </div>
-
-
-     <!-- Mainly scripts -->
-     <script src={{ asset('assets/js/jquery-3.1.1.min.js')}}></script>
-     <script src={{ asset('assets/js/bootstrap.min.js')}}></script>
-     <script src={{ asset('assets/js/plugins/metisMenu/jquery.metisMenu.js')}}></script>
-     <script src={{ asset('assets/js/plugins/slimscroll/jquery.slimscroll.min.js')}}></script>
-
-      <!-- Jasny -->
-    <script src="{{ asset('assets/js/plugins/jasny/jasny-bootstrap.min.js') }}"></script>
-
-
-  <script>
-      Dropzone.options.dropzoneForm = {
-          paramName: "file", // The name that will be used to transfer the file
-          maxFilesize: 2, // MB
-          dictDefaultMessage: "<strong>Drop files here or click to upload. </strong></br> (This is just a demo dropzone. Selected files are not actually uploaded.)"
-      };
-
-      $(document).ready(function(){
-
-          var editor_one = CodeMirror.fromTextArea(document.getElementById("code1"), {
-              lineNumbers: true,
-              matchBrackets: true
-          });
-
-          var editor_two = CodeMirror.fromTextArea(document.getElementById("code2"), {
-              lineNumbers: true,
-              matchBrackets: true
-          });
-
-          var editor_two = CodeMirror.fromTextArea(document.getElementById("code3"), {
-              lineNumbers: true,
-              matchBrackets: true
-          });
-
-     });
-  </script>
- 
-     <!-- Flot -->
-     <script src={{ asset('assets/js/plugins/flot/jquery.flot.js')}}></script>
-     <script src={{ asset('assets/js/plugins/flot/jquery.flot.tooltip.min.js')}}></script>
-     <script src={{ asset('assets/js/plugins/flot/jquery.flot.spline.js')}}></script>
-     <script src={{ asset('assets/js/plugins/flot/jquery.flot.resize.js')}}></script>
-     <script src={{ asset('assets/js/plugins/flot/jquery.flot.pie.js')}}></script>
-     <script src={{ asset('assets/js/plugins/flot/jquery.flot.symbol.js')}}></script>
-     <script src={{ asset('assets/js/plugins/flot/jquery.flot.time.js')}}></script>
- 
-     <!-- Peity -->
-     <script src={{ asset('assets/js/plugins/peity/jquery.peity.min.js')}}></script>
-     <script src={{ asset('assets/js/demo/peity-demo.js')}}></script>
- 
-     <!-- Custom and plugin javascript -->
-     <script src={{ asset('assets/js/inspinia.js')}}></script>
-     <script src={{ asset('assets/js/plugins/pace/pace.min.js')}}></script>
- 
-     <!-- jQuery UI -->
-     <script src={{ asset('assets/js/plugins/jquery-ui/jquery-ui.min.js')}}></script>
- 
-     <!-- Jvectormap -->
-     <script src={{ asset('assets/js/plugins/jvectormap/jquery-jvectormap-2.0.2.min.js')}}></script>
-     <script src={{ asset('assets/js/plugins/jvectormap/jquery-jvectormap-world-mill-en.js')}}></script>
- 
-     <!-- EayPIE -->
-     <script src={{ asset('assets/js/plugins/easypiechart/jquery.easypiechart.js')}}></script>
- 
-     <!-- Sparkline -->
-     <script src={{ asset('assets/js/plugins/sparkline/jquery.sparkline.min.js')}}></script>
- 
-     <!-- Sparkline demo data  -->
-     <script src={{ asset('assets/js/demo/sparkline-demo.js')}}></script>
-
+    
      <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
         {!! Toastr::message() !!}
 
@@ -129,9 +84,137 @@
             @endforeach
         @endif
     </script>
-    <!-- Custom and plugin javascript -->
+     <script>
+        /**Hero  script**/
+        var tpj = jQuery;
 
+        var revapi1078;
+        tpj(document).ready(function () {
+            if (tpj("#rev_slider_1078_1").revolution == undefined) {
+                revslider_showDoubleJqueryError("#rev_slider_1078_1");
+            } else {
+                revapi1078 = tpj("#rev_slider_1078_1").show().revolution({
+                    sliderType: "standard",
+                    jsFileLocation: "revolution/js/",
+                    sliderLayout: "auto",
+                    dottedOverlay: "none",
+                    delay: 8000,
+                    navigation: {
+                        arrows: {
+                            enable: true,
+                            style: 'uranus',
+                            tmp: '',
+                            rtl: false,
+                            hide_onleave: false,
+                            hide_onmobile: true,
+                            hide_under: 600,
+                            hide_over: 9999,
+                            hide_delay: 200,
+                            hide_delay_mobile: 1200,
+                            left: {
+                                container: 'slider',
+                                h_align: 'left',
+                                v_align: 'center',
+                                h_offset: 0,
+                                v_offset: 0
+                            },
+                            right: {
+                                container: 'slider',
+                                h_align: 'right',
+                                v_align: 'center',
+                                h_offset: 0,
+                                v_offset: 0
+                            }
+                        }
+                    },
+                    viewPort: {
+                        enable: true,
+                        outof: "pause",
+                        visible_area: "80%",
+                        presize: false
+                    },
+                    responsiveLevels: [1240, 1024, 778, 480],
+                    visibilityLevels: [1240, 1024, 778, 480],
+                    gridwidth: [1140, 992, 700, 465],
+                    gridheight: [600, 600, 500, 480],
+                    lazyType: "none",
+                    parallax: {
+                        type: "mouse",
+                        origo: "slidercenter",
+                        speed: 2000,
+                        levels: [2, 3, 4, 5, 6, 7, 12, 16, 10, 50, 46, 47, 48, 49, 50, 55]
+                    },
+                    shadow: 0,
+                    spinner: "off",
+                    stopLoop: "off",
+                    stopAfterLoops: -1,
+                    stopAtSlide: -1,
+                    shuffle: "off",
+                    autoHeight: "off",
+                    hideThumbsOnMobile: "off",
+                    hideSliderAtLimit: 0,
+                    hideCaptionAtLimit: 0,
+                    hideAllCaptionAtLilmit: 0,
+                    debugMode: false,
+                    fallbacks: {
+                        simplifyAll: "off",
+                        nextSlideOnWindowFocus: "off",
+                        disableFocusListener: false
+                    }
+                });
+            }
+        });	/*ready*/
+        //cube portfolio init
+        (function ($, window, document, undefined) {
+            'use strict';
+
+            // init cubeportfolio
+            $('#js-grid-mosaic-flat').cubeportfolio({
+                filters: '#js-filters-mosaic-flat',
+                layoutMode: 'mosaic',
+                sortToPreventGaps: true,
+                mediaQueries: [{
+                        width: 1500,
+                        cols: 6
+                    }, {
+                        width: 1100,
+                        cols: 4
+                    }, {
+                        width: 800,
+                        cols: 3
+                    }, {
+                        width: 480,
+                        cols: 2,
+                        options: {
+                            caption: '',
+                            gapHorizontal: 15,
+                            gapVertical: 15
+                        }
+                    }],
+                defaultFilter: '*',
+                animationType: 'fadeOutTop',
+                gapHorizontal: 0,
+                gapVertical: 0,
+                gridAdjustment: 'responsive',
+                caption: 'fadeIn',
+                displayType: 'fadeIn',
+                displayTypeSpeed: 100,
+                // lightbox
+                lightboxDelegate: '.cbp-lightbox',
+                lightboxGallery: true,
+                lightboxTitleSrc: 'data-title',
+                lightboxCounter: '<div class="cbp-popup-lightbox-counter"></div>',
+                plugins: {
+                    loadMore: {
+                        selector: '#js-loadMore-mosaic-flat',
+                        action: 'click',
+                        loadItems: 3
+                    }
+                }
+            });
+        })(jQuery, window, document);
+    </script> 
      
-     @stack('js')
+    @stack('js')
 </body>
 </html>

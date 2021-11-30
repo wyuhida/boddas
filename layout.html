@@ -1,0 +1,446 @@
+<!-- TABLE WITH IMAGE -->
+<div class="row">
+  <div class="col-lg-12">
+    <div class="portlet-box portlet-fullHeight mb-30">
+      <div
+        class="portlet-header bg-light flex-row flex d-flex align-items-center"
+      >
+        <div class="flex d-flex flex-column">
+          <h3>Recent item sales</h3>
+        </div>
+        <div class="portlet-tools">
+          <ul class="nav">
+            <li class="nav-item">
+              <select
+                class="custom-select bg-light hidden-search"
+                data-placeholder="Filter Orders"
+              >
+                <option value="1" selected>Recent Orders</option>
+                <option value="2">Pending Orders</option>
+                <option value="3">Canceled Orders</option>
+                <option value="4">Return Orders</option>
+              </select>
+            </li>
+            <li class="nav-item pl-3">
+              <a href="#" class="btn btn-link">
+                View all orders
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="portlet-body no-padding">
+        <div class="table-responsive">
+          <table class="table mb-0">
+            <thead>
+              <tr>
+                <th>Order Id</th>
+                <th>Product</th>
+                <th></th>
+                <th>Rate</th>
+                <th>States</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>3949IN40</td>
+                <td>
+                  <a href="#">
+                    <img
+                      src="{{asset('vendors/images/img1.jpg')}}"
+                      alt=""
+                      class="img-fluid avatar32 rounded-circle mr-2"
+                    />
+                    <span>App Mackbook Air</span>
+                  </a>
+                </td>
+                <td></td>
+                <td>$1299.00</td>
+                <td>
+                  <span class="badge badge-warning badge-text">
+                    <i class="fa fa-truck mr-1"></i>
+                    Pending
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>3949IN39</td>
+                <td>
+                  <a href="#">
+                    <img
+                      src="images/img2.jpg"
+                      alt=""
+                      class="img-fluid avatar32 rounded-circle mr-2"
+                    />
+                    <span>Mens Sunglasses</span>
+                  </a>
+                </td>
+                <td></td>
+                <td>$19.00</td>
+                <td>
+                  <span class="badge badge-success badge-text">
+                    <i class="fa fa-check mr-1"></i>
+                    Delivered
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>4939IN29</td>
+                <td>
+                  <a href="#">
+                    <img
+                      src="images/img3.jpg"
+                      alt=""
+                      class="img-fluid avatar32 rounded-circle mr-2"
+                    />
+                    <span>App Mackbook Air</span>
+                  </a>
+                </td>
+                <td></td>
+                <td>$1299.00</td>
+                <td>
+                  <span class="badge badge-warning badge-text">
+                    <i class="fa fa-truck mr-1"></i>
+                    pending
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>0038IN39</td>
+                <td>
+                  <a href="#">
+                    <img
+                      src="images/img4.jpg"
+                      alt=""
+                      class="img-fluid avatar32 rounded-circle mr-2"
+                    />
+                    <span>Apple Ipad Air</span>
+                  </a>
+                </td>
+                <td></td>
+                <td>$699.00</td>
+                <td>
+                  <span class="badge badge-danger badge-text">
+                    <i class="fa fa-times mr-1"></i>
+                    Canceled
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>9038IN49</td>
+                <td>
+                  <a href="#">
+                    <img
+                      src="images/img5.jpg"
+                      alt=""
+                      class="img-fluid avatar32 rounded-circle mr-2"
+                    />
+                    <span>Just another product</span>
+                  </a>
+                </td>
+                <td></td>
+                <td>$179.00</td>
+                <td>
+                  <span class="badge badge-warning badge-text">
+                    <i class="fa fa-truck mr-1"></i>
+                    Pending
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>5330IN39</td>
+                <td>
+                  <a href="#">
+                    <img
+                      src="images/img6.jpg"
+                      alt=""
+                      class="img-fluid avatar32 rounded-circle mr-2"
+                    />
+                    <span>Lorem ipsum dolor</span>
+                  </a>
+                </td>
+                <td></td>
+                <td>$156.00</td>
+                <td>
+                  <span class="badge badge-dark badge-text">
+                    <i class="fa fa-sync mr-1"></i>
+                    Return
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>3032IN39</td>
+                <td>
+                  <a href="#">
+                    <img
+                      src="images/img3.jpg"
+                      alt=""
+                      class="img-fluid avatar32 rounded-circle mr-2"
+                    />
+                    <span>Toy Train</span>
+                  </a>
+                </td>
+                <td></td>
+                <td>$99.00</td>
+                <td>
+                  <span class="badge badge-success badge-text">
+                    <i class="fa fa-times mr-1"></i>
+                    Delivered
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <!--portlet-->
+  </div>
+  <!--col-->
+</div>
+
+<!-- TABLE BASIC DAN LAYOUT-->
+<div class="page-subheader mb-30">
+  <div class="container-fluid">
+    <div class="row align-items-center">
+      <div class="col-md-7">
+        <div class="list">
+          <div class="list-item pl-0">
+            <div class="list-thumb ml-0 mr-3 pr-3 b-r text-muted">
+              <i class="icon-Server-2"></i>
+            </div>
+            <div class="list-body">
+              <div class="list-title fs-2x">
+                <h3>Tentang Kami</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5 d-flex justify-content-end h-md-down">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb no-padding bg-trans mb-0">
+            <li class="breadcrumb-item">
+              <a href="index.html"><i class="icon-Home mr-2 fs14"></i></a>
+            </li>
+            <li class="breadcrumb-item">Tables</li>
+            <li class="breadcrumb-item active">Data Table</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="page-content d-flex flex">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12 mb-30">
+        <div class="portlet-box">
+          <div class="portlet-header flex-row flex d-flex align-items-center">
+            <div class="flex d-flex flex-column">
+              <h3>Basic</h3>
+              <span>Table example</span>
+            </div>
+            <div class="portlet-tools">
+              <ul class="nav">
+                <li class="nav-item">
+                  <a
+                    target="_blank"
+                    href="https://getbootstrap.com/docs/4.0/content/tables/"
+                    class="btn btn-sm btn-light"
+                  >
+                    <i class="fa fa-exclamation fs10 mr-1"></i>
+                    Help
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="portlet-body no-padding">
+            <table class="table mb-0">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Username</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Mark</td>
+                  <td>Otto</td>
+                  <td>@mdo</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Jacob</td>
+                  <td>Thornton</td>
+                  <td>@fat</td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td>Larry</td>
+                  <td>the Bird</td>
+                  <td>@twitter</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FORM HORIZONTAL-->
+<div class="page-subheader mb-30">
+  <div class="container-fluid">
+    <div class="row align-items-center">
+      <div class="col-md-7">
+        <div class="list">
+          <div class="list-item pl-0">
+            <div class="list-thumb ml-0 mr-3 pr-3 b-r text-muted">
+              <i class="icon-Server-2"></i>
+            </div>
+            <div class="list-body">
+              <div class="list-title fs-2x">
+                <h3>Tambah Kontak</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5 d-flex justify-content-end h-md-down">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb no-padding bg-trans mb-0">
+            <li class="breadcrumb-item">
+              <a href="index.html"><i class="icon-Home mr-2 fs14"></i></a>
+            </li>
+            <li class="breadcrumb-item">Kontak</li>
+            <li class="breadcrumb-item active">Tambah Kontak</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-lg-12">
+  <div class="portlet-box portlet-gutter ui-buttons-col mb-30">
+    <div class="portlet-header flex-row flex d-flex align-items-center b-b">
+      <div class="flex d-flex flex-column">
+        <h3>Form Horizontal</h3>
+        <span class="portlet-subtitle">Easy to read and use form layouts</span>
+      </div>
+      <div class="portlet-tools">
+        <ul class="nav">
+          <li class="nav-item">
+            <a
+              href="{{route('admin.add_admin_kontak')}}"
+              class="btn btn-sm btn-light"
+            >
+              <i class="fa fa-arrow-left fs10 mr-1"></i>
+              Kembali
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="portlet-body">
+      <form>
+        <div class="form-group row">
+          <label for="nm3" class="col-sm-2 col-form-label">Name</label>
+          <div class="col-sm-10">
+            <input
+              type="email"
+              class="form-control"
+              id="nm3"
+              placeholder="Name"
+            />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+          <div class="col-sm-10">
+            <input
+              type="email"
+              class="form-control"
+              id="inputEmail3"
+              placeholder="Email"
+            />
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="inputPassword3" class="col-sm-2 col-form-label">
+            Password
+          </label>
+          <div class="col-sm-10">
+            <input
+              type="password"
+              class="form-control"
+              id="inputPassword3"
+              placeholder="Password"
+            />
+          </div>
+        </div>
+        <fieldset class="form-group">
+          <div class="row">
+            <label class="col-form-label col-sm-2 pt-0">Radios</label>
+            <div class="col-sm-10">
+              <div class="customUi-radio radioUi-primary">
+                <input id="rd0" type="radio" name="td116" />
+                <label for="rd0">
+                  <span class="label-radio"></span>
+                  <span class="label-helper">primary</span>
+                </label>
+              </div>
+              <br />
+              <div class="customUi-radio radioUi-primary">
+                <input id="rd1" type="radio" name="td116" />
+                <label for="rd1">
+                  <span class="label-radio"></span>
+                  <span class="label-helper">primary</span>
+                </label>
+              </div>
+              <br />
+              <div class="customUi-radio radioUi-primary">
+                <input id="rd2" type="radio" name="td116" />
+                <label for="rd2">
+                  <span class="label-radio"></span>
+                  <span class="label-helper">primary</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <div class="form-group row">
+          <div class="col-sm-2">Checkbox</div>
+          <div class="col-sm-10">
+            <div
+              class="customUi-switchToggle switchToggle-primary switchToggle-air"
+            >
+              <input type="checkbox" id="switch2" />
+              <label for="switch2">
+                <span class="label-switchToggle"></span>
+                <span class="label-helper">Accept terms & conditions</span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-10 ml-auto">
+            <button type="submit" class="btn btn-primary btn-block">
+              Sign in
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

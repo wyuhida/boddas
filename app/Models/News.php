@@ -8,7 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class News extends Model
 {
     use HasFactory;
-    protected $table = 'news';
+    protected $fillable = [
+        'title',
+        'id_user',
+        'thumbnail',
+        'body_news',
+        'update_by',
+        'created_at',
+        'updated_at',
+    ];
 
     public function user()
     {

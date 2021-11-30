@@ -2,18 +2,27 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Illuminate\Support\Facades\URL;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Role;
 use App\Models\Company_Identity;
+use App\Models\Content;
+use App\Models\Content_Status;
+use App\Models\Container;
 use DB;
 use Auth;
 use Carbon\Carbon;
 use Brian2694\Toastr\Facades\Toastr;
-
+use Image;
+use RealRashid\SweetAlert\Facades\Alert;
+use File;
 class AdminCompanyController extends Controller
 {
+    /**
+     * FOUNDER
+     */
     public function admin_tentangkami()
     {
         $item = DB::table('containers')
@@ -24,11 +33,82 @@ class AdminCompanyController extends Controller
                 '=',
                 'contents.id_content_status'
             )
+            ->where('containers.container_name', 'founder')
+            ->get();
+        $histori = DB::table('containers')
+            ->join('contents', 'containers.id', '=', 'contents.id_container')
+            ->join(
+                'content__statuses',
+                'content__statuses.id',
+                '=',
+                'contents.id_content_status'
+            )
+            ->where('containers.container_name', 'histori')
             ->get();
 
-        return view('admin.tentang_kami.show', ['item' => $item]);
+        return view('admin.tentang_kami.founder.show', [
+            'item' => $item,
+            'histori' => $histori,
+        ]);
     }
 
+    public function add_admin_tentangkami()
+    {
+        return view('admin.tentang_kami.founder.create');
+    }
+
+    public function store_admin_tentangkami(Request $request)
+    {
+        $this->validate($request, [
+            'photo' => 'required',
+        ]);
+
+        $ids = auth()->user()->id;
+        if (isset($request->photo)) {
+            $allowedfileExtension = ['pdf', 'jpg', 'png', 'docx'];
+            $resources = $request->file('photo');
+            $names = $resources->getClientOriginalName();
+            $extension = $resources->getClientOriginalExtension();
+            $name = $resources->hashName();
+            $resources->move(\base_path() . '/public/image/company/', $name);
+            $newPath = URL::asset('/image/company') . '/';
+            $check = in_array($extension, $allowedfileExtension);
+            if ($check) {
+                $containers = DB::table('containers')->insertGetId([
+                    'container_name' => 'founder',
+                    'id_user' => $ids,
+                    'update_by' => $ids,
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
+                ]);
+
+                $st = DB::table('content__statuses')->insertGetId([
+                    'status_name' => 1,
+                    'id_user' => $ids,
+                    'update_by' => $ids,
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
+                ]);
+
+                $containers = DB::table('contents')->insertGetId([
+                    'content_name' => $request->content_name,
+                    'id_container' => $containers,
+                    'id_content_status' => $st,
+                    'id_user' => $ids,
+                    'update_by' => $ids,
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
+                    'image' => $name,
+                ]);
+
+                Toastr::success('successfully save :)', 'Success');
+                return redirect()->back();
+            }
+        } else {
+            Toastr::erorr('terjadi kesalahan :)', 'Error');
+            return redirect()->back();
+        }
+    }
     public function admin_edit_tentangkami($id)
     {
         $edit_tentangkami = DB::table('containers')
@@ -39,11 +119,284 @@ class AdminCompanyController extends Controller
                 '=',
                 'contents.id_content_status'
             )
+            ->where('containers.container_name', 'founder')
             ->first();
 
-        return view('admin.tentang_kami.edit', [
+        return view('admin.tentang_kami.founder.edit', [
             'edit_tentangkami' => $edit_tentangkami,
         ]);
+    }
+
+    public function update_admin_tentangkami(Request $request, $id)
+    {
+        // $this->validate($request, [
+        //     'content_name' => 'required',
+        // ]);
+        $ids = auth()->user()->id;
+
+        if (isset($request->photo)) {
+            $allowedfileExtension = ['pdf', 'jpg', 'png', 'docx'];
+            $resources = $request->file('photo');
+            $names = $resources->getClientOriginalName();
+            $extension = $resources->getClientOriginalExtension();
+            $name = $resources->hashName();
+            $resources->move(\base_path() . '/public/image/company/', $name);
+            $newPath = URL::asset('/image/company') . '/';
+            $check = in_array($extension, $allowedfileExtension);
+            if ($check) {
+                $containers = DB::table('containers')
+                    ->where('id', $id)
+                    ->update([
+                        'container_name' => 'founder',
+                        'id_user' => $ids,
+                        'update_by' => $ids,
+                        'updated_at' => Carbon::now(),
+                    ]);
+
+                // $st = DB::table('content__statuses')
+                //     ->where('status_name', 1)
+                //     ->update([
+                //         'status_name' => 1,
+                //         'id_user' => $ids,
+                //         'update_by' => $ids,
+                //         'updated_at' => Carbon::now(),
+                //     ]);
+
+                $st = DB::table('content__statuses')
+                    ->where('status_name', 1)
+                    ->update([
+                        'status_name' => 1,
+                        'id_user' => $ids,
+                        'update_by' => $ids,
+                        'updated_at' => Carbon::now(),
+                    ]);
+
+                $unl = DB::table('contents')
+                    ->where('id_container', $id)
+                    ->get();
+                foreach ($unl as $key => $imgs) {
+                    $file_path =
+                        public_path('image/company') . '/' . $imgs->image;
+                    if (File::exists($file_path)) {
+                        File::delete($file_path); //for deleting only file try this
+                        // $d->delete(); //for deleting record and file try both
+                    }
+                }
+
+                $contain = DB::table('contents')
+                    ->where('id_container', $id)
+                    ->update([
+                        'content_name' => $request->content_name,
+                        'id_container' => $id,
+                        'id_user' => $ids,
+                        'update_by' => $ids,
+                        'updated_at' => Carbon::now(),
+                        'image' => $name,
+                    ]);
+
+                // Toastr::success('successfully update :)', 'Success');
+                // return redirect()->route('admin.admin_tentangkami');
+            }
+        } else {
+            $containers = DB::table('containers')
+                ->where('id', $id)
+                ->update([
+                    'container_name' => 'founder',
+                    'id_user' => $ids,
+                    'update_by' => $ids,
+                    'updated_at' => Carbon::now(),
+                ]);
+
+            $contan = DB::table('contents')
+                ->where('id_container', $id)
+                ->update([
+                    'content_name' => $request->content_name,
+                    'id_container' => $id,
+                    'id_user' => $ids,
+                    'update_by' => $ids,
+                    'updated_at' => Carbon::now(),
+                ]);
+
+            $st = DB::table('content__statuses')
+                ->where('status_name', 1)
+                ->update([
+                    'status_name' => 1,
+                    'id_user' => $ids,
+                    'update_by' => $ids,
+                    'updated_at' => Carbon::now(),
+                ]);
+
+            Toastr::success('successfully update :)', 'Success');
+            return redirect()->route('admin.admin_tentangkami');
+        }
+    }
+
+    public function delete_admin_tentangkami($id)
+    {
+        $del_founder1 = DB::table('containers')
+            ->join('contents', 'containers.id', '=', 'contents.id_container')
+            ->join(
+                'content__statuses',
+                'content__statuses.id',
+                '=',
+                'contents.id_content_status'
+            )
+            ->where('contents.id_container', $id)
+            ->get();
+        foreach ($del_founder1 as $key => $imgs) {
+            $file_path = public_path('image/company') . '/' . $imgs->image;
+            if (File::exists($file_path)) {
+                File::delete($file_path); //for deleting only file try this
+                // $d->delete(); //for deleting record and file try both
+            }
+        }
+
+        $del_founder = DB::table('content__statuses')
+            ->join(
+                'contents',
+                'content__statuses.id',
+                '=',
+                'contents.id_content_status'
+            )
+
+            ->where([['contents.id_container', $id]]);
+        $del = $del_founder->delete();
+
+        $del_founder2 = DB::table('containers')
+            // ->join('contents', 'containers.id', '=', 'contents.id_container')
+            // ->join(
+            //     'content__statuses',
+            //     'content__statuses.id',
+            //     '=',
+            //     'contents.id_content_status'
+            // )
+            // ->where([['contents.id_container', $id], ['containers.id', $id]]);
+            ->where('id', $id)
+            ->delete();
+        Toastr::success('successfully Hapus :)', 'Success');
+        return redirect()->back();
+    }
+
+    /**
+     * ADMIN HISTORI
+     */
+    // public function admin_histori_tentangkami()
+    // {
+    // }
+    public function create_histori_admin_tentangkami()
+    {
+        return view('admin.tentang_kami.histori.create');
+    }
+    public function store_histori_admin_tentangkami(Request $request)
+    {
+        $this->validate($request, [
+            'content_name' => 'required',
+        ]);
+        $ids = auth()->user()->id;
+        $containers = DB::table('containers')->insertGetId([
+            'container_name' => 'histori',
+            'id_user' => $ids,
+            'update_by' => $ids,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+
+        $st = DB::table('content__statuses')->insertGetId([
+            'status_name' => 1,
+            'id_user' => $ids,
+            'update_by' => $ids,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+
+        $ct = DB::table('contents')->insertGetId([
+            'content_name' => $request->content_name,
+            'id_container' => $containers,
+            'id_content_status' => $st,
+            'id_user' => $ids,
+            'update_by' => $ids,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+
+        Toastr::success('successfully save :)', 'Success');
+        return redirect()->route('admin.admin_tentangkami');
+    }
+    public function edit_histori_tentangkami($id)
+    {
+        $edit_histori = DB::table('containers')
+            ->join('contents', 'containers.id', '=', 'contents.id_container')
+            ->join(
+                'content__statuses',
+                'content__statuses.id',
+                '=',
+                'contents.id_content_status'
+            )
+            ->where('containers.container_name', 'histori')
+            ->first();
+
+        return view('admin.tentang_kami.histori.edit', [
+            'edit_histori' => $edit_histori,
+        ]);
+    }
+    public function update_histori_admin_tentangkami(Request $request, $id)
+    {
+        $this->validate($request, [
+            'content_name' => 'required',
+        ]);
+        $ids = auth()->user()->id;
+        $containers = DB::table('containers')
+            ->where('id', $id)
+            ->update([
+                'container_name' => 'histori',
+                'id_user' => $ids,
+                'update_by' => $ids,
+                'updated_at' => Carbon::now(),
+            ]);
+        $st = DB::table('content__statuses')
+            ->join(
+                'contents',
+                'content__statuses.id',
+                '=',
+                'contents.id_content_status'
+            )
+            ->where('contents.id_container', $id)
+            ->update([
+                'status_name' => 1,
+                'id_user' => $ids,
+                'update_by' => $ids,
+                'updated_at' => Carbon::now(),
+            ]);
+        $contain = DB::table('contents')
+            ->where('id_container', $id)
+            ->update([
+                'content_name' => $request->content_name,
+                'id_container' => $id,
+                'id_user' => $ids,
+                'update_by' => $ids,
+                'updated_at' => Carbon::now(),
+            ]);
+        Toastr::success('successfully update :)', 'Success');
+        return redirect()->route('admin.admin_tentangkami');
+    }
+    public function delete_histori_admin_tentangkami($id)
+    {
+        $del_founder = DB::table('content__statuses')
+            ->join(
+                'contents',
+                'content__statuses.id',
+                '=',
+                'contents.id_content_status'
+            )
+
+            ->where([['contents.id_container', $id]]);
+        $del = $del_founder->delete();
+
+        $del_founder2 = DB::table('containers')
+            ->where('id', $id)
+            ->delete();
+        Toastr::success('successfully Hapus :)', 'Success');
+        return redirect()->back();
     }
 
     /**

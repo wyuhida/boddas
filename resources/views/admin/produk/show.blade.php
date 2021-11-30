@@ -48,6 +48,7 @@
             <div class="form-group">
                     <label class="control-label" for="price">Filter Stok</label>
                     <select name="status" class="form-control">
+                        <option value="">Stock Habis / Tersedia </a></option>
                         <option value="out">Stok Habis</option>
                         <option value="in">Tersedia</option>
                     </select>
@@ -113,11 +114,9 @@
                   </div>
               
                 <table 
-                    class="footable table table-stripped toggle-arrow-tiny"
-                    data-page-size="15"
-                    id="#table"
-                    >
-                    
+                {{-- footable table table-stripped toggle-arrow-tiny dataTables-example --}}
+                
+                    class="table table-striped table-hover dataTables-example">
                     <thead>
                     <tr>
 
@@ -132,78 +131,73 @@
                         <th class="text-right" data-sort-ignore="true">Action</th>
                     </tr>
                     </thead>
-                 
-                    @forelse($item as $key => $items)
+                       
+                    @foreach($item->groupBy('id_item') as $items)
                     <tbody>
-                       
-                       
+                        @foreach($items as $it)
                         <tr>
                             <td>
-                            {{$items->item_name}}
+                            {{$it[0]->item_name}}
                             </td>
                             <td>
                                 <img class="tampilan_cover" 
-                                    src="{{ asset('image/product')}}/{{$items->photo}}" alt="" srcset="" width="50px;" height="70px;">
+                                    src="{{ asset('image/product')}}/{{$it[0]->photo}}" alt="" srcset="" width="50px;" height="70px;">
                             </td>
                             <td>
-                                {{$items->created_at}}
+                                {{$it[0]->created_at}}
                             </td>
                             <td>
-                                {{$items->detail_product}}
+                                {{$it[0]->detail_product}}
                             </td>
                             <td>
-                                {{$items->updated_at}}
+                                {{$it[0]->updated_at}}
                             </td>
                             <td>
-                               @if($items->total_sold == '' || null)
+                               @if($it[0]->total_sold == '' || null)
                                     0
                                 @else
-                                    {{$items->total_sold}}
+                                    {{$it[0]->total_sold}}
                                 @endif
                             </td>
                             <td>
                                
-                                @if($items->total_stock == 0)
+                                @if($it[0]->total_stock == 0)
                                     <span class="label label-danger">Habis</span>
-                                @elseif($items->total_stock > 1 && $items->total_stock < 10)
+                                @elseif($it[0]->total_stock > 1 && $it[0]->total_stock < 10)
                                     <span class="label label-warning">Hampir Habis</span>
                                 @else
                                 <span class="label label-primary">Tersedia</span>
                                 @endif
                             </td>
                             <td>
-                                 {{$items->total_stock}}
+                                 {{$it[0]->total_stock}}
                                 </td>
                             <td class="text-right">
                                 <div class="btn-group">
                                     <button class="btn-primary btn btn-xs">View</button>
-                                    <a href="{{route('admin.edit_admin_produk',$items->id_item)}}"
+                                    <a href="{{route('admin.edit_admin_produk',$it[0]->id_item)}}"
                                     class="btn-warning btn btn-xs">Edit</a>
                                     <button class="btn-danger btn btn-xs"
-                                    onclick="deleteProduct({{$items->id_item}})" >Hapus</button>
-                                    <form id="delete-form-{{$items->id_item}}" 
-                                        action="{{route('admin.delete_admin_produk',$items->id_item)}}" 
+                                    onclick="deleteProduct({{$it[0]->id_item}})" >Hapus</button>
+                                    <form id="delete-form-{{$it[0]->id_item}}" 
+                                        action="{{route('admin.delete_admin_produk',$it[0]->id_item)}}" 
                                       method="POST" style="display: none;">
                                       @csrf
                                       @method('DELETE')
                                   </form>
-                                    
                                 </div>
                             </td>
                         </tr>
-                  
+                        @endforeach
                     </tbody>
-                        @empty
-                            <span>No result</span>
-                    @endforelse
-                  
+                    @endforeach
                     <tfoot>
                             <tr>
                                 <td colspan="6">
-                                    <ul class="pagination pull-right"></ul>
+                                    {{-- <ul class="pagination pull-right"></ul> --}}
                                 </td>
                             </tr>
-                        </tfoot>
+                    </tfoot>
                 </table>
                
 
@@ -213,7 +207,37 @@
 </div>
 @endsection
      <!-- FooTable -->
-   
+     <script src="{{ asset('assets/js/jquery-3.1.1.min.js')}}"></script>
+     <script src="{{ asset('assets/js/plugins/dataTables/datatables.min.js')}}"></script>
+
+     <!-- Page-Level Scripts -->
+     <script>
+         $(document).ready(function(){
+      let oTable = $('.dataTables-example').DataTable({
+             language: {
+                paginate: {
+                  previous: '←',
+                  next:     '→'
+                },
+              },
+            pageLength: 5,
+            responsive: true,
+            // dom: '<"html5buttons"B>lTfgitp',
+            bSort : false,
+            lengthChange: false,
+            info: false,
+            searching: true
+            
+        });
+
+        $('.dataTables_filter').closest('.row').hide();
+
+        $('.search-data').keyup(function(){
+          oTable.search($(this).val()).draw()
+      })
+    });
+     
+       </script>
  
 @push('js')
 

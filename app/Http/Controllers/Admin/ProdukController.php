@@ -31,44 +31,62 @@ class ProdukController extends Controller
     public function show_admin_produk(Request $request)
     {
         $ids = auth()->user()->id;
-
-        $item = DB::table('item__contents')
-            ->join('items', 'item__contents.id_item', '=', 'items.id')
-            ->join(
-                'category__items',
-                'items.id_category_item',
-                '=',
-                'category__items.id'
-            )
-            ->groupBy('id_item')
-            ->distinct();
+        $item = DB::table('items')
+            ->join('item__contents', 'items.id', '=', 'item__contents.id_item')
+            ->where('items.update_by', $ids)
+            ->get();
 
         if (isset($request->search)) {
-            $item->where(
-                'items.item_name',
-                'LIKE',
-                '%' . $request->search . '%'
-            );
+            $item = DB::table('items')
+                ->join(
+                    'item__contents',
+                    'items.id',
+                    '=',
+                    'item__contents.id_item'
+                )
+                ->where('items.item_name', 'LIKE', '%' . $request->search . '%')
+                ->get();
+            $coll = collect($item);
+            $coll->search($request->search);
         }
+
         if (isset($request->status)) {
             if ($request->status == 'out') {
-                $item->where('items.total_stock', '=', 0);
+                $item = DB::table('items')
+                    ->join(
+                        'item__contents',
+                        'items.id',
+                        '=',
+                        'item__contents.id_item'
+                    )
+                    ->where('items.total_stock', '=', 0)
+                    ->get();
+                $coll = collect($item);
             } else {
-                $item->where('items.total_stock', '!=', 0);
+                $item = DB::table('items')
+                    ->join(
+                        'item__contents',
+                        'items.id',
+                        '=',
+                        'item__contents.id_item'
+                    )
+                    ->where('items.total_stock', '!=', 0)
+                    ->get();
+                $coll = collect($item);
             }
         }
 
-        $item = $item->get();
-
+        $coll = collect($item);
+        $item = $coll->groupBy('id_item');
         return view('admin.produk.show', ['item' => $item]);
     }
 
     public function store_admin_produk(Request $request)
     {
         $this->validate($request, [
-            'item_name' => 'required',
+            'item_name' => ['required,unique:items'],
             'detail_product' => 'required',
-            'price' => 'required',
+            'price' => 'required|digits:10',
             'total_stock' => 'required',
             'photo' => 'required',
         ]);

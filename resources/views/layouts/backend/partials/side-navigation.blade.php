@@ -15,7 +15,18 @@
                     <a name ="dashboard" href="{{ route('admin.dashboard')}}"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span></a>
                 </li>
                 <li class="{{Request::is('admin/tentangkami') ? 'active' : ''}}">
-                    <a name="tentangkami" href="{{ route('admin.admin.admin_tentangkami')}}"><i class="fa fa-envelope"></i> <span class="nav-label">Tentang Kami</span></a>
+                    <a href="">
+                        <i class="fa fa-archive"></i>
+                        <span class="nav-label">Tentang Kami</span>
+                        <span class="fa arrow"></span>
+                      </a>
+                      <ul class="nav nav-second-level">
+                        
+                        <li class="active">
+                          <a href="{{ route('admin.admin_tentangkami')}}">Founder</a>
+                        </li>
+                        <li><a href="">Histori Perusahaan</a></li>
+                      </ul>
                 </li>
                 <li class="{{Request::is('admin/kontak_perusahaan') ? 'active' : ''}}">
                     <a name="kontak_perusahaan" href="{{ route('admin.admin_kontak')}}"><i class="fa fa-address-book"></i> <span class="nav-label">Kontak</span></a>
@@ -46,26 +57,26 @@
             @endif
 
             @if(Request::is('customer*'))
-            <li class="{{Request::is('customer/dashboard') ? 'active' : ''}}">
-                <a href="{{ route('customer.customer.dashboard')}}"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span></a>
-            </li>
-            {{-- <li class="active">
-                <a href="index.html">
-                  <i class="fa fa-th-large"></i>
-                  <span class="nav-label">Dashboards</span>
-                  <span class="fa arrow"></span>
-                </a>
-                <ul class="nav nav-second-level">
-                  <li><a href="index.html">Dashboard v.1</a></li>
-                  <li class="active">
-                    <a href="dashboard_2.html">Dashboard v.2</a>
-                  </li>
-                  <li><a href="dashboard_3.html">Dashboard v.3</a></li>
-                  <li><a href="dashboard_4_1.html">Dashboard v.4</a></li>
-                  <li><a href="dashboard_5.html">Dashboard v.5</a></li>
-                </ul>
+                <li class="{{Request::is('customer/dashboard') ? 'active' : ''}}">
+                    <a href="{{ route('customer.customer.dashboard')}}"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span></a>
+                </li>
+                {{-- <li class="active">
+                    <a href="index.html">
+                    <i class="fa fa-th-large"></i>
+                    <span class="nav-label">Dashboards</span>
+                    <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level">
+                    <li><a href="index.html">Dashboard v.1</a></li>
+                    <li class="active">
+                        <a href="dashboard_2.html">Dashboard v.2</a>
+                    </li>
+                    <li><a href="dashboard_3.html">Dashboard v.3</a></li>
+                    <li><a href="dashboard_4_1.html">Dashboard v.4</a></li>
+                    <li><a href="dashboard_5.html">Dashboard v.5</a></li>
+                    </ul>
               </li> --}}
-        @endif
+            @endif
 
             @if(Request::is('superadmin*'))
             <li class="{{Request::is('superadmin/dashboard') ? 'active' : ''}}">

@@ -129,23 +129,15 @@
                         </div>
 
                         <div class="form-group">
-                            <div class="col-lg-offset-2 col-lg-10">
-                                <textarea name="address_name" class="summernote" class="form-control" cols="50" rows="50" style="height: 200px;"></textarea>
-                            </div>
-                        </div>
-
-
-                        {{-- <div class="form-group">
                             <label class="col-lg-2 control-label">
-                                map
+                                address_name
                             </label>
                             <div class="col-lg-10">
                                 <input type="text" 
-                                name="map" 
-                               id="searchmap"
-                                class="form-control @error('youtube') is-invalid @enderror"> 
-                                <div id="map-canvas"></div>
-                                    @error('youtube')
+                                name="address_name" 
+                               
+                                class="form-control @error('address_name') is-invalid @enderror"> 
+                                    @error('address_name')
                                         <span class="help-block m-b-none" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>                 
@@ -154,39 +146,23 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="col-lg-2 control-label">
-                                latitue
-                            </label>
-                            <div class="col-lg-10">
-                                <input type="text" 
-                                name="lat" 
-                               id="lat"
-                                class="form-control @error('latitute') is-invalid @enderror"> 
-                                    @error('latitute')
-                                        <span class="help-block m-b-none" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>                 
-                                    @enderror
-                            </div>
+                            {{-- <input class="form-control map-input {{ $errors->has('address') ? 'is-invalid' : '' }}" type="text" name="address" id="address" value="{{ old('address') }}"> --}}
+                            <input type="hidden" name="latitude" id="address-latitude" value="{{ old('latitude') ?? '0' }}" />
+                            <input type="hidden" name="longitude" id="address-longitude" value="{{ old('longitude') ?? '0' }}" />
+                            @if($errors->has('address'))
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('address') }}
+                                </div>
+                            @endif
+                            <span class="help-block">{{ trans('cruds.shop.fields.address_helper') }}</span>
                         </div>
+                        <div id="address-map-container" class="mb-2" style="width:100%;height:400px; ">
+                            <div style="width: 100%; height: 100%" id="address-map"></div>
+                        </div>
+                       
 
-                        <div class="form-group">
-                            <label class="col-lg-2 control-label">
-                                longitute
-                            </label>
-                            <div class="col-lg-10">
-                                <input type="text" 
-                                name="long" 
-                               id="long"
-                                class="form-control @error('longitute') is-invalid @enderror"> 
-                                    @error('longitute')
-                                        <span class="help-block m-b-none" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>                 
-                                    @enderror
-                            </div>
-                        </div> --}}
 
+                       
                        
 
                         <div class="form-group">
@@ -204,57 +180,24 @@
 @endsection
 
 @push('js')
-{{-- <script src="https://code.jquery.com/jquery-3.4.1.js"></script> --}}
-    {{-- <script src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_API_KEY') }}&libraries=places&callback=initialize" async defer></script>
-    <script src={{asset('js/mapInput.js')}}></script> --}}
-    {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> --}}
-    <script type="text/javascript">
 
-            function initMap() {
-                var map = new google.maps.Map(document.getElementById('map-canvas'),{
-                    center:{
-                        lat:27.72,
-                        lng:85.36,
-                    },
-                    zoom:15
-                });
+<script type="text/javascript"
+src="http://maps.googleapis.com/maps/api/js?libraries=geocoding">
+</script>
+<script type="text/javascript"
+src="http://maps.googleapis.com/maps/api/js?libraries=javascript_api">
+</script>
 
-                var marker = new google.maps.Marker({
-                    position:{
-                        lat:27.72,
-                        lng:85.36
-                    },
-                    map:map,
-                    draggable:true
-                });
+<script src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_API_KEY') }}&libraries=places&callback=initialize&language=en&region=GB" async defer></script>
 
-                var searcBox = new google.maps.places.SearchBox(document.getElementById('searchmap'));
-                google.maps.event.addListener(searcBox,'places_changed', function(){
-                    var places = searcBox.getPlaces();
-                    var bounds = new google.maps.LatLngBounds();
-                    var i, place;
-                    for(i=0; place=places[i];i++)
-                    {
-                        bounds.extend(place.geometry.location);
-                        marker.setPosition(place.geometry.location);
-                    }
-                    map.fitBounds(bounds);
-                    map.setZoom(15);
-                });
-                google.maps.event.addListener(marker,'postition_changed', function(){
-                    var lat = marker.getPosition().lat;
-                    var lng = marker.getPosition().lng;
+<script src="/js/mapInput.js"></script>
 
-                    $('#lat').val(lat);
-                    $('#lng').val(lng);
-                });
-            }
-           
-    
-        
-       
-    </script>
-
-
-    
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.summernote').summernote({
+            height:400
+        })
+});
+</script>
 @endpush

@@ -60,13 +60,19 @@ Auth::routes();
 //     'index',
 // ])->name('home');
 
-Route::get('/', [AuthController::class, 'logins'])->name('backend.login');
+Route::get('/adminlogin', [AuthController::class, 'logins'])->name(
+    'backend.login'
+);
+
 Route::get('/registers', [AuthController::class, 'showRegister'])->name(
     'showRegister'
 );
 Route::post('registers', [AuthController::class, 'registers'])->name(
     'registers'
 );
+
+Route::get('/', [HomeController::class, 'index'])->name('home.index');
+Route::get('blog', [HomeController::class, 'show_blog'])->name('show_blog');
 
 /**
  * ADMIN GROUP
@@ -108,16 +114,72 @@ Route::group(
             'admin_password_update',
         ])->name('admin.password.update');
 
-        // CMS tentang kami
+        /**
+         * Tentang Kami (FOUNDER)
+         */
         Route::get('admin_tentangkami', [
             AdminCompanyController::class,
             'admin_tentangkami',
-        ])->name('admin.admin_tentangkami');
+        ])->name('admin_tentangkami');
+
+        Route::get('add_admin_tentangkami', [
+            AdminCompanyController::class,
+            'add_admin_tentangkami',
+        ])->name('add_admin_tentangkami');
+
+        Route::post('store_admin_tentangkami', [
+            AdminCompanyController::class,
+            'store_admin_tentangkami',
+        ])->name('store_admin_tentangkami');
 
         Route::get('admin_edit_tentangkami/{id}/edit', [
             AdminCompanyController::class,
             'admin_edit_tentangkami',
         ])->name('admin_edit_tentangkami');
+
+        Route::put('update_admin_tentangkami/{id}/update', [
+            AdminCompanyController::class,
+            'update_admin_tentangkami',
+        ])->name('update_admin_tentangkami');
+
+        Route::delete('delete_admin_tentangkami/{id}/delete', [
+            AdminCompanyController::class,
+            'delete_admin_tentangkami',
+        ])->name('delete_admin_tentangkami');
+
+        /**
+         * Tentang Kami (HISTORI)
+         */
+
+        Route::get('admin_histori_tentangkami', [
+            AdminCompanyController::class,
+            'admin_histori_tentangkami',
+        ])->name('admin_histori_tentangkami');
+
+        Route::get('create_histori_admin_tentangkami', [
+            AdminCompanyController::class,
+            'create_histori_admin_tentangkami',
+        ])->name('create_histori_admin_tentangkami');
+
+        Route::post('store_histori_admin_tentangkami', [
+            AdminCompanyController::class,
+            'store_histori_admin_tentangkami',
+        ])->name('store_histori_admin_tentangkami');
+
+        Route::get('edit_histori_tentangkami/{id}/edit', [
+            AdminCompanyController::class,
+            'edit_histori_tentangkami',
+        ])->name('edit_histori_tentangkami');
+
+        Route::put('update_histori_admin_tentangkami/{id}/update', [
+            AdminCompanyController::class,
+            'update_histori_admin_tentangkami',
+        ])->name('update_histori_admin_tentangkami');
+
+        Route::delete('delete_histori_admin_tentangkami/{id}/delete', [
+            AdminCompanyController::class,
+            'delete_histori_admin_tentangkami',
+        ])->name('delete_histori_admin_tentangkami');
 
         // CMS KONTAK
 

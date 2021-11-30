@@ -43,11 +43,26 @@ class AdminDashboardController extends Controller
             ->join('buyers', 'users.id_buyer', '=', 'buyers.id')
             ->where('users.id_buyer', 3)
             ->count();
+        $omzet = DB::table('items')
+            ->select(DB::raw('SUM(price*total_sold) as total'))
+            ->get();
+
+        $p_favorite = DB::table('items')
+            ->join('item__contents', 'items.id', '=', 'item__contents.id_item')
+            ->where('items.update_by', $ids)
+            ->orderBy('total_sold', 'desc')
+            ->limit(5)
+            ->get()
+            ->groupBy('id_item');
+        // $coll = collect($p_favorite);
+        // $p_favorite = $coll->groupBy('id_item');
 
         return view('admin.dashboard', [
             'total_penjualan' => $total_penjualan,
             'total_reseler' => $total_reseler,
             'total_afiliate' => $total_afiliate,
+            'omzet' => $omzet,
+            'p_favorite' => $p_favorite,
         ]);
     }
 }

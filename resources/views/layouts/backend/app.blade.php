@@ -9,24 +9,6 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    {{-- <link href={{ asset('assets/css/bootstrap.min.css')}} rel="stylesheet">
-    <link href={{ asset('assets/font-awesome/css/font-awesome.css')}} rel="stylesheet">
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@9.17.2/dist/sweetalert2.min.css">
-
-
-    
-    <link href="{{ asset('assets/css/plugins/jasny/jasny-bootstrap.min.css')}}" rel="stylesheet">
-    
-        <link href={{ asset('assets/css/plugins/summernote/summernote.css')}} rel="stylesheet">
-        <link href={{ asset('assets/css/plugins/summernote/summernote-bs3.css')}} rel="stylesheet">
-        <link href={{ asset('assets/css/plugins/sweetalert/sweetalert.css')}} rel="stylesheet">
-
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-    <link href={{ asset('assets/css/style.css')}} rel="stylesheet">
-     --}}
-
      <link href="{{ asset('assets/css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{ asset('assets/font-awesome/css/font-awesome.css')}}" rel="stylesheet">
 

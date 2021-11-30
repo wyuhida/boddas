@@ -19,10 +19,11 @@ function initialize() {
 
     const latitude =
       parseFloat(document.getElementById(fieldKey + '-latitude').value) ||
-      -33.8688
+      51.5073509
+    //106.816666
     const longitude =
       parseFloat(document.getElementById(fieldKey + '-longitude').value) ||
-      151.2195
+      -0.12775829999998223
 
     const map = new google.maps.Map(
       document.getElementById(fieldKey + '-map'),
