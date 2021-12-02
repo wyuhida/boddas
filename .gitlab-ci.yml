@@ -1,0 +1,54 @@
+stages:
+  - build
+  #- sync
+  #- release
+  - deploy
+
+docker-build:
+  stage: build
+  # Official docker image.
+  #before_script:
+    #- docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+  script:
+    - docker build -t hidayat/boddas:dev .
+    
+#sync-to-beujek-git:
+#  image: ubuntu:latest
+#  stage: sync
+#  script: 
+#    #- ls -al
+#    #- pwd
+#    #- ls /
+#    - apt-get -y update
+#    - apt-get -y install git
+#    - chmod +x sync-beujek-git.sh
+#    # - echo $WEBHOOK_FK_FE_DEV_SVC
+#    - if [ "$CI_SERVER_URL" == "https://gitlab.mastah.id" ]; then ./sync-fk-git.sh; else echo "Not Gitlab Mastah"; fi
+#  only:
+#    - staging
+
+#release-image:
+#  image: docker:latest
+#  stage: release
+#  script:
+# #test show image
+#    # - docker image ls 
+#    - >
+#      if [ "$CI_SERVER_URL" == "https://gitlab.beujek.com" ]; then
+#        # docker pull rezariadi/beujek-fe_user
+#        docker login -u yogawicak -p 4zYHMn4XvzWhxWQDMd-x registry.gitlab.beujek.com
+#        docker tag rezariadi/beujek-fe_user registry.gitlab.beujek.com/beujek-be/beujek-be-platform
+#        docker push registry.gitlab.beujek.com/beujek-be/beujek-be-platform
+#      else
+#        echo "Not Gitlab beujek"
+#      fi
+#  only:
+#    - staging
+
+deploy-using-portainer-webhook:
+   stage: deploy
+   variables:
+      WEBHOOK_BODDAS_SVC: http://35.202.92.83:9000/api/webhooks/0a896718-55c0-423c-9b7b-5fb4784460fb
+   script:
+     - apk add --update curl
+     - curl -X POST -v $WEBHOOK_BODDAS_SVC
