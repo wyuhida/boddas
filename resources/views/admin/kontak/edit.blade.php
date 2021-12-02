@@ -13,7 +13,7 @@
             <div class="ibox-content">
               {{-- <span class="text-muted small pull-right">Last modification: <i class="fa fa-clock-o"></i> 2:10 pm - 12.06.2014</span> --}}
              
-              <a type="button" href="#" 
+              <a type="button" href="{{route('admin.admin_kontak')}}" 
               class="btn btn-sm btn-warning pull-right"><i class="fa fa-arrow-left"></i> Kembali</a>
               <h2>Update Kontak</h2>
              
@@ -45,10 +45,10 @@
                             </label>
                             <div class="col-lg-10">
                                 <input type="number" 
-                                name="no_telp" 
-                                value="{{$edt_adminkontak->no_telp}}"
-                                class="form-control @error('facebok') is-invalid @enderror"> 
-                                    @error('no_telp')
+                                name="num_phone" 
+                                value="{{$edt_adminkontak->num_phone}}"
+                                class="form-control @error('num_phone') is-invalid @enderror"> 
+                                    @error('num_phone')
                                         <span class="help-block m-b-none" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>                 
@@ -127,10 +127,27 @@
                         </div>
 
                         <div class="form-group">
+                            <label class="col-lg-2 control-label">
+                                Alamat
+                            </label>
+                            <div class="col-lg-10">
+                                <input type="text" 
+                                name="address_name" 
+                                value="{{$edt_adminkontak->address_name}}"
+                                class="form-control @error('address_name') is-invalid @enderror"> 
+                                    @error('address_name')
+                                        <span class="help-block m-b-none" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>                 
+                                    @enderror
+                            </div>
+                        </div>
+
+                        {{-- <div class="form-group">
                             <div class="col-lg-offset-2 col-lg-10">
                                 <textarea name="desc_company" class="summernote" class="form-control" cols="50" rows="50" style="height: 200px;">{{$edt_adminkontak->desc_company}}</textarea>
                             </div>
-                        </div>
+                        </div> --}}
 
                         <div class="form-group">
                             <div class="col-lg-offset-2 col-lg-10">

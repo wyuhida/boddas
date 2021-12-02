@@ -1,5 +1,5 @@
 
- {{-- <footer class="footer footer-standard pt50 pb20">
+ <footer class="footer footer-standard pt50 pb20">
     <div class="container">
         <div class="row">
             <div class="col-lg-4 col-md-6 mb40">
@@ -9,20 +9,46 @@
                 </p>
                 <a href="#" class="btn btn-white-outline btn-sm">Learn More</a>
             </div>
-            <div class="col-lg-2 col-md-6 mb40">
+
+            <div class="col-lg-3 col-md-6 mb40">
+                <h3>Alamat</h3>
+                <ul class="list-unstyled contact-list-item">
+                    <li>
+                        <i class="ti-home"></i>
+                        {{$fk->address_name}}
+                    </li>
+                    <li>
+                        <i class="ti-email"></i>
+                        {{$fk->email}}
+                    </li>
+                    <li>
+                        <i class="ti-mobile"></i>
+                       {{$fk->num_phone}}
+                    </li>
+                </ul>
+            </div>
+
+            {{-- <div class="col-lg-2 col-md-6 mb40">
                 <h3>Quick links</h3>
-                <ul class="list-unstyled footer-list-item">
+                <ul class="list-unstyled ">
                     <li>
-                        <a href="#">
-                            About
+                        <a href="#" class="social-icon si-dark si-colored-facebook si-gray-round">
+                            <i class="fa fa-facebook"></i>
+                            <i class="fa fa-facebook"></i>
+                           
                         </a>
                     </li>
                     <li>
-                        <a href="#">
-                            News
+                        <a href="#" class="social-icon si-dark si-colored-facebook si-gray-round">
+                            <i class="fa fa-facebook"></i>
+                            <i class="fa fa-facebook"></i>
+                           
                         </a>
                     </li>
-                    <li>
+
+
+
+                    {{-- <li>
                         <a href="#">
                             FAQS
                         </a>
@@ -41,10 +67,10 @@
                         <a href="#">
                             Privacy & policy
                         </a>
-                    </li>
+                    </li> 
                 </ul>
-            </div>
-            <div class="col-lg-3 col-md-6 mb40">
+            </div>--}}
+            {{-- <div class="col-lg-3 col-md-6 mb40">
                 <h3>Latest News</h3>
                 <ul class="list-unstyled latest-news">
                     <li class="media">
@@ -69,40 +95,32 @@
                         </div>
                     </li>
                 </ul>
-            </div>
+            </div> --}}
             <div class="col-lg-3 col-md-6 mb40">
                 <h3>Headquarters</h3>
                 <img src="images/map-img.png" alt="" class="img-fluid">
             </div>
         </div>
     </div>
-</footer><!--/footer--> --}}
+</footer><!--/footer-->
 
 <div class="footer-bottomAlt" style="width: 100%;">
     <div class="container">
         <div class="row">
             <div class="col-lg-7">
                 <div class="clearfix">
-                    <a href="#" class="social-icon-sm si-dark si-facebook si-dark-round">
+                    <a href="{{$fk->facebook}}" class="social-icon-sm si-dark si-facebook si-dark-round">
                         <i class="fa fa-facebook"></i>
                         <i class="fa fa-facebook"></i>
                     </a>
-                    <a href="#" class="social-icon-sm si-dark si-twitter si-dark-round">
-                        <i class="fa fa-twitter"></i>
-                        <i class="fa fa-twitter"></i>
+                    <a href="{{$fk->instagram}}" class="social-icon-sm si-dark si-twitter si-dark-round">
+                        <i class="fa fa-instagram"></i>
+                        <i class="fa fa-instagram"></i>
                     </a>
-                    <a href="#" class="social-icon-sm si-dark si-g-plus si-dark-round">
-                        <i class="fa fa-google-plus"></i>
-                        <i class="fa fa-google-plus"></i>
+                    <a href="{{$fk->youtube}}" class="social-icon-sm si-dark si-g-plus si-dark-round">
+                        <i class="fa fa-youtube"></i>
+                        <i class="fa fa-youtube"></i>
                     </a>
-                    <a href="#" class="social-icon-sm si-dark si-skype si-dark-round">
-                        <i class="fa fa-skype"></i>
-                        <i class="fa fa-skype"></i>
-                    </a>
-                    <a href="#" class="social-icon-sm si-dark si-linkedin si-dark-round">
-                        <i class="fa fa-linkedin"></i>
-                        <i class="fa fa-linkedin"></i>
-                    </a>  
                 </div>
             </div>
             <div class="col-lg-5">

@@ -46,10 +46,9 @@
                     <thead>
                       <tr>
                        
-                        <th>nama perusahaan</th>
-                        <th>desc company</th>
+                        <th>Perusahaan</th>
+                        <th>Alamat</th>
                         <th>email</th>
-                        
                         <th>facebook</th>
                         <th>instagram</th>
                         <th>youtube</th>
@@ -67,8 +66,9 @@
                             <div class="text-center">No Data</div>
                         </td>
                     @else
+                    {{-- <td>{!! \Illuminate\Support\Str::limit($adk->desc_company, 20, '...')!!}</td> --}}
                       <td>{{$adk->company_name}}</td>
-                      <td>{!! \Illuminate\Support\Str::limit($adk->desc_company, 20, '...')!!}</td>
+                      <td>{{$adk->address_name}}</td>
                       <td>{{$adk->email}}</td>
                       
                       <td>{{$adk->facebook}}</td>

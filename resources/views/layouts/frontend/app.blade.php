@@ -21,7 +21,9 @@
          <!-- REVOLUTION NAVIGATION STYLES -->
          <link rel="stylesheet" type="text/css" href={{ asset('vendors/revolution/css/navigation.css')}}>
          <!-- load css for cubeportfolio -->
-         <link rel="stylesheet" type="text/css" href={{ asset('vendors/cubeportfolio/css/cubeportfolio.min.css')}}>     
+         <link rel="stylesheet" type="text/css" href={{ asset('vendors/cubeportfolio/css/cubeportfolio.min.css')}}>
+         <link rel='stylesheet' href={{asset('vendors/revolution/revolution-addons/particles/css/revolution.addon.particles.css?ver=1.0.3')}} type='text/css'>
+     
          <link href={{ asset('vendors/css/style.css')}} rel="stylesheet">
 
          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
@@ -32,18 +34,20 @@
     @stack('css')
 
 </head>
-<body>
+<body class="bg-gray">
     <div id="preloader">
         <div id="preloader-inner"></div>
     </div><!--/preloader-->
 
      <!--top bar-->
-    @include('layouts.frontend.partials.topbar')
+    {{-- @include('layouts.frontend.partials.topbar') --}}
     <!--/top bar-->
 
      <!--/nav bar-->
     @include('layouts.frontend.partials.navbar')
      <!--/nav bar-->
+     <!-- Site Overlay -->
+     <div class="site-overlay"></div>
 
     @yield('content')
     

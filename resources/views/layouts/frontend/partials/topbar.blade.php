@@ -3,9 +3,9 @@
     <div class="container">
       <div class="float-sm-right">
         <ul class="list-inline mb0">
-          <li class="list-inline-item">
+          {{-- <li class="list-inline-item">
             <a
-              href="#"
+              href="{{$fk->facebook}}"
               class="social-icon-sm si-gray si-gray-round si-facebook"
             >
               <i class="fa fa-facebook"></i>
@@ -15,16 +15,7 @@
 
           <li class="list-inline-item">
             <a
-              href="#"
-              class="social-icon-sm si-gray si-gray-round si-twitter"
-            >
-              <i class="fa fa-twitter"></i>
-              <i class="fa fa-twitter"></i>
-            </a>
-          </li>
-          <li class="list-inline-item">
-            <a
-              href="#"
+              href="{{$fk->instagram}}"
               class="social-icon-sm si-gray si-gray-round si-instagram"
             >
               <i class="fa fa-instagram"></i>
@@ -33,13 +24,13 @@
           </li>
           <li class="list-inline-item">
             <a
-              href="#"
+              href="{{$fk->youtube}}"
               class="social-icon-sm si-gray si-gray-round si-g-plus"
             >
-              <i class="fa fa-google-plus"></i>
-              <i class="fa fa-google-plus"></i>
+              <i class="fa fa-youtube"></i>
+              <i class="fa fa-youtube"></i>
             </a>
-          </li>
+          </li> --}}
         </ul>
       </div>
       <div class="float-sm-left">

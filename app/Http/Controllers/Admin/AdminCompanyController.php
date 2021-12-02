@@ -194,8 +194,8 @@ class AdminCompanyController extends Controller
                         'image' => $name,
                     ]);
 
-                // Toastr::success('successfully update :)', 'Success');
-                // return redirect()->route('admin.admin_tentangkami');
+                Toastr::success('successfully update :)', 'Success');
+                return redirect()->route('admin.admin_tentangkami');
             }
         } else {
             $containers = DB::table('containers')
@@ -423,7 +423,7 @@ class AdminCompanyController extends Controller
             'facebook' => 'required',
             'instagram' => 'required',
             'youtube' => 'required',
-            'no_telp' => 'required',
+            'num_phone' => 'required',
             'email' => 'required',
         ]);
         // $company = Company_Identity::find($id);
@@ -434,7 +434,7 @@ class AdminCompanyController extends Controller
         $company->facebook = $request->facebook;
         $company->instagram = $request->instagram;
         $company->youtube = $request->youtube;
-        $company->no_telp = $request->no_telp;
+        $company->num_phone = $request->num_phone;
         $company->update_by = $ids;
         $company->email = $request->email;
         $company->updated_at = Carbon::now();
@@ -454,22 +454,22 @@ class AdminCompanyController extends Controller
     {
         $this->validate($request, [
             'company_name' => 'required',
-            'desc_company' => 'required',
+            'address_name' => 'required',
             'facebook' => 'required',
             'instagram' => 'required',
             'youtube' => 'required',
-            'no_telp' => 'required',
+            'num_phone' => 'required',
             'email' => 'required',
         ]);
 
         $ids = auth()->user()->id_role;
         $company = Company_Identity::find($id);
         $company->company_name = $request->company_name;
-        $company->desc_company = $request->desc_company;
+        $company->address_name = $request->address_name;
         $company->facebook = $request->facebook;
         $company->instagram = $request->instagram;
         $company->youtube = $request->youtube;
-        $company->no_telp = $request->no_telp;
+        $company->num_phone = $request->num_phone;
         $company->update_by = $ids;
         $company->email = $request->email;
         $company->updated_at = Carbon::now();

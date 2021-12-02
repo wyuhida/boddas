@@ -38,6 +38,10 @@ class AdminDashboardController extends Controller
             ->join('buyers', 'users.id_buyer', '=', 'buyers.id')
             ->where('users.id_buyer', 2)
             ->count();
+        $total_customer = DB::table('users')
+            ->join('buyers', 'users.id_buyer', '=', 'buyers.id')
+            ->where('users.id_buyer', 1)
+            ->count();
 
         $total_afiliate = DB::table('users')
             ->join('buyers', 'users.id_buyer', '=', 'buyers.id')
@@ -49,11 +53,12 @@ class AdminDashboardController extends Controller
 
         $p_favorite = DB::table('items')
             ->join('item__contents', 'items.id', '=', 'item__contents.id_item')
-            ->where('items.update_by', $ids)
             ->orderBy('total_sold', 'desc')
+            ->where('items.update_by', $ids)
             ->limit(5)
             ->get()
-            ->groupBy('id_item');
+            ->groupBy('item_name');
+
         // $coll = collect($p_favorite);
         // $p_favorite = $coll->groupBy('id_item');
 
@@ -61,6 +66,7 @@ class AdminDashboardController extends Controller
             'total_penjualan' => $total_penjualan,
             'total_reseler' => $total_reseler,
             'total_afiliate' => $total_afiliate,
+            'total_customer' => $total_customer,
             'omzet' => $omzet,
             'p_favorite' => $p_favorite,
         ]);

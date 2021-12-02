@@ -14,7 +14,7 @@
             <div class="ibox-content">
               {{-- <span class="text-muted small pull-right">Last modification: <i class="fa fa-clock-o"></i> 2:10 pm - 12.06.2014</span> --}}
              
-              <a type="button" href="#" 
+              <a type="button" href="{{route('admin.admin_kontak')}}" 
               class="btn btn-sm btn-warning pull-right"><i class="fa fa-arrow-left"></i> Kembali</a>
               <h2>Tambah Kontak</h2>
              
@@ -47,7 +47,7 @@
                             </label>
                             <div class="col-lg-10">
                                 <input type="number" 
-                                name="no_telp" 
+                                name="num_phone" 
                                 
                                 class="form-control @error('facebok') is-invalid @enderror"> 
                                     @error('no_telp')
@@ -154,7 +154,7 @@
                                     {{ $errors->first('address') }}
                                 </div>
                             @endif
-                            <span class="help-block">{{ trans('cruds.shop.fields.address_helper') }}</span>
+                            {{-- <span class="help-block">{{ trans('cruds.shop.fields.address_helper') }}</span> --}}
                         </div>
                         <div id="address-map-container" class="mb-2" style="width:100%;height:400px; ">
                             <div style="width: 100%; height: 100%" id="address-map"></div>
@@ -188,11 +188,11 @@ src="http://maps.googleapis.com/maps/api/js?libraries=geocoding">
 src="http://maps.googleapis.com/maps/api/js?libraries=javascript_api">
 </script>
 
-<script src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_API_KEY') }}&libraries=places&callback=initialize&language=en&region=GB" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_API_KEY') }}&libraries=places&callback=initialize" async defer></script>
 
 <script src="/js/mapInput.js"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+<script src="http://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function(){
         $('.summernote').summernote({

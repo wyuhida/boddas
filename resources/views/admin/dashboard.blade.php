@@ -57,6 +57,7 @@
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
                         <span class="label label-success pull-right">Monthly</span>
+                        
                         <h5>Afiliate</h5>
                     </div>
                     <div class="ibox-content">
@@ -74,7 +75,7 @@
                         <h5>Customer</h5>
                     </div>
                     <div class="ibox-content">
-                        <h1 class="no-margins">40 886,200</h1>
+                        <h1 class="no-margins">{{$total_customer}}</h1>
                         <div class="stat-percent font-bold text-success">98% <i class="fa fa-bolt"></i></div>
                         <small>Total</small>
                     </div>
@@ -89,7 +90,7 @@
                     </div>
                     <div class="ibox-content">
                         @foreach($omzet as $omz)
-                        <h1 class="no-margins">{{number_format($omz->total, 2,'.',',')}}</h1>
+                        <h1 class="no-margins">{{number_format($omz->total, 0,',','.')}}</h1>
                         @endforeach
                         <div class="stat-percent font-bold text-success">98% <i class="fa fa-bolt"></i></div>
                         <small>Omzet Penjualan</small>
@@ -119,7 +120,7 @@
                                         <th>Product</th>
                                         <th>Jumlah Penjualan</th>
                                    </thead>
-                                   @foreach($p_favorite->groupBy('id') as $fav)
+                                   @foreach($p_favorite->groupBy('id_item') as $fav)
                                    <tbody>
                                       @foreach ($fav as $key => $item)
                                       <tr>

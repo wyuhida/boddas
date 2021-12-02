@@ -20,6 +20,7 @@ use App\Http\Controllers\Admin\AdminCompanyController;
 use App\Http\Controllers\Admin\ProdukController;
 use App\Http\Controllers\Admin\AdminKategoriController;
 use App\Http\Controllers\Admin\AdminBlogController;
+use App\Http\Controllers\Admin\PenggunaController;
 
 /**
  * For customer
@@ -73,6 +74,10 @@ Route::post('registers', [AuthController::class, 'registers'])->name(
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::get('blog', [HomeController::class, 'show_blog'])->name('show_blog');
+Route::get('tentang_kami', [HomeController::class, 'tentang_kami'])->name(
+    'tentang_kami'
+);
+Route::get('kontak', [HomeController::class, 'kontak'])->name('kontak');
 
 /**
  * ADMIN GROUP
@@ -311,6 +316,30 @@ Route::group(
             AdminBlogController::class,
             'delete_admin_blog',
         ])->name('delete_admin_blog');
+
+        /**
+         * PENGGUNA (AFILIATE)
+         *
+         */
+        Route::get('show_admin_afiliate', [
+            PenggunaController::class,
+            'show_admin_afiliate',
+        ])->name('show_admin_afiliate');
+
+        Route::get('edit_admin_afiliate/{id}/edit', [
+            PenggunaController::class,
+            'edit_admin_afiliate',
+        ])->name('edit_admin_afiliate');
+
+        Route::put('update_admin_afiliate/{id}/update', [
+            PenggunaController::class,
+            'update_admin_afiliate',
+        ])->name('update_admin_afiliate');
+
+        // Route::delete('delete_admin_afiliate/{id}/delete', [
+        //     AdminBlogController::class,
+        //     'delete_admin_afiliate',
+        // ])->name('delete_admin_afiliate');
     }
 );
 

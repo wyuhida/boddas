@@ -54,6 +54,21 @@
                     </ul>
                 </li>
 
+                <li class="{{Request::is('admin.*') ? 'active' : ''}}">
+                    <a href="">
+                      <i class="fa fa-archive"></i>
+                      <span class="nav-label">Pengguna</span>
+                      <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level">
+                      
+                      <li class="{{Request::is('admin.show_admin_afiliate') ? 'active':'' }}">
+                        <a href="{{ route('admin.show_admin_afiliate')}}">List Afiliate</a>
+                      </li>
+                      <li><a href="{{ route('admin.create_admin_produk')}}">List Reseller</a></li>
+                    </ul>
+                </li>
+
             @endif
 
             @if(Request::is('customer*'))

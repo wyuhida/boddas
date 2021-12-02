@@ -47,13 +47,13 @@ class AuthController extends Controller
         //         ->withErrors($validator)
         //         ->withInput($request->all);
         // }
-
+        $ids_role = 3;
         $user = new User();
         $user->fullname = ucwords(strtolower($request->fullname));
         $user->username = $user->fullname;
         $user->email = strtolower($request->email);
         $user->phone_number = $request->phone_number;
-        $user->id_role = '3';
+        $user->id_role = $ids_role;
         $user->id_buyer = $request->id_buyer;
         $user->password = Hash::make($request->password);
         // $user->email_verified_at = \Carbon\Carbon::now();
