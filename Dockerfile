@@ -1,5 +1,5 @@
 #first
-ARG PHP_EXTENSIONS="pdo_pgsql zip"
+ARG PHP_EXTENSIONS="pgsql zip"
 FROM thecodingmachine/php:7.3-v2-slim-apache as php_base
 #ENV TEMPLATE_PHP_INI=production
 ENV COMPOSER_MEMORY_LIMIT=-1
