@@ -7,4 +7,4 @@ COPY --chown=docker:docker . /var/www/html
 RUN composer update
 # RUN composer install --quiet --optimize-autoloader --no-dev
 RUN composer install
-RUN php artisan serve
+RUN php artisan serve&
