@@ -1,6 +1,6 @@
 #first
-ARG PHP_EXTENSIONS="pgsql zip"
-FROM thecodingmachine/php:7.3-v2-slim-apache as php_base
+ARG PHP_EXTENSIONS="pgsql pdo_pgsql zip"
+FROM thecodingmachine/php:7.4-v4-apache as php_base
 #ENV TEMPLATE_PHP_INI=production
 ENV COMPOSER_MEMORY_LIMIT=-1
 COPY --chown=docker:docker . /var/www/html
