@@ -24,17 +24,18 @@
 <div class="row">
     <div class="col-sm-12">
         <div class="ibox">
+          <div class="ibox-title">
+            <h2>Kontak</h2>
+          </div>
             <div class="ibox-content">
-                <h2>Kontak</h2>
+                
                 <div class="pull-right">
                   <a type="button" href="{{route('admin.add_admin_kontak')}}" class="btn btn-sm btn-info"><i class="fa fa-plus"></i> Tambah</a> 
                   {{-- <a type="button" href="" class="btn btn-sm btn-success"><i class="fa fa-plus"></i> Tambah Kategori</a> --}}
                 </div>
-                <p>
-                    Kontak
-                </p>
+               
                 <br />
-                <div class="input-group">
+                <div class="input-group col-sm-8">
                     <input type="text" placeholder="Search" class="input form-control search-data">
                     {{-- <span class="input-group-btn">
                             <button type="button" class="btn btn btn-primary"> <i class="fa fa-search"></i> Search</button>
@@ -82,20 +83,42 @@
                       <td>{{$adk->created_at}}</td>
                       <td>{{$adk->updated_at}}</td>
                       <td>
-                          <a type="button" href="{{route('admin.edit_admin_kontak',$adk->id)}}"  
-                              class="btn btn-xs btn-warning">
-                              <i class="fa fa-refresh"></i> Ubah 
-                          </a> 
-                          <button class="btn btn-xs btn-danger" type="button" 
-                          onclick="deleteKontak({{$adk->id}})">
-                              <i class="fa fa-trash">Hapus</i>
+
+                        <div class="btn-group">
+                          <button data-toggle="dropdown" 
+                              class="btn dropdown-toggle">
+                              
+                              Atur 
+                              <span class="caret">
+                                 
+                              </span>
+                            
                           </button>
-                          <form id="delete-form-{{$adk->id}}" 
-                              action="{{route('admin.delete_admin_kontak',$adk->id)}}" 
-                            method="POST" style="display: none;">
-                            @csrf
-                            @method('DELETE')
-                        </form>
+                          <ul class="dropdown-menu text-center" >
+                              <li>
+                                  <a href="{{route('admin.edit_admin_kontak',$adk->id)}}"
+                                      class="btn btn-xs">
+                                      <i class="fa fa-edit"></i>
+                                      Edit</a>
+                              </li>
+                              <li class="divider"></li>
+                              <li>
+
+                                  <a class="btn btn-xs"
+                                      onclick="deleteKontak({{$adk->id}})" >
+                                      <i class="fa fa-trash"></i>
+                                      Hapus
+                                  </a>
+                                  <form id="delete-form-{{$adk->id}}" 
+                                      action="{{route('admin.delete_admin_kontak',$adk->id)}}" 
+                                      method="POST" style="display: none;">
+                                      @csrf
+                                      @method('DELETE')
+                                  </form>
+                              </li>
+                          </ul>
+                      </div>
+
                       </td>
                     
                         @endif

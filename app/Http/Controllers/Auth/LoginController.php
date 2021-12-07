@@ -33,16 +33,20 @@ class LoginController extends Controller
     public function redirectTo()
     {
         switch (Auth::user()->id_role) {
-            case 5:
-                $this->redirectTo = '/afiliate/afiliate/dashboard';
-                return $this->redirectTo;
-                break;
-            case 4:
-                $this->redirectTo = '/reseler/reseler/dashboard';
-                return $this->redirectTo;
-                break;
+            // case 5:
+            //     $this->redirectTo = '/afiliate/afiliate/dashboard';
+            //     return $this->redirectTo;
+            //     break;
+            // case 4:
+            //     $this->redirectTo = '/reseler/reseler/dashboard';
+            //     return $this->redirectTo;
+            //     break;
+            // case 3:
+            //     $this->redirectTo = '/customer/customer/dashboard';
+            //     return $this->redirectTo;
+            //     break;
             case 3:
-                $this->redirectTo = '/customer/customer/dashboard';
+                $this->redirectTo = '/buyer/dashboard';
                 return $this->redirectTo;
                 break;
             case 2:

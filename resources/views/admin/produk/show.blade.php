@@ -116,7 +116,7 @@
                 <table 
                 {{-- footable table table-stripped toggle-arrow-tiny dataTables-example --}}
                 
-                    class="table table-striped table-hover dataTables-example">
+                    class="table table-striped table-hover dataTables-example table-responsive">
                     <thead>
                     <tr>
 
@@ -147,7 +147,8 @@
                                 {{$it[0]->created_at}}
                             </td>
                             <td>
-                                {{$it[0]->detail_product}}
+                                {{-- {{$it[0]->detail_product}} --}}
+                                {!! Str::limit($it[0]->detail_product,'200','..') !!}
                             </td>
                             <td>
                                 {{$it[0]->updated_at}}
@@ -159,22 +160,63 @@
                                     {{$it[0]->total_sold}}
                                 @endif
                             </td>
-                            <td>
+                            
                                
                                 @if($it[0]->total_stock == 0)
-                                    <span class="label label-danger">Habis</span>
+                                <td>
+                                    <span class="label label-danger text-center">Habis</span>
+                                </td>
+
                                 @elseif($it[0]->total_stock > 1 && $it[0]->total_stock < 10)
+                                <td>
                                     <span class="label label-warning">Hampir Habis</span>
+                                </td>
                                 @else
-                                <span class="label label-primary">Tersedia</span>
+                                <td>
+                                <span class="label label-primary text-center">Tersedia</span>
+                                </td>
                                 @endif
                             </td>
                             <td>
                                  {{$it[0]->total_stock}}
-                                </td>
-                            <td class="text-right">
+                            </td>
+                            <td>
                                 <div class="btn-group">
-                                    <button class="btn-primary btn btn-xs">View</button>
+                                    <button data-toggle="dropdown" 
+                                        class="btn dropdown-toggle">
+                                        
+                                        Atur 
+                                        <span class="caret">
+                                           
+                                        </span>
+                                      
+                                    </button>
+                                    <ul class="dropdown-menu text-center" >
+                                        <li>
+                                            <a href="{{route('admin.edit_admin_produk',$it[0]->id_item)}}"
+                                                class="btn btn-xs">
+                                                <i class="fa fa-edit"></i>
+                                                Edit</a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li>
+
+                                            <a class="btn btn-xs"
+                                                onclick="deleteProduct({{$it[0]->id_item}})" >
+                                                <i class="fa fa-trash"></i>
+                                                Hapus
+                                            </a>
+                                            <form id="delete-form-{{$it[0]->id_item}}" 
+                                                action="{{route('admin.delete_admin_produk',$it[0]->id_item)}}" 
+                                                method="POST" style="display: none;">
+                                                @csrf
+                                                @method('DELETE')
+                                            </form>
+                                        </li>
+                                    </ul>
+                                </div>
+                                {{-- <div class="btn-group" style="display: inline-block">
+                                   
                                     <a href="{{route('admin.edit_admin_produk',$it[0]->id_item)}}"
                                     class="btn-warning btn btn-xs">Edit</a>
                                     <button class="btn-danger btn btn-xs"
@@ -185,7 +227,7 @@
                                       @csrf
                                       @method('DELETE')
                                   </form>
-                                </div>
+                                </div> --}}
                             </td>
                         </tr>
                         @endforeach
@@ -206,41 +248,42 @@
     </div>
 </div>
 @endsection
-     <!-- FooTable -->
-     <script src="{{ asset('assets/js/jquery-3.1.1.min.js')}}"></script>
-     <script src="{{ asset('assets/js/plugins/dataTables/datatables.min.js')}}"></script>
-
-     <!-- Page-Level Scripts -->
-     <script>
-         $(document).ready(function(){
-      let oTable = $('.dataTables-example').DataTable({
-             language: {
-                paginate: {
-                  previous: '←',
-                  next:     '→'
-                },
-              },
-            pageLength: 5,
-            responsive: true,
-            // dom: '<"html5buttons"B>lTfgitp',
-            bSort : false,
-            lengthChange: false,
-            info: false,
-            searching: true
-            
-        });
-
-        $('.dataTables_filter').closest('.row').hide();
-
-        $('.search-data').keyup(function(){
-          oTable.search($(this).val()).draw()
-      })
-    });
-     
-       </script>
+   
  
 @push('js')
 
+  <!-- FooTable -->
+  {{-- <script src="{{ asset('assets/js/jquery-3.1.1.min.js')}}"></script>
+  <script src="{{ asset('assets/js/plugins/dataTables/datatables.min.js')}}"></script> --}}
+
+  <!-- Page-Level Scripts -->
+  <script>
+      $(document).ready(function(){
+   let oTable = $('.dataTables-example').DataTable({
+          language: {
+             paginate: {
+               previous: '←',
+               next:     '→'
+             },
+           },
+         pageLength: 5,
+         responsive: true,
+         // dom: '<"html5buttons"B>lTfgitp',
+         bSort : false,
+         lengthChange: false,
+         info: false,
+         searching: true
+         
+     });
+
+     $('.dataTables_filter').closest('.row').hide();
+
+     $('.search-data').keyup(function(){
+       oTable.search($(this).val()).draw()
+   })
+ });
+  
+    </script>
 
 <script>
     function deleteProduct(id_item){

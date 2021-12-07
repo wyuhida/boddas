@@ -32,8 +32,13 @@
                                 <input type="text" 
                                 placeholder="Kategori"
                                 name="category_name" 
-                                class="form-control" required> 
-                                    <span class="help-block m-b-none"></span>
+                                class="form-control" @error('category_name') is-invalid @enderror> 
+                                @error('category_name')
+                                    <span class="label label-danger" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>                 
+                                @enderror
+                              
                             </div>
                         </div>
 

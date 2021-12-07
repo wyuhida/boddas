@@ -9,4 +9,9 @@ class Category_Item extends Model
 {
     use HasFactory;
     protected $table = 'category__items';
+
+    public function items()
+    {
+        return $this->belongsToMany(Item::class, 'id_category_item');
+    }
 }

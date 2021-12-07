@@ -26,7 +26,10 @@
     <link href="{{asset('assets/css/plugins/footable/footable.core.css')}}" rel="stylesheet">
     <link href="{{ asset('assets/css/plugins/jasny/jasny-bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('assets/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css')}}" rel="stylesheet">
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 
+
+    
     <link href="{{asset('assets/css/style.css')}}" rel="stylesheet">
 
     @stack('css')
@@ -55,7 +58,12 @@
     
 <!-- Mainly scripts -->
 
-<script src="{{ asset('assets/js/jquery-3.1.1.min.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" ></script>
+<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+ <!-- jQuery -->
+
+
+{{-- <script src="{{ asset('assets/js/jquery-3.1.1.min.js')}}"></script> --}}
 <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
 <script src="{{ asset('assets/js/plugins/metisMenu/jquery.metisMenu.js')}}"></script>
 <script src="{{ asset('assets/js/plugins/slimscroll/jquery.slimscroll.min.js')}}"></script>
@@ -189,7 +197,8 @@
     });
 
 </script>
- 
-     @stack('js')
+    
+
+@stack('js')
 </body>
 </html>

@@ -27,11 +27,13 @@ class UsersActivityController extends Controller
      */
     public function show_user_admin()
     {
-        $show_admin = User::where('id_role', 2)->get();
+        $show_admin = User::where('id_role', 2)->paginate(10);
 
         $cari = request()->query('cari');
         if ($cari) {
-            $show_admin = User::where('fullname', 'LIKE', "%{$cari}%")->get();
+            $show_admin = User::where('fullname', 'LIKE', "{$cari}")->paginate(
+                10
+            );
         }
         return view('superadmin.admin.show', ['show_admin' => $show_admin]);
     }
@@ -188,5 +190,16 @@ class UsersActivityController extends Controller
             Toastr::error('Error', 'Terjadi Kesalahan');
             return redirect()->back();
         }
+    }
+
+    public function ubah_status_admin(Request $request)
+    {
+        $ids = auth()->user()->id;
+
+        $user = User::find($request->user_id);
+        $user->is_active = $request->status;
+        $user->save();
+        Toastr::success('successfully saved :)', 'Success');
+        return response()->json(['success' => 'Status change successfully.']);
     }
 }

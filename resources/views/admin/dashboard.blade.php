@@ -123,14 +123,23 @@
                                    @foreach($p_favorite->groupBy('id_item') as $fav)
                                    <tbody>
                                       @foreach ($fav as $key => $item)
+                                      
                                       <tr>
-                                        <td>{{$key + 1}}</td>
-                                        <td>
-                                            <img class="tampilan_cover" 
-                                                src="{{ asset('image/product')}}/{{$item[0]->photo}}" alt="" srcset="" width="64px;" height="70px;">
-                                        </td>
-                                        <td>{{$item[0]->total_sold}}</td>
-                                    </tr>
+                                            @if($item[0]->total_sold == 0)
+                                                <td colspan="3" class="text-center">
+                                                    <strong>Tidak Ada Data</strong>
+                                                </td>
+                                            @else
+                                                <td>{{$key + 1}}</td>
+                                                <td>
+                                                    <img class="tampilan_cover" 
+                                                        src="{{ asset('image/product')}}/{{$item[0]->photo}}" alt="" srcset="" width="64px;" height="70px;">
+                                                </td>
+                                                <td>{{$item[0]->total_sold}}</td>
+                                            @endif
+                                        </tr>
+                                       
+
                                       @endforeach
                                    </tbody>
                                    @endforeach

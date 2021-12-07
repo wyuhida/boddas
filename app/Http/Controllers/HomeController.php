@@ -76,6 +76,21 @@ class HomeController extends Controller
         ]);
     }
 
+    public function blog_detail($id)
+    {
+        $detail_blog = News::join('users', 'users.id', 'news.id_user')
+            ->join('roles', 'users.id_role', '=', 'roles.id')
+            ->where('news.id', $id)
+            ->first();
+        $randomBlog = News::inRandomOrder()
+            ->limit(4)
+            ->get();
+        return view('pages.blog.detail', [
+            'detail_blog' => $detail_blog,
+            'randomBlog' => $randomBlog,
+        ]);
+    }
+
     public function tentang_kami()
     {
         $c_founder = DB::table('containers')

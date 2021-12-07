@@ -33,9 +33,12 @@
         <div class="row">
           <div class="col-sm-12">
               <div class="ibox">
+                <div class="ibox-title">
+                  <h2>Founder List</h2>  
+                </div>
                   <div class="ibox-content">
                       
-                      <h2>Founder List</h2>           
+                              
                       <br />
                       <div class="ibox-tools ibox float-e-margins">
                           {{-- <a type="button" class="btn btn-xs btn-info text-white-abs"><i class="fa fa-plus" href="{{ route('tambahdata_banner_beranda') }}"></i> Tambah</a>&nbsp; --}}
@@ -43,7 +46,7 @@
                             <i class="fa fa-plus"></i> Tambah</a>&nbsp;
                       </div>
 
-                      <form action="" method="GET">
+                      {{-- <form action="" method="GET">
                           <div class="input-group">
                                   <input type="text" placeholder="Search" class="input form-control" 
                                   name="search" value="{{ request()->query('search')}}">
@@ -51,7 +54,7 @@
                                       <button type="submit" class="btn btn btn-primary"> <i class="fa fa-search"></i> Search</button>
                                   </span>
                           </div>
-                      </form>
+                      </form> --}}
 
                       <div class="clients-list">
                         <table class="table table-striped table-hover dataTables-example">
@@ -80,21 +83,40 @@
                                       @endif
                                 </td>
                                 <td>
-                                  <a type="submit" href="{{route('admin.admin_edit_tentangkami',$items->id_container)}}" class="btn btn-xs btn-warning">
-                                    <i class="fa fa-refresh"></i> Ubah 
-                                </a> 
-
-                                    <button class="btn btn-xs btn-danger" type="button" 
-                                        onclick="deleteFounder({{ $items->id_container }})">
-                                            <i class="fa fa-trash">hapus</i>
+                                  <div class="btn-group">
+                                    <button data-toggle="dropdown" 
+                                        class="btn dropdown-toggle">
+                                        
+                                        Atur 
+                                        <span class="caret">
+                                           
+                                        </span>
+                                      
                                     </button>
-                                    <form id="delete-form-{{ $items->id_container }}" 
-                                        action="{{route('admin.delete_admin_tentangkami',$items->id_container)}}"
-                                        method="POST" style="display: none;">
-                                        @csrf
-                                        @method('DELETE')
-                
-                                    </form>
+                                    <ul class="dropdown-menu text-center" >
+                                        <li>
+                                            <a href="{{route('admin.admin_edit_tentangkami',$items->id_container)}}"
+                                                class="btn btn-xs">
+                                                <i class="fa fa-edit"></i>
+                                                Edit</a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li>
+
+                                            <a class="btn btn-xs"
+                                                onclick="deleteFounder({{ $items->id_container }})" >
+                                                <i class="fa fa-trash"></i>
+                                                Hapus
+                                            </a>
+                                            <form id="delete-form-{{ $items->id_container }}" 
+                                                action="{{route('admin.delete_admin_tentangkami',$items->id_container)}}" 
+                                                method="POST" style="display: none;">
+                                                @csrf
+                                                @method('DELETE')
+                                            </form>
+                                        </li>
+                                    </ul>
+                                </div>
                                 </td>             
                           </tbody>
                           @endforeach  

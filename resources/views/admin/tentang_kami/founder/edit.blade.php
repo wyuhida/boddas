@@ -13,9 +13,9 @@
             <div class="ibox-content">
               {{-- <span class="text-muted small pull-right">Last modification: <i class="fa fa-clock-o"></i> 2:10 pm - 12.06.2014</span> --}}
              
-              <a type="button" href="#" 
+              <a type="button" href="{{route('admin.admin_tentangkami')}}" 
               class="btn btn-sm btn-warning pull-right"><i class="fa fa-arrow-left"></i> Kembali</a>
-              <h2>Ubah Tentang Kami</h2>
+              <h2>Ubah Founder</h2>
              
                 <div class="ibox-content">
                     <form class="form-horizontal" action="{{route('admin.update_admin_tentangkami',$edit_tentangkami->id_container)}}" method="POST" enctype="multipart/form-data">

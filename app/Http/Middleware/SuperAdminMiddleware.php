@@ -35,16 +35,19 @@ class SuperAdminMiddleware
             return redirect()->route('admin.dashboard');
         }
 
-        if (Auth::user()->id_role == 3 && Auth::user()->id_buyer == 1) {
-            return redirect()->route('customer.customer.dashboard');
+        if (Auth::user()->id_role == 3) {
+            return redirect()->route('buyer.dashboard');
         }
+        // if (Auth::user()->id_role == 3 && Auth::user()->id_buyer == 1) {
+        //     return redirect()->route('customer.customer.dashboard');
+        // }
 
-        if (Auth::user()->id_role == 3 && Auth::user()->id_buyer == 2) {
-            return redirect()->route('reseler.reseler.dashboard');
-        }
+        // if (Auth::user()->id_role == 3 && Auth::user()->id_buyer == 2) {
+        //     return redirect()->route('reseler.reseler.dashboard');
+        // }
 
-        if (Auth::user()->id_role == 3 && Auth::user()->id_buyer == 3) {
-            return redirect()->route('afiliate.afiliate.dashboard');
-        }
+        // if (Auth::user()->id_role == 3 && Auth::user()->id_buyer == 3) {
+        //     return redirect()->route('afiliate.afiliate.dashboard');
+        // }
     }
 }

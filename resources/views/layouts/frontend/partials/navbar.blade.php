@@ -140,7 +140,7 @@
               <a
                 class="nav-link custom" style="margin-top: 5px;"
                
-                href=""
+                href="{{route('show_shop')}}"
               >
                 Produk
               </a>
@@ -227,8 +227,29 @@
                 </li>
               @endif
 
+              @if(auth()->user()->id_role == 3)
+              <li class="nav-item dropdown active">
+                <a class="nav-link  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false" href="#">{{Auth::user()->fullname}}</a>
+                <ul class="dropdown-menu dropdown-menu-right">
+                    <li><a href="" class="dropdown-item">Dashboard</a></li>
+                    <li>
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+  
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+  
+                       
+                    </li>
+              @endif
+
               <!-- CUSTOMER -->
-              @if(auth()->user()->id_role == 3 && auth()->user()->id_buyer == 1)
+              {{-- @if(auth()->user()->id_role == 3 && auth()->user()->id_buyer == 1)
               <li class="nav-item dropdown active">
                 <a class="nav-link  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false" href="#">{{Auth::user()->fullname}}</a>
@@ -245,16 +266,14 @@
                             @csrf
                         </form>
   
-                          {{-- <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                          
-                          </div> --}}
+                         
   
                     </li>
                 </ul>
               </li>
-            @endif
+            @endif --}}
               <!-- RESELLER -->
-              @if(auth()->user()->id_role == 3 && auth()->user()->id_buyer == 2)
+              {{-- @if(auth()->user()->id_role == 3 && auth()->user()->id_buyer == 2)
                 <li class="nav-item dropdown active">
                   <a class="nav-link  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                   aria-expanded="false" href="#">{{Auth::user()->fullname}}</a>
@@ -271,16 +290,14 @@
                               @csrf
                           </form>
     
-                            {{-- <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            
-                            </div> --}}
+                           
     
                       </li>
                   </ul>
                 </li>
-              @endif
+              @endif --}}
               <!-- AFILIATE -->
-              @if(auth()->user()->id_role == 3 && auth()->user()->id_buyer == 3)
+              {{-- @if(auth()->user()->id_role == 3 && auth()->user()->id_buyer == 3)
               <li class="nav-item dropdown active">
                 <a class="nav-link  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false" href="#">{{Auth::user()->fullname}}</a>
@@ -297,14 +314,11 @@
                             @csrf
                         </form>
   
-                          {{-- <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                          
-                          </div> --}}
-  
+                       
                     </li>
                 </ul>
-              </li>
-            @endif
+              </li> --}}
+            {{-- @endif --}}
 
             @else
 

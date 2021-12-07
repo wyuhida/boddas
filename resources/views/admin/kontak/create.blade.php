@@ -130,41 +130,28 @@
 
                         <div class="form-group">
                             <label class="col-lg-2 control-label">
-                                address_name
+                                Alamat
                             </label>
                             <div class="col-lg-10">
-                                <input type="text" 
-                                name="address_name" 
-                               
-                                class="form-control @error('address_name') is-invalid @enderror"> 
-                                    @error('address_name')
-                                        <span class="help-block m-b-none" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>                 
-                                    @enderror
+                                <input class="form-control map-input {{ $errors->has('address') ? 'is-invalid' : '' }}" type="text" name="address" id="address" value="{{ old('address') }}">
+                                <input type="hidden" name="latitude" id="address-latitude" value="{{ old('latitude') ?? '0' }}" />
+                                <input type="hidden" name="longitude" id="address-longitude" value="{{ old('longitude') ?? '0' }}" />
+                                @if($errors->has('address'))
+                                    <div class="invalid-feedback">
+                                        {{ $errors->first('address') }}
+                                    </div>
+                                @endif
                             </div>
+                           
+                           
                         </div>
-
-                        <div class="form-group">
-                            {{-- <input class="form-control map-input {{ $errors->has('address') ? 'is-invalid' : '' }}" type="text" name="address" id="address" value="{{ old('address') }}"> --}}
-                            <input type="hidden" name="latitude" id="address-latitude" value="{{ old('latitude') ?? '0' }}" />
-                            <input type="hidden" name="longitude" id="address-longitude" value="{{ old('longitude') ?? '0' }}" />
-                            @if($errors->has('address'))
-                                <div class="invalid-feedback">
-                                    {{ $errors->first('address') }}
-                                </div>
-                            @endif
-                            {{-- <span class="help-block">{{ trans('cruds.shop.fields.address_helper') }}</span> --}}
-                        </div>
-                        <div id="address-map-container" class="mb-2" style="width:100%;height:400px; ">
+                        <div id="address-map-container markermap" class="mb-2" style="width:100%;height:400px; margin-bottom: 20px;">
                             <div style="width: 100%; height: 100%" id="address-map"></div>
                         </div>
+                        {{-- <div class="col-md-6 pb50">
+                            <div id="markermap" style="width: 100%;height: 350px;"></div>
+                        </div> --}}
                        
-
-
-                       
-                       
-
                         <div class="form-group">
                             <div class="col-lg-offset-2 col-lg-10">
                                 <button class="btn btn-md btn-primary" type="submit">Simpan</button>
@@ -190,9 +177,11 @@ src="http://maps.googleapis.com/maps/api/js?libraries=javascript_api">
 
 <script src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_API_KEY') }}&libraries=places&callback=initialize" async defer></script>
 
+
 <script src="/js/mapInput.js"></script>
 
 <script src="http://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+<script src="{{asset('vendors/js/jquery.gmap.min.js')}}"></script> 
 <script type="text/javascript">
     $(document).ready(function(){
         $('.summernote').summernote({

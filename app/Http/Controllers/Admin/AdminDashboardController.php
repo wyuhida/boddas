@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Item;
+use App\Models\Item_Content;
 use Auth;
 use Illuminate\Support\Facades\URL;
 use DB;
@@ -51,8 +52,12 @@ class AdminDashboardController extends Controller
             ->select(DB::raw('SUM(price*total_sold) as total'))
             ->get();
 
-        $p_favorite = DB::table('items')
-            ->join('item__contents', 'items.id', '=', 'item__contents.id_item')
+        $p_favorite = Item::join(
+            'item__contents',
+            'items.id',
+            '=',
+            'item__contents.id_item'
+        )
             ->orderBy('total_sold', 'desc')
             ->where('items.update_by', $ids)
             ->limit(5)

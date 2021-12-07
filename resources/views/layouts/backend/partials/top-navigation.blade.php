@@ -188,7 +188,35 @@
 
             @endif
 
+            @if(Request::is('buyer*'))
+            <li class="dropdown">
+                <div class="dropdown profile-element">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                    <i class="fa fa-gear"><b class="caret"></b>
+                        <span class="text-muted text-xs block"></span></i>  </a>
+                    <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                        <li><a href="">Profile</a></li>
+                        <li><a href="contacts.html">Contacts</a></li>
+                        <li><a href="mailbox.html">Mailbox</a></li>
+                    </ul>
+                </div>
+                
+            </li>
+        
+            <li>
+                <a class="dropdown-item" href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                    {{ __('Logout') }}
+                </a>
 
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
+
+               
+            </li>
+            @endif
             @if(Request::is('customer*'))
                 <li class="dropdown">
                     <div class="dropdown profile-element">
@@ -215,14 +243,12 @@
                         @csrf
                     </form>
 
-                        {{-- <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        
-                        </div> --}}
+                      
 
                 </li>
 
             @endif
-
+{{-- 
             @if(Request::is('reseler*'))
                 <li class="dropdown">
                     <div class="dropdown profile-element">
@@ -249,9 +275,7 @@
                         @csrf
                     </form>
 
-                        {{-- <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        
-                        </div> --}}
+                       
 
                 </li>
 
@@ -283,13 +307,11 @@
                     @csrf
                 </form>
 
-                    {{-- <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                    
-                    </div> --}}
+                   
 
             </li>
 
-        @endif
+        @endif --}}
 
             {{-- <li>
                 <a class="right-sidebar-toggle">

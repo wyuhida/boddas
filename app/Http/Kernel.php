@@ -10,6 +10,7 @@ use App\Http\Middleware\CustomerMiddleware;
 
 use App\Http\Middleware\ReselerMiddleware;
 use App\Http\Middleware\AfiliateMiddleware;
+use App\Http\Middleware\BuyerMiddleware;
 
 class Kernel extends HttpKernel
 {
@@ -74,8 +75,9 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'admin' => AdminMiddleware::class,
         'superadmin' => SuperAdminMiddleware::class,
-        'customer' => CustomerMiddleware::class,
-        'reseler' => ReselerMiddleware::class,
-        'afiliate' => AfiliateMiddleware::class,
+        'buyer' => BuyerMiddleware::class,
+        // 'customer' => CustomerMiddleware::class,
+        // 'reseler' => ReselerMiddleware::class,
+        // 'afiliate' => AfiliateMiddleware::class,
     ];
 }

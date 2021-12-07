@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ShopController;
 
 /**
  * FOR SUPER ADMIN
@@ -22,6 +23,11 @@ use App\Http\Controllers\Admin\AdminKategoriController;
 use App\Http\Controllers\Admin\AdminBlogController;
 use App\Http\Controllers\Admin\PenggunaController;
 
+/**
+ * For Buyer
+ */
+
+use App\Http\Controllers\Buyer\BuyerDashboardController;
 /**
  * For customer
  */
@@ -74,11 +80,24 @@ Route::post('registers', [AuthController::class, 'registers'])->name(
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::get('blog', [HomeController::class, 'show_blog'])->name('show_blog');
+Route::get('blog_detail/{id}/blog', [
+    HomeController::class,
+    'blog_detail',
+])->name('blog_detail');
+
 Route::get('tentang_kami', [HomeController::class, 'tentang_kami'])->name(
     'tentang_kami'
 );
 Route::get('kontak', [HomeController::class, 'kontak'])->name('kontak');
 
+Route::get('show_shop', [ShopController::class, 'show_shop'])->name(
+    'show_shop'
+);
+
+Route::get('detail_shop/{id}/detail', [
+    ShopController::class,
+    'detail_shop',
+])->name('detail_shop');
 /**
  * ADMIN GROUP
  */
@@ -238,6 +257,21 @@ Route::group(
             'store_admin_kategori',
         ])->name('store_admin_kategori');
 
+        Route::get('edit_admin_kategori/{id}/edit', [
+            AdminKategoriController::class,
+            'edit_admin_kategori',
+        ])->name('edit_admin_kategori');
+
+        Route::put('update_admin_kategori/{id}/update', [
+            AdminKategoriController::class,
+            'update_admin_kategori',
+        ])->name('update_admin_kategori');
+
+        Route::delete('delete_admin_kategori/{id}/delete', [
+            AdminKategoriController::class,
+            'delete_admin_kategori',
+        ])->name('delete_admin_kategori');
+
         /**
          * PRODUK
          *
@@ -336,10 +370,29 @@ Route::group(
             'update_admin_afiliate',
         ])->name('update_admin_afiliate');
 
+        Route::get('ubah_status', [
+            PenggunaController::class,
+            'ubah_status',
+        ])->name('ubah_status');
+
         // Route::delete('delete_admin_afiliate/{id}/delete', [
         //     AdminBlogController::class,
         //     'delete_admin_afiliate',
         // ])->name('delete_admin_afiliate');
+
+        /**
+         * PENGGUNA (RESELLER)
+         *
+         */
+        Route::get('show_admin_reseller', [
+            PenggunaController::class,
+            'show_admin_reseller',
+        ])->name('show_admin_reseller');
+
+        Route::get('ubah_status_reseller', [
+            PenggunaController::class,
+            'ubah_status_reseller',
+        ])->name('ubah_status_reseller');
     }
 );
 
@@ -392,6 +445,11 @@ Route::group(
             'delete_user_admin',
         ])->name('delete_user_admin');
 
+        Route::get('ubah_status_admin', [
+            UsersActivityController::class,
+            'ubah_status_admin',
+        ])->name('ubah_status_admin');
+
         /**
          * BLOG
          */
@@ -433,47 +491,65 @@ Route::group(
     }
 );
 
+/**
+ * FOR BUYER
+ */
 Route::group(
     [
-        'as' => 'customer.',
-        'prefix' => 'customer',
-        'namespace' => 'Customer',
-        'middleware' => ['auth', 'customer'],
+        'as' => 'buyer',
+        'prefix' => 'buyer',
+        'namespace' => 'Buyer',
+        'middleware' => ['auth', 'buyer'],
     ],
     function () {
-        Route::get('customer/dashboard', [
-            CustomerController::class,
+        Route::get('dashboard', [
+            BuyerDashboardController::class,
             'index',
-        ])->name('customer.dashboard');
+        ])->name('dashboard');
     }
 );
 
-Route::group(
-    [
-        'as' => 'reseler.',
-        'prefix' => 'reseler',
-        'namespace' => 'Reseler',
-        'middleware' => ['auth', 'reseler'],
-    ],
-    function () {
-        Route::get('reseler/dashboard', [
-            ReselerController::class,
-            'index',
-        ])->name('reseler.dashboard');
-    }
-);
+// Route::group(
+//     [
+//         'as' => 'customer.',
+//         'prefix' => 'customer',
+//         'namespace' => 'Customer',
+//         'middleware' => ['auth', 'customer'],
+//     ],
+//     function () {
+//         Route::get('customer/dashboard', [
+//             CustomerController::class,
+//             'index',
+//         ])->name('customer.dashboard');
+//     }
+// );
 
-Route::group(
-    [
-        'as' => 'afiliate.',
-        'prefix' => 'afiliate',
-        'namespace' => 'Afiliate',
-        'middleware' => ['auth', 'afiliate'],
-    ],
-    function () {
-        Route::get('afiliate/dashboard', [
-            AfiliateController::class,
-            'index',
-        ])->name('afiliate.dashboard');
-    }
-);
+// Route::group(
+//     [
+//         'as' => 'reseler.',
+//         'prefix' => 'reseler',
+//         'namespace' => 'Reseler',
+//         'middleware' => ['auth', 'reseler'],
+//     ],
+//     function () {
+//         Route::get('reseler/dashboard', [
+//             ReselerController::class,
+//             'index',
+//         ])->name('reseler.dashboard');
+//     }
+// );
+
+// Route::group(
+//     [
+//         'as' => 'afiliate.',
+//         'prefix' => 'afiliate',
+//         'namespace' => 'Afiliate',
+//         'middleware' => ['auth', 'afiliate'],
+//     ],
+//     function () {
+//         Route::get('afiliate/dashboard', [
+//             AfiliateController::class,
+//             'index',
+//         ])->name('afiliate.dashboard');
+//     }
+// );

@@ -4,10 +4,12 @@
 
 @push('js')
   <link href="{{asset('assets/css/plugins/dataTables/datatables.min.css')}}" rel="stylesheet">
+  <link href="{{asset('assets/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css')}}" rel="stylesheet">
+  <link href="{{asset('assets/css/plugins/iCheck/custom.css')}}" rel="stylesheet">
+  @endpush
 
-@endpush
+@section('content')   
 
-@section('content')    
 <div class="wrapper wrapper-content animated fadeInRight">
   <div class="row">
     <div class="col-sm-12">
@@ -16,19 +18,78 @@
                 <h2>List Afiliate</h2>
                 <div class="pull-right">
                   {{-- <a type="button" href="" class="btn btn-sm btn-info"><i class="fa fa-plus"></i> Tambah Layanan Bisnis</a>  --}}
-                  <a type="button" href="" class="btn btn-sm btn-warning"> <i class="fa fa-arrow-left"> </i> Kembali </a>
+                  {{-- <a type="button" href="" class="btn btn-sm btn-warning"> <i class="fa fa-arrow-left"> </i> Kembali </a> --}}
                 </div>
                 <p>
                     List Afiliate
                 </p>
                 <br />
-                <div class="input-group">
-                    <input type="text" placeholder="Search layanan bisnis " class="input form-control search-data">
-                    {{-- <span class="input-group-btn">
-                            <button type="button" class="btn btn btn-primary"> <i class="fa fa-search"></i> Search</button>
-                    </span> --}}
+                <form action="{{ route('admin.show_admin_afiliate')}}" method="GET">
+                    <div class="form-group">
+                        <div class="col-sm-3">
+                            <label class="control-label">Cari Nama</label>
+                            <div class="input-group m-b">
+                                <span class="input-group-btn">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fa fa-search"></i>
+                                    </button> 
+                                </span> 
+                                <input type="text" class="form-control" name="cari" 
+                                value="{{ request()->query('cari')}}">
+                            </div>
+                           
+                        </div>
+                    </div>
+                </form>
+
+               <form action="{{ route('admin.show_admin_afiliate')}}" method="GET">
+                <div class="form-group">
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="control-label" for="price">Omset</label>
+                            <select name="omset" id="" class="form-control">
+                                <option value="">Filter</option>
+                                <option value="banyak">Omset Tertinggi</option>
+                                <option value="sedikit">Omset Terendah</option>
+                            </select>
+                            
+                        </div>
+                    </div>
                 </div>
 
+                <div class="form-group">
+                    <div class="col-sm-3">
+                        <label class="control-label">Lokasi</label>
+                        <div class="input-group">
+                            <input type="text" 
+                            name="lokasi"
+                            value="{{ request()->query('lokasi')}}"
+                            class="form-control"> 
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-3">
+                        <span class="input-group-btn"> 
+                            <button type="submit" class="btn" style="margin-top: 24px;">
+                            Filter
+                            </button> 
+                        </span>
+                    </div>
+                </div>
+                    
+               </form>
+
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <a href="{{route('admin.show_admin_afiliate')}}" 
+                        class="btn btn-sm btn-info">
+                            Reset semua
+                        </a>
+                    </div>
+                </div>
+     
                 <div class="clients-list">
                   <table class="table table-striped table-hover dataTables-example">
                     <thead>
@@ -39,16 +100,50 @@
                         <th>Provinsi</th>
                         <th>Omset</th>
                         <th>Status</th>
-                        <th>Action</th>
+                        
                       </tr>
                     </thead>
-                    <tbody>
-                   
-                        
-                    </tbody>
+                    @forelse($s_show_afiliate as $key => $s_sa)
+                      <tbody>
+                        <tr>
+                          <td>{{$key + 1}}</td>
+                          <td>{{$s_sa->id}}</td>
+                          <td>{{$s_sa->fullname}}</td>
+                          <td></td>
+                          <td></td>
+                          <td>
+                           
+                            <input data-id="{{$s_sa->id}}" class="toggle-class" 
+                            type="checkbox" data-onstyle="success" 
+                            data-offstyle="danger" data-toggle="toggle" 
+                            data-on="Aktif" data-off="Non-Aktif" 
+                            {{ $s_sa->is_active ? 'checked' : '' }}>
+                          </td>
+                         
+                        </tr>
+                      </tbody>
+                      @empty
+                      <td colspan="6">
+                        <div class="text-center">
+                           Tidak Ada Data
+                          <strong>
+                            {{ request()->query('cari') }}
+                          </strong>
+                        </div>
+                      </td>
+                    @endforelse
                   </table>
-
+                 
                 </div>
+                <div class="ibox">
+                  <div class="ibox-content">
+                    <div class="text-right">
+                      {!! $s_show_afiliate->render('customPagination') !!}
+                    </div>
+                  </div>
+                  
+                </div>
+               
             </div>
         </div>
     </div>
@@ -58,10 +153,33 @@
 @endsection
 
 @push('js')
+<script>
+  $(function() {
+    $('.toggle-class').change(function() {
+        var status = $(this).prop('checked') == true ? 1 : 0; 
+        var user_id = $(this).data('id'); 
+         
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            url: '/admin/ubah_status',
+            data: {'status': status, 'user_id': user_id},
+            success: function(data){
+              console.log(data.success);
+              location.reload();
+            }
+        });
+    })
+  })
+</script>
+<script>
+   var elem = document.querySelector('.js-switch');
+            var switchery = new Switchery(elem, { color: '#1AB394' });
+</script>
 
 <script src="{{asset('assets/js/plugins/dataTables/datatables.min.js')}}"></script>
 <script>
-    function deleteLayananBisnis(id){
+    function update_status(id){
         
 
         Swal.fire({
@@ -93,7 +211,7 @@
 
 
   <!-- Page-Level Scripts -->
-  <script>
+  {{-- <script>
     $(document).ready(function(){
       let oTable = $('.dataTables-example').DataTable({
              language: {
@@ -118,7 +236,17 @@
           oTable.search($(this).val()).draw()
         })
     });
-  </script>
+  </script> --}}
+   <!-- iCheck -->
+   <script src="{{asset('assets/js/plugins/iCheck/icheck.min.js')}}"></script>
+   <script>
+       $(document).ready(function () {
+           $('.i-checks').iCheck({
+               checkboxClass: 'icheckbox_square-green',
+               radioClass: 'iradio_square-green',
+           });
+       });
+   </script>
 
 @endpush
 

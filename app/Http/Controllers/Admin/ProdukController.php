@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Models\User;
 use App\Models\Item;
+use App\Models\Item_Content;
 use Auth;
 use Illuminate\Support\Facades\URL;
 use DB;
@@ -31,8 +32,13 @@ class ProdukController extends Controller
     public function show_admin_produk(Request $request)
     {
         $ids = auth()->user()->id;
-        $item = DB::table('items')
-            ->join('item__contents', 'items.id', '=', 'item__contents.id_item')
+        // $item = DB::table('items')
+        $item = Item::join(
+            'item__contents',
+            'items.id',
+            '=',
+            'item__contents.id_item'
+        )
             ->where('items.update_by', $ids)
             ->get();
 
@@ -84,9 +90,9 @@ class ProdukController extends Controller
     public function store_admin_produk(Request $request)
     {
         $this->validate($request, [
-            'item_name' => ['required,unique:items'],
+            'item_name' => 'required',
             'detail_product' => 'required',
-            'price' => 'required|digits:10',
+            'price' => 'required',
             'total_stock' => 'required',
             'photo' => 'required',
         ]);
@@ -114,11 +120,15 @@ class ProdukController extends Controller
                 $names = $resources->getClientOriginalName();
                 $extension = $resources->getClientOriginalExtension();
                 $name = $resources->hashName();
-                $resources->move(
-                    \base_path() . '/public/image/product/',
-                    $name
-                );
-                $newPath = URL::asset('/img/imgs') . '/';
+                $img_path = public_path('/image/product');
+                // $resources->move(
+                //     \base_path() . '/public/image/product/',
+                //     $name
+                // );
+                $newImage = Image::make($resource[$key]->getRealPath());
+                // $thumb_img = Image::make($photo->getRealPath())->resize(500, 500);
+                $newImage->resize(600, 680)->save($img_path . '/' . $name);
+                $newPath = URL::asset('/image/product') . '/';
                 $check = in_array($extension, $allowedfileExtension);
                 if ($check) {
                     $img = DB::table('item__contents')->insertGetId([
@@ -218,8 +228,14 @@ class ProdukController extends Controller
             $names = $resource->getClientOriginalName();
             $extension = $resource->getClientOriginalExtension();
             $name = $resource->hashName();
-            $resource->move(\base_path() . '/public/image/product/', $name);
-            $newPath = URL::asset('/img/imgs') . '/';
+            // $resource->move(\base_path() . '/public/image/product/', $name);
+            $newPath = URL::asset('/image/product') . '/';
+
+            $img_path = public_path('/image/product');
+            $newImage = Image::make($resource->getRealPath());
+            // $thumb_img = Image::make($photo->getRealPath())->resize(500, 500);
+            $newImage->resize(600, 680)->save($img_path . '/' . $name);
+
             $check = in_array($extension, $allowedfileExtension);
             if ($check) {
                 $img = DB::table('item__contents')
@@ -263,8 +279,12 @@ class ProdukController extends Controller
     }
     public function delete_admin_produk($id)
     {
-        $item = DB::table('item__contents')
-            ->join('items', 'item__contents.id_item', '=', 'items.id')
+        $item = Item_Content::join(
+            'items',
+            'item__contents.id_item',
+            '=',
+            'items.id'
+        )
             ->join(
                 'category__items',
                 'items.id_category_item',
@@ -275,9 +295,7 @@ class ProdukController extends Controller
             ->where('item__contents.id_item', $id)
             ->delete();
 
-        DB::table('items')
-            ->where('id', $id)
-            ->delete();
+        Item::where('id', $id)->delete();
 
         Toastr::success('successfully delete :)', 'Success');
         return redirect()->back();
