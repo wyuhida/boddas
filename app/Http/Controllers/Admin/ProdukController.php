@@ -132,13 +132,13 @@ class ProdukController extends Controller
                 $extension = $resources->getClientOriginalExtension();
                 $name = $resources->hashName();
                 $img_path = public_path('/image/product');
-                // $resources->move(
-                //     \base_path() . '/public/image/product/',
-                //     $name
-                // );
-                $newImage = Image::make($resource[$key]->getRealPath());
+                $resources->move(
+                    \base_path() . '/public/image/product/',
+                    $name
+                );
+                //$newImage = Image::make($resource[$key]->getRealPath());
                 // $thumb_img = Image::make($photo->getRealPath())->resize(500, 500);
-                $newImage->resize(600, 680)->save($img_path . '/' . $name);
+                //$newImage->resize(600, 680)->save($img_path . '/' . $name);
                 $newPath = URL::asset('/image/product') . '/';
                 $check = in_array($extension, $allowedfileExtension);
                 if ($check) {
@@ -239,13 +239,13 @@ class ProdukController extends Controller
             $names = $resource->getClientOriginalName();
             $extension = $resource->getClientOriginalExtension();
             $name = $resource->hashName();
-            // $resource->move(\base_path() . '/public/image/product/', $name);
+            $resource->move(\base_path() . '/public/image/product/', $name);
             $newPath = URL::asset('/image/product') . '/';
 
             $img_path = public_path('/image/product');
-            $newImage = Image::make($resource->getRealPath());
+            //$newImage = Image::make($resource->getRealPath());
             // $thumb_img = Image::make($photo->getRealPath())->resize(500, 500);
-            $newImage->resize(600, 680)->save($img_path . '/' . $name);
+            // $newImage->resize(600, 680)->save($img_path . '/' . $name);
 
             $check = in_array($extension, $allowedfileExtension);
             if ($check) {

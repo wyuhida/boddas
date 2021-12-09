@@ -10,9 +10,16 @@
 @section('content')
 <?php
     use App\Http\Controllers\ShopController;
-    $stock_l = ShopController::total_diskon() ? ShopController::total_diskon() : 0;
-    $limit = $stock_l['stock_limit'];
-    $total = $stock_l['discount_percentage'];
+    if(ShopController::total_diskon() != null)
+    {
+        $stock_l = ShopController::total_diskon() ? ShopController::total_diskon() : 0;
+        $limit = $stock_l['stock_limit'];
+        $total = $stock_l['discount_percentage'];
+    }else{
+        $limit = 0;
+        $total = 0;
+    }
+   
 ?>
 <div class="page-titles-img title-space-lg bg-parallax parallax-overlay mb70" 
 data-jarallax='{"speed": 0.2}' 
