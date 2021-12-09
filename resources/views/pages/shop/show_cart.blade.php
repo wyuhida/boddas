@@ -102,9 +102,9 @@
                 <div class="smart-forms smart-container wrap-1">
                     <form method="post" action="{{route('proses_pembayaran')}}" id="account2" enctype="multipart/form-data">
                         @csrf
-                        <input type="text" name="id_transaction" value="{{$s_cart->id_transaction}}">
-                        <input type="text" name="id_transaction_status" value="{{$s_cart->id_transaction_status}}">
-                        <input type="text" name="id_item" id="" value="{{$s_cart->id_item}}">
+                        <input type="hidden" name="id_transaction" value="{{$s_cart->id_transaction}}">
+                        <input type="hidden" name="id_transaction_status" value="{{$s_cart->id_transaction_status}}">
+                        <input type="hidden" name="id_item" id="" value="{{$s_cart->id_item}}">
                         <div class="form-body">
         
                     <div class="spacer-b30">

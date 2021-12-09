@@ -84,10 +84,10 @@ style='background-image: url({{asset("vendors/images/bg14.jpg")}})'>
             <form method="post" action="{{route('add_cart')}}"  class="pt20">
                 @csrf
                 <h4><small>Minimal Pembelian</small></h4>
-                <input type="text" name="id_item" value={{$detail[0]->id_item}}>
-                <input type="text" name="diskon" value={{$detail[0]->price-($total*$detail[0]->price)}}>
-                <input type="text" name="limit" id="" value={{$limit}}>
-                <input type="text" name="harga_default" value="{{$detail[0]->price}}">
+                <input type="hidden" name="id_item" value={{$detail[0]->id_item}}>
+                <input type="hidden" name="diskon" value={{$detail[0]->price-($total*$detail[0]->price)}}>
+                <input type="hidden" name="limit" id="" value={{$limit}}>
+                <input type="hidden" name="harga_default" value="{{$detail[0]->price}}">
                 <div class="quantity">                            
                     <input type="button" class="minus" value="-">
                     @if(!empty(Auth::user()->id))
