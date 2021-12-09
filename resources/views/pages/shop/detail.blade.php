@@ -12,7 +12,7 @@
     use App\Http\Controllers\ShopController;
     if(ShopController::total_diskon() != null)
     {
-        $stock_l = ShopController::total_diskon() ? ShopController::total_diskon() : 0;
+        $stock_l = ShopController::total_diskon();
         $limit = $stock_l['stock_limit'];
         $total = $stock_l['discount_percentage'];
     }else{
