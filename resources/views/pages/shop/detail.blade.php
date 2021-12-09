@@ -10,7 +10,7 @@
 @section('content')
 <?php
     use App\Http\Controllers\ShopController;
-    $stock_l = ShopController::total_diskon();
+    $stock_l = ShopController::total_diskon() ? ShopController::total_diskon() : 0;
     $limit = $stock_l['stock_limit'];
     $total = $stock_l['discount_percentage'];
 ?>

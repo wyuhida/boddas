@@ -8,8 +8,14 @@
 @section('content')
 <?php
     use App\Http\Controllers\ShopController;
-    $tot = ShopController::total_diskon() ? ShopController::total_diskon() : 0;
-    $total=$tot['discount_percentage'];
+    if(ShopController::total_diskon() != null)
+    {
+        $tot =ShopController::total_diskon();
+        $total=$tot['discount_percentage'];
+    }else {
+        $total = 0;
+    }
+
 
 ?>
 <div class="page-titles-img title-space-lg bg-parallax parallax-overlay mb70" 

@@ -51,7 +51,10 @@ class ProdukController extends Controller
                     '=',
                     'item__contents.id_item'
                 )
-                ->where('items.item_name', 'LIKE', '%' . $request->search . '%')
+                ->where([
+                    ['items.item_name', 'LIKE', '%' . $request->search . '%'],
+                    ['items.deleted_at', '=', null],
+                ])
                 ->get();
             $coll = collect($item);
             $coll->search($request->search);
@@ -66,7 +69,10 @@ class ProdukController extends Controller
                         '=',
                         'item__contents.id_item'
                     )
-                    ->where('items.total_stock', '=', 0)
+                    ->where([
+                        ['items.total_stock', '=', 0],
+                        ['items.deleted_at', '=', null],
+                    ])
                     ->get();
                 $coll = collect($item);
             } else {
@@ -77,7 +83,10 @@ class ProdukController extends Controller
                         '=',
                         'item__contents.id_item'
                     )
-                    ->where('items.total_stock', '!=', 0)
+                    ->where([
+                        ['items.total_stock', '!=', 0],
+                        ['items.deleted_at', '=', null],
+                    ])
                     ->get();
                 $coll = collect($item);
             }
@@ -118,7 +127,7 @@ class ProdukController extends Controller
             $resource = $request->file('photo');
 
             foreach ($resource as $key => $resources) {
-                $item = $s_item[$key];
+                // $item = $s_item[$key];
                 $names = $resources->getClientOriginalName();
                 $extension = $resources->getClientOriginalExtension();
                 $name = $resources->hashName();

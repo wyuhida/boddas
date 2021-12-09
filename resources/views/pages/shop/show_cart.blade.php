@@ -10,7 +10,7 @@
 
 <?php
     use App\Http\Controllers\ShopController;
-    $stock_l = ShopController::total_diskon();
+    $stock_l = ShopController::total_diskon() ? ShopController::total_diskon() : 0;
     $limit = $stock_l['stock_limit'];
     $total = $stock_l['discount_percentage'];
 ?>
@@ -105,6 +105,7 @@
                         <input type="hidden" name="id_transaction" value="{{$s_cart->id_transaction}}">
                         <input type="hidden" name="id_transaction_status" value="{{$s_cart->id_transaction_status}}">
                         <input type="hidden" name="id_item" id="" value="{{$s_cart->id_item}}">
+                        <input type="hidden" name="qty" value="{{$s_cart->qty}}">
                         <div class="form-body">
         
                     <div class="spacer-b30">

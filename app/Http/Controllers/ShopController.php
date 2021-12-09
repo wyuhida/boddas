@@ -161,6 +161,16 @@ class ShopController extends Controller
     {
         $ids = auth()->user()->id;
         $id_transaction = $request->id_transaction;
+        $id_item = $request->id_item;
+        $qty = $request->qty;
+
+        // cek total
+        $stok = Item::where('id', $id_item)
+            ->select('total_stock')
+            ->first();
+        $new_stok = $stok['total_stock'];
+        $total_stok = $new_stok - $qty;
+
         if (isset($request->foto)) {
             $allowedfileExtension = ['pdf', 'jpg', 'png', 'docx'];
             $resources = $request->file('foto');
@@ -177,6 +187,11 @@ class ShopController extends Controller
                         'image' => $name,
                         'id_transaction_status' => 3,
                     ]);
+
+                $updt_stock = Item::findOrFail($id_item);
+                $updt_stock->total_stock = $total_stok;
+                $updt_stock->total_sold = $qty;
+                $updt_stock->save();
 
                 $updt_address = DB::table('addresses')
                     ->where('id_user', $ids)
