@@ -39,6 +39,7 @@ class ProdukController extends Controller
             '=',
             'item__contents.id_item'
         )
+            ->select('item__contents.*', 'items.*')
             ->where('items.update_by', $ids)
             ->get();
 
@@ -84,6 +85,7 @@ class ProdukController extends Controller
 
         $coll = collect($item);
         $item = $coll->groupBy('id_item');
+
         return view('admin.produk.show', ['item' => $item]);
     }
 

@@ -46,7 +46,7 @@ class LoginController extends Controller
             //     return $this->redirectTo;
             //     break;
             case 3:
-                $this->redirectTo = '/buyer/dashboard';
+                $this->redirectTo = '/';
                 return $this->redirectTo;
                 break;
             case 2:

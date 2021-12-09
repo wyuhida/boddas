@@ -98,6 +98,17 @@ Route::get('detail_shop/{id}/detail', [
     ShopController::class,
     'detail_shop',
 ])->name('detail_shop');
+
+Route::post('add_cart', [ShopController::class, 'add_cart'])->name('add_cart');
+Route::get('show_cart', [ShopController::class, 'show_cart'])->name(
+    'show_cart'
+);
+
+Route::post('proses_pembayaran', [
+    ShopController::class,
+    'proses_pembayaran',
+])->name('proses_pembayaran');
+
 /**
  * ADMIN GROUP
  */

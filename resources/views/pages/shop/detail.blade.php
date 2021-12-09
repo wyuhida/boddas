@@ -8,7 +8,12 @@
 @endpush
 
 @section('content')
-
+<?php
+    use App\Http\Controllers\ShopController;
+    $stock_l = ShopController::total_diskon();
+    $limit = $stock_l['stock_limit'];
+    $total = $stock_l['discount_percentage'];
+?>
 <div class="page-titles-img title-space-lg bg-parallax parallax-overlay mb70" 
 data-jarallax='{"speed": 0.2}' 
 style='background-image: url({{asset("vendors/images/bg14.jpg")}})'>
@@ -42,33 +47,76 @@ style='background-image: url({{asset("vendors/images/bg14.jpg")}})'>
                 @foreach($detail as $det)
                 <div class="cbp-pagination-item cbp-pagination-active">
                     <img src="{{asset('image/product')}}/{{$det->photo}}" alt="">
+                   
                 </div>
                 @endforeach
-                
             </div>
+            {{-- <div class="embed-responsive embed-responsive-21by9 mb20">
+                @foreach($detail as $det)
+                @if($det->video)
+               
+                    <iframe src="{{asset('video/product')}}/{{$det->video}}" 
+                        style="
+                        width:100%;height:100%;left:0" 
+                        width="641" 
+                        height="360" 
+                        frameborder="0" allowfullscreen></iframe>
+                
+              
+
+               @endif
+               @endforeach
+            </div>    --}}
         </div>
 
         <div class='col-md-5'>
             <h2>{{$detail[0]->item_name}}</h2>
+            <h4>Stok: {{$detail[0]->total_stock}}</h4>
             <div class='clearfix mb30'>
                 <span class='float-right'>
                     
                 </span>
-                <h4 class='text-info'>Rp.{{$detail[0]->price}}</h4>
+                <h4 class='text-info'>Rp.{{number_format($detail[0]->price-($total*$detail[0]->price))}}</h4>
             </div>
             <p>
                {!! $detail[0]->detail_product !!}
             </p>
-            <form method="post" class="pt20">
-                <h4><small>Quantity</small></h4>
+            <form method="post" action="{{route('add_cart')}}"  class="pt20">
+                @csrf
+                <h4><small>Minimal Pembelian</small></h4>
+                <input type="text" name="id_item" value={{$detail[0]->id_item}}>
+                <input type="text" name="diskon" value={{$detail[0]->price-($total*$detail[0]->price)}}>
+                <input type="text" name="limit" id="" value={{$limit}}>
+                <input type="text" name="harga_default" value="{{$detail[0]->price}}">
                 <div class="quantity">                            
                     <input type="button" class="minus" value="-">
-                    <input type="text" class="input-text qty text" title="Qty" value="1" name="quantity" min="1" step="1">
-                    <input type="button" class="plus" value="+">
+                    @if(!empty(Auth::user()->id))
+                       
+                        <input type="text" class="input-text qty text" title="Qty" 
+                        value={{1}} name="quantity" min="1" step="1">
+                        <input type="button" class="plus" value="+">
+                    @else
+                        <input type="text" class="input-text qty text" title="Qty" 
+                        value="1" name="quantity" min="1" step="1">
+                        <input type="button" class="plus" value="+">
+                    @endif
                 </div>
-                <button type="button" class="btn btn-primary btn-icon">Add to cart</button>
+                <button type="submit" class="btn btn-info btn-sm mb5">Beli Sekarang</button>
+                    {{-- <a href={{route('show_cart',$detail[0]->id_item)}} class="btn btn-info btn-sm mb5">Beli Sekarang</a> --}}
+                </div>
             </form>
+           
         </div>
+        <div class="embed-responsive embed-responsive-21by9 mb20">
+            @if($det->video)
+            <iframe src="{{asset('video/product')}}/{{$det->video}}" 
+                style="position:absolute;width:100%;height:100%;left:0" 
+                width="641" height="360" frameborder="0" allowfullscreen>
+            </iframe>
+            @endif
+        </div>
+
+ 
     </div>
 </div>
 @endsection
