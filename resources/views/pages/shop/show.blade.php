@@ -8,8 +8,9 @@
 @section('content')
 <?php
     use App\Http\Controllers\ShopController;
-    $tot = ShopController::total_diskon();
+    $tot = ShopController::total_diskon() ? ShopController::total_diskon() : 0;
     $total=$tot['discount_percentage'];
+
 ?>
 <div class="page-titles-img title-space-lg bg-parallax parallax-overlay mb70" 
 data-jarallax='{"speed": 0.2}' 
