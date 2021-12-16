@@ -1,353 +1,65 @@
-{{-- <nav class="navbar navbar-expand-lg navbar-light">
-    <div class="search-inline">
-      <form>
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Type and hit enter..."
-        />
-        <button type="submit"><i class="ti-search"></i></button>
-        <a href="javascript:void(0)" class="search-close">
-          <i class="ti-close"></i>
-        </a>
-      </form>
-    </div>
-    <div class="container">
-      <button
-        class="navbar-toggler navbar-toggler-right"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarNavDropdown"
-        aria-controls="navbarNavDropdown"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <a class="navbar-brand" href="index.html">
-        <img src="{{asset('vendors/images/')}}" alt="" />
-      </a>
-      <div id="navbarNavDropdown" class="navbar-collapse collapse">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item dropdown">
-            <a
-              class="nav-link active custom" style="margin-top: 5px;"
-             
-              href="{{route('home.index')}}"
-            >
-              Home
-            </a>
-          </li>
-
-          <li class="nav-item dropdown dropdown-full-width">
-            <a
-              class="nav-link"  style="margin-top: 5px;"
-             
-            >
-              Produk
-            </a>
-         
-          </li>
-          <li class="nav-item">
-            <a
-              class="nav-link"  style="margin-top: 5px;"
-              href={{route('show_blog')}}>
-              Blog
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a
-              class="nav-link"  style="margin-top: 5px;"
-             
-              href="#"
-              
-            >
-              Tentang Kami
-            </a>
-          </li>
-              
-          <li class="nav-item">
-            <a
-              class="nav-link"  style="margin-top: 5px;"
-             
-              href="{{route('login')}}"
-             
-            >
-              Login
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a
-              class="nav-link btn btn-info"  style="margin-top: 5px;"
-             
-              href="#"
-              
-            >
-              Register
-            </a>
-          </li>
-        </ul>
+<nav class="bg-white shadow dark:bg-gray-800">
+  <div class="container px-5 py-3 mx-auto md:flex md:justify-between md:items-center">
+      <div class="flex items-center justify-between">
+          <div>
+              <a class="
+              text-2xl font-bold text-gray-800 
+              dark:text-white lg:text-3xl 
+              hover:text-gray-700 
+              dark:hover:text-gray-300
+              " 
+              href="{{route('home.index')}}">
+                  <img class="rounded px-12 relative" src="{{asset('images/logo2.png')}}" 
+                  alt="" srcset="">
+              </a>
+          </div>
+          
+          <!-- Mobile menu button -->
+          <div class="flex md:hidden">
+              <button type="button" class="text-gray-500 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:text-gray-600 dark:focus:text-gray-400" aria-label="toggle menu">
+                  <svg viewBox="0 0 24 24" class="w-6 h-6 fill-current">
+                      <path fill-rule="evenodd" d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"></path>
+                  </svg>
+              </button>
+          </div>
       </div>
 
-      <div class="navbar-right-elements">
-        <ul class="list-inline">
-         
-         
-          <li class="list-inline-item">
-            <a href="javascript:void(0)" class="menu-btn">
-              <i class="ti-shopping-cart"></i>
-              <span class="badge badge-default">3</span>
-            </a>
-          </li>
-        </ul>
+      <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
+      <div class="items-center md:flex px-14 ">
+          <div class="flex flex-col md:flex-row md:mx-6">
+              <a class="my-1 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0" href="{{route('home.index')}}">Home</a>
+              <a class="my-1 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0" href="{{route('show_shop')}}">Product</a>
+              <a class="my-1 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0" href="{{route('show_blog')}}">Blog</a>
+              <a class="my-1 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0" href="{{route('tentang_kami')}}">About</a>
+
+          </div>
+
+          <div class="flex justify-center md:block">
+              {{-- <a class="relative text-gray-700 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-300" href="#">
+                  <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M3 3H5L5.4 5M7 13H17L21 5H5.4M7 13L5.4 5M7 13L4.70711 15.2929C4.07714 15.9229 4.52331 17 5.41421 17H17M17 17C15.8954 17 15 17.8954 15 19C15 20.1046 15.8954 21 17 21C18.1046 21 19 20.1046 19 19C19 17.8954 18.1046 17 17 17ZM9 19C9 20.1046 8.10457 21 7 21C5.89543 21 5 20.1046 5 19C5 17.8954 5.89543 17 7 17C8.10457 17 9 17.8954 9 19Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span class="absolute top-0 left-0 p-1 text-xs text-white bg-blue-500 rounded-full"></span>
+              </a> --}}
+              <a href="#" class="
+                  relative 
+                  px-4 
+                  text-gray-700 
+                  dark:text-gray-200 
+                  hover:text-gray-600 
+                  dark:hover:text-gray-300">
+                  Login
+              </a>
+              <a href="#" class="
+                  relative
+                  px-2
+                  py-4 
+                  focus:text-pink-aktif
+                  text-gray-700 
+                  dark:hover:text-gray-300">
+                  Register
+              </a>
+          </div>
       </div>
-     
-    </div>
-</nav> --}}
-
-<nav class="navbar navbar-expand-lg navbar-light navbar-transparent bg-faded nav-sticky">
-  {{-- <div class="search-inline">
-      <form>
-          <input type="text" class="form-control" placeholder="Type and hit enter...">
-          <button type="submit"><i class="ti-search"></i></button>
-          <a href="javascript:void(0)" class="search-close"><i class="ti-close"></i></a>
-      </form>
-  </div> --}}
-  <!--/search form-->
-  <div class="container">
-
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-      </button>
-      <a class="navbar-brand" href="index.html">
-          <img class='logo logo-dark' src="{{asset('vendors/images/logo.png')}}" alt="">
-          <img class='logo logo-light hidden-md-down' src="{{asset('vendors/images/logo-light.png')}}" alt="">
-      </a>
-      <div  id="navbarNavDropdown" class="navbar-collapse collapse">
-          <ul class="navbar-nav ml-auto">
-            <li class="{{Request::is('/') ? 'nav-item dropdown active':'nav-item dropdown'}}">
-              <a
-                class="nav-link custom " style="margin-top: 5px;"
-               
-                href="{{route('home.index')}}"
-              >
-                Home
-              </a>
-            </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link custom" style="margin-top: 5px;"
-               
-                href="{{route('show_shop')}}"
-              >
-                Produk
-              </a>
-            </li>
-            <li class="{{Request::is('/blog') ? 'nav-item dropdown active':'nav-item dropdown'}}">
-              <a
-                class="nav-link custom" style="margin-top: 5px;"
-               
-                href="{{route('show_blog')}}"
-              >
-                Blog
-              </a>
-            </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link custom" style="margin-top: 5px;"
-               
-                href="{{route('tentang_kami')}}"
-              >
-                Tentang Kami
-              </a>
-            </li>
-
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link custom" style="margin-top: 5px;"
-               
-                href="{{route('kontak')}}"
-              >
-                Kontak
-              </a>
-            </li>
-            @auth
-            <!-- ADMIN -->
-              @if(auth()->user()->id_role == 2)
-                <li class="nav-item dropdown active">
-                  <a class="nav-link  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                  aria-expanded="false" href="#">{{Auth::user()->fullname}}</a>
-                  <ul class="dropdown-menu dropdown-menu-right">
-                      <li><a href="{{route('admin.dashboard')}}" class="dropdown-item">Dashboard</a></li>
-                      <li>
-                          <a class="dropdown-item" href="{{ route('logout') }}"
-                              onclick="event.preventDefault();
-                                          document.getElementById('logout-form').submit();">
-                              {{ __('Logout') }}
-                          </a>
-    
-                          <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                              @csrf
-                          </form>
-    
-                            {{-- <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            
-                            </div> --}}
-    
-                      </li>
-                  </ul>
-                </li>
-              @endif
-              <!-- SUPER ADMIN -->
-              @if(auth()->user()->id_role == 1)
-                <li class="nav-item dropdown active">
-                  <a class="nav-link  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                  aria-expanded="false" href="#">{{Auth::user()->fullname}}</a>
-                  <ul class="dropdown-menu dropdown-menu-right">
-                      <li><a href="{{route('superadmin.dashboard')}}" class="dropdown-item">Dashboard</a></li>
-                      <li>
-                          <a class="dropdown-item" href="{{ route('logout') }}"
-                              onclick="event.preventDefault();
-                                          document.getElementById('logout-form').submit();">
-                              {{ __('Logout') }}
-                          </a>
-    
-                          <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                              @csrf
-                          </form>
-    
-                            {{-- <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            
-                            </div> --}}
-    
-                      </li>
-                  </ul>
-                </li>
-              @endif
-
-              @if(auth()->user()->id_role == 3)
-              <li class="nav-item dropdown active">
-                <a class="nav-link  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                aria-expanded="false" href="#">{{Auth::user()->fullname}}</a>
-                <ul class="dropdown-menu dropdown-menu-right">
-                    <li><a href="" class="dropdown-item">Dashboard</a></li>
-                    <li>
-                        <a class="dropdown-item" href="{{ route('logout') }}"
-                            onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
-                        </a>
-  
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                        </form>
-  
-                       
-                    </li>
-              @endif
-
-              <!-- CUSTOMER -->
-              {{-- @if(auth()->user()->id_role == 3 && auth()->user()->id_buyer == 1)
-              <li class="nav-item dropdown active">
-                <a class="nav-link  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                aria-expanded="false" href="#">{{Auth::user()->fullname}}</a>
-                <ul class="dropdown-menu dropdown-menu-right">
-                    <li><a href="{{route('customer.customer.dashboard')}}" class="dropdown-item">Dashboard</a></li>
-                    <li>
-                        <a class="dropdown-item" href="{{ route('logout') }}"
-                            onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
-                        </a>
-  
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                        </form>
-  
-                         
-  
-                    </li>
-                </ul>
-              </li>
-            @endif --}}
-              <!-- RESELLER -->
-              {{-- @if(auth()->user()->id_role == 3 && auth()->user()->id_buyer == 2)
-                <li class="nav-item dropdown active">
-                  <a class="nav-link  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                  aria-expanded="false" href="#">{{Auth::user()->fullname}}</a>
-                  <ul class="dropdown-menu dropdown-menu-right">
-                      <li><a href="{{route('reseler.reseler.dashboard')}}" class="dropdown-item">Dashboard</a></li>
-                      <li>
-                          <a class="dropdown-item" href="{{ route('logout') }}"
-                              onclick="event.preventDefault();
-                                          document.getElementById('logout-form').submit();">
-                              {{ __('Logout') }}
-                          </a>
-    
-                          <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                              @csrf
-                          </form>
-    
-                           
-    
-                      </li>
-                  </ul>
-                </li>
-              @endif --}}
-              <!-- AFILIATE -->
-              {{-- @if(auth()->user()->id_role == 3 && auth()->user()->id_buyer == 3)
-              <li class="nav-item dropdown active">
-                <a class="nav-link  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                aria-expanded="false" href="#">{{Auth::user()->fullname}}</a>
-                <ul class="dropdown-menu dropdown-menu-right">
-                    <li><a href="{{route('afiliate.afiliate.dashboard')}}" class="dropdown-item">Dashboard</a></li>
-                    <li>
-                        <a class="dropdown-item" href="{{ route('logout') }}"
-                            onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
-                        </a>
-  
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                        </form>
-  
-                       
-                    </li>
-                </ul>
-              </li> --}}
-            {{-- @endif --}}
-
-            @else
-
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link custom" style="margin-top: 5px;"
-               
-                href="{{route('backend.login')}}"
-              >
-                Login
-              </a>
-            </li>
-
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link custom" style="margin-top: 5px;"
-               
-                href="{{route('showRegister')}}"
-              >
-                Register
-              </a>
-            </li>
-            @endif
-          </ul>        
-      </div>
-      <div class=" navbar-right-elements">
-          <ul class="list-inline">
-              <li class="list-inline-item"><a href="javascript:void(0)" class=" menu-btn"><i class="ti-shopping-cart"></i> <span class="badge badge-default">3</span></a></li>
-          </ul>
-      </div><!--right nav icons-->
   </div>
 </nav>

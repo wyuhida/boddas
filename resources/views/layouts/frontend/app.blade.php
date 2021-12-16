@@ -30,7 +30,81 @@
    
          <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
  
-    
+          
+         <link rel="stylesheet" href="{{asset('css/app.css')}}" />
+         <style>
+             .btns{
+                 max-width: 150px;
+             }
+             .rectangle {
+             width: 541px;
+             height: 608px;
+             flex-grow: 0;
+             margin: 0 29px 0 0;
+             padding: 69px 0 34.8px;
+             background-color: #fff7f4;
+             }
+             .img {
+                 width: 471px;
+                 height: 469.9px;
+                 flex-grow: 0;
+                 margin: 0 0 34.3px 70px;
+                 box-shadow: 10px 10px 10px 0 rgba(0, 0, 0, 0.25);
+             }
+             .rectangle-2 {
+                 width: 541px;
+                 height: 608px;
+                 flex-grow: 0;
+                 margin: 0 0 0 1px;
+                 padding: 103px 0 34.8px;
+                 background-color: #fff7f4;
+             }
+                 .img2 {
+                 width: 471px;
+                 height: 471px;
+                 flex-grow: 0;
+                 margin: 68px 71px 69px 0;
+                 box-shadow: 10px 10px 10px 0 rgba(0, 0, 0, 0.25);
+             }
+             .videos {
+                 width: 292.5px;
+                 height: 292.5px;
+                 flex-grow: 0;
+                 margin: 68px 0 0.5px;
+                 background-color: rgba(0, 0, 0, 0.6);
+             }
+     
+             .Vector {
+                 width: 291px;
+                 height: 291px;
+                 flex-grow: 0;
+                 padding: 36.3px 27.3px 33.8px 36.8px;
+                 border: solid 1.5px #ff6875;
+                 }
+                 .titles {
+       width: 227px;
+       height: 39px;
+       flex-grow: 0;
+       margin: 0 0 64px;
+       font-family: Inter;
+       font-size: 32px;
+       font-weight: 500;
+       font-stretch: normal;
+       font-style: normal;
+       line-height: normal;
+       letter-spacing: normal;
+       text-align: left;
+       color: #1d1d1f;
+     }      
+          
+         </style>
+          <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+          integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer"
+        />
     @stack('css')
 
 </head>
@@ -73,8 +147,7 @@
         <script type="text/javascript" src={{ asset('vendors/revolution/js/extensions/revolution.extension.parallax.min.js')}}></script>
         <script type="text/javascript" src={{ asset('vendors/revolution/js/extensions/revolution.extension.slideanims.min.js')}}></script>
         <script type="text/javascript" src={{ asset('vendors/revolution/js/extensions/revolution.extension.video.min.js')}}></script>
-       
-    
+     
      <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
         {!! Toastr::message() !!}
 

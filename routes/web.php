@@ -77,6 +77,10 @@ Route::get('/registers', [AuthController::class, 'showRegister'])->name(
 Route::post('registers', [AuthController::class, 'registers'])->name(
     'registers'
 );
+// coba
+Route::get('/detail', function () {
+    return view('pages.shop.detail');
+});
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::get('blog', [HomeController::class, 'show_blog'])->name('show_blog');
