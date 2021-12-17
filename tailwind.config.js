@@ -24,6 +24,7 @@ module.exports = {
         'bookmark-white': '#C1C8CE',
         'bookmark-black': '#262626',
         'bookmark-btn-min-plus': '#FFF0F1',
+        'bookmark-tab': '#FFF2ED',
       },
     },
     minHeight: {
