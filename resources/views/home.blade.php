@@ -26,10 +26,11 @@
 
             <div class="mt-8 lg:mt-0 lg:w-1/2 px-12">
               <div class="flex items-center justify-center lg:justify-end">
-                  <div class="max-w-md">
+                  <div class="max-w-lg ">
                       <img class="object-cover object-center
                       -mb-48 mt-5
-                     " src="{{asset('images/Component 11.png')}}" alt="">
+                      shadow-2xl
+                     " src="{{asset('images/bodas-cover.jpg')}}" alt="">
                   </div>
               </div>
           </div>
@@ -238,12 +239,15 @@
         grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-16 px-11">
      <div class="flex flex-col gap-0 border border-gray-900 h-80">
          <div class="flex flex-col items-center w-full h-full">
-            <iframe 
-                    class="h-80 w-full"
-                    src=" https://www.youtube.com/embed/zihoyz0u_cs "
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen>
-                </iframe>
+          <iframe 
+            class="h-80 w-full"
+            src="https://www.youtube.com/embed/5Vuxns6RILk"
+            allow="accelerometer; autoplay; 
+              clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            frameborder="0"
+            >
+          </iframe>
          </div>
      </div>
      <div class="flex flex-col gap-0 border border-bg-tombol h-80 ">
@@ -264,12 +268,15 @@
     </div>
     <div class="flex flex-col gap-0 border border-gray-900 h-80">
         <div class="flex flex-col items-center w-full h-full">
-           <iframe 
-                   class="h-80 w-full"
-                   src=" https://www.youtube.com/embed/zihoyz0u_cs "
-                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                   allowFullScreen>
-               </iframe>
+          <iframe 
+          class="h-80 w-full"
+          src="https://www.youtube.com/embed/5Vuxns6RILk"
+          allow="accelerometer; autoplay; 
+            clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          frameborder="0"
+          >
+        </iframe>
         </div>
     </div>
     <div class="flex flex-col gap-0 border border-bg-tombol h-80 ">
@@ -306,12 +313,15 @@
     </div>
     <div class="flex flex-col gap-0 border border-gray-900 h-80">
         <div class="flex flex-col items-center w-full h-full">
-           <iframe 
-                   class="h-80 w-full"
-                   src=" https://www.youtube.com/embed/zihoyz0u_cs "
-                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                   allowFullScreen>
-               </iframe>
+          <iframe 
+          class="h-80 w-full"
+          src="https://www.youtube.com/embed/5Vuxns6RILk"
+          allow="accelerometer; autoplay; 
+            clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          frameborder="0"
+          >
+        </iframe>
         </div>
     </div>
     <div class="flex flex-col gap-0 border border-bg-tombol h-80 ">
@@ -332,12 +342,15 @@
     </div>
     <div class="flex flex-col gap-0 border border-gray-900 h-80">
         <div class="flex flex-col items-center w-full h-full">
-           <iframe 
-                   class="h-80 w-full"
-                   src=" https://www.youtube.com/embed/zihoyz0u_cs "
-                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                   allowFullScreen>
-               </iframe>
+          <iframe 
+          class="h-80 w-full"
+          src="https://www.youtube.com/embed/XTtnS7cqH_s"
+          allow="accelerometer; autoplay; 
+            clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          frameborder="0"
+          >
+        </iframe>
         </div>
     </div>
      

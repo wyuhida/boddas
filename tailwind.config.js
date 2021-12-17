@@ -27,6 +27,9 @@ module.exports = {
         'bookmark-tab': '#FFF2ED',
       },
     },
+    variants: {
+      display: ['group-hover'],
+    },
     minHeight: {
       '663': '500px',
     },
