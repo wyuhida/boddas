@@ -44,9 +44,7 @@
 <section class="lg:py-12 px-12">
     <div class="grid grid-cols-1 w-3/4 lg:w-3/4 inline-grid">
         <div class="grid grid-cols-2 gap-2 ">
-            <div class="
-           
-            ">
+            <div class="">
                 <img 
                 class="shadow-gray-800 shadow-xl w-96 mx-auto h-96 object-cover justify-center"
                 src="{{asset('images/produk-section1.jpg')}}" 
@@ -102,21 +100,21 @@
 
             <div class="mx-auto py-3">
                 <img
-                class="w-24 mx-auto rounded border-gray-300 inline-block text-center object-center object-cover
+                class="w-24 h-24 mx-auto rounded border-gray-300 inline-block text-center object-center object-cover
                 items-center justify-center"
                  src="{{asset('images/produk-section1.jpg')}}" alt="">
                  <img
-                 class="w-24 mx-auto rounded border-gray-300 inline-block text-center object-center object-cover
+                 class="w-24 h-24 mx-auto rounded border-gray-300 inline-block text-center object-center object-cover
                  items-center justify-center"
                   src="{{asset('images/produk-section1.jpg')}}" alt="">
                   <img
-                  class="w-24 mx-auto rounded border-gray-300 inline-block text-center object-center object-cover
-                  items-center justify-center"
-                   src="{{asset('images/produk-section1.jpg')}}" alt="">
-                   <img
-                   class="w-24 mx-auto rounded border-gray-300 inline-block text-center object-center object-cover
-                   items-center justify-center"
-                    src="{{asset('images/produk-section1.jpg')}}" alt="">
+                class="w-24 h-24 mx-auto rounded border-gray-300 inline-block text-center object-center object-cover
+                items-center justify-center"
+                 src="{{asset('images/produk-section1.jpg')}}" alt="">
+                 <img
+                 class="w-24 h-24 mx-auto rounded border-gray-300 inline-block text-center object-center object-cover
+                 items-center justify-center"
+                  src="{{asset('images/produk-section1.jpg')}}" alt="">
             </div>
 
             <div class="py-10 inline relative">
@@ -161,53 +159,52 @@
         </div>
         <!-- Tab -->
         
-    <div x-data="{
-        activeTab:1,
-        activeClass:'h-10 px-4 py-5 -mb-px text-sm text-center text-bg-tombol bg-transparent border-b-2 border-bg-tombol sm:text-base dark:border-bg-tombol dark:text-bg-tombol whitespace-nowrap focus:outline-none',
-        inactiveClass:'h-10 px-4 py-5 -mb-px text-sm text-center sm:text-base dark:border-bg-tombol dark:text-bg-tombol whitespace-nowrap focus:outline-none'
-    }"class="border-b border-gray-200 dark:border-gray-700">
-        <button x-on:click="activeTab = 1" :class="activeTab === 1 ? activeClass : inactiveClass">
-            Description
-        </button>
+        <div x-data="{
+            activeTab:1,
+            activeClass:'h-10 px-4 py-5 -mb-px text-sm text-center text-bg-tombol bg-transparent border-b-2 border-bg-tombol sm:text-base dark:border-bg-tombol dark:text-bg-tombol whitespace-nowrap focus:outline-none',
+            inactiveClass:'h-10 px-4 py-5 -mb-px text-sm text-center sm:text-base dark:border-bg-tombol dark:text-bg-tombol whitespace-nowrap focus:outline-none'
+            }"class="border-b border-gray-200 dark:border-gray-700">
+            <button x-on:click="activeTab = 1" :class="activeTab === 1 ? activeClass : inactiveClass">
+                Description
+            </button>
 
-        <button x-on:click="activeTab = 2" :class="activeTab === 2 ? activeClass : inactiveClass">
-            Payment Method
-        </button>
+            <button x-on:click="activeTab = 2" :class="activeTab === 2 ? activeClass : inactiveClass">
+                Payment Method
+            </button>
 
-        <div class=" relative">
-            <div x-show="activeTab === 1" class="px-4 py-3 border-2 
-            h-2/5 bg-bookmark-tab">
-               d Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus interdum sed quam et maximus. Nulla consectetur nisl sit amet massa aliquet condimentum. Nulla tincidunt vel lectus quis tincidunt. Quisque et dui tortor. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur lobortis eu felis a auctor. Nam diam urna, ultricies quis auctor non, ultrices a felis. Suspendisse eget fermentum magna, quis facilisis magna. Integer luctus blandit posuere. Quisque sit amet odio massa. Suspendisse dignissim eu eros nec molestie. Sed interdum mi in felis aliquet, quis varius dolor dictum.
+            <div class=" relative">
+                <div x-show="activeTab === 1" class="px-4 py-3 border-2 
+                h-2/5 bg-bookmark-tab">
+                d Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus interdum sed quam et maximus. Nulla consectetur nisl sit amet massa aliquet condimentum. Nulla tincidunt vel lectus quis tincidunt. Quisque et dui tortor. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur lobortis eu felis a auctor. Nam diam urna, ultricies quis auctor non, ultrices a felis. Suspendisse eget fermentum magna, quis facilisis magna. Integer luctus blandit posuere. Quisque sit amet odio massa. Suspendisse dignissim eu eros nec molestie. Sed interdum mi in felis aliquet, quis varius dolor dictum.
 
-                Nunc sodales vehicula diam, ac venenatis tortor suscipit quis. Integer aliquam mattis sem at aliquam. Proin placerat quam vehicula, molestie lorem eget, volutpat mauris. Aenean finibus ultricies suscipit. Maecenas euismod tortor id turpis tincidunt fringilla. Mauris consectetur ultricies dignissim. Pellentesque sed dui ac tellus viverra laoreet id vel mi. Nunc rutrum ante et dolor sollicitudin egestas. Curabitur quis lacinia mi.
-                
-                Sed ut nunc mi. Cras ut consectetur est, eget ornare magna. Mauris finibus porta orci, at dignissim nulla consequat sed. Ut posuere nunc vitae leo fermentum viverra. Mauris id urna a sem convallis fermentum id at dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin eget dignissim urna, et tempor enim. Quisque enim orci, hendrerit eget metus vel, facilisis malesuada tortor. Maecenas pretium dapibus faucibus. Praesent in erat enim. Fusce faucibus sit amet lorem quis facilisis. Nam sed enim vitae est gravida luctus nec in turpis.
-                Ut porttitor, enim efficitur gravida bibendum, ex ante sodales nisl, sit amet vulputate urna leo in magna. Sed viverra libero dignissim turpis fermentum pellentesque. Phasellus a turpis mauris. Nunc rhoncus cursus leo maximus lacinia. Vivamus fermentum sit amet arcu eget venenatis. Sed luctus neque vitae odio feugiat, auctor ultricies magna scelerisque. Nullam nunc tellus, euismod at lectus faucibus, egestas ornare leo. Mauris tristique ac quam a aliquam. Proin ac massa et nibh tempus ullamcorper eu et ante. Praesent tristique tempor dolor a egestas. Aliquam pharetra justo in odio pellentesque congue. Duis dignissim eros quis magna feugiat, sed semper lorem porttitor. Phasellus finibus magna scelerisque velit egestas fermentum.
+                    Nunc sodales vehicula diam, ac venenatis tortor suscipit quis. Integer aliquam mattis sem at aliquam. Proin placerat quam vehicula, molestie lorem eget, volutpat mauris. Aenean finibus ultricies suscipit. Maecenas euismod tortor id turpis tincidunt fringilla. Mauris consectetur ultricies dignissim. Pellentesque sed dui ac tellus viverra laoreet id vel mi. Nunc rutrum ante et dolor sollicitudin egestas. Curabitur quis lacinia mi.
+                    
+                    Sed ut nunc mi. Cras ut consectetur est, eget ornare magna. Mauris finibus porta orci, at dignissim nulla consequat sed. Ut posuere nunc vitae leo fermentum viverra. Mauris id urna a sem convallis fermentum id at dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin eget dignissim urna, et tempor enim. Quisque enim orci, hendrerit eget metus vel, facilisis malesuada tortor. Maecenas pretium dapibus faucibus. Praesent in erat enim. Fusce faucibus sit amet lorem quis facilisis. Nam sed enim vitae est gravida luctus nec in turpis.
+                    Ut porttitor, enim efficitur gravida bibendum, ex ante sodales nisl, sit amet vulputate urna leo in magna. Sed viverra libero dignissim turpis fermentum pellentesque. Phasellus a turpis mauris. Nunc rhoncus cursus leo maximus lacinia. Vivamus fermentum sit amet arcu eget venenatis. Sed luctus neque vitae odio feugiat, auctor ultricies magna scelerisque. Nullam nunc tellus, euismod at lectus faucibus, egestas ornare leo. Mauris tristique ac quam a aliquam. Proin ac massa et nibh tempus ullamcorper eu et ante. Praesent tristique tempor dolor a egestas. Aliquam pharetra justo in odio pellentesque congue. Duis dignissim eros quis magna feugiat, sed semper lorem porttitor. Phasellus finibus magna scelerisque velit egestas fermentum.
 
-                Integer vel velit diam. Proin porttitor sagittis ultrices. Cras sed ipsum diam. Phasellus in neque at ligula dictum euismod non eu tortor. Praesent dictum iaculis sem pellentesque semper. Phasellus nisl nibh, rutrum eget orci sed, blandit aliquam mauris. Donec eu diam id felis sagittis eleifend ac nec mi. Sed id rutrum odio. Morbi ac nunc finibus, faucibus lacus lacinia, sodales lorem.
+                    Integer vel velit diam. Proin porttitor sagittis ultrices. Cras sed ipsum diam. Phasellus in neque at ligula dictum euismod non eu tortor. Praesent dictum iaculis sem pellentesque semper. Phasellus nisl nibh, rutrum eget orci sed, blandit aliquam mauris. Donec eu diam id felis sagittis eleifend ac nec mi. Sed id rutrum odio. Morbi ac nunc finibus, faucibus lacus lacinia, sodales lorem.
+                </div>
+                <div x-show="activeTab === 2" class="px-4 py-3 border-2 
+                h-2/5 bg-bookmark-tab">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus interdum sed quam et maximus. Nulla consectetur nisl sit amet massa aliquet condimentum. Nulla tincidunt vel lectus quis tincidunt. Quisque et dui tortor. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur lobortis eu felis a auctor. Nam diam urna, ultricies quis auctor non, ultrices a felis. Suspendisse eget fermentum magna, quis facilisis magna. Integer luctus blandit posuere. Quisque sit amet odio massa. Suspendisse dignissim eu eros nec molestie. Sed interdum mi in felis aliquet, quis varius dolor dictum.
+
+                    Nunc sodales vehicula diam, ac venenatis tortor suscipit quis. Integer aliquam mattis sem at aliquam. Proin placerat quam vehicula, molestie lorem eget, volutpat mauris. Aenean finibus ultricies suscipit. Maecenas euismod tortor id turpis tincidunt fringilla. Mauris consectetur ultricies dignissim. Pellentesque sed dui ac tellus viverra laoreet id vel mi. Nunc rutrum ante et dolor sollicitudin egestas. Curabitur quis lacinia mi.
+
+                    Sed ut nunc mi. Cras ut consectetur est, eget ornare magna. Mauris finibus porta orci, at dignissim nulla consequat sed. Ut posuere nunc vitae leo fermentum viverra. Mauris id urna a sem convallis fermentum id at dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin eget dignissim urna, et tempor enim. Quisque enim orci, hendrerit eget metus vel, facilisis malesuada tortor. Maecenas pretium dapibus faucibus. Praesent in erat enim. Fusce faucibus sit amet lorem quis facilisis. Nam sed enim vitae est gravida luctus nec in turpis.
+                </div>
             </div>
-            <div x-show="activeTab === 2" class="px-4 py-3 border-2 
-            h-2/5 bg-bookmark-tab">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus interdum sed quam et maximus. Nulla consectetur nisl sit amet massa aliquet condimentum. Nulla tincidunt vel lectus quis tincidunt. Quisque et dui tortor. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur lobortis eu felis a auctor. Nam diam urna, ultricies quis auctor non, ultrices a felis. Suspendisse eget fermentum magna, quis facilisis magna. Integer luctus blandit posuere. Quisque sit amet odio massa. Suspendisse dignissim eu eros nec molestie. Sed interdum mi in felis aliquet, quis varius dolor dictum.
 
-                Nunc sodales vehicula diam, ac venenatis tortor suscipit quis. Integer aliquam mattis sem at aliquam. Proin placerat quam vehicula, molestie lorem eget, volutpat mauris. Aenean finibus ultricies suscipit. Maecenas euismod tortor id turpis tincidunt fringilla. Mauris consectetur ultricies dignissim. Pellentesque sed dui ac tellus viverra laoreet id vel mi. Nunc rutrum ante et dolor sollicitudin egestas. Curabitur quis lacinia mi.
-
-                Sed ut nunc mi. Cras ut consectetur est, eget ornare magna. Mauris finibus porta orci, at dignissim nulla consequat sed. Ut posuere nunc vitae leo fermentum viverra. Mauris id urna a sem convallis fermentum id at dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin eget dignissim urna, et tempor enim. Quisque enim orci, hendrerit eget metus vel, facilisis malesuada tortor. Maecenas pretium dapibus faucibus. Praesent in erat enim. Fusce faucibus sit amet lorem quis facilisis. Nam sed enim vitae est gravida luctus nec in turpis.
-            </div>
         </div>
-
-    </div>
-
-    
-
         <!-- end tab -->
     </div>
+    <!-- best seller -->
     <div class="grid grid-cols-1 border border-blue lg:w-1/4 float-right h-full">
         <h2 class="text-left text-bookmark-white  font-Roboto text-lg">Best Seller</h2>
         <div class="max-w-xs mx-auto overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800">
            
     
-            <img class="object-cover w-full h-48 mt-2" src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=320&q=80" alt="NIKE AIR">
+            <img class="object-cover w-full h-48 mt-2" 
+                src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=320&q=80" alt="NIKE AIR">
     
             
             <div class="px-4 py-2 h-28">
@@ -235,6 +232,7 @@
             </div>
         </div>
     </div>
+    <!-- best seller -->
 </section>
 
 <section class="py-20 ">
@@ -248,25 +246,37 @@
     <div class="container 
         grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-16 px-11 gap-4">
         <div class="flex flex-col border border-gray-300 h-max hover:border-bg-tombol border-2">
-          <div class="items-center mx-auto mt-8">
+          <div class="items-center mx-auto mt-8 max-h-40">
             <img 
-            class="rounded-full w-fit-content"
-            src="{{asset('images/pisang.png')}}" alt="">
+            class="rounded-full w-48 h-48 justify-center object-cover"
+            src="{{asset('images/produk-section1.jpg')}}" alt="">
           </div>
-          <div class="items-center mx-auto mt-4 justify-center">
+
+          <div class="items-center mx-auto mt-5 justify-center">
             <span class="inline-block flex overflow-hidden ">
-               <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-               <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-               <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-               <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-               <img src="{{asset('images/star1.png')}}" alt="" srcset="">
+                <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
             </span>
           </div>
+
           <div class="px-12 text-center sm:px-0 w-full">
-            <h2 class="text-xl">Summer Veganie</h2>
+            <h2 class="text-xl mt-3">Summer Veganie</h2>
             <del class="text-sm">Rp 100.000</del>
             <h3 class="text-2xl text-bg-tombol">Rp 50.000</h3>
-            <div class="mt-8 py-5">
+            <div class="py-4">
                 <a href="#" class="px-2 py-2 
                     rounded text-bg-tombol 
                     transition-colors 
@@ -282,25 +292,37 @@
         </div>
         
         <div class="flex flex-col border border-gray-300 h-max hover:border-bg-tombol border-2">
-            <div class="items-center mx-auto mt-8">
+            <div class="items-center mx-auto mt-8 max-h-40">
               <img 
-              class="rounded-full w-fit-content"
-              src="{{asset('images/pepaya.png')}}" alt="">
+              class="rounded-full w-48 h-48 justify-center object-cover"
+              src="{{asset('images/produk-section1.jpg')}}" alt="">
             </div>
-            <div class="items-center mx-auto mt-4 justify-center">
-              <span class="inline-block flex">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
+  
+            <div class="items-center mx-auto mt-5 justify-center">
+              <span class="inline-block flex overflow-hidden ">
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                    </svg>
+                    <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                    </svg>
+                    <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                    </svg>
+                    <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                    </svg>
+                    <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                    </svg>
               </span>
             </div>
+  
             <div class="px-12 text-center sm:px-0 w-full">
-              <h2 class="text-xl">Summer Veganie</h2>
+              <h2 class="text-xl mt-3">Summer Veganie</h2>
               <del class="text-sm">Rp 100.000</del>
               <h3 class="text-2xl text-bg-tombol">Rp 50.000</h3>
-              <div class="mt-8 py-5">
+              <div class="py-4">
                   <a href="#" class="px-2 py-2 
                       rounded text-bg-tombol 
                       transition-colors 
@@ -314,27 +336,40 @@
             </div>
           
         </div>
+          
 
         <div class="flex flex-col border border-gray-300 h-max hover:border-bg-tombol border-2">
-            <div class="items-center mx-auto mt-8">
+            <div class="items-center mx-auto mt-8 max-h-40">
               <img 
-              class="rounded-full w-fit-content"
-              src="{{asset('images/alpukat.png')}}" alt="">
+              class="rounded-full w-48 h-48 justify-center object-cover"
+              src="{{asset('images/produk-section1.jpg')}}" alt="">
             </div>
-            <div class="items-center mx-auto mt-4 justify-center">
-              <span class="inline-block flex">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
+  
+            <div class="items-center mx-auto mt-5 justify-center">
+              <span class="inline-block flex overflow-hidden ">
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                    </svg>
+                    <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                    </svg>
+                    <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                    </svg>
+                    <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                    </svg>
+                    <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                    </svg>
               </span>
             </div>
+  
             <div class="px-12 text-center sm:px-0 w-full">
-              <h2 class="text-xl">Summer Veganie</h2>
+              <h2 class="text-xl mt-3">Summer Veganie</h2>
               <del class="text-sm">Rp 100.000</del>
               <h3 class="text-2xl text-bg-tombol">Rp 50.000</h3>
-              <div class="mt-8 py-5">
+              <div class="py-4">
                   <a href="#" class="px-2 py-2 
                       rounded text-bg-tombol 
                       transition-colors 
@@ -348,27 +383,40 @@
             </div>
           
         </div>
+          
 
         <div class="flex flex-col border border-gray-300 h-max hover:border-bg-tombol border-2">
-            <div class="items-center mx-auto mt-8">
+            <div class="items-center mx-auto mt-8 max-h-40">
               <img 
-              class="rounded-full w-fit-content"
-              src="{{asset('images/jeruk.png')}}" alt="">
+              class="rounded-full w-48 h-48 justify-center object-cover"
+              src="{{asset('images/produk-section1.jpg')}}" alt="">
             </div>
-            <div class="items-center mx-auto mt-4 justify-center">
-              <span class="inline-block flex">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
+  
+            <div class="items-center mx-auto mt-5 justify-center">
+              <span class="inline-block flex overflow-hidden ">
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                    </svg>
+                    <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                    </svg>
+                    <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                    </svg>
+                    <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                    </svg>
+                    <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                    </svg>
               </span>
             </div>
+  
             <div class="px-12 text-center sm:px-0 w-full">
-              <h2 class="text-xl">Summer Veganie</h2>
+              <h2 class="text-xl mt-3">Summer Veganie</h2>
               <del class="text-sm">Rp 100.000</del>
               <h3 class="text-2xl text-bg-tombol">Rp 50.000</h3>
-              <div class="mt-8 py-5">
+              <div class="py-4">
                   <a href="#" class="px-2 py-2 
                       rounded text-bg-tombol 
                       transition-colors 
@@ -382,8 +430,6 @@
             </div>
           
         </div>
-
-    
 
     </div>
     <!-- end product -->

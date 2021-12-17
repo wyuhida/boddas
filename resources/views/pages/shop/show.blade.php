@@ -75,25 +75,37 @@
     <div class="container 
         grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-16 px-11 gap-4">
         <div class="flex flex-col border border-gray-300 h-max hover:border-bg-tombol border-2">
-          <div class="items-center mx-auto mt-8">
+          <div class="items-center mx-auto mt-8 max-h-40">
             <img 
-            class="rounded-full w-fit-content"
-            src="{{asset('images/pisang.png')}}" alt="">
+            class="rounded-full w-48 h-48 justify-center object-cover"
+            src="{{asset('images/produk-section1.jpg')}}" alt="">
           </div>
-          <div class="items-center mx-auto mt-4 justify-center">
+
+          <div class="items-center mx-auto mt-5 justify-center">
             <span class="inline-block flex overflow-hidden ">
-               <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-               <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-               <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-               <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-               <img src="{{asset('images/star1.png')}}" alt="" srcset="">
+                <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
             </span>
           </div>
+
           <div class="px-12 text-center sm:px-0 w-full">
-            <h2 class="text-xl">Summer Veganie</h2>
+            <h2 class="text-xl mt-3">Summer Veganie</h2>
             <del class="text-sm">Rp 100.000</del>
             <h3 class="text-2xl text-bg-tombol">Rp 50.000</h3>
-            <div class="mt-8 py-5">
+            <div class="py-4">
                 <a href="#" class="px-2 py-2 
                     rounded text-bg-tombol 
                     transition-colors 
@@ -109,234 +121,325 @@
         </div>
         
         <div class="flex flex-col border border-gray-300 h-max hover:border-bg-tombol border-2">
-            <div class="items-center mx-auto mt-8">
-              <img 
-              class="rounded-full w-fit-content"
-              src="{{asset('images/pepaya.png')}}" alt="">
+          <div class="items-center mx-auto mt-8 max-h-40">
+            <img 
+            class="rounded-full w-48 h-48 justify-center object-cover"
+            src="{{asset('images/produk-section1.jpg')}}" alt="">
+          </div>
+
+          <div class="items-center mx-auto mt-5 justify-center">
+            <span class="inline-block flex overflow-hidden ">
+                <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+            </span>
+          </div>
+
+          <div class="px-12 text-center sm:px-0 w-full">
+            <h2 class="text-xl mt-3">Summer Veganie</h2>
+            <del class="text-sm">Rp 100.000</del>
+            <h3 class="text-2xl text-bg-tombol">Rp 50.000</h3>
+            <div class="py-4">
+                <a href="#" class="px-2 py-2 
+                    rounded text-bg-tombol 
+                    transition-colors 
+                    duration-200 transform 
+                     border border-bg-tombol
+                    text-bg-tombol
+                    ">
+                    Discover Now
+                </a>
             </div>
-            <div class="items-center mx-auto mt-4 justify-center">
-              <span class="inline-block flex">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-              </span>
-            </div>
-            <div class="px-12 text-center sm:px-0 w-full">
-              <h2 class="text-xl">Summer Veganie</h2>
-              <del class="text-sm">Rp 100.000</del>
-              <h3 class="text-2xl text-bg-tombol">Rp 50.000</h3>
-              <div class="mt-8 py-5">
-                  <a href="#" class="px-2 py-2 
-                      rounded text-bg-tombol 
-                      transition-colors 
-                      duration-200 transform 
-                       border border-bg-tombol
-                      text-bg-tombol
-                      ">
-                      Discover Now
-                  </a>
-              </div>
-            </div>
-          
+          </div>
+        
         </div>
 
         <div class="flex flex-col border border-gray-300 h-max hover:border-bg-tombol border-2">
-            <div class="items-center mx-auto mt-8">
-              <img 
-              class="rounded-full w-fit-content"
-              src="{{asset('images/alpukat.png')}}" alt="">
+          <div class="items-center mx-auto mt-8 max-h-40">
+            <img 
+            class="rounded-full w-48 h-48 justify-center object-cover"
+            src="{{asset('images/produk-section1.jpg')}}" alt="">
+          </div>
+
+          <div class="items-center mx-auto mt-5 justify-center">
+            <span class="inline-block flex overflow-hidden ">
+                <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+            </span>
+          </div>
+
+          <div class="px-12 text-center sm:px-0 w-full">
+            <h2 class="text-xl mt-3">Summer Veganie</h2>
+            <del class="text-sm">Rp 100.000</del>
+            <h3 class="text-2xl text-bg-tombol">Rp 50.000</h3>
+            <div class="py-4">
+                <a href="#" class="px-2 py-2 
+                    rounded text-bg-tombol 
+                    transition-colors 
+                    duration-200 transform 
+                     border border-bg-tombol
+                    text-bg-tombol
+                    ">
+                    Discover Now
+                </a>
             </div>
-            <div class="items-center mx-auto mt-4 justify-center">
-              <span class="inline-block flex">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-              </span>
-            </div>
-            <div class="px-12 text-center sm:px-0 w-full">
-              <h2 class="text-xl">Summer Veganie</h2>
-              <del class="text-sm">Rp 100.000</del>
-              <h3 class="text-2xl text-bg-tombol">Rp 50.000</h3>
-              <div class="mt-8 py-5">
-                  <a href="#" class="px-2 py-2 
-                      rounded text-bg-tombol 
-                      transition-colors 
-                      duration-200 transform 
-                       border border-bg-tombol
-                      text-bg-tombol
-                      ">
-                      Discover Now
-                  </a>
-              </div>
-            </div>
-          
+          </div>
+        
         </div>
 
         <div class="flex flex-col border border-gray-300 h-max hover:border-bg-tombol border-2">
-            <div class="items-center mx-auto mt-8">
-              <img 
-              class="rounded-full w-fit-content"
-              src="{{asset('images/jeruk.png')}}" alt="">
+          <div class="items-center mx-auto mt-8 max-h-40">
+            <img 
+            class="rounded-full w-48 h-48 justify-center object-cover"
+            src="{{asset('images/produk-section1.jpg')}}" alt="">
+          </div>
+
+          <div class="items-center mx-auto mt-5 justify-center">
+            <span class="inline-block flex overflow-hidden ">
+                <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+            </span>
+          </div>
+
+          <div class="px-12 text-center sm:px-0 w-full">
+            <h2 class="text-xl mt-3">Summer Veganie</h2>
+            <del class="text-sm">Rp 100.000</del>
+            <h3 class="text-2xl text-bg-tombol">Rp 50.000</h3>
+            <div class="py-4">
+                <a href="#" class="px-2 py-2 
+                    rounded text-bg-tombol 
+                    transition-colors 
+                    duration-200 transform 
+                     border border-bg-tombol
+                    text-bg-tombol
+                    ">
+                    Discover Now
+                </a>
             </div>
-            <div class="items-center mx-auto mt-4 justify-center">
-              <span class="inline-block flex">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-              </span>
-            </div>
-            <div class="px-12 text-center sm:px-0 w-full">
-              <h2 class="text-xl">Summer Veganie</h2>
-              <del class="text-sm">Rp 100.000</del>
-              <h3 class="text-2xl text-bg-tombol">Rp 50.000</h3>
-              <div class="mt-8 py-5">
-                  <a href="#" class="px-2 py-2 
-                      rounded text-bg-tombol 
-                      transition-colors 
-                      duration-200 transform 
-                       border border-bg-tombol
-                      text-bg-tombol
-                      ">
-                      Discover Now
-                  </a>
-              </div>
-            </div>
+          </div>
+        
         </div>
 
         <div class="flex flex-col border border-gray-300 h-max hover:border-bg-tombol border-2">
-            <div class="items-center mx-auto mt-8">
-              <img 
-              class="rounded-full w-fit-content"
-              src="{{asset('images/jeruk.png')}}" alt="">
+          <div class="items-center mx-auto mt-8 max-h-40">
+            <img 
+            class="rounded-full w-48 h-48 justify-center object-cover"
+            src="{{asset('images/produk-section1.jpg')}}" alt="">
+          </div>
+
+          <div class="items-center mx-auto mt-5 justify-center">
+            <span class="inline-block flex overflow-hidden ">
+                <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+            </span>
+          </div>
+
+          <div class="px-12 text-center sm:px-0 w-full">
+            <h2 class="text-xl mt-3">Summer Veganie</h2>
+            <del class="text-sm">Rp 100.000</del>
+            <h3 class="text-2xl text-bg-tombol">Rp 50.000</h3>
+            <div class="py-4">
+                <a href="#" class="px-2 py-2 
+                    rounded text-bg-tombol 
+                    transition-colors 
+                    duration-200 transform 
+                     border border-bg-tombol
+                    text-bg-tombol
+                    ">
+                    Discover Now
+                </a>
             </div>
-            <div class="items-center mx-auto mt-4 justify-center">
-              <span class="inline-block flex">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-              </span>
-            </div>
-            <div class="px-12 text-center sm:px-0 w-full">
-              <h2 class="text-xl">Summer Veganie</h2>
-              <del class="text-sm">Rp 100.000</del>
-              <h3 class="text-2xl text-bg-tombol">Rp 50.000</h3>
-              <div class="mt-8 py-5">
-                  <a href="#" class="px-2 py-2 
-                      rounded text-bg-tombol 
-                      transition-colors 
-                      duration-200 transform 
-                       border border-bg-tombol
-                      text-bg-tombol
-                      ">
-                      Discover Now
-                  </a>
-              </div>
-            </div>
+          </div>
+        
         </div>
 
         <div class="flex flex-col border border-gray-300 h-max hover:border-bg-tombol border-2">
-            <div class="items-center mx-auto mt-8">
-              <img 
-              class="rounded-full w-fit-content"
-              src="{{asset('images/jeruk.png')}}" alt="">
+          <div class="items-center mx-auto mt-8 max-h-40">
+            <img 
+            class="rounded-full w-48 h-48 justify-center object-cover"
+            src="{{asset('images/produk-section1.jpg')}}" alt="">
+          </div>
+
+          <div class="items-center mx-auto mt-5 justify-center">
+            <span class="inline-block flex overflow-hidden ">
+                <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+            </span>
+          </div>
+
+          <div class="px-12 text-center sm:px-0 w-full">
+            <h2 class="text-xl mt-3">Summer Veganie</h2>
+            <del class="text-sm">Rp 100.000</del>
+            <h3 class="text-2xl text-bg-tombol">Rp 50.000</h3>
+            <div class="py-4">
+                <a href="#" class="px-2 py-2 
+                    rounded text-bg-tombol 
+                    transition-colors 
+                    duration-200 transform 
+                     border border-bg-tombol
+                    text-bg-tombol
+                    ">
+                    Discover Now
+                </a>
             </div>
-            <div class="items-center mx-auto mt-4 justify-center">
-              <span class="inline-block flex">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-              </span>
-            </div>
-            <div class="px-12 text-center sm:px-0 w-full">
-              <h2 class="text-xl">Summer Veganie</h2>
-              <del class="text-sm">Rp 100.000</del>
-              <h3 class="text-2xl text-bg-tombol">Rp 50.000</h3>
-              <div class="mt-8 py-5">
-                  <a href="#" class="px-2 py-2 
-                      rounded text-bg-tombol 
-                      transition-colors 
-                      duration-200 transform 
-                       border border-bg-tombol
-                      text-bg-tombol
-                      ">
-                      Discover Now
-                  </a>
-              </div>
-            </div>
+          </div>
+        
         </div>
+
         <div class="flex flex-col border border-gray-300 h-max hover:border-bg-tombol border-2">
-            <div class="items-center mx-auto mt-8">
-              <img 
-              class="rounded-full w-fit-content"
-              src="{{asset('images/jeruk.png')}}" alt="">
+          <div class="items-center mx-auto mt-8 max-h-40">
+            <img 
+            class="rounded-full w-48 h-48 justify-center object-cover"
+            src="{{asset('images/produk-section1.jpg')}}" alt="">
+          </div>
+
+          <div class="items-center mx-auto mt-5 justify-center">
+            <span class="inline-block flex overflow-hidden ">
+                <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+            </span>
+          </div>
+
+          <div class="px-12 text-center sm:px-0 w-full">
+            <h2 class="text-xl mt-3">Summer Veganie</h2>
+            <del class="text-sm">Rp 100.000</del>
+            <h3 class="text-2xl text-bg-tombol">Rp 50.000</h3>
+            <div class="py-4">
+                <a href="#" class="px-2 py-2 
+                    rounded text-bg-tombol 
+                    transition-colors 
+                    duration-200 transform 
+                     border border-bg-tombol
+                    text-bg-tombol
+                    ">
+                    Discover Now
+                </a>
             </div>
-            <div class="items-center mx-auto mt-4 justify-center">
-              <span class="inline-block flex">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-              </span>
-            </div>
-            <div class="px-12 text-center sm:px-0 w-full">
-              <h2 class="text-xl">Summer Veganie</h2>
-              <del class="text-sm">Rp 100.000</del>
-              <h3 class="text-2xl text-bg-tombol">Rp 50.000</h3>
-              <div class="mt-8 py-5">
-                  <a href="#" class="px-2 py-2 
-                      rounded text-bg-tombol 
-                      transition-colors 
-                      duration-200 transform 
-                       border border-bg-tombol
-                      text-bg-tombol
-                      ">
-                      Discover Now
-                  </a>
-              </div>
-            </div>
+          </div>
+        
         </div>
+
         <div class="flex flex-col border border-gray-300 h-max hover:border-bg-tombol border-2">
-            <div class="items-center mx-auto mt-8">
-              <img 
-              class="rounded-full w-fit-content"
-              src="{{asset('images/jeruk.png')}}" alt="">
+          <div class="items-center mx-auto mt-8 max-h-40">
+            <img 
+            class="rounded-full w-48 h-48 justify-center object-cover"
+            src="{{asset('images/produk-section1.jpg')}}" alt="">
+          </div>
+
+          <div class="items-center mx-auto mt-5 justify-center">
+            <span class="inline-block flex overflow-hidden ">
+                <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+            </span>
+          </div>
+
+          <div class="px-12 text-center sm:px-0 w-full">
+            <h2 class="text-xl mt-3">Summer Veganie</h2>
+            <del class="text-sm">Rp 100.000</del>
+            <h3 class="text-2xl text-bg-tombol">Rp 50.000</h3>
+            <div class="py-4">
+                <a href="#" class="px-2 py-2 
+                    rounded text-bg-tombol 
+                    transition-colors 
+                    duration-200 transform 
+                     border border-bg-tombol
+                    text-bg-tombol
+                    ">
+                    Discover Now
+                </a>
             </div>
-            <div class="items-center mx-auto mt-4 justify-center">
-              <span class="inline-block flex">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-              </span>
-            </div>
-            <div class="px-12 text-center sm:px-0 w-full">
-              <h2 class="text-xl">Summer Veganie</h2>
-              <del class="text-sm">Rp 100.000</del>
-              <h3 class="text-2xl text-bg-tombol">Rp 50.000</h3>
-              <div class="mt-8 py-5">
-                  <a href="#" class="px-2 py-2 
-                      rounded text-bg-tombol 
-                      transition-colors 
-                      duration-200 transform 
-                       border border-bg-tombol
-                      text-bg-tombol
-                      ">
-                      Discover Now
-                  </a>
-              </div>
-            </div>
+          </div>
+        
         </div>
 
     </div>
@@ -355,26 +458,26 @@
             
             <div class="py-7 text-center inline-block">
                 <h6 class="font-bold font-Inter text-pink-aktif text-3xl">1,500</h6>
-                <p class="text-sm tracking-wides px-4  text-gray-800 capitalize">
+                <p class="text-sm tracking-wides px-2  text-gray-800 capitalize">
                   Sold Product
                 </p>
             </div>
             <div class="py-7 text-center  inline-block">
                 <h6 class="font-bold font-Inter text-pink-aktif text-3xl">500</h6>
-                <p class="text-sm tracking-widest px-4 text-gray-800 capitalize">
+                <p class="text-sm tracking-widest px-2 text-gray-800 capitalize">
                     Positive Feedback
                 </p>
             </div>
 
             <div class="py-7 text-center  inline-block">
                 <h6 class="font-bold font-Inter text-pink-aktif text-3xl">400</h6>
-                <p class="text-sm tracking-widest px-4 text-gray-800 capitalize">
+                <p class="text-sm tracking-widest px-2 text-gray-800 capitalize">
                     Official Store
                 </p>
             </div>
            
             <div class="mt-8">
-                <a href="#" class="px-5 py-5  text-white transition-colors duration-200 transform bg-bg-tombol">
+                <a href="#" class="px-3 py-3  text-white transition-colors duration-200 transform bg-bg-tombol">
                     Get Special Promo
                 </a>
             </div>
@@ -401,25 +504,37 @@
     <div class="container 
         grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-16 px-11 gap-4">
         <div class="flex flex-col border border-gray-300 h-max hover:border-bg-tombol border-2">
-          <div class="items-center mx-auto mt-8">
+          <div class="items-center mx-auto mt-8 max-h-40">
             <img 
-            class="rounded-full w-fit-content"
-            src="{{asset('images/pisang.png')}}" alt="">
+            class="rounded-full w-48 h-48 justify-center object-cover"
+            src="{{asset('images/produk-section1.jpg')}}" alt="">
           </div>
-          <div class="items-center mx-auto mt-4 justify-center">
+
+          <div class="items-center mx-auto mt-5 justify-center">
             <span class="inline-block flex overflow-hidden ">
-               <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-               <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-               <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-               <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-               <img src="{{asset('images/star1.png')}}" alt="" srcset="">
+                <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
             </span>
           </div>
+
           <div class="px-12 text-center sm:px-0 w-full">
-            <h2 class="text-xl">Summer Veganie</h2>
+            <h2 class="text-xl mt-3">Summer Veganie</h2>
             <del class="text-sm">Rp 100.000</del>
             <h3 class="text-2xl text-bg-tombol">Rp 50.000</h3>
-            <div class="mt-8 py-5">
+            <div class="py-4">
                 <a href="#" class="px-2 py-2 
                     rounded text-bg-tombol 
                     transition-colors 
@@ -435,234 +550,323 @@
         </div>
         
         <div class="flex flex-col border border-gray-300 h-max hover:border-bg-tombol border-2">
-            <div class="items-center mx-auto mt-8">
-              <img 
-              class="rounded-full w-fit-content"
-              src="{{asset('images/pepaya.png')}}" alt="">
+          <div class="items-center mx-auto mt-8 max-h-40">
+            <img 
+            class="rounded-full w-48 h-48 justify-center object-cover"
+            src="{{asset('images/produk-section1.jpg')}}" alt="">
+          </div>
+
+          <div class="items-center mx-auto mt-5 justify-center">
+            <span class="inline-block flex overflow-hidden ">
+                <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+            </span>
+          </div>
+
+          <div class="px-12 text-center sm:px-0 w-full">
+            <h2 class="text-xl mt-3">Summer Veganie</h2>
+            <del class="text-sm">Rp 100.000</del>
+            <h3 class="text-2xl text-bg-tombol">Rp 50.000</h3>
+            <div class="py-4">
+                <a href="#" class="px-2 py-2 
+                    rounded text-bg-tombol 
+                    transition-colors 
+                    duration-200 transform 
+                     border border-bg-tombol
+                    text-bg-tombol
+                    ">
+                    Discover Now
+                </a>
             </div>
-            <div class="items-center mx-auto mt-4 justify-center">
-              <span class="inline-block flex">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-              </span>
-            </div>
-            <div class="px-12 text-center sm:px-0 w-full">
-              <h2 class="text-xl">Summer Veganie</h2>
-              <del class="text-sm">Rp 100.000</del>
-              <h3 class="text-2xl text-bg-tombol">Rp 50.000</h3>
-              <div class="mt-8 py-5">
-                  <a href="#" class="px-2 py-2 
-                      rounded text-bg-tombol 
-                      transition-colors 
-                      duration-200 transform 
-                       border border-bg-tombol
-                      text-bg-tombol
-                      ">
-                      Discover Now
-                  </a>
-              </div>
-            </div>
-          
+          </div>
+        
         </div>
 
         <div class="flex flex-col border border-gray-300 h-max hover:border-bg-tombol border-2">
-            <div class="items-center mx-auto mt-8">
-              <img 
-              class="rounded-full w-fit-content"
-              src="{{asset('images/alpukat.png')}}" alt="">
+          <div class="items-center mx-auto mt-8 max-h-40">
+            <img 
+            class="rounded-full w-48 h-48 justify-center object-cover"
+            src="{{asset('images/produk-section1.jpg')}}" alt="">
+          </div>
+
+          <div class="items-center mx-auto mt-5 justify-center">
+            <span class="inline-block flex overflow-hidden ">
+                <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+            </span>
+          </div>
+
+          <div class="px-12 text-center sm:px-0 w-full">
+            <h2 class="text-xl mt-3">Summer Veganie</h2>
+            <del class="text-sm">Rp 100.000</del>
+            <h3 class="text-2xl text-bg-tombol">Rp 50.000</h3>
+            <div class="py-4">
+                <a href="#" class="px-2 py-2 
+                    rounded text-bg-tombol 
+                    transition-colors 
+                    duration-200 transform 
+                     border border-bg-tombol
+                    text-bg-tombol
+                    ">
+                    Discover Now
+                </a>
             </div>
-            <div class="items-center mx-auto mt-4 justify-center">
-              <span class="inline-block flex">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-              </span>
-            </div>
-            <div class="px-12 text-center sm:px-0 w-full">
-              <h2 class="text-xl">Summer Veganie</h2>
-              <del class="text-sm">Rp 100.000</del>
-              <h3 class="text-2xl text-bg-tombol">Rp 50.000</h3>
-              <div class="mt-8 py-5">
-                  <a href="#" class="px-2 py-2 
-                      rounded text-bg-tombol 
-                      transition-colors 
-                      duration-200 transform 
-                       border border-bg-tombol
-                      text-bg-tombol
-                      ">
-                      Discover Now
-                  </a>
-              </div>
-            </div>
-          
+          </div>
+        
         </div>
 
         <div class="flex flex-col border border-gray-300 h-max hover:border-bg-tombol border-2">
-            <div class="items-center mx-auto mt-8">
-              <img 
-              class="rounded-full w-fit-content"
-              src="{{asset('images/jeruk.png')}}" alt="">
+          <div class="items-center mx-auto mt-8 max-h-40">
+            <img 
+            class="rounded-full w-48 h-48 justify-center object-cover"
+            src="{{asset('images/produk-section1.jpg')}}" alt="">
+          </div>
+
+          <div class="items-center mx-auto mt-5 justify-center">
+            <span class="inline-block flex overflow-hidden ">
+                <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+            </span>
+          </div>
+
+          <div class="px-12 text-center sm:px-0 w-full">
+            <h2 class="text-xl mt-3">Summer Veganie</h2>
+            <del class="text-sm">Rp 100.000</del>
+            <h3 class="text-2xl text-bg-tombol">Rp 50.000</h3>
+            <div class="py-4">
+                <a href="#" class="px-2 py-2 
+                    rounded text-bg-tombol 
+                    transition-colors 
+                    duration-200 transform 
+                     border border-bg-tombol
+                    text-bg-tombol
+                    ">
+                    Discover Now
+                </a>
             </div>
-            <div class="items-center mx-auto mt-4 justify-center">
-              <span class="inline-block flex">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-              </span>
-            </div>
-            <div class="px-12 text-center sm:px-0 w-full">
-              <h2 class="text-xl">Summer Veganie</h2>
-              <del class="text-sm">Rp 100.000</del>
-              <h3 class="text-2xl text-bg-tombol">Rp 50.000</h3>
-              <div class="mt-8 py-5">
-                  <a href="#" class="px-2 py-2 
-                      rounded text-bg-tombol 
-                      transition-colors 
-                      duration-200 transform 
-                       border border-bg-tombol
-                      text-bg-tombol
-                      ">
-                      Discover Now
-                  </a>
-              </div>
-            </div>
+          </div>
+        
         </div>
 
         <div class="flex flex-col border border-gray-300 h-max hover:border-bg-tombol border-2">
-            <div class="items-center mx-auto mt-8">
-              <img 
-              class="rounded-full w-fit-content"
-              src="{{asset('images/jeruk.png')}}" alt="">
+          <div class="items-center mx-auto mt-8 max-h-40">
+            <img 
+            class="rounded-full w-48 h-48 justify-center object-cover"
+            src="{{asset('images/produk-section1.jpg')}}" alt="">
+          </div>
+
+          <div class="items-center mx-auto mt-5 justify-center">
+            <span class="inline-block flex overflow-hidden ">
+                <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+            </span>
+          </div>
+
+          <div class="px-12 text-center sm:px-0 w-full">
+            <h2 class="text-xl mt-3">Summer Veganie</h2>
+            <del class="text-sm">Rp 100.000</del>
+            <h3 class="text-2xl text-bg-tombol">Rp 50.000</h3>
+            <div class="py-4">
+                <a href="#" class="px-2 py-2 
+                    rounded text-bg-tombol 
+                    transition-colors 
+                    duration-200 transform 
+                     border border-bg-tombol
+                    text-bg-tombol
+                    ">
+                    Discover Now
+                </a>
             </div>
-            <div class="items-center mx-auto mt-4 justify-center">
-              <span class="inline-block flex">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-              </span>
+          </div>
+        
+        </div>
+        <div class="flex flex-col border border-gray-300 h-max hover:border-bg-tombol border-2">
+          <div class="items-center mx-auto mt-8 max-h-40">
+            <img 
+            class="rounded-full w-48 h-48 justify-center object-cover"
+            src="{{asset('images/produk-section1.jpg')}}" alt="">
+          </div>
+
+          <div class="items-center mx-auto mt-5 justify-center">
+            <span class="inline-block flex overflow-hidden ">
+                <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+            </span>
+          </div>
+
+          <div class="px-12 text-center sm:px-0 w-full">
+            <h2 class="text-xl mt-3">Summer Veganie</h2>
+            <del class="text-sm">Rp 100.000</del>
+            <h3 class="text-2xl text-bg-tombol">Rp 50.000</h3>
+            <div class="py-4">
+                <a href="#" class="px-2 py-2 
+                    rounded text-bg-tombol 
+                    transition-colors 
+                    duration-200 transform 
+                     border border-bg-tombol
+                    text-bg-tombol
+                    ">
+                    Discover Now
+                </a>
             </div>
-            <div class="px-12 text-center sm:px-0 w-full">
-              <h2 class="text-xl">Summer Veganie</h2>
-              <del class="text-sm">Rp 100.000</del>
-              <h3 class="text-2xl text-bg-tombol">Rp 50.000</h3>
-              <div class="mt-8 py-5">
-                  <a href="#" class="px-2 py-2 
-                      rounded text-bg-tombol 
-                      transition-colors 
-                      duration-200 transform 
-                       border border-bg-tombol
-                      text-bg-tombol
-                      ">
-                      Discover Now
-                  </a>
-              </div>
-            </div>
+          </div>
+        
         </div>
 
         <div class="flex flex-col border border-gray-300 h-max hover:border-bg-tombol border-2">
-            <div class="items-center mx-auto mt-8">
-              <img 
-              class="rounded-full w-fit-content"
-              src="{{asset('images/jeruk.png')}}" alt="">
+          <div class="items-center mx-auto mt-8 max-h-40">
+            <img 
+            class="rounded-full w-48 h-48 justify-center object-cover"
+            src="{{asset('images/produk-section1.jpg')}}" alt="">
+          </div>
+
+          <div class="items-center mx-auto mt-5 justify-center">
+            <span class="inline-block flex overflow-hidden ">
+                <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+            </span>
+          </div>
+
+          <div class="px-12 text-center sm:px-0 w-full">
+            <h2 class="text-xl mt-3">Summer Veganie</h2>
+            <del class="text-sm">Rp 100.000</del>
+            <h3 class="text-2xl text-bg-tombol">Rp 50.000</h3>
+            <div class="py-4">
+                <a href="#" class="px-2 py-2 
+                    rounded text-bg-tombol 
+                    transition-colors 
+                    duration-200 transform 
+                     border border-bg-tombol
+                    text-bg-tombol
+                    ">
+                    Discover Now
+                </a>
             </div>
-            <div class="items-center mx-auto mt-4 justify-center">
-              <span class="inline-block flex">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-              </span>
-            </div>
-            <div class="px-12 text-center sm:px-0 w-full">
-              <h2 class="text-xl">Summer Veganie</h2>
-              <del class="text-sm">Rp 100.000</del>
-              <h3 class="text-2xl text-bg-tombol">Rp 50.000</h3>
-              <div class="mt-8 py-5">
-                  <a href="#" class="px-2 py-2 
-                      rounded text-bg-tombol 
-                      transition-colors 
-                      duration-200 transform 
-                       border border-bg-tombol
-                      text-bg-tombol
-                      ">
-                      Discover Now
-                  </a>
-              </div>
-            </div>
+          </div>
+        
         </div>
         <div class="flex flex-col border border-gray-300 h-max hover:border-bg-tombol border-2">
-            <div class="items-center mx-auto mt-8">
-              <img 
-              class="rounded-full w-fit-content"
-              src="{{asset('images/jeruk.png')}}" alt="">
+          <div class="items-center mx-auto mt-8 max-h-40">
+            <img 
+            class="rounded-full w-48 h-48 justify-center object-cover"
+            src="{{asset('images/produk-section1.jpg')}}" alt="">
+          </div>
+
+          <div class="items-center mx-auto mt-5 justify-center">
+            <span class="inline-block flex overflow-hidden ">
+                <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                  <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+            </span>
+          </div>
+
+          <div class="px-12 text-center sm:px-0 w-full">
+            <h2 class="text-xl mt-3">Summer Veganie</h2>
+            <del class="text-sm">Rp 100.000</del>
+            <h3 class="text-2xl text-bg-tombol">Rp 50.000</h3>
+            <div class="py-4">
+                <a href="#" class="px-2 py-2 
+                    rounded text-bg-tombol 
+                    transition-colors 
+                    duration-200 transform 
+                     border border-bg-tombol
+                    text-bg-tombol
+                    ">
+                    Discover Now
+                </a>
             </div>
-            <div class="items-center mx-auto mt-4 justify-center">
-              <span class="inline-block flex">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-              </span>
-            </div>
-            <div class="px-12 text-center sm:px-0 w-full">
-              <h2 class="text-xl">Summer Veganie</h2>
-              <del class="text-sm">Rp 100.000</del>
-              <h3 class="text-2xl text-bg-tombol">Rp 50.000</h3>
-              <div class="mt-8 py-5">
-                  <a href="#" class="px-2 py-2 
-                      rounded text-bg-tombol 
-                      transition-colors 
-                      duration-200 transform 
-                       border border-bg-tombol
-                      text-bg-tombol
-                      ">
-                      Discover Now
-                  </a>
-              </div>
-            </div>
-        </div>
-        <div class="flex flex-col border border-gray-300 h-max hover:border-bg-tombol border-2">
-            <div class="items-center mx-auto mt-8">
-              <img 
-              class="rounded-full w-fit-content"
-              src="{{asset('images/jeruk.png')}}" alt="">
-            </div>
-            <div class="items-center mx-auto mt-4 justify-center">
-              <span class="inline-block flex">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-              </span>
-            </div>
-            <div class="px-12 text-center sm:px-0 w-full">
-              <h2 class="text-xl">Summer Veganie</h2>
-              <del class="text-sm">Rp 100.000</del>
-              <h3 class="text-2xl text-bg-tombol">Rp 50.000</h3>
-              <div class="mt-8 py-5">
-                  <a href="#" class="px-2 py-2 
-                      rounded text-bg-tombol 
-                      transition-colors 
-                      duration-200 transform 
-                       border border-bg-tombol
-                      text-bg-tombol
-                      ">
-                      Discover Now
-                  </a>
-              </div>
-            </div>
+          </div>
+        
         </div>
 
     </div>
