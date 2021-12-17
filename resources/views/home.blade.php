@@ -28,7 +28,7 @@
               <div class="flex items-center justify-center lg:justify-end">
                   <div class="max-w-md">
                       <img class="object-cover object-center
-                      -mb-56 mt-5
+                      -mb-48 mt-5
                      " src="{{asset('images/Component 11.png')}}" alt="">
                   </div>
               </div>

@@ -734,6 +734,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-top: 2.5rem;
 }
 
+.-mb-52 {
+  margin-bottom: -13rem;
+}
+
+.-mb-48 {
+  margin-bottom: -12rem;
+}
+
 .block {
   display: block;
 }

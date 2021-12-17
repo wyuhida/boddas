@@ -827,7 +827,7 @@
           <div class="items-center mx-auto mt-8 max-h-40">
             <img 
             class="rounded-full w-48 h-48 justify-center object-cover"
-            src="{{asset('images/produk-section1.jpg')}}" alt="">
+            src="{{asset('image/produk-section1.jpg')}}" alt="">
           </div>
 
           <div class="items-center mx-auto mt-5 justify-center">

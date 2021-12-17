@@ -1,5 +1,5 @@
         
-<footer class="bg-bookmark-foot font-Poppins">
+<footer class="bg-bookmark-foot font-Poppins w-full">
     <div class="container px-12 py-4 mx-auto">
         <div class="lg:flex py-9">
             <div class="w-full lg:w-2/5  gap-20">
