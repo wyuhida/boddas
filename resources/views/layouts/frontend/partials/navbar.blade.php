@@ -41,7 +41,7 @@
                   </svg>
                   <span class="absolute top-0 left-0 p-1 text-xs text-white bg-blue-500 rounded-full"></span>
               </a> --}}
-              <a href="#" class="
+              <a href="{{route('backend.login')}}" class="
                   relative 
                   px-4 
                   text-gray-700 
@@ -50,7 +50,7 @@
                   dark:hover:text-gray-300">
                   Login
               </a>
-              <a href="#" class="
+              <a href="{{route('showRegister')}}" class="
                   relative
                   px-2
                   py-4 
