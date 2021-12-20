@@ -35,11 +35,20 @@ class ShopController extends Controller
             'item__contents.id_item'
         )
             ->join('users', 'items.update_by', '=', 'users.id')
+            ->orderBy('items.total_sold', 'DESC')
             ->get();
 
         $coll = collect($item);
-        $item = $coll->groupBy('id_item');
-        return view('pages.shop.show', ['item' => $item]);
+        $sort = $coll->sortByDesc('id_item');
+        $item = $sort->groupBy('id_item');
+
+        // popular produk
+        $pop = $coll;
+        $popular = $pop->groupBy('id_item');
+
+        return view('pages.shop.show', [
+            'item' => $item,
+        ]);
     }
 
     static function total_diskon()
@@ -64,11 +73,17 @@ class ShopController extends Controller
 
     public function detail_shop($id)
     {
-        $detail = DB::table('items')
+        $det = DB::table('items')
             ->join('item__contents', 'items.id', '=', 'item__contents.id_item')
             ->join('users', 'items.update_by', '=', 'users.id')
-            ->where('items.id', $id)
-            ->get();
+            ->join(
+                'category__items',
+                'items.id_category_item',
+                '=',
+                'category__items.id'
+            );
+        $detail = $det->where([['items.id', $id]])->get();
+
         return view('pages.shop.detail', [
             'detail' => $detail,
         ]);
@@ -79,13 +94,7 @@ class ShopController extends Controller
         if (empty(Auth::user()->id)) {
             return redirect()->route('backend.login');
         }
-
         $ids = auth()->user()->id;
-        // $detail = DB::table('items')
-        //     ->join('item__contents', 'items.id', '=', 'item__contents.id_item')
-        //     ->join('users', 'items.update_by', '=', 'users.id')
-        //     ->where('items.id', $id)
-        //     ->first();
         $qty = $request->quantity;
         $diskon = $request->diskon;
         $id_item = $request->id_item;
@@ -100,10 +109,11 @@ class ShopController extends Controller
 
         $transaksi = DB::table('transactions')->insertGetId([
             'id_user' => $ids,
-            'id_transaction_status' => 1,
+            'id_transaction_status' => 2,
             'total_price' => $harga_dis,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
+            'image' => '',
         ]);
 
         $trans_det = DB::table('transaction__details')->insert([
@@ -140,7 +150,7 @@ class ShopController extends Controller
             )
             ->where([
                 ['transactions.id_user', $ids],
-                ['transaction__statuses.id', 1],
+                ['transaction__statuses.id', 2],
             ])
             ->orderBy('transaction__details.id', 'DESC')
             ->first();
@@ -159,6 +169,16 @@ class ShopController extends Controller
 
     public function proses_pembayaran(Request $request)
     {
+        $this->validate(
+            $request,
+            [
+                'alamat' => 'required',
+                'phone_number' => 'required',
+            ],
+            [
+                'required' => 'Wajib Isi',
+            ]
+        );
         $ids = auth()->user()->id;
         $id_transaction = $request->id_transaction;
         $id_item = $request->id_item;
@@ -185,7 +205,7 @@ class ShopController extends Controller
                     ->where('id', $id_transaction)
                     ->update([
                         'image' => $name,
-                        'id_transaction_status' => 3,
+                        'id_transaction_status' => 1,
                     ]);
 
                 $updt_stock = Item::findOrFail($id_item);

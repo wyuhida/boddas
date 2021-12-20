@@ -129,7 +129,7 @@ class HomeController extends Controller
 
     public function compose(View $view)
     {
-        $fk = Company_Identity::first();
+        $fk = Company_Identity::orderBy('id', 'DESC')->first();
         $view->with('fk', $fk);
     }
 }

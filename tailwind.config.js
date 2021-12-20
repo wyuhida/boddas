@@ -25,6 +25,7 @@ module.exports = {
         'bookmark-black': '#262626',
         'bookmark-btn-min-plus': '#FFF0F1',
         'bookmark-tab': '#FFF2ED',
+        'bookmark-yellow': '#FFC600',
       },
     },
     variants: {

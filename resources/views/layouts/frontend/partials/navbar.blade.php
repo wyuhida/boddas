@@ -27,21 +27,22 @@
         <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
         <div class="items-center md:flex px-14 ">
             <div class="flex flex-col md:flex-row md:mx-6">
-                <a class="my-1 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0" href="{{route('home.index')}}">Home</a>
-                <a class="my-1 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0" href="{{route('show_shop')}}">Product</a>
-                <a class="my-1 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0" href="{{route('show_blog')}}">Blog</a>
-                <a class="my-1 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0" href="{{route('tentang_kami')}}">About</a>
-                <a class="my-1 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0" href="{{route('tentang_kami')}}">Contact Us</a>
+                <a class="my-1 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-bg-tombol dark:hover:text-bg-tombol md:mx-4 md:my-0" href="{{route('home.index')}}">Home</a>
+                <a class="my-1 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-bg-tombol dark:hover:text-bg-tombol md:mx-4 md:my-0" href="{{route('show_shop')}}">Product</a>
+                <a class="my-1 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-bg-tombol dark:hover:text-bg-tombol md:mx-4 md:my-0" href="{{route('show_blog')}}">Blog</a>
+                <a class="my-1 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-bg-tombol dark:hover:text-bg-tombol md:mx-4 md:my-0" href="{{route('tentang_kami')}}">About</a>
+                <a class="my-1 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-bg-tombol dark:hover:text-bg-tombol md:mx-4 md:my-0" href="{{route('tentang_kami')}}">Contact Us</a>
+
             </div>
             @guest
-            <a class="my-1 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0" href="{{route('showRegister')}}">Register</a>
-            <a class="my-1 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0" href="{{route('backend.login')}}">Login</a>
+            <a class="my-1 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-bg-tombol dark:hover:text-bg-tombol md:mx-4 md:my-0" href="{{route('showRegister')}}">Register</a>
+            <a class="my-1 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-bg-tombol dark:hover:text-bg-tombol md:mx-4 md:my-0" href="{{route('backend.login')}}">Login</a>
             @else
                 @if(Auth::user()->id_role == 3)
                     <div x-data="{ dropdownOpen: false }" class="flex justify-center md:block" class="ml-4">
                         <button @click="dropdownOpen = true" class="relative text-gray-700 hover:text-gray-600 dark:hover:text-gray-300 drop" href="#">
                             <img class="w-8 h-8 overflow-hidden border-2 rounded-full inline" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80" class="object-cover w-full h-full" alt="avatar">
-                            <span class="absolute top-0 left-0 p-1 text-xs text-white bg-blue-500 rounded-full"></span>
+                            <span class="absolute top-0 left-0 p-1 text-xs text-white bg-bg-tombol rounded-full"></span>
                             <p class="inline font-bold">{{auth()->user()->fullname}}</p>
                             <svg class="h-7 w-7 inline text-gray-900" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 20 20" fill="currentColor">
                                 <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
@@ -67,7 +68,7 @@
                                     <span class="font-bold" href="#">Dashboard</span>
                                 </p>
                             </a>
-                            <a href="{{ route('logout') }}" class=" items-center px-4 py-3 
+                            <a href="" class=" items-center px-4 py-3 
                                 border-b w-full
                                 border-gray-900 hover:bg-gray-100 ">
                                 <p class="text-gray-600 text-sm mx-auto">

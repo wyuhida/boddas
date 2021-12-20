@@ -46,7 +46,7 @@
                                 no telp
                             </label>
                             <div class="col-lg-10">
-                                <input type="number" 
+                                <input type="text" 
                                 name="num_phone" 
                                 
                                 class="form-control @error('facebok') is-invalid @enderror"> 

@@ -419,7 +419,7 @@ class AdminCompanyController extends Controller
     {
         $this->validate($request, [
             'company_name' => 'required',
-            'address_name' => 'required',
+            'address' => 'required',
             'facebook' => 'required',
             'instagram' => 'required',
             'youtube' => 'required',
@@ -430,7 +430,7 @@ class AdminCompanyController extends Controller
         $company = new Company_Identity();
         $ids = auth()->user()->id_role;
         $company->company_name = $request->company_name;
-        $company->address_name = $request->address_name;
+        $company->address_name = $request->address;
         $company->facebook = $request->facebook;
         $company->instagram = $request->instagram;
         $company->youtube = $request->youtube;
