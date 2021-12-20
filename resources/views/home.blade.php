@@ -9,7 +9,7 @@
    <section class="bg-hero-color dark:bg-gray-800">
     <div class="container lg:px-8 mx-auto flex flex-col md-col-1 lg-col-2">
         <div class="items-center lg:flex">
-            <div class="lg:w-1/2 px-12">
+            <div class="lg:w-1/2 px-2">
                 <h2 class="
                     text-6xl 
                     mt-20
@@ -36,6 +36,7 @@
           </div>
          
         </div>
+        
         <div class="px-11 mb-5 w-fit">
             <button type="button" 
                 class="text-white bg-bg-tombol 

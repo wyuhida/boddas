@@ -19,7 +19,7 @@
 
 
 <section class="bg-white dark:bg-gray-900 font-Inter">
-    <div class="container px-11 py-8 mx-auto">
+    <div class="container py-8 mx-auto">
         <div class="lg:flex lg:-mx-2">
          
 
@@ -166,15 +166,15 @@
             </div>
 
             <!-- side -->
-            <div class="space-y-3 lg:w-80 lg:px-2 lg:space-y-4  h-full bg-hero-color">
-                <div class="overflow-hidden rounded shadow-lg dark:bg-gray-800">
-                    <img class="object-cover w-full h-48" 
+            <div class="space-y-3 lg:w-1/3 lg:px-2 lg:space-y-4 h-full bg-hero-color border">
+                <div class="flex items-center overflow-hidden rounded py-5 justify-center border mx-5">
+                    <img class="object-cover items-center w-full h-64 shadow-lg dark:bg-gray-800" 
                     src="{{asset('images/bodas-cover.jpg')}}" alt="" srcset="">
                 </div>
-                <p class="text-left font-bold text-2xl">Boddas</p>
-                <p>Satu-satunya minuman serbuk collagen tanpa perasa dan pewarna pertama di Indonesia.fdsfds</p>
+                <p class="mx-5 text-left font-bold text-2xl">Boddas</p>
+                <p class="mx-5 text-left font-Inter text-sm">Satu-satunya minuman serbuk collagen tanpa perasa dan pewarna pertama di Indonesia.fdsfds</p>
                 
-                <div class="flex flex-col divide-x relative">
+                <div class="flex flex-col mx-5 divide-x relative">
                     <h1 class="text-lg font-bold font-Inter  w-fit">Lainnya</h1>
                     <div class="border-b top-0 border-gray-300 w-full"></div>
 
@@ -244,23 +244,21 @@
                 
                 
                 
-                <div class="flex flex-col divide-x relative">
+                <div class="flex flex-col mx-5 divide-x relative">
                     <h1 class="text-lg font-bold font-Inter  w-fit">Promo</h1>
                     <div class="border-b top-0 border-gray-300 w-full"></div>
 
                 </div>
                 
 
-                <div class="rounded shadow dark:bg-gray-800 relative">
-                    <img class="object-cover w-full h-48 bg-center brightness-50" 
+                <div class="rounded shadow  mx-5 dark:bg-gray-800 relative">
+                    <img class="object-cover w-full h-48 bg-center brightness-50 mb-10" 
                     src="{{asset('images/bodas-cover.jpg')}}" alt="" srcset="">
                     
                     <div class="absolute  text-xl bottom-0 left-0 w-32 px-3 mb-3">
                         <h1 class="text-white font-bold font-Inter">Discount 30% for all item</h1>
                     </div>
                 </div>
-
-
             </div>
             <!-- side-->
 

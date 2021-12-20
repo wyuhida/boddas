@@ -1,5 +1,5 @@
 <nav class="bg-white shadow-lg dark:bg-gray-800">
-    <div class="container px-5 py-3 mx-auto md:flex md:justify-between md:items-center">
+    <div class="container py-3 mx-auto md:flex md:justify-between md:items-center">
         <div class="flex items-center justify-between">
             <div>
                 <a class="

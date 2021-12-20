@@ -13,25 +13,21 @@
       
          <title>Home</title>    
          <!-- Plugins CSS -->
-         <link href={{ asset('vendors/css/plugins/plugins.css')}} rel="stylesheet">
+         {{-- <link href={{ asset('vendors/css/plugins/plugins.css')}} rel="stylesheet"> --}}
          <!-- REVOLUTION STYLE SHEETS -->
-         <link rel="stylesheet" type="text/css" href={{ asset('vendors/revolution/css/settings.css')}}>
+         {{-- <link rel="stylesheet" type="text/css" href={{ asset('vendors/revolution/css/settings.css')}}> --}}
          <!-- REVOLUTION LAYERS STYLES -->
-         <link rel="stylesheet" type="text/css" href={{ asset('vendors/revolution/css/layers.css')}}>
+         {{-- <link rel="stylesheet" type="text/css" href={{ asset('vendors/revolution/css/layers.css')}}> --}}
          <!-- REVOLUTION NAVIGATION STYLES -->
-         <link rel="stylesheet" type="text/css" href={{ asset('vendors/revolution/css/navigation.css')}}>
+         {{-- <link rel="stylesheet" type="text/css" href={{ asset('vendors/revolution/css/navigation.css')}}> --}}
          <!-- load css for cubeportfolio -->
-         <link rel="stylesheet" type="text/css" href={{ asset('vendors/cubeportfolio/css/cubeportfolio.min.css')}}>
-         <link rel='stylesheet' href={{asset('vendors/revolution/revolution-addons/particles/css/revolution.addon.particles.css?ver=1.0.3')}} type='text/css'>
-     
-         <link href={{ asset('vendors/css/style.css')}} rel="stylesheet">
-
+      {{-- <link rel="stylesheet" type="text/css" href={{ asset('vendors/cubeportfolio/css/cubeportfolio.min.css')}}> --}}
+      {{-- <link rel='stylesheet' href={{asset('vendors/revolution/revolution-addons/particles/css/revolution.addon.particles.css?ver=1.0.3')}} type='text/css'> --}}
+        {{-- <link href={{ asset('vendors/css/style.css')}} rel="stylesheet"> --}}
          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-   
          <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
- 
-          
          <link rel="stylesheet" href="{{asset('css/app.css')}}" />
+
          <style>
              .btns{
                  max-width: 150px;
@@ -99,7 +95,8 @@
      .dropdown:hover .dropdown-menu {
         display: block;
         }
-         </style>
+       
+</style>
           <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
@@ -110,10 +107,13 @@
     @stack('css')
 
 </head>
-<body class="bg-gray">
-    <div id="preloader">
+<body class="">
+    {{-- <div id="preloader">
         <div id="preloader-inner"></div>
-    </div><!--/preloader-->
+    </div><!--/preloader--> --}}
+   
+
+
 
      <!--top bar-->
     {{-- @include('layouts.frontend.partials.topbar') --}}
@@ -121,26 +121,32 @@
 
      <!--/nav bar-->
     @include('layouts.frontend.partials.navbar')
+     
      <!--/nav bar-->
      <!-- Site Overlay -->
      <div class="site-overlay"></div>
-
+     
     @yield('content')
-    
+ 
 
     @include('layouts.frontend.partials.footer')
 
 
+  
+
+
         <!-- jQuery first, then Tether, then Bootstrap JS. -->
-        <script type="text/javascript" src={{ asset('vendors/js/plugins/plugins.js')}}></script> 
-        <script type="text/javascript" src={{ asset('vendors/js/assan.custom.js')}}></script> 
+        {{-- <script type="text/javascript" src={{ asset('vendors/js/plugins/plugins.js')}}></script>  --}}
+      
+
+        {{-- <script type="text/javascript" src={{ asset('vendors/js/assan.custom.js')}}></script>  --}}
         <!-- load cubeportfolio -->
-        <script type="text/javascript" src={{ asset('vendors/cubeportfolio/js/jquery.cubeportfolio.min.js')}}></script>
+        {{-- <script type="text/javascript" src={{ asset('vendors/cubeportfolio/js/jquery.cubeportfolio.min.js')}}></script> --}}
         <!-- REVOLUTION JS FILES -->
-        <script type="text/javascript" src={{ asset('vendors/revolution/js/jquery.themepunch.tools.min.js')}}></script>
-        <script type="text/javascript" src={{ asset('vendors/revolution/js/jquery.themepunch.revolution.min.js')}}></script>
+        {{-- <script type="text/javascript" src={{ asset('vendors/revolution/js/jquery.themepunch.tools.min.js')}}></script>
+        <script type="text/javascript" src={{ asset('vendors/revolution/js/jquery.themepunch.revolution.min.js')}}></script> --}}
         <!-- SLIDER REVOLUTION 5.0 EXTENSIONS  (Load Extensions only on Local File Systems !  The following part can be removed on Server for On Demand Loading) -->	
-        <script type="text/javascript" src={{ asset('vendors/revolution/js/extensions/revolution.extension.actions.min.js')}}></script>
+        {{-- <script type="text/javascript" src={{ asset('vendors/revolution/js/extensions/revolution.extension.actions.min.js')}}></script>
         <script type="text/javascript" src={{ asset('vendors/revolution/js/extensions/revolution.extension.carousel.min.js')}}></script>
         <script type="text/javascript" src={{ asset('vendors/revolution/js/extensions/revolution.extension.kenburn.min.js')}}></script>
         <script type="text/javascript" src={{ asset('vendors/revolution/js/extensions/revolution.extension.layeranimation.min.js')}}></script>
@@ -148,7 +154,7 @@
         <script type="text/javascript" src={{ asset('vendors/revolution/js/extensions/revolution.extension.navigation.min.js')}}></script>
         <script type="text/javascript" src={{ asset('vendors/revolution/js/extensions/revolution.extension.parallax.min.js')}}></script>
         <script type="text/javascript" src={{ asset('vendors/revolution/js/extensions/revolution.extension.slideanims.min.js')}}></script>
-        <script type="text/javascript" src={{ asset('vendors/revolution/js/extensions/revolution.extension.video.min.js')}}></script>
+        <script type="text/javascript" src={{ asset('vendors/revolution/js/extensions/revolution.extension.video.min.js')}}></script> --}}
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
         {!! Toastr::message() !!}
