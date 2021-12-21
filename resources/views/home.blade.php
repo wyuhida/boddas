@@ -18,7 +18,7 @@
 
 @section('content')
    <!-- Hero -->
-   <section class="bg-hero-color dark:bg-gray-800">
+   <section class="bg-hero-color dark:bg-hero-color">
     <div class="container lg:px-8 mx-auto flex flex-col md-col-1 lg-col-2">
         <div class="items-center lg:flex">
             <div class="lg:w-1/2 px-2">
@@ -194,7 +194,7 @@
 <!-- end section 2 -->
 
 <!-- Section 3 -->    
-<section class="dark:bg-gray-900 lg:py-12 lg:flex lg:justify-center">
+<section class="dark:bg-hero-color lg:py-12 lg:flex lg:justify-center">
     <div class="dark:bg-gray-800 lg:mx-8 lg:flex lg:max-w-5xl lg:rounded-lg">
        
         <div class="max-w-full px-9 py-12 lg:max-w-5xl lg:w-1/2 gap-3 border border-red">
