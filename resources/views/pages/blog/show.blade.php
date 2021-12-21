@@ -37,14 +37,14 @@
                 </div> --}}
                 <!-- search -->
                 <div class="px-11 flex items-center">
-                    <form class="w-full">
+                    <form class="w-full" action="{{ route('show_blog')}}" method="GET">
                         <div class="flex flex-col overflow-hidden border rounded-lg dark:border-gray-600 lg:flex-row">
                             <input class="px-6 w-full py-3 text-gray-700 placeholder-gray-500 
-                            
+                                
                                 bg-white outline-none dark:bg-gray-800 
                                 dark:placeholder-gray-400 focus:placeholder-transparent 
                                 dark:focus:placeholder-transparent"
-                             type="text" name="text" placeholder="Search" aria-label="">
+                             type="text" name="search" value="{{ request()->query('search')}}" placeholder="Search" aria-label="">
                             
                             <button class="px-4 py-3 text-sm 
                             font-medium tracking-wider text-gray-100 
@@ -56,113 +56,48 @@
                 <!-- search -->
                 
                 <!-- blog -->
+                @if(count($show_news) != null)
                 <div class="px-11 grid grid-cols-1 gap-8 mt-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
+                    @forelse($show_news as $key => $s_news)
                     <div class=" flex flex-col w-80">
                         <div class="overflow-hidden rounded shadow dark:bg-gray-800">
                             <img class="object-cover w-full h-48" 
-                            src="{{asset('images/bodas-cover.jpg')}}" alt="" srcset="">
+                            src="{{asset('image/artikel')}}/{{$s_news->thumbnail}}" alt="" srcset="">
                         </div>
                         <div class="py-4 text-left h-64 overflow-hidden">
-                             <a href="#" class="block mt-2 text-xl font-semibold 
+                             <a href="{{route('blog_detail',$s_news->id)}}" class="block mt-2 text-xl font-semibold 
                                  text-gray-800 dark:text-white hover:text-gray-600 hover:underline">
-                                Kenali Manfaat Kolagen untuk Pria
+                                 {{$s_news->title}}
                              </a>
                              <p class="mt-2 text-sm text-gray-600 dark:text-gray-400 inline font-inter ">
-                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                                 Molestie parturient et sem ipsum volutpat vel.
-                                  Natoque sem et aliquam mauris egestas quam volutpat viverra. 
-                                  In pretium nec senectus erat. Et malesuada lobortis...
+                                {!! Str::limit($s_news->body_news,'350','..') !!}
                              </p>
-                             <a href="">
+                             <a href="{{route('blog_detail',$s_news->id)}}">
                                  <span class="text-bg-tombol text-sm font-bold inline font-Inter">Baca Selengkapnya</span>
                              </a>
-                             <p class="text-sm py-3 font-Inter">Selasa, 14 Desember 2021 - 08.00 WIB</p>
- 
-                         </div>
-                    </div>
-
-                    <div class=" flex flex-col w-80">
-                        <div class="overflow-hidden rounded shadow dark:bg-gray-800">
-                            <img class="object-cover w-full h-48" 
-                            src="{{asset('images/bodas-cover.jpg')}}" alt="" srcset="">
+                             <p class="text-sm py-3 font-Inter">{{\Carbon\Carbon::parse($s_news->created_at)->translatedFormat('l, d F Y - h:i:s')}}</p>
+                            
                         </div>
-                        <div class="py-4 text-left h-64 overflow-hidden">
-                             <a href="#" class="block mt-2 text-xl font-semibold 
-                                 text-gray-800 dark:text-white hover:text-gray-600 hover:underline">
-                                Kenali Manfaat Kolagen untuk Pria
-                             </a>
-                             <p class="mt-2 text-sm text-gray-600 dark:text-gray-400 inline font-inter ">
-                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                                 Molestie parturient et sem ipsum volutpat vel.
-                                  Natoque sem et aliquam mauris egestas quam volutpat viverra. 
-                                  In pretium nec senectus erat. Et malesuada lobortis...
-                             </p>
-                             <a href="">
-                                 <span class="text-bg-tombol text-sm font-bold inline font-Inter">Baca Selengkapnya</span>
-                             </a>
-                             <p class="text-sm py-3 font-Inter">Selasa, 14 Desember 2021 - 08.00 WIB</p>
- 
-                         </div>
                     </div>
-
-                    <div class=" flex flex-col w-80">
-                        <div class="overflow-hidden rounded shadow dark:bg-gray-800">
-                            <img class="object-cover w-full h-48" 
-                            src="{{asset('images/bodas-cover.jpg')}}" alt="" srcset="">
-                        </div>
-                        <div class="py-4 text-left h-64 overflow-hidden">
-                             <a href="#" class="block mt-2 text-xl font-semibold 
-                                 text-gray-800 dark:text-white hover:text-gray-600 hover:underline">
-                                Kenali Manfaat Kolagen untuk Pria
-                             </a>
-                             <p class="mt-2 text-sm text-gray-600 dark:text-gray-400 inline font-inter ">
-                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                                 Molestie parturient et sem ipsum volutpat vel.
-                                  Natoque sem et aliquam mauris egestas quam volutpat viverra. 
-                                  In pretium nec senectus erat. Et malesuada lobortis...
-                             </p>
-                             <a href="">
-                                 <span class="text-bg-tombol text-sm font-bold inline font-Inter">Baca Selengkapnya</span>
-                             </a>
-                             <p class="text-sm py-3 font-Inter">Selasa, 14 Desember 2021 - 08.00 WIB</p>
- 
-                         </div>
+                    @empty
+                    <div class=" flex flex-col w-80 items-center justify-center">
+                        <p class="text center justify-center text-2xl items-center">Artikel tidak di temukan</p>
                     </div>
-
-                    <div class=" flex flex-col w-80">
-                        <div class="overflow-hidden rounded shadow dark:bg-gray-800">
-                            <img class="object-cover w-full h-48" 
-                            src="{{asset('images/bodas-cover.jpg')}}" alt="" srcset="">
-                        </div>
-                        <div class="py-4 text-left h-64 overflow-hidden">
-                             <a href="#" class="block mt-2 text-xl font-semibold 
-                                 text-gray-800 dark:text-white hover:text-gray-600 hover:underline">
-                                Kenali Manfaat Kolagen untuk Pria
-                             </a>
-                             <p class="mt-2 text-sm text-gray-600 dark:text-gray-400 inline font-inter ">
-                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                                 Molestie parturient et sem ipsum volutpat vel.
-                                  Natoque sem et aliquam mauris egestas quam volutpat viverra. 
-                                  In pretium nec senectus erat. Et malesuada lobortis...
-                             </p>
-                             <a href="">
-                                 <span class="text-bg-tombol text-sm font-bold inline font-Inter">Baca Selengkapnya</span>
-                             </a>
-                             <p class="text-sm py-3 font-Inter">Selasa, 14 Desember 2021 - 08.00 WIB</p>
- 
-                         </div>
-                    </div>
-
-                   
-                    
-
-
-
-                    
-
-                    
+                    @endforelse
                 </div>
                 <!-- blog -->
+                <div class="flex flex-col w-fit px-11">
+                    {{ $show_news->links()}}
+                </div>
+                @else
+                <div class="px-11 grid grid-cols-1 gap-8 mt-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
+                    <div class=" flex flex-col w-80 items-center justify-center">
+                        <p class="text center justify-center text-2xl items-center">Artikel Belum Ada</p>
+                    </div>
+                </div>
+                @endif
+                
+              
             </div>
 
             <!-- side -->
@@ -180,69 +115,25 @@
 
                 </div>
                 
+                @if($randomBlog != null)
+                @foreach($randomBlog as $key => $o_blog)
                 <div class="flex max-w-sm mx-auto overflow-hidden dark:bg-gray-800">
                     <div class="w-32 h-32 bg-cover" 
-                        style="background-image: url('https://images.unsplash.com/photo-1494726161322-5360d4d0eeae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80')">
+                        style="background-image: url('{{asset('image/artikel')}}/{{$o_blog->thumbnail}}')">
                     </div>
 
                     <div class="w-full md:px-2 h-40">
-                        <h1 class="text-sm font-bold text-gray-800 dark:text-white">Satu-satunya minuman serbuk 
-                            collagen tanpa perasa dan pewarna</h1>
+                        <h1 class="text-sm font-bold text-gray-800 dark:text-white">{{$o_blog->title}}</h1>
 
                         <p class="text-sm text-gray-600 dark:text-gray-400 inline">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit In odit..
+                            {!! Str::limit($o_blog->body_news,'250','..') !!}
                         </p>
-                        <a href=""><span class="text-bg-tombol text-sm font-bold inline">Baca Selengkapnya</span></a>
+                        <a href="{{route('blog_detail',$o_blog->id)}}"><span class="text-bg-tombol text-sm font-bold inline">Baca Selengkapnya</span></a>
                     </div>
                 </div>
-                <div class="flex max-w-sm mx-auto overflow-hidden dark:bg-gray-800">
-                    <div class="w-32 h-32 bg-cover" 
-                        style="background-image: url('https://images.unsplash.com/photo-1494726161322-5360d4d0eeae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80')">
-                    </div>
-
-                    <div class="w-full md:px-2 h-40">
-                        <h1 class="text-sm font-bold text-gray-800 dark:text-white">Satu-satunya minuman serbuk 
-                            collagen tanpa perasa dan pewarna</h1>
-
-                        <p class="text-sm text-gray-600 dark:text-gray-400 inline">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit In odit..
-                        </p>
-                        <a href=""><span class="text-bg-tombol text-sm font-bold inline">Baca Selengkapnya</span></a>
-                    </div>
-                </div>
-                <div class="flex max-w-sm mx-auto overflow-hidden dark:bg-gray-800">
-                    <div class="w-32 h-32 bg-cover" 
-                        style="background-image: url('https://images.unsplash.com/photo-1494726161322-5360d4d0eeae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80')">
-                    </div>
-
-                    <div class="w-full md:px-2 h-40">
-                        <h1 class="text-sm font-bold text-gray-800 dark:text-white">Satu-satunya minuman serbuk 
-                            collagen tanpa perasa dan pewarna</h1>
-
-                        <p class="text-sm text-gray-600 dark:text-gray-400 inline">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit In odit..
-                        </p>
-                        <a href=""><span class="text-bg-tombol text-sm font-bold inline">Baca Selengkapnya</span></a>
-                    </div>
-                </div>
-
-                <div class="flex max-w-sm mx-auto overflow-hidden dark:bg-gray-800">
-                    <div class="w-32 h-32 bg-cover" 
-                        style="background-image: url('https://images.unsplash.com/photo-1494726161322-5360d4d0eeae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80')">
-                    </div>
-
-                    <div class="w-full md:px-2 h-40">
-                        <h1 class="text-sm font-bold text-gray-800 dark:text-white">Satu-satunya minuman serbuk 
-                            collagen tanpa perasa dan pewarna</h1>
-
-                        <p class="text-sm text-gray-600 dark:text-gray-400 inline">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit In odit..
-                        </p>
-                        <a href=""><span class="text-bg-tombol text-sm font-bold inline">Baca Selengkapnya</span></a>
-                    </div>
-                </div>
-                
-                
+                @endforeach
+                @endif
+                               
                 
                 <div class="flex flex-col mx-5 divide-x relative">
                     <h1 class="text-lg font-bold font-Inter  w-fit">Promo</h1>

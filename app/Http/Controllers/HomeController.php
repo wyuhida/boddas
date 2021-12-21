@@ -65,25 +65,23 @@ class HomeController extends Controller
         $randomBlog = News::inRandomOrder()
             ->limit(4)
             ->get();
-
-        $show_news = User::join('news', 'users.id', '=', 'news.id_user')->join(
-            'roles',
-            'users.id_role',
-            '=',
-            'roles.id'
-        );
+        // $s_news = User::join('news', 'users.id', '=', 'news.id_user')->join(
+        //     'roles',
+        //     'users.id_role',
+        //     '=',
+        //     'roles.id'
+        // );
 
         if (isset($request->search)) {
-            $show_news->where(
-                'news.title',
+            $show_news = News::where(
+                'title',
                 'LIKE',
                 '%' . $request->search . '%'
-            );
+            )->paginate(10);
+        } else {
+            $show_news = News::paginate(10);
         }
 
-        $show_news = $show_news
-            // ->get(['users.*', 'news.*', 'roles.*'])
-            ->paginate(3);
         return view('pages.blog.show', [
             'show_news' => $show_news,
             'randomBlog' => $randomBlog,

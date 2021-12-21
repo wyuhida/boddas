@@ -8,18 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class News extends Model
 {
     use HasFactory;
-    protected $fillable = [
-        'title',
-        'id_user',
-        'thumbnail',
-        'body_news',
-        'update_by',
-        'created_at',
-        'updated_at',
-    ];
+    protected $primaryKey = 'id';
+    protected $table = 'news';
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'id_user');
     }
 }
