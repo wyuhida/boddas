@@ -65,6 +65,7 @@
  <!--section 2 -->
  <section class="py-20 ">
     <!-- heading -->
+    @if($popular->count() > 0)
     <div class="sm:3/4 mx-auto px-11">
         <h2 class="py-2 font-Inter text-sm text-left text-gray-500">Our Product</h2>
         <h1 class="text-3xl text-left text-gray-600 font-Inter">
@@ -74,11 +75,11 @@
     <!-- Product -->
     <div class="container 
         grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-16 gap-4 px-5 justify-center">
-        @foreach($item->groupBy('id_item') as $items)
+        @foreach($popular->groupBy('id_item') as $items)
         {{-- @dd($items); --}}
         @foreach($items as $itm)
         <div class="flex flex-col border border-gray-300 h-max hover:border-bg-tombol border-2 shadow-md">
-          
+  
           <div class="items-center mx-auto mt-8 max-h-48 ">
             <img 
             class="rounded-full w-48 h-48 justify-center object-cover object-center items-center shadow-sm "
@@ -111,8 +112,8 @@
           </div>
 
           <div class="px-12 text-center sm:px-0 w-full">
-            <h2 class="text-xl mt-3">{{$itm[0]->item_name}}</h2>
-
+            <h2 class="text-2xl mt-3 font-Inter">{{$itm[0]->item_name}}</h2>
+            <p class="text-center font-Inter text-sm text-gray-500">Terjual {{$itm[0]->total_sold}}</p>
             @if(!empty(Auth::user()->id))
                 @if(auth()->user()->id_role == 3)
              
@@ -128,7 +129,7 @@
            
 
             <div class="py-4 mb-3">
-                <a href="{{route('detail_shop',$itm[0]->id_item)}}" class="px-2 py-2 
+                <a href="{{route('detail_shop',[$itm[0]->id_item,$itm[0]->id_category_item])}}" class="px-2 py-2 
                     rounded text-bg-tombol 
                     transition-colors 
                     duration-200 transform 
@@ -143,8 +144,8 @@
         </div>
         @endforeach
         @endforeach
-
     </div>
+    @endif
     <!-- end product -->
 </section>
 
@@ -196,6 +197,7 @@
 <!--Section 4 -->
 <section class="py-20 ">
     <!-- heading -->
+    @if($item->count() > 0)
     <div class="sm:3/4 mx-auto px-11">
         <h2 class="py-2 font-Inter text-sm text-left text-gray-500">Our Product</h2>
         <h1 class="text-3xl text-left text-gray-600 font-Inter">
@@ -205,7 +207,7 @@
       <!-- Product -->
      <!-- Product -->
       <div class="container 
-          grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-16 gap-4 px-5 justify-center">
+          grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-16 gap-4 px-5 justify-center relative">
           @foreach($item->groupBy('id_item') as $items)
           {{-- @dd($items); --}}
           @foreach($items as $itm)
@@ -260,7 +262,7 @@
             
 
             <div class="py-4 mb-3">
-                <a href="{{route('detail_shop',$itm[0]->id_item)}}" class="px-2 py-2 
+                <a href="{{route('detail_shop',[$itm[0]->id_item, $itm[0]->id_category_item])}}" class="px-2 py-2 
                     rounded text-bg-tombol 
                     transition-colors 
                     duration-200 transform 
@@ -271,12 +273,17 @@
                 </a>
             </div>
           </div>
-        
+         
       </div>
+      
      @endforeach
      @endforeach
-
+    
     </div>
+    <div class="w-fit py-3 px-5">
+      {{$item->render()}}
+    </div>
+  @endif
  <!-- end product -->
     <!-- end product -->
 </section>

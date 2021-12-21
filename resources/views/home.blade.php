@@ -4,6 +4,18 @@
 
 @endpush
 
+<?php
+    use App\Http\Controllers\ShopController;
+    if(ShopController::total_diskon() != null)
+    {
+        $tot =ShopController::total_diskon();
+        $total=$tot['discount_percentage'];
+    }else {
+        $total = 0;
+    }
+?>
+
+
 @section('content')
    <!-- Hero -->
    <section class="bg-hero-color dark:bg-gray-800">
@@ -374,27 +386,61 @@
     <!-- Product -->
     <div class="container 
         grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-16 px-11 gap-4">
-        <div class="flex flex-col border border-gray-300 h-max hover:border-bg-tombol border-2">
-          <div class="items-center mx-auto mt-8">
+        @foreach($popular->groupBy('id_item') as $items)
+        {{-- @dd($items); --}}
+        @foreach($items as $itm)
+        <div class="flex flex-col border border-gray-300 h-max hover:border-bg-tombol border-2 shadow-md">
+  
+          <div class="items-center mx-auto mt-8 max-h-48 ">
             <img 
-            class="rounded-full w-fit-content"
-            src="{{asset('images/pisang.png')}}" alt="">
+            class="rounded-full w-48 h-48 justify-center object-cover object-center items-center shadow-sm "
+            src="{{asset('image/product')}}/{{$itm[0]->photo}}" alt="">
           </div>
-          <div class="items-center mx-auto mt-4 justify-center">
+
+          <div class="items-center mx-auto mt-5 justify-center">
             <span class="inline-block flex overflow-hidden ">
-               <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-               <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-               <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-               <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-               <img src="{{asset('images/star1.png')}}" alt="" srcset="">
+              <svg class="w-5 inline fill-bookmark-yellow stroke-bookmark-yellow" 
+              xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+              </svg>
+              <svg class="w-5 inline fill-bookmark-yellow stroke-bookmark-yellow" 
+              xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+              </svg>
+              <svg class="w-5 inline fill-bookmark-yellow stroke-bookmark-yellow" 
+              xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+              </svg>
+              <svg class="w-5 inline fill-bookmark-yellow stroke-bookmark-yellow" 
+              xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+              </svg>
+              <svg class="w-5 inline fill-bookmark-yellow stroke-bookmark-yellow" 
+              xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+              </svg>
             </span>
           </div>
+
           <div class="px-12 text-center sm:px-0 w-full">
-            <h2 class="text-xl">Summer Veganie</h2>
-            <del class="text-sm">Rp 100.000</del>
-            <h3 class="text-2xl text-bg-tombol">Rp 50.000</h3>
-            <div class="mt-8 py-5">
-                <a href="#" class="px-2 py-2 
+            <h2 class="text-2xl mt-3 font-Inter">{{$itm[0]->item_name}}</h2>
+            <p class="text-center font-Inter text-sm text-gray-500">Terjual {{$itm[0]->total_sold}}</p>
+            @if(!empty(Auth::user()->id))
+                @if(auth()->user()->id_role == 3)
+             
+                  <del class="text-sm">Rp {{ number_format($itm[0]->price)}}</del>
+                  <h3 class="text-2xl text-bg-tombol">Rp {{number_format($itm[0]->price-($total*$itm[0]->price))}}</h3>
+                @else
+                  <h3 class="text-2xl text-bg-tombol">Rp {{number_format($itm[0]->price)}}</h3>
+                @endif
+              @else
+                <h3 class="text-2xl text-bg-tombol">Rp {{number_format($itm[0]->price)}}</h3>
+              @endif
+        
+           
+
+            <div class="py-4 mb-3">
+                <a href="{{route('detail_shop',[$itm[0]->id_item,$itm[0]->id_category_item])}}" class="px-2 py-2 
                     rounded text-bg-tombol 
                     transition-colors 
                     duration-200 transform 
@@ -405,112 +451,10 @@
                 </a>
             </div>
           </div>
-        
+         
         </div>
-        
-        <div class="flex flex-col border border-gray-300 h-max hover:border-bg-tombol border-2">
-            <div class="items-center mx-auto mt-8">
-              <img 
-              class="rounded-full w-fit-content"
-              src="{{asset('images/pepaya.png')}}" alt="">
-            </div>
-            <div class="items-center mx-auto mt-4 justify-center">
-              <span class="inline-block flex">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-              </span>
-            </div>
-            <div class="px-12 text-center sm:px-0 w-full">
-              <h2 class="text-xl">Summer Veganie</h2>
-              <del class="text-sm">Rp 100.000</del>
-              <h3 class="text-2xl text-bg-tombol">Rp 50.000</h3>
-              <div class="mt-8 py-5">
-                  <a href="#" class="px-2 py-2 
-                      rounded text-bg-tombol 
-                      transition-colors 
-                      duration-200 transform 
-                       border border-bg-tombol
-                      text-bg-tombol
-                      ">
-                      Discover Now
-                  </a>
-              </div>
-            </div>
-          
-        </div>
-
-        <div class="flex flex-col border border-gray-300 h-max hover:border-bg-tombol border-2">
-            <div class="items-center mx-auto mt-8">
-              <img 
-              class="rounded-full w-fit-content"
-              src="{{asset('images/alpukat.png')}}" alt="">
-            </div>
-            <div class="items-center mx-auto mt-4 justify-center">
-              <span class="inline-block flex">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-              </span>
-            </div>
-            <div class="px-12 text-center sm:px-0 w-full">
-              <h2 class="text-xl">Summer Veganie</h2>
-              <del class="text-sm">Rp 100.000</del>
-              <h3 class="text-2xl text-bg-tombol">Rp 50.000</h3>
-              <div class="mt-8 py-5">
-                  <a href="#" class="px-2 py-2 
-                      rounded text-bg-tombol 
-                      transition-colors 
-                      duration-200 transform 
-                       border border-bg-tombol
-                      text-bg-tombol
-                      ">
-                      Discover Now
-                  </a>
-              </div>
-            </div>
-          
-        </div>
-
-        <div class="flex flex-col border border-gray-300 h-max hover:border-bg-tombol border-2">
-            <div class="items-center mx-auto mt-8">
-              <img 
-              class="rounded-full w-fit-content"
-              src="{{asset('images/jeruk.png')}}" alt="">
-            </div>
-            <div class="items-center mx-auto mt-4 justify-center">
-              <span class="inline-block flex">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-                <img src="{{asset('images/star1.png')}}" alt="" srcset="">
-              </span>
-            </div>
-            <div class="px-12 text-center sm:px-0 w-full">
-              <h2 class="text-xl">Summer Veganie</h2>
-              <del class="text-sm">Rp 100.000</del>
-              <h3 class="text-2xl text-bg-tombol">Rp 50.000</h3>
-              <div class="mt-8 py-5">
-                  <a href="#" class="px-2 py-2 
-                      rounded text-bg-tombol 
-                      transition-colors 
-                      duration-200 transform 
-                       border border-bg-tombol
-                      text-bg-tombol
-                      ">
-                      Discover Now
-                  </a>
-              </div>
-            </div>
-          
-        </div>
-
-    
+        @endforeach
+        @endforeach
 
     </div>
     <!-- end product -->

@@ -95,7 +95,7 @@ Route::get('show_shop', [ShopController::class, 'show_shop'])->name(
     'show_shop'
 );
 
-Route::get('detail_shop/{id}/detail', [
+Route::get('detail_shop/{id}/detail/{id_category_item}', [
     ShopController::class,
     'detail_shop',
 ])->name('detail_shop');
@@ -103,6 +103,9 @@ Route::get('detail_shop/{id}/detail', [
 Route::post('add_cart', [ShopController::class, 'add_cart'])->name('add_cart');
 Route::get('show_cart', [ShopController::class, 'show_cart'])->name(
     'show_cart'
+);
+Route::get('remove_cart/{id}', [ShopController::class, 'remove_cart'])->name(
+    'remove_cart'
 );
 
 Route::post('proses_pembayaran', [

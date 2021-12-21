@@ -267,11 +267,14 @@
     <!-- Product -->
     <div class="container 
         grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-16 gap-4 px-5 justify-center">
+        @foreach($rels->groupBy('id_item') as $rel)
+        @foreach($rel as $rel_p)
+    
         <div class="flex flex-col border border-gray-300 h-max hover:border-bg-tombol border-2 shadow-md">
           <div class="items-center mx-auto mt-8 max-h-48">
             <img 
             class="rounded-full w-48 h-48 justify-center object-cover object-center items-center shadow-sm"
-            src="{{asset('images/produk-section1.jpg')}}" alt="">
+            src="{{asset('image/product')}}/{{$rel_p[0]->photo}}" alt="">
           </div>
 
           <div class="items-center mx-auto mt-5 justify-center">
@@ -295,15 +298,28 @@
           </div>
 
           <div class="px-12 text-center sm:px-0 w-full">
-            <h2 class="text-xl mt-3">Summer Veganie</h2>
-            <del class="text-sm">Rp 100.000</del>
-            <h3 class="text-2xl text-bg-tombol">Rp 50.000</h3>
-            <div class="py-4">
-                <a href="#" class="px-2 py-2 
+            <h2 class="text-xl mt-3">{{$rel_p[0]->item_name}}</h2>
+
+            @if(!empty(Auth::user()->id))
+                @if(auth()->user()->id_role == 3)
+              
+                  <del class="text-sm">Rp {{ number_format($rel_p[0]->price)}}</del>
+                  <h3 class="text-2xl text-bg-tombol">Rp {{number_format($rel_p[0]->price-($total*$rel_p[0]->price))}}</h3>
+                @else
+                  <h3 class="text-2xl text-bg-tombol">Rp {{number_format($rel_p[0]->price)}}</h3>
+                @endif
+              @else
+                <h3 class="text-2xl text-bg-tombol">Rp {{number_format($rel_p[0]->price)}}</h3>
+              @endif
+        
+            
+
+            <div class="py-4 mb-3">
+                <a href="{{route('detail_shop',[$rel_p[0]->id_item, $rel_p[0]->id_category_item])}}" class="px-2 py-2 
                     rounded text-bg-tombol 
                     transition-colors 
                     duration-200 transform 
-                     border border-bg-tombol
+                      border border-bg-tombol
                     text-bg-tombol
                     ">
                     Discover Now
@@ -312,8 +328,13 @@
           </div>
         
         </div>
+        @endforeach
+        @endforeach
+  
+       
+    
         
-        <div class="flex flex-col border border-gray-300 h-max hover:border-bg-tombol border-2 shadow-md">
+        {{-- <div class="flex flex-col border border-gray-300 h-max hover:border-bg-tombol border-2 shadow-md">
           <div class="items-center mx-auto mt-8 max-h-48">
             <img 
             class="rounded-full w-48 h-48 justify-center object-cover object-center items-center shadow-sm"
@@ -453,7 +474,7 @@
             </div>
           </div>
         
-        </div>
+        </div> --}}
         
 
     </div>

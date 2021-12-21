@@ -24,6 +24,9 @@ use Image;
 use Storage;
 use Session;
 use Cookie;
+use Spatie\CollectionMacros\Macros;
+use Illuminate\Pagination\LengthAwarePaginator;
+
 class ShopController extends Controller
 {
     public function show_shop()
@@ -40,14 +43,16 @@ class ShopController extends Controller
 
         $coll = collect($item);
         $sort = $coll->sortByDesc('id_item');
-        $item = $sort->groupBy('id_item');
+        $item = $sort->groupBy('id_item')->paginate(8);
 
         // popular produk
         $pop = $coll;
-        $popular = $pop->groupBy('id_item');
+        $filter = $pop->whereNotIn('total_sold', [0]);
+        $popular = $filter->groupBy('id_item');
 
         return view('pages.shop.show', [
             'item' => $item,
+            'popular' => $popular,
         ]);
     }
 
@@ -71,7 +76,7 @@ class ShopController extends Controller
         }
     }
 
-    public function detail_shop($id)
+    public function detail_shop($id, $id_category_item)
     {
         $det = DB::table('items')
             ->join('item__contents', 'items.id', '=', 'item__contents.id_item')
@@ -84,8 +89,23 @@ class ShopController extends Controller
             );
         $detail = $det->where([['items.id', $id]])->get();
 
+        $related = DB::table('items')
+            ->join('item__contents', 'items.id', '=', 'item__contents.id_item')
+            ->join(
+                'category__items',
+                'items.id_category_item',
+                '=',
+                'category__items.id'
+            )
+            ->where('items.id_category_item', $id_category_item)
+            ->orderBy('items.id', 'DESC')
+            ->get();
+
+        $rel = collect($related);
+        $rels = $rel->groupBy('id_item')->take(4);
         return view('pages.shop.detail', [
             'detail' => $detail,
+            'rels' => $rels,
         ]);
     }
 
@@ -240,6 +260,13 @@ class ShopController extends Controller
         $updt_phone->save();
 
         Toastr::success('Success', 'Pesanan terkirim');
+        return redirect()->route('home.index');
+    }
+
+    public function remove_cart($id)
+    {
+        Transaction::destroy($id);
+        Toastr::success('Success', 'Produk dihapus');
         return redirect()->route('home.index');
     }
 }

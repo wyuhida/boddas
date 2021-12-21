@@ -9,7 +9,7 @@ use App\Models\User;
 use App\Models\Company_Identity;
 use Illuminate\View\View;
 use DB;
-
+use App\Models\Item;
 class HomeController extends Controller
 {
     /**
@@ -29,6 +29,19 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $item = Item::join(
+            'item__contents',
+            'items.id',
+            '=',
+            'item__contents.id_item'
+        )
+            ->join('users', 'items.update_by', '=', 'users.id')
+            ->orderBy('items.total_sold', 'DESC')
+            ->get();
+        $pop = collect($item);
+        $filter = $pop->whereNotIn('total_sold', [0]);
+        $popular = $filter->groupBy('id_item');
+
         // $foo_kontak = Company_Identity::first();
         // $c_founder = DB::table('containers')
         //     ->join('contents', 'containers.id', '=', 'contents.id_container')
@@ -43,6 +56,7 @@ class HomeController extends Controller
         return view('home', [
             // 'foo_kontak' => $foo_kontak,
             // 'c_founder' => $c_founder,
+            'popular' => $popular,
         ]);
     }
 
@@ -125,6 +139,10 @@ class HomeController extends Controller
     {
         $kontak = Company_Identity::first();
         return view('pages.kontak', ['kontak' => $kontak]);
+    }
+
+    public function popular_produk()
+    {
     }
 
     public function compose(View $view)
