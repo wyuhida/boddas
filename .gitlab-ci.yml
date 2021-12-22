@@ -48,7 +48,7 @@ docker-build:
 deploy-using-portainer-webhook:
    stage: deploy
    variables:
-      WEBHOOK_BODDAS_SVC: http://35.202.92.83:9000/api/webhooks/0a896718-55c0-423c-9b7b-5fb4784460fb
+      WEBHOOK_BODDAS_SVC: http://35.202.92.83:9000/api/webhooks/517494d4-2589-4ff7-ac91-bf796d8513c0
    script:
      - apk add --update curl
      - curl -X POST -v $WEBHOOK_BODDAS_SVC
