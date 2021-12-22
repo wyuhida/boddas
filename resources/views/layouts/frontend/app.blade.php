@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" >
 <head>
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -24,7 +24,8 @@
       {{-- <link rel="stylesheet" type="text/css" href={{ asset('vendors/cubeportfolio/css/cubeportfolio.min.css')}}> --}}
       {{-- <link rel='stylesheet' href={{asset('vendors/revolution/revolution-addons/particles/css/revolution.addon.particles.css?ver=1.0.3')}} type='text/css'> --}}
         {{-- <link href={{ asset('vendors/css/style.css')}} rel="stylesheet"> --}}
-         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+         {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"> --}}
+         <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
          <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
          <link rel="stylesheet" href="{{asset('css/app.css')}}" />
 
@@ -107,7 +108,7 @@
     @stack('css')
 
 </head>
-<body class="">
+<body class="scroll-smooth">
     {{-- <div id="preloader">
         <div id="preloader-inner"></div>
     </div><!--/preloader--> --}}
@@ -130,11 +131,6 @@
  
 
     @include('layouts.frontend.partials.footer')
-
-
-  
-
-
         <!-- jQuery first, then Tether, then Bootstrap JS. -->
         {{-- <script type="text/javascript" src={{ asset('vendors/js/plugins/plugins.js')}}></script>  --}}
       
@@ -155,9 +151,10 @@
         <script type="text/javascript" src={{ asset('vendors/revolution/js/extensions/revolution.extension.parallax.min.js')}}></script>
         <script type="text/javascript" src={{ asset('vendors/revolution/js/extensions/revolution.extension.slideanims.min.js')}}></script>
         <script type="text/javascript" src={{ asset('vendors/revolution/js/extensions/revolution.extension.video.min.js')}}></script> --}}
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+     {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script> --}}
      <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
-
+     <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+     <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
         {!! Toastr::message() !!}
 
     <script>

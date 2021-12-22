@@ -26,6 +26,7 @@ module.exports = {
         'bookmark-btn-min-plus': '#FFF0F1',
         'bookmark-tab': '#FFF2ED',
         'bookmark-yellow': '#FFC600',
+        'bookmark-kontak': '#ff6875',
       },
     },
     variants: {

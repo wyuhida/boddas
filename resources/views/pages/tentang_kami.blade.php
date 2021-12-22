@@ -5,94 +5,39 @@
 @endpush
 
 @section('content')
-   <!-- Site Overlay -->
-   <div class="site-overlay"></div>
-   <div class="page-titles-img title-space-lg bg-parallax parallax-overlay mb70" data-jarallax='{"speed": 0.2}'
-    style='background-image: url("images/bg14.jpg")'>
-    <div class="container">
-        <div class="row">
-            <div class=" col-md-8 ml-auto mr-auto">
-                <h1 class='text-uppercase'>Tentang Kami</h1>
+    <section class="py-2 bg-hero-color w-full overflow-hidden lg:h-96">
+        <div class="mx-auto">
+           <div class="grid grid-cols1 md:grid-cols-2 lg:grid-cols-2">
+               <div class="flex justify-center lg:justify-self-end">
+                   <img class="object-center bg-center h-96 w-fit"
+                    src="{{asset('images/handsome11.png')}}" alt="">
+               </div>
+               <div class="flex flex-col mx-5">
+                   <h1 class="font-inter font-semibold capitalize text-xl mt-16">founder</h1>
+                   <p class="font-inter text-md py-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus volutpat velit vitae consequat condimentum. Suspendisse et ipsum ac felis pellentesque fermentum. Fusce vitae erat dui. Ut id pulvinar odio. Etiam eu magna nec tortor sagittis laoreet. Donec eu lobortis erat, nec fringilla odio. Morbi enim tellus, dictum non vehicula vel, volutpat nec ligula.
 
-            </div>
+                    Cras lacinia tellus eget dictum porttitor. Nam rutrum accumsan velit, eget scelerisque risus ullamcorper in. Proin mollis felis sed urna dictum feugiat. Nullam mollis augue id commodo volutpat. Nulla ut nibh elementum, varius nisl non, vestibulum lorem. Cras sed leo vitae nulla fringilla mattis. Aliquam sit amet leo tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed auctor euismod nibh eget maximus. Pellentesque volutpat nisi pulvinar ipsum pretium, sed dapibus neque venenatis. Aliquam sed rutrum tortor. Fusce quis diam tellus. Integer at mi porttitor, rhoncus magna ut, blandit lacus.</p>
+               </div>
+           </div>
         </div>
-    </div>
-</div><!--page title end-->
+    </section>
 
-<div class="container pt90 pb60">
-    <div class="row align-items-center">
-        <div class="col-lg-4 mb20">
-           <img src="{{asset('image/company')}}/{{$c_founder->image}}" 
-          alt="" srcset="" width="300px;">
+    <section class="bg-white flex flex-col w-full mx-auto px-5 lg:px-12 mb-5 ">
+        <div class="mt-10">
+            <h1 class="font-inter font-semibold capitalize text-center text-2xl">Visi</h1>
+            <p class="font-inter text-center text-md">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus volutpat velit vitae consequat condimentum. Suspendisse et ipsum ac felis pellentesque fermentum. Fusce vitae erat dui. Ut id pulvinar odio. Etiam eu magna nec tortor sagittis laoreet. Donec eu lobortis erat, nec fringilla odio. Morbi enim tellus, dictum non vehicula vel, volutpat nec ligula.
+                Cras lacinia tellus eget dictum porttitor. Nam rutrum accumsan velit, eget scelerisque risus ullamcorper in. Proin mollis felis sed urna dictum feugiat. Nullam mollis augue id commodo volutpat. Nulla ut nibh elementum, varius nisl non, vestibulum lorem. Cras sed leo vitae nulla fringilla mattis. Aliquam sit amet leo tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed auctor euismod nibh eget maximus. Pellentesque volutpat nisi pulvinar ipsum pretium, sed dapibus neque venenatis. Aliquam sed rutrum tortor. Fusce quis diam tellus. Integer at mi porttitor, rhoncus magna ut, blandit lacus.</p>
         </div>
-        <div class="col-lg-6 mb20">
-            {{-- <h2 class="mb40">
-             
-            </h2> --}}
-            <div class="clearfix mb20">
-                <div class="media mb30 wow fadeInUp" data-wow-delay=".150ms">
-                    <div class="">
-                        {!!$c_founder->content_name !!}
-                    </div>
-                </div>
-              
-            </div>
-        </div>
-    </div>
-</div>
 
-<div class="container">
-    <div class="row pb50 align-item-center">
-        <div class="col-sm-12 mb40">
-            <h2 class="text-center">{{$c_history->container_name}}</h2>
-            {{-- <p class="lead">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut feugiat urna arcu, vel molestie nunc commodo non. Nullam vestibulum odio vitae fermentum rutrum.
-            </p> --}}
-            <p>
-                {!!$c_history->content_name!!}
-            </p>
-    
-        </div>
-        {{-- <div class="col-sm-6 mb40">
-            <div class="carousel-image owl-carousel owl-theme carousel-dark">
-                <div class="item">
-                    <img src={{ asset('vendors/images/contained1.jpg')}} alt="" class="img-fluid">
-                </div>
-                <div class="item">
-                    <img src={{ asset('vendors/images/contained2.jpg')}} alt="" class="img-fluid">
-                </div>                
-            </div> <!-- /Carousel -->
-        </div> --}}
-    </div>
-    {{-- <div class="row pb50">
-        <div class="col-md-4 mb30">
-            <h4 class="text-uppercase">
-                Our Mission
-            </h4>
-            <p>
-                Mauris lobortis nulla ut aliquet interdum. Donec commodo ac elit sed placerat. Mauris rhoncus est ac sodales gravida. In eros felis, elementum aliquam nisi vel, pellentesque faucibus nulla.
+        <div class="mt-10">
+            <h1 class="font-inter font-semibold capitalize text-center text-2xl ">Misi</h1>
+            <p class="font-inter text-center text-md ">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus volutpat velit vitae consequat condimentum. Suspendisse et ipsum ac felis pellentesque fermentum. Fusce vitae erat dui. Ut id pulvinar odio. Etiam eu magna nec tortor sagittis laoreet. Donec eu lobortis erat, nec fringilla odio. Morbi enim tellus, dictum non vehicula vel, volutpat nec ligula.
+                Cras lacinia tellus eget dictum porttitor. Nam rutrum accumsan velit, eget scelerisque risus ullamcorper in. Proin mollis felis sed urna dictum feugiat. Nullam mollis augue id commodo volutpat. Nulla ut nibh elementum, varius nisl non, vestibulum lorem. Cras sed leo vitae nulla fringilla mattis. Aliquam sit amet leo tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed auctor euismod nibh eget maximus. Pellentesque volutpat nisi pulvinar ipsum pretium, sed dapibus neque venenatis. Aliquam sed rutrum tortor. Fusce quis diam tellus. Integer at mi porttitor, rhoncus magna ut, blandit lacus.
             </p>
         </div>
-        <div class="col-md-4 mb30">
-            <h4 class="text-uppercase">
-                Our Vision
-            </h4>
-            <p>
-                Mauris lobortis nulla ut aliquet interdum. Donec commodo ac elit sed placerat. Mauris rhoncus est ac sodales gravida. In eros felis, elementum aliquam nisi vel, pellentesque faucibus nulla.
-            </p>
-        </div>
-        <div class="col-md-4 mb30">
-            <h4 class="text-uppercase">
-                Why choose us
-            </h4>
-            <p>
-                Mauris lobortis nulla ut aliquet interdum. Donec commodo ac elit sed placerat. Mauris rhoncus est ac sodales gravida. In eros felis, elementum aliquam nisi vel, pellentesque faucibus nulla.
-            </p>
-        </div>
-    </div> --}}
-</div>
+
+    </section>
 @endsection
-
 @push('js')
     
 @endpush

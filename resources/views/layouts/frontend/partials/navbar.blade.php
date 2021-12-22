@@ -31,7 +31,7 @@
                 <a class="my-1 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-bg-tombol dark:hover:text-bg-tombol md:mx-4 md:my-0" href="{{route('show_shop')}}">Product</a>
                 <a class="my-1 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-bg-tombol dark:hover:text-bg-tombol md:mx-4 md:my-0" href="{{route('show_blog')}}">Blog</a>
                 <a class="my-1 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-bg-tombol dark:hover:text-bg-tombol md:mx-4 md:my-0" href="{{route('tentang_kami')}}">About</a>
-                <a class="my-1 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-bg-tombol dark:hover:text-bg-tombol md:mx-4 md:my-0" href="{{route('tentang_kami')}}">Contact Us</a>
+                <a class="my-1 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-bg-tombol dark:hover:text-bg-tombol md:mx-4 md:my-0" href="{{route('kontak')}}">Contact Us</a>
 
             </div>
             @guest
