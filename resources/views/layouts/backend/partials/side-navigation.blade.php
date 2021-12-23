@@ -78,23 +78,23 @@
         
 
             @if(Request::is('superadmin*'))
-            <li class="{{Request::is('superadmin/dashboard') ? 'active' : ''}}">
-                <a name ="dashboard" href="{{ route('superadmin.dashboard')}}"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span></a>
-            </li>
-            
-            <li class="{{Request::is('superadmin/show_user_admin') ? 'active' : ''}}">
-                <a name ="show_user_admin" href="{{ route('superadmin.show_user_admin')}}"><i class="fa fa-users"></i> <span class="nav-label">Admin</span></a>
-            </li>
-            
-            <li class="{{Request::is('superadmin/show_superadmin_blog') ? 'active' : ''}}">
-                <a name ="show_superadmin_blog" href="{{ route('superadmin.show_superadmin_blog')}}"><i class="fa fa-book"></i> <span class="nav-label">Blog</span></a>
-            </li>
+                <li class="{{Request::is('superadmin/dashboard') ? 'active' : ''}}">
+                    <a name ="dashboard" href="{{ route('superadmin.dashboard')}}"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span></a>
+                </li>
+                
+                <li class="{{Request::is('superadmin/show_user_admin') ? 'active' : ''}}">
+                    <a name ="show_user_admin" href="{{ route('superadmin.show_user_admin')}}"><i class="fa fa-users"></i> <span class="nav-label">Admin</span></a>
+                </li>
+                
+                <li class="{{Request::is('superadmin/show_superadmin_blog') ? 'active' : ''}}">
+                    <a name ="show_superadmin_blog" href="{{ route('superadmin.show_superadmin_blog')}}"><i class="fa fa-book"></i> <span class="nav-label">Blog</span></a>
+                </li>
 
             @endif
 
             @if(Request::is('buyer*'))
                 <li class="{{Request::is('buyer/dashboard') ? 'active' : ''}}">
-                    <a href=""><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span></a>
+                    <a href="{{route('buyer.dashboard')}}" name="dashboard"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span></a>
                 </li>
                
             @endif 

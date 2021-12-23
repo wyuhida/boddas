@@ -511,7 +511,7 @@ Route::group(
  */
 Route::group(
     [
-        'as' => 'buyer',
+        'as' => 'buyer.',
         'prefix' => 'buyer',
         'namespace' => 'Buyer',
         'middleware' => ['auth', 'buyer'],
