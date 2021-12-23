@@ -136,11 +136,7 @@
                                 overflow-hidden border rounded-lg dark:border-gray-600"
                                 type="text" name="phone_number" 
                                 placeholder="No telephone / Whatsapp" 
-                                @if($cek_alamat->phone_number != null)
-                                    value="{{$cek_alamat->phone_number}}"
-                                @else
-                                value=""
-                                @endif
+                                value="{{!empty($cek_alamat->phone_number) ? $cek_alamat->phone_number : ''}}"
                                 @error('phone_number') is-invalid @enderror>
                             </div>
                             @error('phone_number')
@@ -157,10 +153,7 @@
                                 w-full
                                 overflow-hidden border rounded-lg dark:border-gray-600"
                                 type="text" name="alamat" placeholder="Alamat" aria-label=""  @error('alamat') is-invalid @enderror>
-                                @if($cek_alamat->address_name != null)
-                                    {{$cek_alamat->address_name}}
-                                @else
-                                @endif
+                                {{(!empty($cek_alamat->address_name) ? $cek_alamat->address_name : '')}}
                             </textarea>
                             </div>
                             @error('alamat')

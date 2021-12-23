@@ -5,11 +5,11 @@
 @endpush
 
 @section('content')
-    <section class="py-2 bg-hero-color w-full overflow-hidden lg:h-96">
+    <section class="bg-hero-color w-full overflow-hidden ">
         <div class="mx-auto">
-           <div class="grid grid-cols1 md:grid-cols-2 lg:grid-cols-2">
-               <div class="flex justify-center lg:justify-self-end">
-                   <img class="object-center bg-center h-96 w-fit"
+           <div class="grid grid-cols1 md:grid-cols-2 lg:grid-cols-2  border">
+               <div class="flex justify-center lg:place-content-end pt-16">
+                   <img class="lg:object-center bg-center h-96 w-fit"
                     src="{{asset('images/handsome11.png')}}" alt="">
                </div>
                <div class="flex flex-col mx-5">

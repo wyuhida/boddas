@@ -247,13 +247,39 @@ class ShopController extends Controller
             }
         }
 
-        $updt_address = DB::table('addresses')
-            ->where('id_user', $ids)
-            ->update([
+        // $updt_address = DB::table('addresses')
+        //     ->where('id_user', $ids)
+        //     ->updateOrInsert([
+        //         'address_name' => $request->alamat,
+        //         'id_user' => $ids,
+        //         'is_default' => 1,
+        //         'created_at' => $now,
+        //         'updated_at' => $now,
+        //     ]);
+        $updt_address = Address::where('id_user', $ids)->first();
+        if (!empty($updt_address)) {
+            Address::where('id_user', $ids)->update([
                 'address_name' => $request->alamat,
+                'is_default' => 1,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]);
+        } else {
+            Address::insert([
+                'address_name' => $request->alamat,
+                'is_default' => 1,
+                'id_user' => $ids,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ]);
+        }
+        // $updt_address->address_name = $request->alamat;
+        // $updt_address->created_at = Carbon::now();
+        // $updt_address->updated_at = Carbon::now();
+
+        // if (!empty($updt_address)) {
+        //     dd($updt_address);
+        // }
 
         $updt_phone = User::findOrFail($ids);
         $updt_phone->phone_number = $request->phone_number;
