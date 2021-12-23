@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '0424ac3b0e8220eb4780edbff223dc2c4c65f48d',
+        'reference' => 'b9d09e538bf0ca1b6707bcf353dbb40df79519c2',
         'name' => 'laravel/laravel',
         'dev' => true,
     ),
@@ -57,17 +57,6 @@
             'replaced' => array(
                 0 => '*',
             ),
-        ),
-        'dhamkith/googlemap' => array(
-            'pretty_version' => 'dev-master',
-            'version' => 'dev-master',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../dhamkith/googlemap',
-            'aliases' => array(
-                0 => '9999999-dev',
-            ),
-            'reference' => 'b72829ac2d782b5429bb146c42a3008a3e9f846d',
-            'dev_requirement' => false,
         ),
         'doctrine/cache' => array(
             'pretty_version' => '2.1.1',
@@ -465,7 +454,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '0424ac3b0e8220eb4780edbff223dc2c4c65f48d',
+            'reference' => 'b9d09e538bf0ca1b6707bcf353dbb40df79519c2',
             'dev_requirement' => false,
         ),
         'laravel/sail' => array(

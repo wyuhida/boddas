@@ -35,9 +35,9 @@ class ComposerStaticInitb314d9d3de04d37949a0597208815e77
         '9cdd7b9056abc3081735233ba9dd9c7f' => __DIR__ . '/..' . '/facade/flare-client-php/src/helpers.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
+        'caf23243e9cb3afd48d0414815ebf07e' => __DIR__ . '/..' . '/brian2694/laravel-toastr/src/helper.php',
         'ed962a97bd972bc82007176b647d4e36' => __DIR__ . '/..' . '/facade/ignition/src/helpers.php',
         '6b34c85f7b1ad6faa15aa12109e030f2' => __DIR__ . '/..' . '/realrashid/sweet-alert/src/functions.php',
-        'caf23243e9cb3afd48d0414815ebf07e' => __DIR__ . '/..' . '/brian2694/laravel-toastr/src/helper.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -169,7 +169,6 @@ class ComposerStaticInitb314d9d3de04d37949a0597208815e77
             'Doctrine\\Common\\Lexer\\' => 22,
             'Doctrine\\Common\\Cache\\' => 22,
             'Doctrine\\Common\\' => 16,
-            'Dhamkith\\Googlemap\\' => 19,
             'DeepCopy\\' => 9,
             'Database\\Seeders\\' => 17,
             'Database\\Factories\\' => 19,
@@ -520,10 +519,6 @@ class ComposerStaticInitb314d9d3de04d37949a0597208815e77
         array (
             0 => __DIR__ . '/..' . '/doctrine/event-manager/lib/Doctrine/Common',
         ),
-        'Dhamkith\\Googlemap\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/dhamkith/googlemap/src',
-        ),
         'DeepCopy\\' => 
         array (
             0 => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy',
@@ -774,16 +769,6 @@ class ComposerStaticInitb314d9d3de04d37949a0597208815e77
         'DeepCopy\\TypeFilter\\Spl\\SplDoublyLinkedListFilter' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeFilter/Spl/SplDoublyLinkedListFilter.php',
         'DeepCopy\\TypeFilter\\TypeFilter' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeFilter/TypeFilter.php',
         'DeepCopy\\TypeMatcher\\TypeMatcher' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeMatcher/TypeMatcher.php',
-        'Dhamkith\\Googlemap\\Facades\\Map' => __DIR__ . '/..' . '/dhamkith/googlemap/src/Facades/Map.php',
-        'Dhamkith\\Googlemap\\GooglemapServiceProvider' => __DIR__ . '/..' . '/dhamkith/googlemap/src/GooglemapServiceProvider.php',
-        'Dhamkith\\Googlemap\\Http\\Controllers\\GooglemapController' => __DIR__ . '/..' . '/dhamkith/googlemap/src/Http/Controllers/GooglemapController.php',
-        'Dhamkith\\Googlemap\\Map' => __DIR__ . '/..' . '/dhamkith/googlemap/src/Map.php',
-        'Dhamkith\\Googlemap\\Models\\Location' => __DIR__ . '/..' . '/dhamkith/googlemap/src/Models/Location.php',
-        'Dhamkith\\Googlemap\\View\\Components\\LocationAll' => __DIR__ . '/..' . '/dhamkith/googlemap/src/View/Components/LocationAll.php',
-        'Dhamkith\\Googlemap\\View\\Components\\LocationCreate' => __DIR__ . '/..' . '/dhamkith/googlemap/src/View/Components/LocationCreate.php',
-        'Dhamkith\\Googlemap\\View\\Components\\LocationEdit' => __DIR__ . '/..' . '/dhamkith/googlemap/src/View/Components/LocationEdit.php',
-        'Dhamkith\\Googlemap\\View\\Components\\LocationView' => __DIR__ . '/..' . '/dhamkith/googlemap/src/View/Components/LocationView.php',
-        'Dhamkith\\Googlemap\\View\\Components\\Massages' => __DIR__ . '/..' . '/dhamkith/googlemap/src/View/Components/Massages.php',
         'Doctrine\\Common\\Cache\\Cache' => __DIR__ . '/..' . '/doctrine/cache/lib/Doctrine/Common/Cache/Cache.php',
         'Doctrine\\Common\\Cache\\CacheProvider' => __DIR__ . '/..' . '/doctrine/cache/lib/Doctrine/Common/Cache/CacheProvider.php',
         'Doctrine\\Common\\Cache\\ClearableCache' => __DIR__ . '/..' . '/doctrine/cache/lib/Doctrine/Common/Cache/ClearableCache.php',

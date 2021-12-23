@@ -61,7 +61,7 @@
                             border-gray-800
                             flex flex-col
                             " style="width: 10rem;">
-                            <a href="#" class=" items-center px-4 py-3 
+                            <a href="" class=" items-center px-4 py-3 
                                 border-b w-full
                                 border-gray-900 hover:bg-gray-100 ">
                                 <p class="text-gray-600 text-sm mx-auto">

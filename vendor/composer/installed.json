@@ -264,60 +264,6 @@
             "install-path": "./package-versions-deprecated"
         },
         {
-            "name": "dhamkith/googlemap",
-            "version": "dev-master",
-            "version_normalized": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dhamkith/googlemap.git",
-                "reference": "b72829ac2d782b5429bb146c42a3008a3e9f846d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dhamkith/googlemap/zipball/b72829ac2d782b5429bb146c42a3008a3e9f846d",
-                "reference": "b72829ac2d782b5429bb146c42a3008a3e9f846d",
-                "shasum": ""
-            },
-            "time": "2020-07-28T00:23:57+00:00",
-            "default-branch": true,
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Dhamkith\\Googlemap\\GooglemapServiceProvider"
-                    ]
-                }
-            },
-            "installation-source": "dist",
-            "autoload": {
-                "psr-4": {
-                    "Dhamkith\\Googlemap\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "dhamkith",
-                    "email": "dhamkith@gmail.com"
-                }
-            ],
-            "description": "add google map latitude longitude, in laravel framwork",
-            "keywords": [
-                "component",
-                "googlemap",
-                "laravel",
-                "map"
-            ],
-            "support": {
-                "issues": "https://github.com/dhamkith/googlemap/issues",
-                "source": "https://github.com/dhamkith/googlemap/tree/master"
-            },
-            "install-path": "../dhamkith/googlemap"
-        },
-        {
             "name": "doctrine/cache",
             "version": "2.1.1",
             "version_normalized": "2.1.1.0",
