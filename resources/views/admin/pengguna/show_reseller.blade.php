@@ -96,8 +96,8 @@
                         <th>No</th>
                         <th>ID</th>
                         <th>Nama</th>
-                        <th>Provinsi</th>
-                        <th>Omset</th>
+                        {{-- <th>Provinsi</th>
+                        <th>Omset</th> --}}
                         <th>Status</th>
                         
                       </tr>
@@ -108,8 +108,8 @@
                           <td>{{$key + 1}}</td>
                           <td>{{$s_se->id}}</td>
                           <td>{{$s_se->fullname}}</td>
-                          <td></td>
-                          <td></td>
+                          {{-- <td></td>
+                          <td></td> --}}
                           <td>
                            
                             <input data-id="{{$s_se->id}}" class="toggle-class" 

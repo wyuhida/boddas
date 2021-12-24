@@ -3,7 +3,7 @@
 <head>
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Boddas') }}</title>
       <!-- Required meta tags -->
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -108,7 +108,7 @@
     @stack('css')
 
 </head>
-<body class="scroll-smooth">
+<body>
     {{-- <div id="preloader">
         <div id="preloader-inner"></div>
     </div><!--/preloader--> --}}
@@ -122,10 +122,6 @@
 
      <!--/nav bar-->
     @include('layouts.frontend.partials.navbar')
-     
-     <!--/nav bar-->
-     <!-- Site Overlay -->
-     <div class="site-overlay"></div>
      
     @yield('content')
  

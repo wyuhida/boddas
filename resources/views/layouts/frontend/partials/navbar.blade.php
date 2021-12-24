@@ -1,95 +1,66 @@
-<nav class="bg-white shadow-lg dark:bg-gray-800">
-    <div class="container py-3 mx-auto md:flex md:justify-between md:items-center">
-        <div class="flex items-center justify-between">
-            <div>
-                <a class="
-                text-2xl font-bold text-gray-800 
-                dark:text-white lg:text-3xl 
-                hover:text-gray-700 
-                dark:hover:text-gray-300
-                " 
-                href="{{route('home.index')}}">
-                    <img class="rounded px-12 relative" src="{{asset('images/logo2.png')}}" 
-                    alt="" srcset="">
-                </a>
+<div class="min-h-screen">
+  <div class="antialiased bg-gray-100 dark-mode:bg-gray-900">
+  <div class="w-full text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800">
+    <div x-data="{ open: true }" class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
+      <div class="flex flex-row items-center justify-between p-4">
+        <a href="#" class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">
+            <img src="{{asset('images/logo2.png')}}" alt="" srcset="">
+        </a>
+        <button class="rounded-lg md:hidden focus:outline-none focus:shadow-outline" @click="open = !open">
+          <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+            <path x-show="!open" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+            <path x-show="open" fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+          </svg>
+        </button>
+      </div>
+      <nav :class="{'flex': open, 'hidden': !open}" class="flex-col flex-grow hidden pb-4 md:pb-0 md:flex md:justify-end md:flex-row">
+        <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="{{route('home.index')}}">Home</a>
+        <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="{{route('show_shop')}}">Product</a>
+        <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="{{route('show_blog')}}">Blog</a>
+        <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="{{route('tentang_kami')}}">About</a>
+        <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="{{route('kontak')}}">Contact Us</a>
+        @guest
+        <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="{{route('showRegister')}}">Register</a>
+        <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="{{route('backend.login')}}">Login</a>
+        @else
+        @if(Auth::user()->id_role == 3)
+        <div @click.away="open = true" class="relative" x-data="{ open: false }">
+          <button @click="open = !open" class="flex flex-row text-gray-900 bg-gray-200 items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:focus:bg-gray-600 dark-mode:hover:bg-gray-600 md:w-auto md:inline md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+            <span>
+              <img class="w-8 h-8 overflow-hidden border-2 rounded-full inline" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80" class="object-cover w-full h-full" alt="avatar">
+          </span>
+            <svg fill="currentColor" viewBox="0 0 20 20" :class="{'rotate-180': open, 'rotate-0': !open}" class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+          </button>
+          <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute right-0 w-full md:max-w-screen-sm md:w-screen mt-2 origin-top-right">
+            <div class="px-2 pt-2 pb-4 bg-white rounded-md shadow-lg dark-mode:bg-gray-700">
+              <div class="grid grid-cols-1 md:grid-cols-1 gap-4">
+                {{-- <a class="flex flex row items-start rounded-lg bg-transparent p-2 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">
+                  <div class="bg-teal-500 text-white rounded-lg p-3">
+                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="md:h-6 md:w-6 h-4 w-4"><path d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
+                  </div>
+                  <div class="ml-3">
+                    <p class="font-semibold">Appearance</p>
+                    <p class="text-sm">Easy customization</p>
+                  </div>
+                </a> --}}
+                <div class="flex flex-col border-gray-300">
+                  <a href="{{route('buyer.dashboard')}}" class="py-2 font-Roboto">Dashboard</a>
+                  <a href="{{ route('logout') }}" class="py-2 font-Roboto" onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();">Logout
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                      @csrf
+                  </form>
+                  </a>
+                </div>
+
+              </div>
             </div>
-            
-            <!-- Mobile menu button -->
-            <div class="flex md:hidden">
-                <button type="button" class="text-gray-500 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:text-gray-600 dark:focus:text-gray-400" aria-label="toggle menu">
-                    <svg viewBox="0 0 24 24" class="w-6 h-6 fill-current">
-                        <path fill-rule="evenodd" d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"></path>
-                    </svg>
-                </button>
-            </div>
+          </div>
         </div>
-  
-        <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
-        <div class="items-center md:flex px-14 ">
-            <div class="flex flex-col md:flex-row md:mx-6">
-                <a class="my-1 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-bg-tombol dark:hover:text-bg-tombol md:mx-4 md:my-0" href="{{route('home.index')}}">Home</a>
-                <a class="my-1 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-bg-tombol dark:hover:text-bg-tombol md:mx-4 md:my-0" href="{{route('show_shop')}}">Product</a>
-                <a class="my-1 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-bg-tombol dark:hover:text-bg-tombol md:mx-4 md:my-0" href="{{route('show_blog')}}">Blog</a>
-                <a class="my-1 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-bg-tombol dark:hover:text-bg-tombol md:mx-4 md:my-0" href="{{route('tentang_kami')}}">About</a>
-                <a class="my-1 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-bg-tombol dark:hover:text-bg-tombol md:mx-4 md:my-0" href="{{route('kontak')}}">Contact Us</a>
-
-            </div>
-            @guest
-            <a class="my-1 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-bg-tombol dark:hover:text-bg-tombol md:mx-4 md:my-0" href="{{route('showRegister')}}">Register</a>
-            <a class="my-1 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-bg-tombol dark:hover:text-bg-tombol md:mx-4 md:my-0" href="{{route('backend.login')}}">Login</a>
-            @else
-                @if(Auth::user()->id_role == 3)
-                    <div x-data="{ dropdownOpen: false }" class="flex justify-center md:block" class="ml-4">
-                        <button @click="dropdownOpen = true" class="relative text-gray-700 hover:text-gray-600 dark:hover:text-gray-300 drop" href="#">
-                            <img class="w-8 h-8 overflow-hidden border-2 rounded-full inline" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80" class="object-cover w-full h-full" alt="avatar">
-                            <span class="absolute top-0 left-0 p-1 text-xs text-white bg-bg-tombol rounded-full"></span>
-                            <p class="inline font-bold">{{auth()->user()->fullname}}</p>
-                            <svg class="h-7 w-7 inline text-gray-900" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                            </svg>
-                        </button>
-                        {{-- <div x-show="dropdownOpen" @mouseover.away="dropdownOpen = false" class="fixed inset-0 h-full w-full z-10"></div> --}}
-                        <div x-show="dropdownOpen" @click="dropdownOpen = false" class="fixed inset-0 h-full w-full z-10"></div>
-
-                        <div x-show="dropdownOpen" class="
-                            absolute 
-                            flex mt-2
-                            bg-white 
-                            rounded-md shadow-lg overflow-hidden
-                            z-20
-                            border
-                            border-gray-800
-                            flex flex-col
-                            " style="width: 10rem;">
-                            <a href="{{route('buyer.dashboard')}}" class=" items-center px-4 py-3 
-                                border-b w-full
-                                border-gray-900 hover:bg-gray-100 ">
-                                <p class="text-gray-600 text-sm mx-auto">
-                                    <span class="font-bold" href="#">Dashboard</span>
-                                </p>
-                            </a>
-                            <a href="" class=" items-center px-4 py-3 
-                                border-b w-full
-                                border-gray-900 hover:bg-gray-100 ">
-                                <p class="text-gray-600 text-sm mx-auto">
-                                    <span class="font-bold" href="{{ route('logout') }}"  
-                                        onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();">
-                                        Logout
-                                    </span>
-                                </p>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
-                            </a>
-                        </div>
-                    </div>
-                    @endif
-                @endguest
-           
-
-            {{-- <div x-show="dropdownOpen" @mouseleave.away="dropdownOpen = false"></div> --}}
-        
-        </div>
+        @endif
+        @endguest    
+      </nav>
     </div>
-  </nav>
+  </div>
+</div>
+</div>

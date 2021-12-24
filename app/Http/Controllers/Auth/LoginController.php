@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Auth;
+use Session;
+use Illuminate\Http\Request;
 class LoginController extends Controller
 {
     /*
@@ -49,6 +51,7 @@ class LoginController extends Controller
                 $this->redirectTo = '/';
                 return $this->redirectTo;
                 break;
+
             case 2:
                 $this->redirectTo = '/admin/dashboard';
                 return $this->redirectTo;
@@ -58,7 +61,7 @@ class LoginController extends Controller
                 return $this->redirectTo;
                 break;
             default:
-                $this->redirectTo = '/login';
+                $this->redirectTo = '/adminlogin';
                 return $this->redirectTo;
         }
     }
@@ -70,12 +73,13 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        //  ORIGINAL
-        //     if(auth()->user()->hasRole('admin'))
-        // {
-        //     return redirect('/admin/dashboard');
+        // if (Auth::check() && Auth::user()->id_role == 1) {
+        //     $this->redirectTo = route('superadmin.dashboard');
+        // } elseif (Auth::check() && Auth::user()->id_role == 2) {
+        //     $this->redirectTo = route('admin.dashboard');
+        // } else {
+        //     $this->redirectTo = route('buyer.dashboard');
         // }
-
-        $this->middleware('guest')->except('logout');
+        // $this->middleware('guest')->except('logout');
     }
 }

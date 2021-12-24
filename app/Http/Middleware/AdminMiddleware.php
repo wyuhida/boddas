@@ -18,15 +18,8 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        // ORIGINAL
-        // if (Auth::check() && Auth::user()->id_role == 2) {
-        //     return $next($request);
-        // } else {
-        //     return redirect()->route('login');
-        // }
-
         if (!Auth::check()) {
-            return redirect()->route('login');
+            return redirect()->route('adminlogin');
         }
 
         if (Auth::user()->id_role == 1) {
@@ -40,17 +33,5 @@ class AdminMiddleware
         if (Auth::user()->id_role == 3) {
             return redirect()->route('buyer.dashboard');
         }
-
-        // if (Auth::user()->id_role == 3 && Auth::user()->id_buyer == 1) {
-        //     return redirect()->route('customer.customer.dashboard');
-        // }
-
-        // if (Auth::user()->id_role == 3 && Auth::user()->id_buyer == 2) {
-        //     return redirect()->route('reseler.reseler.dashboard');
-        // }
-
-        // if (Auth::user()->id_role == 3 && Auth::user()->id_buyer == 3) {
-        //     return redirect()->route('afiliate.afiliate.dashboard');
-        // }
     }
 }

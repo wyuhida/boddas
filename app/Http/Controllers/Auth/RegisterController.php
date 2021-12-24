@@ -9,7 +9,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
-use Auth;
+use Illuminate\Support\Facades\Auth;
 class RegisterController extends Controller
 {
     /*
@@ -40,10 +40,14 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        if (Auth::check() && Auth::user()->role->id == 1) {
+        if (Auth::check() && Auth::user()->id_role == 1) {
             $this->redirectTo = route('superadmin.dashboard');
-        } else {
+        }
+        if (Auth::check() && Auth::user()->id_role == 2) {
             $this->redirectTo = route('admin.dashboard');
+        }
+        if (Auth::check() && Auth::user()->id_role == 3) {
+            $this->redirectTo = route('buyer.dashboard');
         }
         $this->middleware('guest');
     }

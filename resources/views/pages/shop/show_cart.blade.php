@@ -80,25 +80,46 @@
         </div>
 
         <div class="px-11">
-            <form method="POST" action="{{route('proses_pembayaran')}}">
+            <form method="POST" action="{{route('proses_pembayaran')}}" enctype="multipart/form-data">
                 @csrf
                         <input type="hidden" name="id_transaction" value="{{$s_cart->id_transaction}}">
                         <input type="hidden" name="id_transaction_status" value="{{$s_cart->id_transaction_status}}">
                         <input type="hidden" name="id_item" id="" value="{{$s_cart->id_item}}">
                         <input type="hidden" name="qty" value="{{$s_cart->qty}}">
-                <div class="flex w-full flex-col lg:flex-row">
-                    <div class="grid grid-cols-1 lg:grid-cols-2 w-full gap-5">
-                        <div class="grid grid-col">
+                        <div class="flex-col w-full">
+                            <p class="px-3 text-lg font-Roboto text-bg-tombol font-semibold capitalize">Provinsi</p>
+                            <div class="flex w-full mx-auto px-2 block">
+                                <input class="px-2 py-3 
+                                w-full
+                                text-base
+                                font-normal
+                                text-gray-700
+                                bg-white bg-clip-padding
+                                border border-solid border-gray-300
+                                rounded
+                                transition
+                                ease-in-out
+                                m-0
+                                focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
+                                type="file" name="foto" placeholder="" aria-label="" @error('foto') is-invalid @enderror>
+                                @error('foto')
+                                    <div class="p-2 mb-2 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
+                                        <span class="font-medium">{{ $message }}</span>
+                                    </div>          
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="flex-col w-full">
                                 <p class="px-3 text-lg font-Roboto text-bg-tombol font-semibold capitalize">Provinsi</p>
                                 <div class="flex w-full mx-auto px-2 block">
                                     <input class="px-2 py-3 
                                     w-full 
                                     overflow-hidden border rounded-lg dark:border-gray-600 "
-                                    type="text" name="provinsi" placeholder="Provinsi" aria-label="">
+                                    type="text" name="provinsi" placeholder="Provinsi" aria-label="" >
                                 </div>
                         </div>
 
-                        <div class="grid grid-col">
+                        <div class="flex-col w-full">
                             <p class="px-3 text-lg font-Roboto text-bg-tombol font-semibold capitalize">kota</p>
                             <div class="flex w-full mx-auto px-2  block">
                                 <input class="px-2 py-3 
@@ -108,7 +129,7 @@
                             </div>
                         </div>
 
-                        <div class="grid grid-col">
+                        <div class="flex-col w-full">
                             <p class="px-3 text-lg font-Roboto text-bg-tombol font-semibold capitalize">kecamatan</p>
                             <div class="flex w-full mx-auto px-2  block">
                                 <input class="px-2 py-3 
@@ -117,8 +138,8 @@
                                 type="text" name="kecamatan" placeholder="Kecamatan" aria-label="">
                             </div>
                         </div>
-
-                        <div class="grid grid-col">
+                        
+                        <div class="flex-col w-full">
                             <p class="px-3 text-lg font-Roboto text-bg-tombol font-semibold capitalize">Kelurahan</p>
                             <div class="flex w-full mx-auto px-2  block">
                                 <input class="px-2 py-3 
@@ -128,7 +149,7 @@
                                 type="text" name="kelurahan" placeholder="Kelurahan" aria-label="">
                             </div>
                         </div>
-                        <div class="grid grid-col col-span-2">
+                        <div class="flex-col w-full">
                             <p class="px-3 text-lg font-Roboto text-bg-tombol font-semibold capitalize">No telephone / Whatsapp</p>
                             <div class="flex w-full mx-auto px-2 py-2  block">
                                 <input class=" px-2 py-2 
@@ -146,7 +167,7 @@
                             @enderror
                         </div>
 
-                        <div class="grid grid-col col-span-2">
+                        <div class="flex-col w-full">
                             <p class="px-3 text-lg font-Roboto text-bg-tombol font-semibold capitalize">alamat lengkap</p>
                             <div class="flex w-full mx-auto px-2 py-2  block">
                                 <textarea class=" px-2 py-3 
@@ -161,7 +182,9 @@
                                 <span class="font-medium">{{ $message }}</span>
                             </div>          
                             @enderror
-                        </div>                   
+                        </div>       
+
+                                      
                     </div>
 
                     <div class="flex flex-col w-full lg:w-1/2 gap-3">
@@ -185,23 +208,26 @@
                             </div>
                             
                         </div>
-                        <div class="flex flex-col w-full">
-                        
-
-                            <button class="mx-auto text-white 
+                        <div class="flex flex-col w-full mb-5">
+                            <button
+                         
+                             class="
+                                mx-auto text-white 
                                 bg-bg-tombol text-sm capitalize
                                 py-2 px-11 font-Roboto justify-center">
                                 check out
-                            </button>
+                            </button>                           
                         </div>
                     </div>
                 </div>
             </form>
+
+            
         </div>
+
     </div>
 
   
 @endsection
 @push('js')
-    
 @endpush

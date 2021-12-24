@@ -169,18 +169,15 @@
                         </span>
                          <p class="inline py-9 text-sm text-white font-Poppins"></p>
                       </div>
-
-                     
-
                   </div>
 
                   <div class="">
                       <h3 class="text-white Capitalize font-Poppins font-bold
                       mb-1
                       text-2xl
-                      ">Usefull Link</h3>
-                      <a href="#" class="block mt-2 text-sm text-white hover:underline">Tec</a>
-                      <a href="#" class="block mt-2 text-sm text-white hover:underline">Music</a>
+                      ">Join Members</h3>
+                      <a href="#" class="block mt-2 text-sm text-white hover:underline">Reseller</a>
+                      <a href="#" class="block mt-2 text-sm text-white hover:underline">Afiliate</a>
                       <a href="#" class="block mt-2 text-sm text-white hover:underline">Videos</a>
                   </div>
 

@@ -32,13 +32,13 @@ class PenggunaController extends Controller
         $cari = request()->query('cari');
 
         if (isset($request->lokasi)) {
-            $s_show_afiliate = User::join(
+            $s_show_afiliate = User::leftJoin(
                 'buyers',
                 'buyers.id',
                 '=',
                 'users.id_buyer'
             )
-                ->join('addresses', 'users.id', '=', 'addresses.id_user')
+                ->leftJoin('addresses', 'users.id', '=', 'addresses.id_user')
                 ->select(
                     'users.id',
                     'users.fullname',
@@ -58,13 +58,13 @@ class PenggunaController extends Controller
                 ['id_role', '=', 3],
             ])->paginate(20);
         } else {
-            $s_show_afiliate = User::join(
+            $s_show_afiliate = User::leftJoin(
                 'buyers',
                 'buyers.id',
                 '=',
                 'users.id_buyer'
             )
-                ->join('addresses', 'users.id', '=', 'addresses.id_user')
+                ->leftJoin('addresses', 'users.id', '=', 'addresses.id_user')
                 ->select(
                     'users.id',
                     'users.fullname',
@@ -141,13 +141,13 @@ class PenggunaController extends Controller
                 "{$cari}"
             )->paginate(20);
         } else {
-            $s_show_reseller = User::join(
+            $s_show_reseller = User::leftJoin(
                 'buyers',
                 'buyers.id',
                 '=',
                 'users.id_buyer'
             )
-                ->join('addresses', 'users.id', '=', 'addresses.id_user')
+                ->leftJoin('addresses', 'users.id', '=', 'addresses.id_user')
                 ->select(
                     'users.id',
                     'users.fullname',
@@ -155,10 +155,7 @@ class PenggunaController extends Controller
                     'users.is_active',
                     'addresses.address_name'
                 )
-                ->where([
-                    ['users.id_role', '=', 3],
-                    ['buyers.buyer', 'reseller'],
-                ])
+                ->where([['buyers.buyer', 'reseler']])
                 ->orderBy('users.created_at', 'DESC')
                 ->paginate(20);
         }

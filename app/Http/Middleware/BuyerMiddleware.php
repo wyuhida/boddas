@@ -18,7 +18,7 @@ class BuyerMiddleware
     public function handle(Request $request, Closure $next)
     {
         if (!Auth::check()) {
-            return redirect()->route('login');
+            return redirect()->route('adminlogin');
         }
 
         if (Auth::user()->id_role == 1) {

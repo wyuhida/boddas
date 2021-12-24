@@ -39,14 +39,14 @@ class RedirectIfAuthenticated
             //     Auth::user()->id_role == 2
             // ) {
             //     return redirect()->route('admin.dashboard');
+            // } elseif (
+            //     Auth::guard($guard)->check() &&
+            //     Auth::user()->id_role == 3
+            // ) {
+            //     return redirect()->route('buyer.dashboard');
             // } else {
             //     return $next($request);
             // }
-            if (Auth::guard($guard)->check()) {
-                return redirect('/home');
-            }
-
-            return $next($request);
         }
     }
 }

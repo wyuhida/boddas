@@ -96,6 +96,9 @@
                 <li class="{{Request::is('buyer/dashboard') ? 'active' : ''}}">
                     <a href="{{route('buyer.dashboard')}}" name="dashboard"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span></a>
                 </li>
+                <li class="{{Request::is('buyer/profile') ? 'active' : ''}}">
+                    <a href="{{route('buyer.profile')}}" name="profile"><i class="fa fa-th-large"></i> <span class="nav-label">Profile</span></a>
+                </li>
                
             @endif 
           

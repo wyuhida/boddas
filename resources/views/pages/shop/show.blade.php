@@ -53,9 +53,7 @@
                 Bersertifikat BPOM (BPOM RI MD 867028042317) dan Bersertifikat HALAL dari MUI.
             </p>
         </div>
-
-         
-        </div>
+      </div>
        
     </div>
 </section>
@@ -63,96 +61,11 @@
  <!-- End Hero -->
 
  <!--section 2 -->
- <section class="py-20 ">
-    <!-- heading -->
-    @if($popular->count() > 0)
-    <div class="sm:3/4 mx-auto px-11">
-        <h2 class="py-2 font-Inter text-sm text-left text-gray-500">Our Product</h2>
-        <h1 class="text-3xl text-left text-gray-600 font-Inter">
-            Most Popular Product
-        </h1>
-    </div>
-    <!-- Product -->
-    <div class="container 
-        grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-16 gap-4 px-5 justify-center">
-        @foreach($popular->groupBy('id_item') as $items)
-        {{-- @dd($items); --}}
-        @foreach($items as $itm)
-        <div class="flex flex-col border border-gray-300 h-max hover:border-bg-tombol border-2 shadow-md">
-  
-          <div class="items-center mx-auto mt-8 max-h-48 ">
-            <img 
-            class="rounded-full w-48 h-48 justify-center object-cover object-center items-center shadow-sm "
-            src="{{asset('image/product')}}/{{$itm[0]->photo}}" alt="">
-          </div>
-
-          <div class="items-center mx-auto mt-5 justify-center">
-            <span class="inline-block flex overflow-hidden ">
-              <svg class="w-5 inline fill-bookmark-yellow stroke-bookmark-yellow" 
-              xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
-              </svg>
-              <svg class="w-5 inline fill-bookmark-yellow stroke-bookmark-yellow" 
-              xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
-              </svg>
-              <svg class="w-5 inline fill-bookmark-yellow stroke-bookmark-yellow" 
-              xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
-              </svg>
-              <svg class="w-5 inline fill-bookmark-yellow stroke-bookmark-yellow" 
-              xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
-              </svg>
-              <svg class="w-5 inline fill-bookmark-yellow stroke-bookmark-yellow" 
-              xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
-              </svg>
-            </span>
-          </div>
-
-          <div class="px-12 text-center sm:px-0 w-full">
-            <h2 class="text-2xl mt-3 font-Inter">{{$itm[0]->item_name}}</h2>
-            <p class="text-center font-Inter text-sm text-gray-500">Terjual {{$itm[0]->total_sold}}</p>
-            @if(!empty(Auth::user()->id))
-                @if(auth()->user()->id_role == 3)
-             
-                  <del class="text-sm">Rp {{ number_format($itm[0]->price)}}</del>
-                  <h3 class="text-2xl text-bg-tombol">Rp {{number_format($itm[0]->price-($total*$itm[0]->price))}}</h3>
-                @else
-                  <h3 class="text-2xl text-bg-tombol">Rp {{number_format($itm[0]->price)}}</h3>
-                @endif
-              @else
-                <h3 class="text-2xl text-bg-tombol">Rp {{number_format($itm[0]->price)}}</h3>
-              @endif
-        
-           
-
-            <div class="py-4 mb-3">
-                <a href="{{route('detail_shop',[$itm[0]->id_item,$itm[0]->id_category_item])}}" class="px-2 py-2 
-                    rounded text-bg-tombol 
-                    transition-colors 
-                    duration-200 transform 
-                     border border-bg-tombol
-                    text-bg-tombol
-                    ">
-                    Discover Now
-                </a>
-            </div>
-          </div>
-         
-        </div>
-        @endforeach
-        @endforeach
-    </div>
-    @endif
-    <!-- end product -->
-</section>
 
 <!-- end section 2 -->
 
 <!-- Section 3 -->    
-<section class="dark:bg-gray-900 lg:py-12 lg:flex lg:justify-center">
+{{-- <section class="dark:bg-gray-900 lg:py-12 lg:flex lg:justify-center">
     <div class="dark:bg-gray-800 lg:mx-8 lg:flex lg:max-w-5xl lg:rounded-lg">
        
         <div class="max-w-full px-6 py-12 lg:max-w-5xl lg:w-1/2 gap-3">
@@ -191,7 +104,7 @@
             </div>
        </div>
     </div>
-</section>
+</section> --}}
 <!-- Section 3 -->  
 
 <!--Section 4 -->
@@ -201,14 +114,14 @@
     <div class="sm:3/4 mx-auto px-11">
         <h2 class="py-2 font-Inter text-sm text-left text-gray-500">Our Product</h2>
         <h1 class="text-3xl text-left text-gray-600 font-Inter">
-            New Comer Product
+            Semua Produk
         </h1>
     </div>
       <!-- Product -->
      <!-- Product -->
       <div class="container 
           grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-16 gap-4 px-5 justify-center relative">
-          @foreach($item->groupBy('id_item') as $items)
+          @foreach($item->groupBy('id_category_item') as $items)
           {{-- @dd($items); --}}
           @foreach($items as $itm)
           <div class="flex flex-col border border-gray-300 h-max hover:border-bg-tombol border-2 shadow-md">

@@ -36,23 +36,12 @@ class HomeController extends Controller
             'item__contents.id_item'
         )
             ->join('users', 'items.update_by', '=', 'users.id')
-            ->orderBy('items.total_sold', 'DESC')
+            ->orderBy('items.id', 'DESC')
             ->get();
         $pop = collect($item);
-        $filter = $pop->whereNotIn('total_sold', [0]);
-        $popular = $filter->groupBy('id_item');
+        // $filter = $pop->whereNotIn('total_sold', [0]);
+        $popular = $pop->groupBy('id_item')->take(4);
 
-        // $foo_kontak = Company_Identity::first();
-        // $c_founder = DB::table('containers')
-        //     ->join('contents', 'containers.id', '=', 'contents.id_container')
-        //     ->join(
-        //         'content__statuses',
-        //         'content__statuses.id',
-        //         '=',
-        //         'contents.id_content_status'
-        //     )
-        //     ->where('containers.container_name', 'founder')
-        //     ->first();
         return view('home', [
             // 'foo_kontak' => $foo_kontak,
             // 'c_founder' => $c_founder,

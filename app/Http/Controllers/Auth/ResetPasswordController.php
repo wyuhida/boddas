@@ -33,44 +33,15 @@ class ResetPasswordController extends Controller
     // for email
     protected function redirectTo()
     {
-        // if (Auth()->user()->id_role == 1) {
-        //     return route('superadmin.dashboard');
-        // } elseif (Auth()->user()->id_role == 2) {
-        //     return route('superadmin.dashboard');
-        // }
-
-        if (
-            (Auth()->user()->id_role == 1 && Auth()->user()->id_buyer == 0) ||
-            ''
-        ) {
+        if (Auth()->user()->id_role == 1 || '') {
             return route('superadmin.dashboard');
         }
-        if (
-            (Auth()->user()->id_role == 2 && Auth()->user()->id_buyer == 0) ||
-            ''
-        ) {
+        if (Auth()->user()->id_role == 2 || '') {
             return route('admin.dashboard');
         }
 
-        if (
-            (Auth()->user()->id_role == 3 && Auth()->user()->id_buyer == 1) ||
-            ''
-        ) {
-            return route('customer.customer.dashboard');
-        }
-
-        if (
-            (Auth()->user()->id_role == 3 && Auth()->user()->id_buyer == 2) ||
-            ''
-        ) {
-            return route('reseler.reseler.dashboard');
-        }
-
-        if (
-            (Auth()->user()->id_role == 3 && Auth()->user()->id_buyer == 3) ||
-            ''
-        ) {
-            return route('afiliate.afiliate.dashboard');
+        if (Auth()->user()->id_role == 3 || '') {
+            return route('buyer.dashboard');
         }
     }
 }

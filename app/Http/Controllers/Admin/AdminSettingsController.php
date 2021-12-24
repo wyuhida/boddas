@@ -148,19 +148,8 @@ class AdminSettingsController extends Controller
 
                 $user->save();
                 Toastr::success('Success', 'Password successfully update');
-                //Alert::success('Success', 'Password successfully update');
-                //Auth::logout();
-                Session::forget($ids);
-                $rememberMeCookie = Auth::getRecallerName();
-                // Tell Laravel to forget this cookie
-                $cookie = Cookie::forget($rememberMeCookie);
-
-                //return Redirect::to('/')->withCookie($cookie);
-
-                //Auth::logout();
-                return redirect()
-                    ->route('backend.login')
-                    ->withCookie($cookie);
+                Auth::logout();
+                return redirect()->route('backend.login');
             } else {
                 //Toastr::error('new password cannot be the same as old password','Error');
                 Alert::error(

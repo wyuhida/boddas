@@ -143,10 +143,10 @@ Route::group(
             'admin_profile_update',
         ])->name('admin.profil.update');
 
-        Route::get('admin_profile_update', [
+        Route::get('admin_profile', [
             AdminSettingsController::class,
-            'admin_profile_update',
-        ])->name('admin.profil.update');
+            'admin_profile',
+        ])->name('admin.profile');
 
         Route::put('admin_password_update', [
             AdminSettingsController::class,
@@ -521,6 +521,31 @@ Route::group(
             BuyerDashboardController::class,
             'index',
         ])->name('dashboard');
+
+        Route::put('update_pembayaran/{id}/update', [
+            BuyerDashboardController::class,
+            'update_pembayaran',
+        ])->name('update_pembayaran');
+
+        Route::get('profile', [
+            BuyerDashboardController::class,
+            'profile',
+        ])->name('profile');
+
+        Route::put('update_profile/{id}/update', [
+            BuyerDashboardController::class,
+            'update_profile',
+        ])->name('update_profile');
+
+        Route::put('update_image_profile/{id}/update', [
+            BuyerDashboardController::class,
+            'update_image_profile',
+        ])->name('update_image_profile');
+
+        Route::put('update_katasandi', [
+            BuyerDashboardController::class,
+            'update_katasandi',
+        ])->name('update_katasandi');
     }
 );
 

@@ -37,22 +37,29 @@ class ShopController extends Controller
             '=',
             'item__contents.id_item'
         )
+            ->join(
+                'category__items',
+                'items.id_category_item',
+                '=',
+                'category__items.id'
+            )
             ->join('users', 'items.update_by', '=', 'users.id')
-            ->orderBy('items.total_sold', 'DESC')
+            ->orderBy('items.id', 'DESC')
             ->get();
 
         $coll = collect($item);
-        $sort = $coll->sortByDesc('id_item');
-        $item = $sort->groupBy('id_item')->paginate(8);
+        $item = $coll->groupBy('id_item')->paginate(8);
+        // $sort = $coll->sortByDesc('id_item');
+        // $item = $coll->groupBy('id_item')->paginate(8);
 
         // popular produk
-        $pop = $coll;
-        $filter = $pop->whereNotIn('total_sold', [0]);
-        $popular = $filter->groupBy('id_item');
+        // $pop = $coll;
+        // $filter = $pop->whereNotIn('total_sold', [0]);
+        // $popular = $filter->groupBy('id_item');
 
         return view('pages.shop.show', [
             'item' => $item,
-            'popular' => $popular,
+            // 'popular' => $popular,
         ]);
     }
 
@@ -194,6 +201,7 @@ class ShopController extends Controller
             [
                 'alamat' => 'required',
                 'phone_number' => 'required',
+                'foto' => 'required',
             ],
             [
                 'required' => 'Wajib Isi',
@@ -247,15 +255,6 @@ class ShopController extends Controller
             }
         }
 
-        // $updt_address = DB::table('addresses')
-        //     ->where('id_user', $ids)
-        //     ->updateOrInsert([
-        //         'address_name' => $request->alamat,
-        //         'id_user' => $ids,
-        //         'is_default' => 1,
-        //         'created_at' => $now,
-        //         'updated_at' => $now,
-        //     ]);
         $updt_address = Address::where('id_user', $ids)->first();
         if (!empty($updt_address)) {
             Address::where('id_user', $ids)->update([
