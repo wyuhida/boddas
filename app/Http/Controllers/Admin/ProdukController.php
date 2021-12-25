@@ -23,6 +23,69 @@ use Cookie;
 
 class ProdukController extends Controller
 {
+    public function admin_transaksi()
+    {
+        $items = DB::table('transaction__details')
+
+            ->join('items', 'transaction__details.id_item', '=', 'items.id')
+            ->join('item__contents', 'items.id', 'item__contents.id_item')
+            ->join(
+                'transactions',
+                'transaction__details.id_transaction',
+                '=',
+                'transactions.id'
+            )
+            ->join(
+                'transaction__statuses',
+                'transactions.id_transaction_status',
+                '=',
+                'transaction__statuses.id'
+            )
+            ->join('users', 'transactions.id_user', '=', 'users.id')
+
+            ->orderBy('transaction__details.id', 'DESC')
+            ->get();
+        $coll = collect($items);
+        $newItem = $coll->groupBy('id_transaction');
+
+        $sttus = DB::table('transaction__statuses')
+            ->whereIn('id', [4, 5, 6])
+            ->get();
+        return view('admin.transaksi.show', ['newItem' => $newItem]);
+    }
+
+    public function update_status_prepare(Request $request, $id)
+    {
+        $st = DB::table('transactions')
+            ->where('id', $id)
+            ->update([
+                'id_transaction_status' => 4,
+            ]);
+        Toastr::success('Success', 'Ubah Status Berhasil');
+        return redirect()->back();
+    }
+    public function update_status_ondelivery(Request $request, $id)
+    {
+        $st = DB::table('transactions')
+            ->where('id', $id)
+            ->update([
+                'id_transaction_status' => 5,
+            ]);
+        Toastr::success('Success', 'Ubah Status Berhasil');
+        return redirect()->back();
+    }
+
+    public function update_status_finished(Request $request, $id)
+    {
+        $st = DB::table('transactions')
+            ->where('id', $id)
+            ->update([
+                'id_transaction_status' => 6,
+            ]);
+        Toastr::success('Success', 'Ubah Status Berhasil');
+        return redirect()->back();
+    }
+
     public function create_admin_produk()
     {
         $cat = DB::table('category__items')->get();

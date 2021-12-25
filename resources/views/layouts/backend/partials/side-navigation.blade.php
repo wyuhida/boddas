@@ -43,7 +43,7 @@
                     <a name ="show_admin_blog" href="{{ route('admin.show_admin_blog')}}"><i class="fa fa-book"></i> <span class="nav-label">Blog</span></a>
                 </li>
 
-                  <li class="{{Request::is('admin/show_admin_produk') ? 'active' : ''}}">
+                <li class="{{Request::is('admin/show_admin_produk') ? 'active' : ''}}">
                     <a href="">
                       <i class="fa fa-archive"></i>
                       <span class="nav-label">Produk</span>
@@ -56,6 +56,10 @@
                       </li>
                       <li><a href="{{ route('admin.create_admin_produk')}}">Tambah Produk</a></li>
                     </ul>
+                </li>
+
+                <li class="{{Request::is('admin/admin_transaksi') ? 'active' : ''}}">
+                    <a name ="admin_transaksi" href="{{route('admin.admin_transaksi')}}"><i class="fa fa-book"></i> <span class="nav-label">Transaksi</span></a>
                 </li>
 
                 <li class="{{Request::is('admin.*') ? 'active' : ''}}">

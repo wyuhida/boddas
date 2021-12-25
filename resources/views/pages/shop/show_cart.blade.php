@@ -87,7 +87,7 @@
                         <input type="hidden" name="id_item" id="" value="{{$s_cart->id_item}}">
                         <input type="hidden" name="qty" value="{{$s_cart->qty}}">
                         <div class="flex-col w-full">
-                            <p class="px-3 text-lg font-Roboto text-bg-tombol font-semibold capitalize">Provinsi</p>
+                            <p class="px-3 text-lg font-Roboto text-bg-tombol font-semibold capitalize">Bukti Transfer</p>
                             <div class="flex w-full mx-auto px-2 block">
                                 <input class="px-2 py-3 
                                 w-full

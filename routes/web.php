@@ -22,6 +22,7 @@ use App\Http\Controllers\Admin\ProdukController;
 use App\Http\Controllers\Admin\AdminKategoriController;
 use App\Http\Controllers\Admin\AdminBlogController;
 use App\Http\Controllers\Admin\PenggunaController;
+use App\Http\Controllers\Admin\TransaksiController;
 
 /**
  * For Buyer
@@ -116,6 +117,7 @@ Route::post('proses_pembayaran', [
 /**
  * ADMIN GROUP
  */
+
 Route::group(
     [
         'as' => 'admin.',
@@ -326,6 +328,29 @@ Route::group(
             ProdukController::class,
             'delete_admin_produk',
         ])->name('delete_admin_produk');
+
+        /**
+         * Transaksi
+         */
+        Route::get('admin_transaksi', [
+            ProdukController::class,
+            'admin_transaksi',
+        ])->name('admin_transaksi');
+
+        Route::get('update_status_prepare/{id}/update', [
+            ProdukController::class,
+            'update_status_prepare',
+        ])->name('update_status_prepare');
+
+        Route::get('update_status_ondelivery/{id}/update', [
+            ProdukController::class,
+            'update_status_ondelivery',
+        ])->name('update_status_ondelivery');
+
+        Route::get('update_status_finished/{id}/update', [
+            ProdukController::class,
+            'update_status_finished',
+        ])->name('update_status_finished');
 
         /**
          * ADMIN BLOG

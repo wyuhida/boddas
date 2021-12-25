@@ -16,6 +16,7 @@ return array(
     'App\\Http\\Controllers\\Admin\\DashboardController' => $baseDir . '/app/Http/Controllers/Admin/DashboardController.php',
     'App\\Http\\Controllers\\Admin\\PenggunaController' => $baseDir . '/app/Http/Controllers/Admin/PenggunaController.php',
     'App\\Http\\Controllers\\Admin\\ProdukController' => $baseDir . '/app/Http/Controllers/Admin/ProdukController.php',
+    'App\\Http\\Controllers\\Admin\\TransaksiController' => $baseDir . '/app/Http/Controllers/Admin/TransaksiController.php',
     'App\\Http\\Controllers\\Afiliate\\AfiliateController' => $baseDir . '/app/Http/Controllers/Afiliate/AfiliateController.php',
     'App\\Http\\Controllers\\AuthController' => $baseDir . '/app/Http/Controllers/AuthController.php',
     'App\\Http\\Controllers\\Auth\\ConfirmPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ConfirmPasswordController.php',

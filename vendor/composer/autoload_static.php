@@ -578,6 +578,7 @@ class ComposerStaticInitb314d9d3de04d37949a0597208815e77
         'App\\Http\\Controllers\\Admin\\DashboardController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/DashboardController.php',
         'App\\Http\\Controllers\\Admin\\PenggunaController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/PenggunaController.php',
         'App\\Http\\Controllers\\Admin\\ProdukController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/ProdukController.php',
+        'App\\Http\\Controllers\\Admin\\TransaksiController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/TransaksiController.php',
         'App\\Http\\Controllers\\Afiliate\\AfiliateController' => __DIR__ . '/../..' . '/app/Http/Controllers/Afiliate/AfiliateController.php',
         'App\\Http\\Controllers\\AuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/AuthController.php',
         'App\\Http\\Controllers\\Auth\\ConfirmPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ConfirmPasswordController.php',

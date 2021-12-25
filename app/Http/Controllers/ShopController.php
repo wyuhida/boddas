@@ -272,19 +272,12 @@ class ShopController extends Controller
                 'updated_at' => Carbon::now(),
             ]);
         }
-        // $updt_address->address_name = $request->alamat;
-        // $updt_address->created_at = Carbon::now();
-        // $updt_address->updated_at = Carbon::now();
-
-        // if (!empty($updt_address)) {
-        //     dd($updt_address);
-        // }
 
         $updt_phone = User::findOrFail($ids);
         $updt_phone->phone_number = $request->phone_number;
-        $updt_phone->save();
+        $sv = $updt_phone->save();
 
-        Toastr::success('Success', 'Pesanan terkirim');
+        Toastr::success('Success', 'Pesanan Berhasil Dibuat');
         return redirect()->route('home.index');
     }
 
