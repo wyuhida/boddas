@@ -107,13 +107,15 @@
             @if(!empty(Auth::user()->id))
               @if(auth()->user()->id_role == 3)
                 <h2 class="text-bookmark-foot text-2xl font-bold font-Roboto inline px-2">Rp {{number_format($detail[0]->price-($total*$detail[0]->price))}}</h2>
+                @if($total != 0)
                 <del class="text-bookmark-white text-lg font-Roboto inline px-2">Rp {{number_format($detail[0]->price)}}</del>
+                @endif
                 <p class="inline text-blue-500 text-xl px-2 font-Roboto font-bold">Diskon {{$total * 100 }}%</p>
                 <p class="inline text-sm px-2 font-Roboto text-bg-tombol">Min.Pembelian {{ $limit}}</p>
               @else
                 <h2 class="text-bookmark-foot text-2xl font-bold font-Roboto inline px-2">Rp {{number_format($detail[0]->price)}}</h2>
                 <p class="inline text-blue-500 text-xl px-2 font-Roboto font-bold">Diskon 0%</p>
-                <p class="inline text-sm px-2 font-Roboto text-bg-tombol">Min.Pembelian {{ $limit}}</p>
+                <p class="inline text-sm px-2 font-Roboto text-bg-tombol">Min.Pembelian 1</p>
 
               @endif
             @else
@@ -145,14 +147,22 @@
                 <input type="hidden" name="diskon" value={{$detail[0]->price-($total*$detail[0]->price)}}>
                 <input type="hidden" name="limit" id="" value={{$limit}}>
                 <input type="hidden" name="harga_default" value="{{$detail[0]->price}}">
+                <input type="hidden" name="total_stock" value="{{$detail[0]->total_stock}}">
 
                 <button class="py-3 bg-bookmark-btn-min-plus text-black px-3 z-auto" id="minus" >-</button>
-                <input 
-                    class="bg-bookmark-btn-min-plus text-black w-24 py-3 text-center z-auto"
-                    type="text" name="quantity" value="1" id="input" min="1" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
+          
+                    <input 
+                      class="bg-bookmark-btn-min-plus text-black w-24 py-3 text-center z-auto"
+                      type="text" name="quantity" 
+                          value="{{$limit}}"
+                      id="input" min="{{$limit}}" 
+                      @error('quantity') is-invalid @enderror
+                        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
+
                 <button
                   class="py-3 bg-bookmark-btn-min-plus text-black px-3 z-auto"
                   id="plus">+</button>
+                 
 
                 <button type="submit" 
                   class="
@@ -174,6 +184,11 @@
                 </svg>
                 BUY NOW
                 </button>
+                @error('quantity')
+                <div class="p-2 mb-2 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
+                    <span class="font-medium">{{ $message }}</span>
+                </div>          
+                @enderror
               </form>
             </div>
           </div>
@@ -188,8 +203,8 @@
                 
                 <div class="px-4 py-2 h-28">
                     <div class="text-3xl 
-                    text-center font-bold 
-                    text-gray-800 uppercase dark:text-white mb-3">
+                      text-center font-bold 
+                      text-gray-800 uppercase dark:text-white mb-3">
                         <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
                           </svg>

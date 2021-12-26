@@ -121,17 +121,36 @@ class ShopController extends Controller
         if (empty(Auth::user()->id)) {
             return redirect()->route('backend.login');
         }
+        if (Auth::user()->id_role == 1 || Auth::user()->id_role == 2) {
+            Toastr::error('Error', 'Anda login Sebagai Admin');
+            return redirect()->back();
+        }
         $ids = auth()->user()->id;
         $qty = $request->quantity;
         $diskon = $request->diskon;
         $id_item = $request->id_item;
         $limit = $request->limit;
         $harga_default = $request->harga_default;
+        $stock = $request->total_stock;
 
-        if ($qty >= $limit) {
+        if ($qty >= $limit && $qty <= $stock) {
             $harga_dis = $diskon * $qty; // harga jika sesuai limit
         } else {
-            $harga_dis = $harga_default * $qty; // harga default
+            // $harga_dis = $harga_default * $qty; // harga default
+            // Toastr::error('Error', 'Minimal Jumlah Pembelian', [$limit]);
+            // return redirect()->back();
+            $this->validate(
+                $request,
+                [
+                    'quantity' => 'numeric|gt:limit,gte:total_stock',
+                ],
+                [
+                    'quantity.gt' =>
+                        'Minimal Pembelian ' . $limit . ' maximal ' . $stock,
+                ]
+            );
+            Toastr::error('Error', 'Jumlah Pembelian melebihi stok');
+            return redirect()->back();
         }
 
         $transaksi = DB::table('transactions')->insertGetId([

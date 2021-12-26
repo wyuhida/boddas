@@ -162,8 +162,10 @@
 
             @if(!empty(Auth::user()->id))
                 @if(auth()->user()->id_role == 3)
-              
+
+                  @if($total != 0)
                   <del class="text-sm">Rp {{ number_format($itm[0]->price)}}</del>
+                  @endif
                   <h3 class="text-2xl text-bg-tombol">Rp {{number_format($itm[0]->price-($total*$itm[0]->price))}}</h3>
                 @else
                   <h3 class="text-2xl text-bg-tombol">Rp {{number_format($itm[0]->price)}}</h3>

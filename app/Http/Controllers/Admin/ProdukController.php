@@ -42,7 +42,7 @@ class ProdukController extends Controller
                 'transaction__statuses.id'
             )
             ->join('users', 'transactions.id_user', '=', 'users.id')
-
+            ->join('addresses', 'users.id', '=', 'addresses.id_user')
             ->orderBy('transaction__details.id', 'DESC')
             ->get();
         $coll = collect($items);
@@ -51,6 +51,7 @@ class ProdukController extends Controller
         $sttus = DB::table('transaction__statuses')
             ->whereIn('id', [4, 5, 6])
             ->get();
+
         return view('admin.transaksi.show', ['newItem' => $newItem]);
     }
 

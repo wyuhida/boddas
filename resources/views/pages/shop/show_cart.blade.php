@@ -29,9 +29,10 @@
                         <thead>
                             <tr>
                                 <th scope="col" class="px-5 py-3 bg-white border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-normal"></th>
-                                <th scope="col" class="px-5 py-3 bg-white border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-normal">product</th>
-                                <th scope="col" class="px-5 py-3 bg-white border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-normal">price</th>
-                                <th scope="col" class="px-5 py-3 bg-white border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-normal">qty</th>
+                                <th scope="col" class="px-5 py-3 bg-white border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-normal">Produk</th>
+                                <th scope="col" class="px-5 py-3 bg-white border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-normal">Harga Satuan</th>
+                                <th scope="col" class="px-5 py-3 bg-white border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-normal">Jumlah</th>
+                                <th scope="col" class="px-5 py-3 bg-white border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-normal">Total</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -58,7 +59,9 @@
                             </td>
                             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                 @if($s_cart->qty >= $limit)
+                                @if($total != 0)
                                 <del> harga awal Rp. {{number_format($s_cart->price)}}</del>
+                                @endif
                                 <p class="text-gray-900 whitespace-no-wrap">
                                     Rp.{{number_format($s_cart->price-($total*$s_cart->price))}}
                                 </p>
@@ -68,9 +71,15 @@
                                 </p>
                                 @endif
                             </td>
+                            
                             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                 <p class="text-gray-900 whitespace-no-wrap">
                                     {{$s_cart->qty}}
+                                </p>
+                            </td>
+                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                <p class="text-gray-900 whitespace-no-wrap">
+                                    Rp. {{number_format($s_cart->total_price)}}
                                 </p>
                             </td>
                         </tbody>
