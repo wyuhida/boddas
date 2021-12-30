@@ -32,7 +32,7 @@ class AdminDashboardController extends Controller
         //     ->get();
 
         $total_penjualan = DB::table('items')
-            ->where('update_by', $ids)
+            ->where('deleted_at', null)
             ->sum('total_sold');
 
         $total_reseler = DB::table('users')
@@ -50,6 +50,7 @@ class AdminDashboardController extends Controller
             ->count();
         $omzet = DB::table('items')
             ->select(DB::raw('SUM(price*total_sold) as total'))
+            ->where('deleted_at', null)
             ->get();
 
         $p_favorite = Item::join(

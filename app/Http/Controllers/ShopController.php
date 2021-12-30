@@ -233,10 +233,12 @@ class ShopController extends Controller
 
         // cek total
         $stok = Item::where('id', $id_item)
-            ->select('total_stock')
+            ->select('total_stock', 'total_sold')
             ->first();
         $new_stok = $stok['total_stock'];
+        $new_sold = $stok['total_sold'];
         $total_stok = $new_stok - $qty;
+        $total_sld = $new_sold + $qty;
 
         if (isset($request->foto)) {
             $allowedfileExtension = ['pdf', 'jpg', 'png', 'docx'];
@@ -257,7 +259,7 @@ class ShopController extends Controller
 
                 $updt_stock = Item::findOrFail($id_item);
                 $updt_stock->total_stock = $total_stok;
-                $updt_stock->total_sold = $qty;
+                $updt_stock->total_sold = $total_sld;
                 $updt_stock->save();
 
                 $updt_address = DB::table('addresses')

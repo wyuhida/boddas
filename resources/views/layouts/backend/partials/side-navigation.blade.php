@@ -11,8 +11,14 @@
                 </div>
             </li>
             @if(Request::is('admin*'))
+            <li class="{{Request::is('home/index') ? 'active' : ''}}">
+                <a name ="home" href="{{ route('home.index')}}"><i class="fa fa-th-large"></i> <span class="nav-label">Home</span></a>
+            </li>
                 <li class="{{Request::is('admin/dashboard') ? 'active' : ''}}">
                     <a name ="dashboard" href="{{ route('admin.dashboard')}}"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span></a>
+                </li>
+                <li class="{{Request::is('admin/promosi_pengenalan') ? 'active' : ''}}">
+                    <a name ="promosi_pengenalan" href="{{ route('admin.promosi_pengenalan')}}"><i class="fa fa-th-large"></i> <span class="nav-label">Promosi</span></a>
                 </li>
                 <li class="{{Request::is('admin/tentangkami') ? 'active' : ''}}">
                     <a name ="tentangkami" href="{{ route('admin.admin_tentangkami')}}">
@@ -71,7 +77,7 @@
                     <ul class="nav nav-second-level">
                       
                       <li class="{{Request::is('admin.show_admin_afiliate') ? 'active':'' }}">
-                        <a href="{{ route('admin.show_admin_afiliate')}}">List Afiliate</a>
+                        <a href="{{ route('admin.show_admin_afiliate')}}">List Distributor</a>
                       </li>
                       <li><a href="{{ route('admin.show_admin_reseller')}}">List Reseller</a></li>
                     </ul>

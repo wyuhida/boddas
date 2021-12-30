@@ -53,7 +53,6 @@
                         <div class="form-group">
                             <div class="col-lg-offset-2 col-lg-10">
                                 <button class="btn btn-md btn-primary" type="submit">Simpan Perubahan</button>
-                                {{-- <button class="btn btn-md btn-warning" type="reset">Batal</button> --}}
                             </div>
                         </div>
                     </form>

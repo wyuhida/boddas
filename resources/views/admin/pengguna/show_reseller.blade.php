@@ -41,7 +41,7 @@
                     </div>
                 </form>
 
-               <form action="{{ route('admin.show_admin_reseller')}}" method="GET">
+               {{-- <form action="{{ route('admin.show_admin_reseller')}}" method="GET">
                 <div class="form-group">
                     <div class="col-sm-3">
                         <div class="form-group">
@@ -78,7 +78,7 @@
                     </div>
                 </div>
                     
-               </form>
+               </form> --}}
 
                 <div class="form-group">
                     <div class="col-sm-12">
@@ -98,6 +98,7 @@
                         <th>Nama</th>
                         {{-- <th>Provinsi</th>
                         <th>Omset</th> --}}
+                        <th>Detail</th>
                         <th>Status</th>
                         
                       </tr>
@@ -109,7 +110,12 @@
                           <td>{{$s_se->id}}</td>
                           <td>{{$s_se->fullname}}</td>
                           {{-- <td></td>
+                            
                           <td></td> --}}
+                            <td>
+                              <a href="{{route('admin.detail_reseller',$s_se->id)}}" class="btn btn-sm btn-info">Detail</a>
+
+                            </td>
                           <td>
                            
                             <input data-id="{{$s_se->id}}" class="toggle-class" 

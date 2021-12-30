@@ -27,6 +27,8 @@ module.exports = {
         'bookmark-tab': '#FFF2ED',
         'bookmark-yellow': '#FFC600',
         'bookmark-kontak': '#ff6875',
+        'bookmark-section': 'rgba(203,133,135,0.4)',
+        'bookmark-section-white': 'rgba(241,241,241)',
       },
     },
     variants: {
@@ -52,5 +54,11 @@ module.exports = {
       '2xl': '1124px',
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwindcss'),
+    require('autoprefixer'),
+    require('@tailwindcss/typography')({
+      className: 'wysiwyg',
+    }),
+  ],
 }

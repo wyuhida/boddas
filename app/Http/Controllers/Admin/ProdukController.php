@@ -23,10 +23,9 @@ use Cookie;
 
 class ProdukController extends Controller
 {
-    public function admin_transaksi()
+    public function admin_transaksi(Request $request)
     {
         $items = DB::table('transaction__details')
-
             ->join('items', 'transaction__details.id_item', '=', 'items.id')
             ->join('item__contents', 'items.id', 'item__contents.id_item')
             ->join(
@@ -45,6 +44,105 @@ class ProdukController extends Controller
             ->join('addresses', 'users.id', '=', 'addresses.id_user')
             ->orderBy('transaction__details.id', 'DESC')
             ->get();
+
+        if (isset($request->search)) {
+            $items = DB::table('transaction__details')
+                ->join('items', 'transaction__details.id_item', '=', 'items.id')
+                ->join('item__contents', 'items.id', 'item__contents.id_item')
+                ->join(
+                    'transactions',
+                    'transaction__details.id_transaction',
+                    '=',
+                    'transactions.id'
+                )
+                ->join(
+                    'transaction__statuses',
+                    'transactions.id_transaction_status',
+                    '=',
+                    'transaction__statuses.id'
+                )
+                ->join('users', 'transactions.id_user', '=', 'users.id')
+                ->join('addresses', 'users.id', '=', 'addresses.id_user')
+                ->orderBy('transaction__details.id', 'DESC')
+                ->where([
+                    ['items.item_name', 'LIKE', '%' . $request->search . '%'],
+                    ['items.deleted_at', '=', null],
+                ])
+                ->get();
+            $newItem = collect($items);
+            $newItem->search($request->search);
+        } elseif (isset($request->status)) {
+            if ($request->status == 'sudah-bayar') {
+                $items = DB::table('transaction__details')
+                    ->join(
+                        'items',
+                        'transaction__details.id_item',
+                        '=',
+                        'items.id'
+                    )
+                    ->join(
+                        'item__contents',
+                        'items.id',
+                        'item__contents.id_item'
+                    )
+                    ->join(
+                        'transactions',
+                        'transaction__details.id_transaction',
+                        '=',
+                        'transactions.id'
+                    )
+                    ->join(
+                        'transaction__statuses',
+                        'transactions.id_transaction_status',
+                        '=',
+                        'transaction__statuses.id'
+                    )
+                    ->join('users', 'transactions.id_user', '=', 'users.id')
+                    ->join('addresses', 'users.id', '=', 'addresses.id_user')
+                    ->orderBy('transaction__details.id', 'DESC')
+                    ->where('transactions.id_transaction_status', 1)
+                    ->get();
+
+                $coll = collect($items);
+                // $newItem = $coll->where('id_transaction_status', '=', 1);
+                $newItem = $coll->groupBy('id_transaction');
+            } else {
+                $items = DB::table('transaction__details')
+                    ->join(
+                        'items',
+                        'transaction__details.id_item',
+                        '=',
+                        'items.id'
+                    )
+                    ->join(
+                        'item__contents',
+                        'items.id',
+                        'item__contents.id_item'
+                    )
+                    ->join(
+                        'transactions',
+                        'transaction__details.id_transaction',
+                        '=',
+                        'transactions.id'
+                    )
+                    ->join(
+                        'transaction__statuses',
+                        'transactions.id_transaction_status',
+                        '=',
+                        'transaction__statuses.id'
+                    )
+                    ->join('users', 'transactions.id_user', '=', 'users.id')
+                    ->join('addresses', 'users.id', '=', 'addresses.id_user')
+                    ->orderBy('transaction__details.id', 'DESC')
+                    ->where('transactions.id_transaction_status', 2)
+                    ->get();
+
+                $coll = collect($items);
+                // $newItem = $coll->where('id_transaction_status', 2);
+                $newItem = $coll->groupBy('id_transaction');
+            }
+        }
+
         $coll = collect($items);
         $newItem = $coll->groupBy('id_transaction');
 

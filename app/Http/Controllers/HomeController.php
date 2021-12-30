@@ -38,6 +38,63 @@ class HomeController extends Controller
             ->join('users', 'items.update_by', '=', 'users.id')
             ->orderBy('items.id', 'DESC')
             ->get();
+        $base = DB::table('containers')
+            ->join('contents', 'containers.id', '=', 'contents.id_container')
+            ->join(
+                'content__statuses',
+                'content__statuses.id',
+                '=',
+                'contents.id_content_status'
+            )
+            ->select(
+                'containers.id',
+                'containers.container_name',
+                'containers.id_user',
+                'containers.created_at',
+                'containers.updated_at',
+                'contents.id as id_content',
+                'contents.content_name',
+                'contents.image',
+                'contents.id_container as id_container',
+                'contents.id_content_status as id_content_status',
+                'content__statuses.id as id_status',
+                'content__statuses.status_name'
+            );
+
+        $section_p = $base
+            ->where([
+                ['containers.container_name', 'section_pengenalan'],
+                ['contents.id_content_status', 1],
+            ])
+            ->get();
+        $section_t = DB::table('containers')
+            ->join('contents', 'containers.id', '=', 'contents.id_container')
+            ->join(
+                'content__statuses',
+                'content__statuses.id',
+                '=',
+                'contents.id_content_status'
+            )
+            ->select(
+                'containers.id',
+                'containers.container_name',
+                'containers.id_user',
+                'containers.created_at',
+                'containers.updated_at',
+                'contents.id as id_content',
+                'contents.content_name',
+                'contents.image',
+                'contents.id_container as id_container',
+                'contents.id_content_status as id_content_status',
+                'content__statuses.id as id_status',
+                'content__statuses.status_name'
+            )
+            ->where([
+                ['containers.container_name', 'section_testimoni'],
+                ['contents.id_content_status', 1],
+            ])
+            ->get();
+
         $pop = collect($item);
         // $filter = $pop->whereNotIn('total_sold', [0]);
         $popular = $pop->groupBy('id_item')->take(4);
@@ -46,6 +103,8 @@ class HomeController extends Controller
             // 'foo_kontak' => $foo_kontak,
             // 'c_founder' => $c_founder,
             'popular' => $popular,
+            'section_p' => $section_p,
+            'section_t' => $section_t,
         ]);
     }
 

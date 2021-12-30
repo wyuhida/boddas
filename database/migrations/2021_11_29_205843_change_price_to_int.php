@@ -15,7 +15,7 @@ class ChangePriceToInt extends Migration
     {
         Schema::table('items', function (Blueprint $table) {
             $table
-                ->decimal('price', 10, 2)
+                ->decimal('price', 11, 2)
                 ->nullable()
                 ->change();
         });

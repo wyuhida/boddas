@@ -108,7 +108,7 @@
     @stack('css')
 
 </head>
-<body>
+<body class="font-Roboto-600">
     {{-- <div id="preloader">
         <div id="preloader-inner"></div>
     </div><!--/preloader--> --}}
@@ -149,7 +149,9 @@
         <script type="text/javascript" src={{ asset('vendors/revolution/js/extensions/revolution.extension.video.min.js')}}></script> --}}
      {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script> --}}
      <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
-     <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+     {{-- <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script> --}}
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" ></script>
+
      <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
         {!! Toastr::message() !!}
 

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ChangeDecimalTotalprice extends Migration
+class AddLinkUrlToContents extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class ChangeDecimalTotalprice extends Migration
      */
     public function up()
     {
-        Schema::table('transactions', function (Blueprint $table) {
-            $table
-                ->decimal('total_price', 11, 2)
-                ->nullable()
-                ->change();
+        Schema::table('contents', function (Blueprint $table) {
+            $table->text('link_url')->nullable();
         });
     }
 
@@ -28,7 +25,7 @@ class ChangeDecimalTotalprice extends Migration
      */
     public function down()
     {
-        Schema::table('transactions', function (Blueprint $table) {
+        Schema::table('contents', function (Blueprint $table) {
             //
         });
     }

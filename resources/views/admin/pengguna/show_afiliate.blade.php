@@ -15,13 +15,13 @@
     <div class="col-sm-12">
         <div class="ibox">
             <div class="ibox-content">
-                <h2>List Afiliate</h2>
+                <h2>List Distributor</h2>
                 <div class="pull-right">
                   {{-- <a type="button" href="" class="btn btn-sm btn-info"><i class="fa fa-plus"></i> Tambah Layanan Bisnis</a>  --}}
                   {{-- <a type="button" href="" class="btn btn-sm btn-warning"> <i class="fa fa-arrow-left"> </i> Kembali </a> --}}
                 </div>
                 <p>
-                    List Afiliate
+                    List Distributor
                 </p>
                 <br />
                 <form action="{{ route('admin.show_admin_afiliate')}}" method="GET">
@@ -42,44 +42,44 @@
                     </div>
                 </form>
 
-               <form action="{{ route('admin.show_admin_afiliate')}}" method="GET">
-                <div class="form-group">
-                    <div class="col-sm-3">
-                        <div class="form-group">
-                            <label class="control-label" for="price">Omset</label>
-                            <select name="omset" id="" class="form-control">
-                                <option value="">Filter</option>
-                                <option value="banyak">Omset Tertinggi</option>
-                                <option value="sedikit">Omset Terendah</option>
-                            </select>
-                            
-                        </div>
-                    </div>
-                </div>
+               {{-- <form action="{{ route('admin.show_admin_afiliate')}}" method="GET">
+                  <div class="form-group">
+                      <div class="col-sm-3">
+                          <div class="form-group">
+                              <label class="control-label" for="price">Omset</label>
+                              <select name="omset" id="" class="form-control">
+                                  <option value="">Filter</option>
+                                  <option value="banyak">Omset Tertinggi</option>
+                                  <option value="sedikit">Omset Terendah</option>
+                              </select>
+                              
+                          </div>
+                      </div>
+                  </div>
 
-                <div class="form-group">
-                    <div class="col-sm-3">
-                        <label class="control-label">Lokasi</label>
-                        <div class="input-group">
-                            <input type="text" 
-                            name="lokasi"
-                            value="{{ request()->query('lokasi')}}"
-                            class="form-control"> 
-                        </div>
-                    </div>
-                </div>
+                  <div class="form-group">
+                      <div class="col-sm-3">
+                          <label class="control-label">Lokasi</label>
+                          <div class="input-group">
+                              <input type="text" 
+                              name="lokasi"
+                              value="{{ request()->query('lokasi')}}"
+                              class="form-control"> 
+                          </div>
+                      </div>
+                  </div>
 
-                <div class="form-group">
-                    <div class="col-sm-3">
-                        <span class="input-group-btn"> 
-                            <button type="submit" class="btn" style="margin-top: 24px;">
-                            Filter
-                            </button> 
-                        </span>
-                    </div>
-                </div>
+                  <div class="form-group">
+                      <div class="col-sm-3">
+                          <span class="input-group-btn"> 
+                              <button type="submit" class="btn" style="margin-top: 24px;">
+                              Filter
+                              </button> 
+                          </span>
+                      </div>
+                  </div>
                     
-               </form>
+               </form> --}}
 
                 <div class="form-group">
                     <div class="col-sm-12">
@@ -99,6 +99,7 @@
                         <th>Nama</th>
                         {{-- <th>Provinsi</th>
                         <th>Omset</th> --}}
+                        <th>Detail</th>
                         <th>Status</th>
                         
                       </tr>
@@ -111,6 +112,9 @@
                           <td>{{$s_sa->fullname}}</td>
                           {{-- <td></td>
                           <td></td> --}}
+                          <td>
+                            <a href="{{route('admin.detail_afiliate',$s_sa->id)}}" class="btn btn-sm btn-info">Detail</a>
+                          </td>
                           <td>
                            
                             <input data-id="{{$s_sa->id}}" class="toggle-class" 

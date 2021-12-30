@@ -23,6 +23,7 @@ use App\Http\Controllers\Admin\AdminKategoriController;
 use App\Http\Controllers\Admin\AdminBlogController;
 use App\Http\Controllers\Admin\PenggunaController;
 use App\Http\Controllers\Admin\TransaksiController;
+use App\Http\Controllers\Admin\PromosiController;
 
 /**
  * For Buyer
@@ -126,6 +127,92 @@ Route::group(
         'middleware' => ['auth', 'admin'],
     ],
     function () {
+        /**
+         * Promosi Pengenalan
+         */
+        Route::get('promosi_pengenalan', [
+            PromosiController::class,
+            'promosi_pengenalan',
+        ])->name('promosi_pengenalan');
+        Route::get('create_promosi_pengenalan', [
+            PromosiController::class,
+            'create_promosi_pengenalan',
+        ])->name('create_promosi_pengenalan');
+        Route::post('store_promosi_pengenalan', [
+            PromosiController::class,
+            'store_promosi_pengenalan',
+        ])->name('store_promosi_pengenalan');
+        Route::get('edit_promosi_pengenalan/{id}/edit', [
+            PromosiController::class,
+            'edit_promosi_pengenalan',
+        ])->name('edit_promosi_pengenalan');
+        Route::put('update_promosi_pengenalan/{id}/update', [
+            PromosiController::class,
+            'update_promosi_pengenalan',
+        ])->name('update_promosi_pengenalan');
+
+        Route::delete('delete_promosi_pengenalan/{id}/delete', [
+            PromosiController::class,
+            'delete_promosi_pengenalan',
+        ])->name('delete_promosi_pengenalan');
+
+        /**
+         * Promosi
+         */
+        Route::get('promosi', [PromosiController::class, 'promosi'])->name(
+            'promosi'
+        );
+
+        /**
+         * Testimoni
+         */
+        Route::get('create_testimoni', [
+            PromosiController::class,
+            'create_testimoni',
+        ])->name('create_testimoni');
+
+        Route::post('store_testimoni', [
+            PromosiController::class,
+            'store_testimoni',
+        ])->name('store_testimoni');
+        Route::get('edit_testimoni/{id}/edit', [
+            PromosiController::class,
+            'edit_testimoni',
+        ])->name('edit_testimoni');
+        Route::put('update_testimoni/{id}/update', [
+            PromosiController::class,
+            'update_testimoni',
+        ])->name('update_testimoni');
+        Route::delete('delete_testimoni/{id}/delete', [
+            PromosiController::class,
+            'delete_testimoni',
+        ])->name('delete_testimoni');
+
+        /**
+         * Video
+         */
+        Route::get('create_video', [
+            PromosiController::class,
+            'create_video',
+        ])->name('create_video');
+
+        Route::post('store_video', [
+            PromosiController::class,
+            'store_video',
+        ])->name('store_video');
+        Route::get('edit_video/{id}/edit', [
+            PromosiController::class,
+            'edit_video',
+        ])->name('edit_video');
+        Route::put('update_video/{id}/update', [
+            PromosiController::class,
+            'update_video',
+        ])->name('update_video');
+        Route::delete('delete_video/{id}/delete', [
+            PromosiController::class,
+            'delete_video',
+        ])->name('delete_video');
+
         //Route::get('logout', [AuthController::class, 'logout'])->name('logout');
         Route::get('dashboard', [
             AdminDashboardController::class,
@@ -415,6 +502,11 @@ Route::group(
             'ubah_status',
         ])->name('ubah_status');
 
+        Route::get('detail_afiliate/{id}/detail', [
+            PenggunaController::class,
+            'detail_afiliate',
+        ])->name('detail_afiliate');
+
         // Route::delete('delete_admin_afiliate/{id}/delete', [
         //     AdminBlogController::class,
         //     'delete_admin_afiliate',
@@ -433,6 +525,11 @@ Route::group(
             PenggunaController::class,
             'ubah_status_reseller',
         ])->name('ubah_status_reseller');
+
+        Route::get('detail_reseller/{id}/detail', [
+            PenggunaController::class,
+            'detail_reseller',
+        ])->name('detail_reseller');
     }
 );
 

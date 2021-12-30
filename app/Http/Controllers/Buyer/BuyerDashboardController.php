@@ -31,10 +31,6 @@ class BuyerDashboardController extends Controller
     public function index()
     {
         $ids = auth()->user()->id;
-        $dashboard = User::join('roles', 'users.id_role', '=', 'roles.id')
-            ->join('buyers', 'users.id_buyer', '=', 'buyers.id')
-            ->where('users.id', $ids)
-            ->first();
         $items = DB::table('transaction__details')
             ->join('items', 'transaction__details.id_item', '=', 'items.id')
             ->join('item__contents', 'items.id', 'item__contents.id_item')
@@ -50,16 +46,59 @@ class BuyerDashboardController extends Controller
                 '=',
                 'transaction__statuses.id'
             )
+            ->join('users', 'transactions.id_user', '=', 'users.id')
+            ->join('buyers', 'users.id_buyer', '=', 'buyers.id')
             ->where([['transactions.id_user', $ids]])
             ->orderBy('transaction__details.id', 'DESC')
             ->get();
 
+        $profile = User::leftJoin('roles', 'users.id_role', '=', 'roles.id')
+            ->select(
+                'users.id',
+                'users.id_role',
+                'users.fullname',
+                'users.username',
+                'users.email',
+                'users.foto',
+                'users.phone_number',
+                'users.is_active',
+                'users.id_buyer',
+                'buyers.buyer',
+                'buyers.id',
+                'buyers.stock_limit',
+                'buyers.discount_percentage',
+                'addresses.address_name'
+            )
+            ->leftJoin('buyers', 'users.id_buyer', '=', 'buyers.id')
+            ->leftJoin('addresses', 'users.id', '=', 'addresses.id_user')
+            ->where('users.id', $ids)
+            ->first();
+
         $coll = collect($items);
         $newItem = $coll->groupBy('id_transaction')->paginate(10);
+        // $total = $it[0]->total_price * $cou;
+
+        // sum
+        $tots = DB::table('transaction__details')
+            ->join(
+                'transactions',
+                'transaction__details.id_transaction',
+                '=',
+                'transactions.id'
+            )
+            ->join('users', 'transactions.id_user', '=', 'users.id')
+            ->join('items', 'transaction__details.id_item', '=', 'items.id');
+
+        $tot = $tots
+            ->select(DB::raw('sum(total_price) as total'))
+            ->where('users.id', $ids)
+            ->groupBy('users.id')
+            ->first();
 
         return view('buyer.dashboard', [
-            'dashboard' => $dashboard,
             'newItem' => $newItem,
+            'profile' => $profile,
+            'tot' => $tot,
         ]);
     }
 
@@ -89,7 +128,6 @@ class BuyerDashboardController extends Controller
         $id_itm = Transaction::where('id', $id)
             ->select('id_item')
             ->get();
-        dd($id_itm);
     }
 
     public function profile(Request $request)
@@ -127,6 +165,21 @@ class BuyerDashboardController extends Controller
 
     public function update_profile(Request $request, $id)
     {
+        $this->validate(
+            $request,
+            [
+                'fullname' => 'required',
+                'phone_number' => 'required',
+                'email' => 'required',
+                'address_name' => 'required',
+            ],
+            [
+                'fullname.required' => 'Nama Wajib Isi',
+                'phone_number.required' => 'Nomor HP Wajib Isi',
+                'email.required' => 'Email Wajib Isi',
+                'address_name.required' => 'Alamat Wajib Isi',
+            ]
+        );
         $user = User::findOrFail($id);
         $user->fullname = $request->fullname;
         $user->phone_number = $request->phone_number;
@@ -144,10 +197,16 @@ class BuyerDashboardController extends Controller
 
     public function update_katasandi(Request $request)
     {
-        $this->validate($request, [
-            'old_password' => 'required',
-            'password' => 'required|confirmed',
-        ]);
+        $this->validate(
+            $request,
+            [
+                'old_password' => 'required',
+                'password' => 'required|confirmed',
+            ],
+            [
+                'old_password.confirmed' => 'Password Tidak Sama',
+            ]
+        );
         $ids = auth()->user()->id;
         $hashedPassword = Auth::user()->password;
         if (Hash::check($request->old_password, $hashedPassword)) {
@@ -155,19 +214,16 @@ class BuyerDashboardController extends Controller
                 $user = User::find(Auth::id());
                 $user->password = Hash::make($request->password);
                 $user->save();
-                Toastr::success('Success', 'Password successfully update');
+                Toastr::success('Success', 'Password Berhasil Diubah');
                 Auth::logout();
                 return redirect()->route('backend.login');
             } else {
                 //Toastr::error('new password cannot be the same as old password','Error');
-                Alert::error(
-                    'new password cannot be the same as old password',
-                    'Error'
-                );
+                Alert::error('Password Baru Tidak Boleh Sama', 'Error');
                 return redirect()->back();
             }
         } else {
-            Alert::error('current password not match', 'Error');
+            Alert::error('Password Tidak Sama', 'Error');
             return redirect()->back();
         }
     }

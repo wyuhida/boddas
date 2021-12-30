@@ -57,7 +57,8 @@
                     @method('PUT')
                     <div class="form-group"><label class="col-lg-2 control-label">Nama</label>
                         <div class="col-lg-10">
-                            <input type="text" name="fullname" placeholder="Nama" class="form-control @error('old_password') is-invalid @enderror" value="{{$profile->fullname}}">
+                            <input type="text" name="fullname" placeholder="Nama" 
+                            class="form-control @error('old_password') is-invalid @enderror" value="{{$profile->fullname}}">
                             @error('fullname')
                             <span class="help-block m-b-none" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -69,7 +70,9 @@
                     <div class="form-group">
                         <label class="col-lg-2 control-label">No HP</label>
                         <div class="col-lg-10">
-                            <input type="text" name="phone_number" placeholder="No Handphone" class="form-control @error('old_password') is-invalid @enderror" value="{{$profile->phone_number}}"> 
+                            <input type="text" name="phone_number" 
+                            placeholder="No Handphone" class="form-control 
+                            @error('old_password') is-invalid @enderror" value="{{$profile->phone_number}}"> 
                             @error('phone_number')
                                 <span class="help-block m-b-none" role="alert">
                                     <strong>{{ $message }}</strong>

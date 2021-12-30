@@ -17,7 +17,9 @@
         <ul class="nav navbar-top-links navbar-right">
 
             <li>
-                <span class="m-r-sm text-muted welcome-message">BODDAS</span>
+                <span class="m-r-sm text-muted welcome-message">
+                    <a href="">BODDAS</a>
+                </span>
             </li>
 
             @if(Request::is('superadmin*'))

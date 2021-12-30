@@ -2,8 +2,11 @@
 
 @section('title','Produk')
 @push('css')
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
-<link href="{{asset('assets/css/plugins/blueimp/css/blueimp-gallery.min.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+    <link href="{{asset('assets/css/plugins/blueimp/css/blueimp-gallery.min.css')}}" rel="stylesheet">
+    {{-- <link href="{{asset('assets/css/plugins/clockpicker/clockpicker.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/css/plugins/colorpicker/bootstrap-colorpicker.min.css')}}" rel="stylesheet"> --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker3.min.css" >
 <style>
     form i {
     margin-left: -30px;
@@ -21,6 +24,70 @@
 @endpush
 
 @section('content')
+
+<div class="ibox-content m-b-sm border-bottom">
+    <form action="{{ route('admin.admin_transaksi')}}" method="GET" >
+        <div class="row">
+
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label class="control-label" for="price">Nama Produk</label>
+                    <input type="text" placeholder="Search" class="input form-control" 
+                        name="search" value="{{ request()->query('search')}}">
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                        <label class="control-label" for="price">Status</label>
+                        <select name="status" class="form-control">
+                            <option value="">Semua</a></option>
+                            <option value="sudah-bayar">Sudah Bayar</option>
+                            <option value="belum-bayar">Belum Bayar</option>
+                        </select>
+                </div>
+            </div>
+
+            {{-- <div class="col-sm-4">
+                <div class="form-group">
+                        <label class="control-label" for="price">Penjual</label>
+                        <select name="status" class="form-control">
+                            <option value="">Semua</a></option>
+                            <option value="reseler">Reseler</option>
+                            <option value="afiliate">Afiliate</option>
+                        </select>
+                </div>
+            </div> --}}
+            {{-- <div class="col-sm-4">
+                <div class="form-group">
+                    <div class="form-group" id="data_1">
+                        <label class="control-label" for="price">Tanggal</label>
+                        <div class="input-group date">
+                            <span class="input-group-addon">
+                                <i class="fa fa-calendar"></i>
+                            </span>
+                            <input type="text" class="form-control" value="">
+                        </div>
+                    </div>
+                </div>
+            </div> --}}
+        
+            <div class="col-sm-2">
+                <div class="form-group">
+                    <button type="submit" class="btn btn-sm btn-primary form-control" style="margin-top: 20px;"><i class="fa fa-filter"></i> Filter/Search</button>
+                </div>
+                
+            </div>
+            <div class="col-sm-2">
+                
+                <div class="form-group">
+                    <a href="{{route('admin.admin_transaksi')}}" class="btn btn-sm btn-primary form-control" style="margin-top: 20px;"><i class="fa fa-refresh"></i>Reset</a>
+                </div>
+            </div>
+
+        </div>
+    </form>
+</div>
+
 <div class="wrapper wrapper-content animated fadeInRight">
     <div class="row">
         <div class="col-lg-12">
@@ -35,8 +102,10 @@
                     </div>
                 </div>
                 <div class="ibox-content">
-
+                  
                     <div class="table-responsive">
+                     
+                       
                         <table class="table table-striped table-bordered table-hover dataTables-example" >
                             <thead>
                                 <tr>
@@ -53,7 +122,7 @@
                             </thead>
                             @foreach($newItem->groupBy('id_transaction') as $items)
                             <tbody>
-                                @foreach($items as $it)
+                                @forelse($items as $it)
                                 <tr>
                                     <td>
                                     {{$it[0]->id_transaction}}
@@ -171,7 +240,11 @@
         
                                     </td>
                                 </tr>
-                                @endforeach
+                                @empty
+                                <tr>
+                                    <td></td>
+                                </tr>
+                                @endforelse
                             </tbody>
                             @endforeach
                             <tfoot>
@@ -205,15 +278,28 @@
   <script src="{{asset('assets/js/plugins/slimscroll/jquery.slimscroll.min.js')}}"></script>
   <script src="{{asset('assets/js/plugins/pace/pace.min.js')}}"></script>
   <script src="{{asset('assets/js/plugins/blueimp/jquery.blueimp-gallery.min.js')}}"></script>
- 
-    <!-- Peity -->
-  
-    <!-- blueimp gallery -->
 
-    {{-- <script src="{{asset('assets/js/plugins/peity/jquery.peity.min.js')}}"></script> --}}
-    {{-- <script src="{{asset('assets/js/plugins/pace/pace.min.js')}}"></script> --}}
-        <!-- Peity -->
-        {{-- <script src="{{asset('assets/js/demo/peity-demo.js')}}"></script> --}}
+  <!-- Data picker -->
+  <script src="{{asset('assets/js/plugins/datapicker/bootstrap-datepicker.js')}}"></script>
+   <!-- Color picker -->
+   <script src="{{asset('assets/js/plugins/colorpicker/bootstrap-colorpicker.min.js')}}"></script>
+
+   <!-- Clock picker -->
+   <script src="{{asset('assets/js/plugins/clockpicker/clockpicker.js')}}"></script>
+  <script>
+      $( document ).ready(function() {
+        $('#data_1 .input-group.date').datepicker({
+                todayBtn: "linked",
+                keyboardNavigation: false,
+                forceParse: false,
+                calendarWeeks: true,
+                autoclose: true
+            });
+    });
+    
+
+  </script>
+
  
    <!-- Page-Level Scripts -->
    <script>
@@ -272,5 +358,7 @@
      }
  
  </script>
+
+
  
 @endpush
