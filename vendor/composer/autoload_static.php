@@ -19,11 +19,11 @@ class ComposerStaticInitb314d9d3de04d37949a0597208815e77
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
         'def43f6c87e4f8dfd0c9e1b1bab14fe8' => __DIR__ . '/..' . '/symfony/polyfill-iconv/bootstrap.php',
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
-        '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
         '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
+        '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
+        'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
         '23c18046f52bef3eea034657bafda50f' => __DIR__ . '/..' . '/symfony/polyfill-php81/bootstrap.php',
         'a1105708a18b76903365ca1c4aa61b02' => __DIR__ . '/..' . '/symfony/translation/Resources/functions.php',
-        'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         '538ca81a9a966a6716601ecf48f4eaef' => __DIR__ . '/..' . '/opis/closure/functions.php',
         'e39a8b23c42d4e1452234d762b03835a' => __DIR__ . '/..' . '/ramsey/uuid/src/functions.php',
@@ -182,6 +182,7 @@ class ComposerStaticInitb314d9d3de04d37949a0597208815e77
         array (
             'Brick\\Math\\' => 11,
             'Brian2694\\Toastr\\' => 17,
+            'BenSampo\\Embed\\' => 15,
         ),
         'A' => 
         array (
@@ -547,6 +548,10 @@ class ComposerStaticInitb314d9d3de04d37949a0597208815e77
         array (
             0 => __DIR__ . '/..' . '/brian2694/laravel-toastr/src',
         ),
+        'BenSampo\\Embed\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/bensampo/laravel-embed/src',
+        ),
         'Asm89\\Stack\\' => 
         array (
             0 => __DIR__ . '/..' . '/asm89/stack-cors/src',
@@ -636,6 +641,23 @@ class ComposerStaticInitb314d9d3de04d37949a0597208815e77
         'Asm89\\Stack\\Cors' => __DIR__ . '/..' . '/asm89/stack-cors/src/Cors.php',
         'Asm89\\Stack\\CorsService' => __DIR__ . '/..' . '/asm89/stack-cors/src/CorsService.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
+        'BenSampo\\Embed\\EmbedServiceProvider' => __DIR__ . '/..' . '/bensampo/laravel-embed/src/EmbedServiceProvider.php',
+        'BenSampo\\Embed\\Exceptions\\ServiceNotFoundException' => __DIR__ . '/..' . '/bensampo/laravel-embed/src/Exceptions/ServiceNotFoundException.php',
+        'BenSampo\\Embed\\Rules\\EmbeddableUrl' => __DIR__ . '/..' . '/bensampo/laravel-embed/src/Rules/EmbeddableUrl.php',
+        'BenSampo\\Embed\\ServiceBase' => __DIR__ . '/..' . '/bensampo/laravel-embed/src/ServiceBase.php',
+        'BenSampo\\Embed\\ServiceContract' => __DIR__ . '/..' . '/bensampo/laravel-embed/src/ServiceContract.php',
+        'BenSampo\\Embed\\ServiceFactory' => __DIR__ . '/..' . '/bensampo/laravel-embed/src/ServiceFactory.php',
+        'BenSampo\\Embed\\Services\\Dailymotion' => __DIR__ . '/..' . '/bensampo/laravel-embed/src/Services/Dailymotion.php',
+        'BenSampo\\Embed\\Services\\Fallback' => __DIR__ . '/..' . '/bensampo/laravel-embed/src/Services/Fallback.php',
+        'BenSampo\\Embed\\Services\\Miro' => __DIR__ . '/..' . '/bensampo/laravel-embed/src/Services/Miro.php',
+        'BenSampo\\Embed\\Services\\Slideshare' => __DIR__ . '/..' . '/bensampo/laravel-embed/src/Services/Slideshare.php',
+        'BenSampo\\Embed\\Services\\Vimeo' => __DIR__ . '/..' . '/bensampo/laravel-embed/src/Services/Vimeo.php',
+        'BenSampo\\Embed\\Services\\YouTube' => __DIR__ . '/..' . '/bensampo/laravel-embed/src/Services/YouTube.php',
+        'BenSampo\\Embed\\ValueObjects\\Ratio' => __DIR__ . '/..' . '/bensampo/laravel-embed/src/ValueObjects/Ratio.php',
+        'BenSampo\\Embed\\ValueObjects\\Url' => __DIR__ . '/..' . '/bensampo/laravel-embed/src/ValueObjects/Url.php',
+        'BenSampo\\Embed\\ViewComponents\\EmbedViewComponent' => __DIR__ . '/..' . '/bensampo/laravel-embed/src/ViewComponents/EmbedViewComponent.php',
+        'BenSampo\\Embed\\ViewComponents\\ResponsiveWrapperViewComponent' => __DIR__ . '/..' . '/bensampo/laravel-embed/src/ViewComponents/ResponsiveWrapperViewComponent.php',
+        'BenSampo\\Embed\\ViewComponents\\StylesViewComponent' => __DIR__ . '/..' . '/bensampo/laravel-embed/src/ViewComponents/StylesViewComponent.php',
         'Brian2694\\Toastr\\Facades\\Toastr' => __DIR__ . '/..' . '/brian2694/laravel-toastr/src/Facades/Toastr.php',
         'Brian2694\\Toastr\\Toastr' => __DIR__ . '/..' . '/brian2694/laravel-toastr/src/Toastr.php',
         'Brian2694\\Toastr\\ToastrServiceProvider' => __DIR__ . '/..' . '/brian2694/laravel-toastr/src/ToastrServiceProvider.php',
@@ -743,6 +765,7 @@ class ComposerStaticInitb314d9d3de04d37949a0597208815e77
         'Database\\Seeders\\BuyersTableSeeder' => __DIR__ . '/../..' . '/database/seeders/BuyersTableSeeder.php',
         'Database\\Seeders\\CategoryTableSeeder' => __DIR__ . '/../..' . '/database/seeders/CategoryTableSeeder.php',
         'Database\\Seeders\\CompanyIdentitiesTableSeeder' => __DIR__ . '/../..' . '/database/seeders/CompanyIdentitiesTableSeeder.php',
+        'Database\\Seeders\\ContentStatusSeed' => __DIR__ . '/../..' . '/database/seeders/ContentStatusSeed.php',
         'Database\\Seeders\\DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeders/DatabaseSeeder.php',
         'Database\\Seeders\\RolesTableSeeder' => __DIR__ . '/../..' . '/database/seeders/RolesTableSeeder.php',
         'Database\\Seeders\\TransactionStatusTableSeeder' => __DIR__ . '/../..' . '/database/seeders/TransactionStatusTableSeeder.php',

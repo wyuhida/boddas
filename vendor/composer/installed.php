@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'a72cdfebef32d90dee53a1bee0ff290aa1c4adef',
+        'reference' => '7062951a7c7bf37be85c840fbc05c8fe102ff085',
         'name' => 'laravel/laravel',
         'dev' => true,
     ),
@@ -17,6 +17,15 @@
             'install_path' => __DIR__ . '/../asm89/stack-cors',
             'aliases' => array(),
             'reference' => '9cb795bf30988e8c96dd3c40623c48a877bc6714',
+            'dev_requirement' => false,
+        ),
+        'bensampo/laravel-embed' => array(
+            'pretty_version' => 'v1.3.0',
+            'version' => '1.3.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../bensampo/laravel-embed',
+            'aliases' => array(),
+            'reference' => 'd78f7251ea9e8a72cfa46b3aeab4e563817e61cc',
             'dev_requirement' => false,
         ),
         'brian2694/laravel-toastr' => array(
@@ -454,7 +463,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'a72cdfebef32d90dee53a1bee0ff290aa1c4adef',
+            'reference' => '7062951a7c7bf37be85c840fbc05c8fe102ff085',
             'dev_requirement' => false,
         ),
         'laravel/sail' => array(

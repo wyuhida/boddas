@@ -18,7 +18,7 @@ class CategoryTableSeeder extends Seeder
         $categori->save();
 
         $categori = new Category_Item();
-        $categori->category_name = 'buku';
+        $categori->category_name = 'Kesehatan';
         $categori->save();
     }
 }

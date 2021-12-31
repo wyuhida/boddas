@@ -3,7 +3,7 @@
     
 @endpush
 @section('content')
-@extends('layouts.frontend.app')
+
 @push('css')
     <style>
         h2 {

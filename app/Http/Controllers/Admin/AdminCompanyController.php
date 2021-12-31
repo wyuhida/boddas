@@ -162,14 +162,14 @@ class AdminCompanyController extends Controller
                 //         'updated_at' => Carbon::now(),
                 //     ]);
 
-                $st = DB::table('content__statuses')
-                    ->where('status_name', 1)
-                    ->update([
-                        'status_name' => 1,
-                        'id_user' => $ids,
-                        'update_by' => $ids,
-                        'updated_at' => Carbon::now(),
-                    ]);
+                // $st = DB::table('content__statuses')
+                //     ->where('status_name', 1)
+                //     ->update([
+                //         'status_name' => 1,
+                //         'id_user' => $ids,
+                //         'update_by' => $ids,
+                //         'updated_at' => Carbon::now(),
+                //     ]);
 
                 $unl = DB::table('contents')
                     ->where('id_container', $id)
@@ -217,14 +217,14 @@ class AdminCompanyController extends Controller
                     'updated_at' => Carbon::now(),
                 ]);
 
-            $st = DB::table('content__statuses')
-                ->where('status_name', 1)
-                ->update([
-                    'status_name' => 1,
-                    'id_user' => $ids,
-                    'update_by' => $ids,
-                    'updated_at' => Carbon::now(),
-                ]);
+            // $st = DB::table('content__statuses')
+            //     ->where('status_name', 1)
+            //     ->update([
+            //         'status_name' => 1,
+            //         'id_user' => $ids,
+            //         'update_by' => $ids,
+            //         'updated_at' => Carbon::now(),
+            //     ]);
 
             Toastr::success('successfully update :)', 'Success');
             return redirect()->route('admin.admin_tentangkami');
@@ -332,7 +332,10 @@ class AdminCompanyController extends Controller
                 '=',
                 'contents.id_content_status'
             )
-            ->where('containers.container_name', 'histori')
+            ->where([
+                ['containers.container_name', 'histori'],
+                ['containers.id', $id],
+            ])
             ->first();
 
         return view('admin.tentang_kami.histori.edit', [
@@ -353,20 +356,20 @@ class AdminCompanyController extends Controller
                 'update_by' => $ids,
                 'updated_at' => Carbon::now(),
             ]);
-        $st = DB::table('content__statuses')
-            ->join(
-                'contents',
-                'content__statuses.id',
-                '=',
-                'contents.id_content_status'
-            )
-            ->where('contents.id_container', $id)
-            ->update([
-                'status_name' => 1,
-                'id_user' => $ids,
-                'update_by' => $ids,
-                'updated_at' => Carbon::now(),
-            ]);
+        // $st = DB::table('content__statuses')
+        //     ->join(
+        //         'contents',
+        //         'content__statuses.id',
+        //         '=',
+        //         'contents.id_content_status'
+        //     )
+        //     ->where('contents.id_container', $id)
+        //     ->update([
+        //         'status_name' => 1,
+        //         'id_user' => $ids,
+        //         'update_by' => $ids,
+        //         'updated_at' => Carbon::now(),
+        //     ]);
         $contain = DB::table('contents')
             ->where('id_container', $id)
             ->update([

@@ -1,7 +1,7 @@
 @extends('layouts.frontend.app')
 @section('title','Home')
 @push('css')
-
+ 
 @endpush
 
 <?php
@@ -75,8 +75,9 @@
           -mb-20
           lg:mt-20
           ">
+         
           <div class="w-full bg-center bg-cover rounded-lg shadow-md">
-              <img class="object-cover" src="{{asset('images/bodas-cover.jpg')}}" alt="">
+              <img class="object-cover" src={{URL::asset("images/bodas-cover.jpg")}} alt="">
           </div>
         </div>
       <!-- image -->
@@ -97,7 +98,7 @@
           <div class="rounded-full">
             <img
               class="rounded-full"
-              src="{{asset('images/icon1.png')}}" alt="" srcset="">
+              src={{URL::asset('images/icon1.png')}} alt="" srcset="">
           </div>
           <div class="text-center w-full">
             <h6 class="mb-2 font-semibold leading-5 md:text-center text-lg">Quick Payment</h6>
@@ -123,7 +124,7 @@
           <div class=" rounded-full">
             <img
               class="rounded-full"
-              src="{{asset('images/icon2.png')}}" alt="" srcset="">
+              src={{URL::asset('images/icon2.png')}} alt="" srcset="">
           </div>
           
            <div class="text-center w-full">
@@ -147,7 +148,7 @@
           <div class="rounded-full">
             <img
               class="rounded-full"
-              src="{{asset('images/icon3.png')}}" alt="" srcset="">
+              src={{URL::asset('images/icon3.png')}} alt="" srcset="">
           </div>
           <div class="text-center w-full">
             <h6 class="mb-2 font-semibold leading-5 text-lg">Promo Spesial</h6>
@@ -169,7 +170,7 @@
           <div class=" rounded-full">
             <img
               class="rounded-full"
-              src="{{asset('images/icon4.png')}}" alt="" srcset="">
+              src={{URL::asset('images/icon4.png')}} alt="" srcset="">
           </div>
           <div class="text-center w-full">
             <h6 class="mb-2 font-semibold leading-5 text-lg">24/7 Support</h6>
@@ -210,7 +211,7 @@
       ">
         <img 
         class="w-80 my-5 shadow-md md:w-4/5 md:h-96"
-        src="{{asset('image/promosi')}}/{{$sp->image}}" alt="" srcset="">
+        src={{URL::asset("image/promosi/{$sp->image}")}} alt="" srcset="">
     </div>
     <div class="
       flex 
@@ -262,7 +263,7 @@
         ">
       <img 
       class="w-80 my-5 shadow-lg md:w-4/5 md:h-96"
-      src="{{asset('image/promosi')}}/{{$sp->image}}" alt="" srcset="">
+      src={{URL::asset("image/promosi/{$sp->image}")}} alt="" srcset="">
     </div>
   </div> 
 @endif
@@ -289,7 +290,7 @@
             <div id="slider" class="h-full flex lg:gap-8 md:gap-6 gap-4 items-center justify-start transition ease-out duration-700">
               @foreach($section_t as $st)
                 <div class="flex flex-shrink-0 relative w-full sm:w-auto">
-                    <img class="md:w-80 md:h-80 shadow-md" src="{{asset('image/testimoni')}}/{{$st->image}}" alt="black chair and white table" class="object-cover object-center w-full" />
+                    <img class="md:w-80 md:h-80 shadow-md" src={{URL::asset("image/testimoni/{$st->image}")}} alt="black chair and white table" class="object-cover object-center w-full" />
                 </div>
               @endforeach
                 {{-- <div class="flex flex-shrink-0 relative w-full sm:w-auto">
@@ -330,21 +331,24 @@
       </h1>
   </div>
   <div class="container 
-      grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-16 px-11 gap-5">
+      grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 mt-16 px-11 gap-5">
+      @foreach($section_v as $sv)
    <div class="flex flex-col border border-gray-100  rounded shadow-md h-80">
        <div class="flex flex-col items-center w-full h-full">
-        <iframe 
-          class="h-80 w-full shadow-md rounded"
-          src="https://www.youtube.com/embed/5Vuxns6RILk"
-          allow="accelerometer; autoplay; 
-            clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          frameborder="0"
-          >
-        </iframe>
+        
+            <iframe 
+            class="h-80 w-full shadow-md rounded"
+            src="{{$sv->link_url}}"
+            allow="accelerometer; autoplay; 
+              clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            frameborder="0">
+          </iframe>
+       
        </div>
    </div>
-    <div class="flex flex-col border border-gray-100  rounded shadow-md h-80">
+   @endforeach
+    {{-- <div class="flex flex-col border border-gray-100  rounded shadow-md h-80">
       <div class="flex flex-col items-center w-full h-full">
         <iframe 
           class="h-80 w-full shadow-md rounded"
@@ -369,8 +373,8 @@
        >
      </iframe>
     </div>
-  </div>
-  <div class="flex flex-col border border-gray-100  rounded shadow-md h-80">
+  </div> --}}
+  {{-- <div class="flex flex-col border border-gray-100  rounded shadow-md h-80">
     <div class="flex flex-col items-center w-full h-full">
     <iframe 
       class="h-80 w-full shadow-md rounded"
@@ -434,7 +438,7 @@
       >
     </iframe>
     </div>
-  </div>
+  </div> --}}
  
   
 </section>

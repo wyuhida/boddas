@@ -99,19 +99,48 @@ class HomeController extends Controller
         // $filter = $pop->whereNotIn('total_sold', [0]);
         $popular = $pop->groupBy('id_item')->take(4);
 
+        $section_v = DB::table('containers')
+            ->join('contents', 'containers.id', '=', 'contents.id_container')
+            ->join(
+                'content__statuses',
+                'content__statuses.id',
+                '=',
+                'contents.id_content_status'
+            )
+            ->select(
+                'containers.id',
+                'containers.container_name',
+                'containers.id_user',
+                'containers.created_at',
+                'containers.updated_at',
+                'contents.id as id_content',
+                'contents.content_name',
+                'contents.image',
+                'contents.link_url',
+                'contents.id_container as id_container',
+                'contents.id_content_status as id_content_status',
+                'content__statuses.id as id_status',
+                'content__statuses.status_name'
+            )
+            ->where('containers.container_name', 'section_video')
+            ->orderBy('containers.id', 'DESC')
+            ->take(6)
+            ->get();
+
         return view('home', [
             // 'foo_kontak' => $foo_kontak,
             // 'c_founder' => $c_founder,
             'popular' => $popular,
             'section_p' => $section_p,
             'section_t' => $section_t,
+            'section_v' => $section_v,
         ]);
     }
 
     public function show_blog(Request $request)
     {
         $randomBlog = News::inRandomOrder()
-            ->limit(4)
+            ->limit(6)
             ->get();
         // $s_news = User::join('news', 'users.id', '=', 'news.id_user')->join(
         //     'roles',
@@ -161,6 +190,7 @@ class HomeController extends Controller
                 '=',
                 'contents.id_content_status'
             )
+            ->orderBy('containers.id', 'DESC')
             ->where('containers.container_name', 'founder')
             ->first();
 

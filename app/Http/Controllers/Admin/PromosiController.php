@@ -20,6 +20,10 @@ use Brian2694\Toastr\Facades\Toastr;
 use Image;
 use RealRashid\SweetAlert\Facades\Alert;
 use File;
+use BenSampo\Embed\Rules\EmbeddableUrl;
+use Illuminate\Support\Str;
+use BenSampo\Embed\Services\Vimeo;
+use BenSampo\Embed\Services\YouTube;
 
 class PromosiController extends Controller
 {
@@ -77,12 +81,42 @@ class PromosiController extends Controller
                 'content__statuses.id as id_status',
                 'content__statuses.status_name'
             )
+
             ->where('containers.container_name', 'section_testimoni')
-            ->paginate(10);
+            ->orderBy('containers.id', 'DESC')
+            ->paginate(5);
+
+        $section_v = DB::table('containers')
+            ->join('contents', 'containers.id', '=', 'contents.id_container')
+            ->join(
+                'content__statuses',
+                'content__statuses.id',
+                '=',
+                'contents.id_content_status'
+            )
+            ->select(
+                'containers.id',
+                'containers.container_name',
+                'containers.id_user',
+                'containers.created_at',
+                'containers.updated_at',
+                'contents.id as id_content',
+                'contents.content_name',
+                'contents.image',
+                'contents.link_url',
+                'contents.id_container as id_container',
+                'contents.id_content_status as id_content_status',
+                'content__statuses.id as id_status',
+                'content__statuses.status_name'
+            )
+            ->where('containers.container_name', 'section_video')
+            ->orderBy('containers.id', 'DESC')
+            ->paginate(5);
 
         return view('admin.section_promosi.show_pengenalan', [
             'section_p' => $section_p,
             'section_t' => $section_t,
+            'section_v' => $section_v,
         ]);
     }
     public function create_promosi_pengenalan()
@@ -511,5 +545,106 @@ class PromosiController extends Controller
             ->delete();
         Toastr::success('successfully Hapus :)', 'Success');
         return redirect()->back();
+    }
+
+    public function store_video(Request $request)
+    {
+        $url = $request->link_url;
+        $string = Str::of($url)->remove('https://www.youtube.com/watch?v=');
+        $url_link = 'https://www.youtube.com/embed/' . $string;
+        $this->validate(
+            $request,
+            [
+                'link_url' => 'required',
+            ],
+            [
+                'link_url.required' => 'Wajib Isi',
+            ]
+        );
+
+        $url = $ids = auth()->user()->id;
+        $ctrs = DB::table('containers')->insertGetId([
+            'container_name' => 'section_video',
+            'id_user' => $ids,
+            'update_by' => $ids,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+
+        $ctr = DB::table('contents')->insertGetId([
+            'id_container' => $ctrs,
+            'id_content_status' => 1,
+            'id_user' => $ids,
+            'update_by' => $ids,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+            'image' => '',
+            'link_url' => $url_link,
+        ]);
+        Toastr::success('Berhasil Simpan :)', 'Success');
+        return redirect()->back();
+    }
+
+    public function update_video(Request $request, $id)
+    {
+        $this->validate(
+            $request,
+            [
+                'link_url' => ['required', new EmbeddableUrl()],
+            ],
+            [
+                'link_url.required' => 'Wajib Isi',
+            ]
+        );
+
+        $ids = auth()->user()->id;
+        $ctrs = DB::table('containers')
+            ->where('id', $id)
+            ->update([
+                'id_user' => $ids,
+                'update_by' => $ids,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ]);
+
+        $ctr = DB::table('contents')
+            ->where('id_container', $id)
+            ->update([
+                'id_content_status' => 1,
+                'id_user' => $ids,
+                'update_by' => $ids,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+                'image' => '',
+                'link_url' => $request->link_url,
+            ]);
+        Toastr::success('Berhasil Diubah :)', 'Success');
+        return redirect()->back();
+    }
+
+    public function delete_video($id)
+    {
+        $del_v = DB::table('containers')
+            ->join('contents', 'containers.id', '=', 'contents.id_container')
+            ->join(
+                'content__statuses',
+                'content__statuses.id',
+                '=',
+                'contents.id_content_status'
+            )
+            ->where('contents.id_container', $id)
+            ->get();
+        foreach ($del_v as $key => $imgs) {
+            $file_path = public_path('image/testimoni') . '/' . $imgs->image;
+            if (File::exists($file_path)) {
+                File::delete($file_path);
+            }
+        }
+
+        $del_v2 = DB::table('containers')
+            ->where('id', $id)
+            ->delete();
+        Toastr::success('successfully Hapus :)', 'Success');
+        return redirect()->route('admin.promosi_pengenalan');
     }
 }

@@ -34,6 +34,7 @@ final class Versions
      */
     const VERSIONS          = array (
   'asm89/stack-cors' => 'v2.0.3@9cb795bf30988e8c96dd3c40623c48a877bc6714',
+  'bensampo/laravel-embed' => 'v1.3.0@d78f7251ea9e8a72cfa46b3aeab4e563817e61cc',
   'brian2694/laravel-toastr' => '5.56@98137445f55d981f3587800349f1aa7b045d7974',
   'brick/math' => '0.9.3@ca57d18f028f84f777b2168cd1911b0dee2343ae',
   'composer/package-versions-deprecated' => '1.11.99.4@b174585d1fe49ceed21928a945138948cb394600',
@@ -150,7 +151,7 @@ final class Versions
   'sebastian/type' => '2.3.4@b8cd8a1c753c90bc1a0f5372170e3e489136f914',
   'sebastian/version' => '3.0.2@c6c1022351a901512170118436c764e473f6de8c',
   'theseer/tokenizer' => '1.2.1@34a41e998c2183e22995f158c581e7b5e755ab9e',
-  'laravel/laravel' => 'dev-main@6d4d9a31167439b31df8d3c62c96b0efb7dd4728',
+  'laravel/laravel' => 'dev-main@7062951a7c7bf37be85c840fbc05c8fe102ff085',
 );
 
     private function __construct()

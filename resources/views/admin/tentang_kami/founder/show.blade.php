@@ -61,7 +61,7 @@
                           <thead>
                             <tr>
                               <th>No</th>
-                              <th>Name</th>
+                              <th>Gambar</th>
                               <th>Content</th>
                               <th>Status Name</th>
                               <th>Action</th>
@@ -71,7 +71,9 @@
                           <tbody>
                             
                                 <td>{{ $key + 1}}</td>
-                                <td>{{ $items->container_name }}</td>
+                                <td>
+                                  <img src={{URL::asset("image/company/{$items->image}")}} width="64" height="90" alt="" srcset="">
+                                </td>
                                 <td> {{ 
                                   Str::limit(strip_tags(htmlspecialchars_decode($items->content_name))) 
                                 }}</td>
