@@ -13,18 +13,6 @@
       
          <title>Home</title>    
          <!-- Plugins CSS -->
-         {{-- <link href={{ asset('vendors/css/plugins/plugins.css')}} rel="stylesheet"> --}}
-         <!-- REVOLUTION STYLE SHEETS -->
-         {{-- <link rel="stylesheet" type="text/css" href={{ asset('vendors/revolution/css/settings.css')}}> --}}
-         <!-- REVOLUTION LAYERS STYLES -->
-         {{-- <link rel="stylesheet" type="text/css" href={{ asset('vendors/revolution/css/layers.css')}}> --}}
-         <!-- REVOLUTION NAVIGATION STYLES -->
-         {{-- <link rel="stylesheet" type="text/css" href={{ asset('vendors/revolution/css/navigation.css')}}> --}}
-         <!-- load css for cubeportfolio -->
-      {{-- <link rel="stylesheet" type="text/css" href={{ asset('vendors/cubeportfolio/css/cubeportfolio.min.css')}}> --}}
-      {{-- <link rel='stylesheet' href={{asset('vendors/revolution/revolution-addons/particles/css/revolution.addon.particles.css?ver=1.0.3')}} type='text/css'> --}}
-        {{-- <link href={{ asset('vendors/css/style.css')}} rel="stylesheet"> --}}
-         {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"> --}}
          <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
          <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
          <link rel="stylesheet" href="{{asset('css/app.css')}}" />
@@ -127,35 +115,30 @@
  
 
     @include('layouts.frontend.partials.footer')
-        <!-- jQuery first, then Tether, then Bootstrap JS. -->
-        {{-- <script type="text/javascript" src={{ asset('vendors/js/plugins/plugins.js')}}></script>  --}}
-      
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" ></script> --}}
 
-        {{-- <script type="text/javascript" src={{ asset('vendors/js/assan.custom.js')}}></script>  --}}
-        <!-- load cubeportfolio -->
-        {{-- <script type="text/javascript" src={{ asset('vendors/cubeportfolio/js/jquery.cubeportfolio.min.js')}}></script> --}}
-        <!-- REVOLUTION JS FILES -->
-        {{-- <script type="text/javascript" src={{ asset('vendors/revolution/js/jquery.themepunch.tools.min.js')}}></script>
-        <script type="text/javascript" src={{ asset('vendors/revolution/js/jquery.themepunch.revolution.min.js')}}></script> --}}
-        <!-- SLIDER REVOLUTION 5.0 EXTENSIONS  (Load Extensions only on Local File Systems !  The following part can be removed on Server for On Demand Loading) -->	
-        {{-- <script type="text/javascript" src={{ asset('vendors/revolution/js/extensions/revolution.extension.actions.min.js')}}></script>
-        <script type="text/javascript" src={{ asset('vendors/revolution/js/extensions/revolution.extension.carousel.min.js')}}></script>
-        <script type="text/javascript" src={{ asset('vendors/revolution/js/extensions/revolution.extension.kenburn.min.js')}}></script>
-        <script type="text/javascript" src={{ asset('vendors/revolution/js/extensions/revolution.extension.layeranimation.min.js')}}></script>
-        <script type="text/javascript" src={{ asset('vendors/revolution/js/extensions/revolution.extension.migration.min.js')}}></script>
-        <script type="text/javascript" src={{ asset('vendors/revolution/js/extensions/revolution.extension.navigation.min.js')}}></script>
-        <script type="text/javascript" src={{ asset('vendors/revolution/js/extensions/revolution.extension.parallax.min.js')}}></script>
-        <script type="text/javascript" src={{ asset('vendors/revolution/js/extensions/revolution.extension.slideanims.min.js')}}></script>
-        <script type="text/javascript" src={{ asset('vendors/revolution/js/extensions/revolution.extension.video.min.js')}}></script> --}}
-     {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script> --}}
      <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
-     {{-- <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script> --}}
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" ></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-     <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
-        {!! Toastr::message() !!}
+     <link rel="stylesheet" type="text/css" 
+      href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+     
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
-    <script>
+     {!! Toastr::message() !!}
+
+     <script>
+        @if(Session::has('success'))
+            toastr.success("{{ Session::get('success') }}");
+        @endif
+    
+        @if(Session::has('info'))
+            toastr.info("{{ Session::get('info') }}");
+        @endif
+    </script>
+
+
+    {{-- <script>
         @if($errors->any())
             @foreach($errors->all() as $error)
                 toastr.error('{{ $error }}','Error',{
@@ -164,137 +147,9 @@
                 });
             @endforeach
         @endif
-    </script>
-     <script>
-        /**Hero  script**/
-        var tpj = jQuery;
+    </script> --}}
 
-        var revapi1078;
-        tpj(document).ready(function () {
-            if (tpj("#rev_slider_1078_1").revolution == undefined) {
-                revslider_showDoubleJqueryError("#rev_slider_1078_1");
-            } else {
-                revapi1078 = tpj("#rev_slider_1078_1").show().revolution({
-                    sliderType: "standard",
-                    jsFileLocation: "revolution/js/",
-                    sliderLayout: "auto",
-                    dottedOverlay: "none",
-                    delay: 8000,
-                    navigation: {
-                        arrows: {
-                            enable: true,
-                            style: 'uranus',
-                            tmp: '',
-                            rtl: false,
-                            hide_onleave: false,
-                            hide_onmobile: true,
-                            hide_under: 600,
-                            hide_over: 9999,
-                            hide_delay: 200,
-                            hide_delay_mobile: 1200,
-                            left: {
-                                container: 'slider',
-                                h_align: 'left',
-                                v_align: 'center',
-                                h_offset: 0,
-                                v_offset: 0
-                            },
-                            right: {
-                                container: 'slider',
-                                h_align: 'right',
-                                v_align: 'center',
-                                h_offset: 0,
-                                v_offset: 0
-                            }
-                        }
-                    },
-                    viewPort: {
-                        enable: true,
-                        outof: "pause",
-                        visible_area: "80%",
-                        presize: false
-                    },
-                    responsiveLevels: [1240, 1024, 778, 480],
-                    visibilityLevels: [1240, 1024, 778, 480],
-                    gridwidth: [1140, 992, 700, 465],
-                    gridheight: [600, 600, 500, 480],
-                    lazyType: "none",
-                    parallax: {
-                        type: "mouse",
-                        origo: "slidercenter",
-                        speed: 2000,
-                        levels: [2, 3, 4, 5, 6, 7, 12, 16, 10, 50, 46, 47, 48, 49, 50, 55]
-                    },
-                    shadow: 0,
-                    spinner: "off",
-                    stopLoop: "off",
-                    stopAfterLoops: -1,
-                    stopAtSlide: -1,
-                    shuffle: "off",
-                    autoHeight: "off",
-                    hideThumbsOnMobile: "off",
-                    hideSliderAtLimit: 0,
-                    hideCaptionAtLimit: 0,
-                    hideAllCaptionAtLilmit: 0,
-                    debugMode: false,
-                    fallbacks: {
-                        simplifyAll: "off",
-                        nextSlideOnWindowFocus: "off",
-                        disableFocusListener: false
-                    }
-                });
-            }
-        });	/*ready*/
-        //cube portfolio init
-        (function ($, window, document, undefined) {
-            'use strict';
-
-            // init cubeportfolio
-            $('#js-grid-mosaic-flat').cubeportfolio({
-                filters: '#js-filters-mosaic-flat',
-                layoutMode: 'mosaic',
-                sortToPreventGaps: true,
-                mediaQueries: [{
-                        width: 1500,
-                        cols: 6
-                    }, {
-                        width: 1100,
-                        cols: 4
-                    }, {
-                        width: 800,
-                        cols: 3
-                    }, {
-                        width: 480,
-                        cols: 2,
-                        options: {
-                            caption: '',
-                            gapHorizontal: 15,
-                            gapVertical: 15
-                        }
-                    }],
-                defaultFilter: '*',
-                animationType: 'fadeOutTop',
-                gapHorizontal: 0,
-                gapVertical: 0,
-                gridAdjustment: 'responsive',
-                caption: 'fadeIn',
-                displayType: 'fadeIn',
-                displayTypeSpeed: 100,
-                // lightbox
-                lightboxDelegate: '.cbp-lightbox',
-                lightboxGallery: true,
-                lightboxTitleSrc: 'data-title',
-                lightboxCounter: '<div class="cbp-popup-lightbox-counter"></div>',
-                plugins: {
-                    loadMore: {
-                        selector: '#js-loadMore-mosaic-flat',
-                        action: 'click',
-                        loadItems: 3
-                    }
-                }
-            });
-        })(jQuery, window, document);
-    </script> 
+  
      
     @stack('js')
 </body>

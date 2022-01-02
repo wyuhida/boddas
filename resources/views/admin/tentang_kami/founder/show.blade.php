@@ -46,24 +46,14 @@
                             <i class="fa fa-plus"></i> Tambah</a>&nbsp;
                       </div>
 
-                      {{-- <form action="" method="GET">
-                          <div class="input-group">
-                                  <input type="text" placeholder="Search" class="input form-control" 
-                                  name="search" value="{{ request()->query('search')}}">
-                                  <span class="input-group-btn">
-                                      <button type="submit" class="btn btn btn-primary"> <i class="fa fa-search"></i> Search</button>
-                                  </span>
-                          </div>
-                      </form> --}}
-
                       <div class="clients-list">
                         <table class="table table-striped table-hover dataTables-example">
                           <thead>
                             <tr>
                               <th>No</th>
                               <th>Gambar</th>
-                              <th>Content</th>
-                              <th>Status Name</th>
+                              <th>Deskripsi</th>
+                             
                               <th>Action</th>
                             </tr>
                           </thead>
@@ -77,13 +67,7 @@
                                 <td> {{ 
                                   Str::limit(strip_tags(htmlspecialchars_decode($items->content_name))) 
                                 }}</td>
-                                <td>
-                                    @if($items->status_name == 1)
-                                      <span class="label label-info">Aktif</span>
-                                    @else
-                                      <span class="label label-danger">Tidak Aktif</span>
-                                      @endif
-                                </td>
+                                
                                 <td>
                                   <div class="btn-group">
                                     <button data-toggle="dropdown" 
@@ -181,31 +165,60 @@
           </div>
         </div>
 
-    </div>
-  <!-- END DB TENTANG HEADLINE -->
-{{-- 
-  <div class="wrapper wrapper-content animated fadeInRight">
-    <div class="row">
-      <div class="col-sm-12">
-        <div class="ibox float-e-margins">
-            <div class="ibox-title">
-                <h5 class="text-center">Tentang Damping Indonesia</h5>
-                <div class="ibox-tools">
-                  <a type="button" class="btn btn-xs btn-light" 
-                  href="">
-                    <i class="fa fa-edit">
-                      </i> Ubah 
-                    </a>
+
+        <!-- VISI MISI -->
+        <div class="row">
+          <div class="col-sm-12">
+              <div class="ibox">
+                <div class="ibox-title">
+                  <h5 class="text-center">Visi Misi</h5>
+                  <div class="ibox-tools">
+                    <a type="button" class="btn btn-xs btn-info "style="color: white;"
+                    href="{{route('admin.create_admin_visimisi')}}">
+                      <i class="fa fa-edit">
+                        </i> Tambah 
+                      </a>
+                  </div>
                 </div>
-            </div>
-            
-            <div class="ibox-content">
-              <small></small>
-            </div>
+              </div>
+          </div>
         </div>
-      </div>
+        
+        @if($visimisi != null)
+        <div class="row">
+          <div class="col-sm-12">
+              <div class="ibox">
+                  <div class="ibox-title">
+                    <h5 class="text-center"></h5>
+                    <div class="ibox-tools">
+                      <a type="button" class="btn btn-xs btn-warning "style="color: white;"
+                        href="{{route('admin.edit_admin_visimisi',$visimisi->id_container)}}">
+                        <i class="fa fa-edit">
+                          </i> Ubah 
+                      </a>
+                      <button class="btn btn-xs btn-danger" type="button" 
+                        onclick="deleteVisiMisi({{ $visimisi->id_container }})">
+                        <i class="fa fa-trash">hapus</i>
+                      </button>
+                      <form id="delete-form-{{ $visimisi->id_container }}" 
+                        action="{{route('admin.delete_admin_visimisi',$visimisi->id_container)}}"
+                        method="POST" style="display: none;">
+                        @csrf
+                        @method('DELETE')
+                      </form>             
+                    </div>
+                  </div>
+                  <div class="ibox-content">
+                    {!! $visimisi->content_name!!}
+                    <small></small>
+                  </div>
+            </div>
+           
+          </div>
+        </div>
+        @endif
+
     </div>
-  </div> --}}
   
 @endsection
 
@@ -241,6 +254,35 @@
 
 <script>
   function deleteHistori(id_container){
+      Swal.fire({
+      title: 'Apa anda yakin?',
+      text: "Apakah anda yakin ingin menghapus ini!",
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Ya, hapus!',
+      cancelButtonText: 'Tidak, batal!',
+      reverseButtons: false
+      }).then((result) => {
+          if (result.value) {
+          event.preventDefault();
+          document.getElementById('delete-form-' + id_container).submit();    
+      } else if (
+  // Read more about handling dismissals
+      result.dismiss === Swal.DismissReason.cancel
+      ) {
+      Swal.fire(
+      'Cancelled',
+      'Data tidak jadi terhapus :)',
+      'error'
+      )
+      }
+      })
+  }
+
+</script>
+
+<script>
+  function deleteVisiMisi(id_container){
       Swal.fire({
       title: 'Apa anda yakin?',
       text: "Apakah anda yakin ingin menghapus ini!",

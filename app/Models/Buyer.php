@@ -14,6 +14,7 @@ class Buyer extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
+    protected $table = 'buyers';
     public function user()
     {
         return $this->hasMany(User::class);

@@ -19,25 +19,6 @@
                 <div class="ibox-content">
                     <form class="form-horizontal" action="{{route('admin.store_admin_tentangkami')}}" method="POST" enctype="multipart/form-data">
                         @csrf
-                     
-                        {{-- <p>Isi Form.</p> --}}
-                        {{-- <div class="form-group">
-                            <label class="col-lg-2 control-label">
-                                Judul
-                            </label>
-                            <div class="col-lg-10">
-                                <input type="text" 
-                                name="container_name" 
-                               
-                                class="form-control @error('container_name') is-invalid @enderror"> 
-                                    @error('container_name')
-                                        <span class="help-block m-b-none" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>                 
-                                    @enderror
-                            </div>
-                        </div> --}}
-
                         <div class="form-group">
                             <label class="col-lg-2 control-label">Foto</label>
                             <div class="col-lg-10 fileinput fileinput-new input-group" data-provides="fileinput">
@@ -88,12 +69,16 @@
 
 
 @push('js')
-<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+<script src="https://cdn.ckeditor.com/4.17.1/full-all/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace( 'content_name' );
+</script>
+{{-- <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function(){
         $('.summernote').summernote({
             height:400
         })
 });
-</script>
+</script> --}}
 @endpush

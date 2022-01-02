@@ -48,6 +48,9 @@
                 <li class="{{Request::is('admin/show_admin_blog') ? 'active' : ''}}">
                     <a name ="show_admin_blog" href="{{ route('admin.show_admin_blog')}}"><i class="fa fa-book"></i> <span class="nav-label">Blog</span></a>
                 </li>
+                <li class="{{Request::is('admin/kontak_us') ? 'active' : ''}}">
+                    <a name ="kontak_us" href="{{ route('admin.kontak_us')}}"><i class="fa fa-book"></i> <span class="nav-label">Kotak Masuk</span></a>
+                </li>
 
                 <li class="{{Request::is('admin/show_admin_produk') ? 'active' : ''}}">
                     <a href="">
@@ -82,6 +85,10 @@
                       <li><a href="{{ route('admin.show_admin_reseller')}}">List Reseller</a></li>
                     </ul>
                 </li>
+                <li class="{{Request::is('admin/show_buyer_diskon') ? 'active' : ''}}">
+                    <a name ="show_buyer_diskon" href="{{ route('admin.show_buyer_diskon')}}"><i class="fa fa-book"></i> <span class="nav-label">Diskon</span></a>
+                </li>
+
 
             @endif
 

@@ -13,7 +13,7 @@
             <div class="ibox-content">
               {{-- <span class="text-muted small pull-right">Last modification: <i class="fa fa-clock-o"></i> 2:10 pm - 12.06.2014</span> --}}
              
-              <a type="button" href="#" 
+              <a type="button" href="{{route('admin.admin_tentangkami')}}" 
               class="btn btn-sm btn-warning pull-right"><i class="fa fa-arrow-left"></i> Kembali</a>
               <h2>Ubah Histori</h2>
              
@@ -21,33 +21,7 @@
                     <form class="form-horizontal" action="{{route('admin.update_histori_admin_tentangkami',$edit_histori->id_container)}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
-                        {{-- <p>Isi Form.</p> --}}
-
-                        {{-- <div class="form-group">
-                            <label class="col-lg-2 control-label">Foto</label>
-                            <div class="col-lg-10 fileinput fileinput-new input-group" data-provides="fileinput">
-                                <div class="form-control" data-trigger="fileinput">
-                                    <i class="glyphicon glyphicon-file fileinput-exists"></i> 
-                                    <span class="fileinput-filename"></span>
-                                </div>
-
-                                <span class="input-group-addon btn btn-default btn-file">
-                                    <span class="fileinput-new">Unggah Foto</span>
-                                    <span class="fileinput-exists">Ubah</span>
-                                    <input type="file" name="photo"></span>
-                                <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Hapus</a>
-                            </div>
-
-                        </div> --}}
-                        {{-- <div class="form-group">
-                            <label for="name" 
-                            class="col-lg-2 control-label"></label>
-
-                            <div class="col-lg-10">
-                                <img src="{{ asset('image/company')}}/{{$edit_tentangkami->image}}" alt="" style="width: 50%; height:200px;">
-                            </div>
-                        </div> --}}
-
+                       
                         <div class="form-group">
                             <label class="col-lg-2 control-label">
                                 Deskripsi
@@ -77,7 +51,7 @@
 
 
 @push('js')
-<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+{{-- <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 
 <script type="text/javascript">
     $(document).ready(function(){
@@ -85,5 +59,9 @@
             height:400
         })
 });
+</script> --}}
+<script src="https://cdn.ckeditor.com/4.17.1/full-all/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace( 'content_name' );
 </script>
 @endpush

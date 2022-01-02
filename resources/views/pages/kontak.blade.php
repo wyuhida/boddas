@@ -8,13 +8,13 @@
 
     <!-- component -->
 <section class="md:flex h-auto px-12 py-5">
-    <div class=" flex-rows md:flex w-full h-auto border border-gray-300 shadow-md-b my-10 rounded-md gap-10">
+    <div class=" flex-rows md:flex w-full h-auto border border-gray-300 shadow-md my-10 rounded-md gap-10">
         <div class="relative md:flex bg-bookmark-kontak h-[759.8px] md:w-1/2 hidden">
             <div class="flex sm:w-fit md:flex flex-row  ml-80 mt-28 w-48 overflow-hidden">
                <div class="flex flex-col items-center text-center">
                 <h1 class="flex text-white font-Roboto-500 text-2xl capitalize font-bold leading-10">get in <br> touch</h1>
-                <p class="text-white text-sm font-Roboto text-sm  py-2">boddas@gmail.com</p>
-                <p class="text-white text-sm font-Roboto text-sm py-2">+62 811 2233 4455</p>
+                <p class="text-white font-Roboto text-sm  py-2">boddas@gmail.com</p>
+                <p class="text-white font-Roboto text-sm py-2">+62 811 2233 4455</p>
                </div>
             </div>
             <div class="flex items-center justify-center">
@@ -27,24 +27,19 @@
             </div>
         </div>
        
-        {{-- <div class="relative md:flex bg-bookmark-kontak h-[759.8px] md:w-1/2 border border-red-900 items-center justify-center hidden ">
-            <div class="flex flex-col border border-blue-900 w-24 place-self-end mr-28">
-                <h1 class="text-white font-Roboto-500 text-2xl capitalize font-bold leading-10">get in touch</h1>
-                <p class="text-white text-sm font-Roboto text-sm border place-self-end py-5">boddas@gmail.com</p>
-                <p class="text-white text-sm font-Roboto text-sm border place-self-end py-5">+62 811 2233 4455</p>
-            </div>
-            
-            <div class="bg-bookmark-kontak absolute w-[125.19px] h-[131.33px] rounded-full border border-green right-0 -mr-5"></div>
-            <div class="absolute border border-indigo-800 left-0 bottom-0 w-fit -ml-12">
-                <img src="images/kontak.png" alt="" srcset="">
-            </div>
-        </div> --}}
         <!-- form -->
         <div class="flex flex-col md:w-1/2">
-            <form action="">
-                <div class="mb-6 px-2">
-                    <label for="fullname" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Fullname</label>
-                    <input type="text" id="fullname" 
+            <form action="{{route('store_kontak_us')}}" method="POST"
+            class="py-5 mx-5">
+                @csrf
+                <div class="px-2">
+                    <label for="fullname" class="
+                        block mb-2 
+                        text-sm 
+                        font-Roboto
+                        font-semibold
+                        text-bg-tombol dark:text-bg-tombol">Nama Lengkap</label>
+                    <input type="text" id="fullname" name="nama"
                         class="
                         bg-gray-50
                         border border-bg-tombol
@@ -59,12 +54,25 @@
                         focus:ring-bg-tombol
                         focus:outline-none
                         capitalize
-                        " 
-                        placeholder="jhon doe" required>
+                        @error('nama') is-invalid @enderror" 
+                        value="{{old('nama')}}"
+                        placeholder="jhon doe">
                 </div>
-                <div class="mb-6 px-2">
-                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your email</label>
+                @error('nama')
+                    <div class="p-2 mb-2 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
+                        <span class="font-medium">{{ $message }}</span>
+                    </div>                   
+                @enderror
+                
+                <div class="my-3 px-2">
+                    <label for="email" class=" 
+                    block mb-2 
+                    text-sm 
+                    font-Roboto
+                    font-semibold
+                    text-bg-tombol dark:text-bg-tombol capitalize">email</label>
                     <input type="email" id="email" 
+                        name="email"
                         class="
                         bg-gray-50
                         border border-bg-tombol
@@ -78,13 +86,27 @@
                         focus:ring
                         focus:ring-bg-tombol
                         focus:outline-none
+                        @error('email') is-invalid @enderror
                         " 
-                        placeholder="jhon@mail.com" required>
+                        value="{{old('email')}}"
+                        placeholder="jhon@mail.com">
                 </div>
+                    @error('email')
+                    <div class="p-2 mb-2 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
+                        <span class="font-medium">{{ $message }}</span>
+                    </div>                   
+                    @enderror
 
-                <div class="mb-6 px-2">
-                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">phone / Whatsapp</label>
+                <div class="my-3 px-2">
+                    <label for="email" class="
+                    block mb-2 
+                    text-sm 
+                    font-Roboto
+                    font-semibold
+                    text-bg-tombol dark:text-bg-tombol capitalize"
+                    >nomor HP / Whatsapp</label>
                     <input type="text" id="phone" 
+                    name="nomor_hp"
                         class="
                         bg-gray-50
                         border border-bg-tombol
@@ -98,13 +120,26 @@
                         focus:ring
                         focus:ring-bg-tombol
                         focus:outline-none
-                        " 
-                        placeholder="+62 812 3456 789" required>
+                        @error('nomor_hp') is-invalid @enderror" 
+                        value="{{old('nomor_hp')}}"
+                        placeholder="08123456789" >
                 </div>
+                @error('nomor_hp')
+                    <div class="p-2 mb-2 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
+                        <span class="font-medium">{{ $message }}</span>
+                    </div>                   
+                @enderror
 
-                <div class="mb-6 px-2">
-                    <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">phone / Whatsapp</label>
+                <div class="my-3 px-2">
+                    <label for="message" class="
+                    block mb-2 
+                    text-sm 
+                    font-Roboto
+                    font-semibold
+                    text-bg-tombol dark:text-bg-tombol capitalize"
+                    >Pesan</label>
                     <textarea id="message" 
+                    name="pesan"
                         class="
                         bg-gray-50
                         border border-bg-tombol
@@ -119,9 +154,17 @@
                         focus:ring
                         focus:ring-bg-tombol
                         focus:outline-none
-                        
-                        "required placeholder="Message"></textarea>
+                        @error('pesan') is-invalid @enderror
+                        "placeholder="Message">
+                        {{old('pesan')}}"</textarea>
                 </div>
+                
+                    @error('pesan')
+                    <div class="p-2 mb-2 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
+                        <span class="font-medium">{{ $message }}</span>
+                    </div>                   
+                    @enderror
+
                 <button type="submit" 
                     class="
                         text-white 

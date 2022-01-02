@@ -20,46 +20,7 @@
                     <form class="form-horizontal" action="{{route('admin.store_histori_admin_tentangkami')}}" method="POST" enctype="multipart/form-data">
                         @csrf
                      
-                        {{-- <p>Isi Form.</p> --}}
-                        {{-- <div class="form-group">
-                            <label class="col-lg-2 control-label">
-                                Judul
-                            </label>
-                            <div class="col-lg-10">
-                                <input type="text" 
-                                name="container_name" 
-                               
-                                class="form-control @error('container_name') is-invalid @enderror"> 
-                                    @error('container_name')
-                                        <span class="help-block m-b-none" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>                 
-                                    @enderror
-                            </div>
-                        </div> --}}
-
-                        {{-- <div class="form-group">
-                            <label class="col-lg-2 control-label">Foto</label>
-                            <div class="col-lg-10 fileinput fileinput-new input-group" data-provides="fileinput">
-                                <div class="form-control" data-trigger="fileinput">
-                                    <i class="glyphicon glyphicon-file fileinput-exists"></i> 
-                                    <span class="fileinput-filename"></span>
-                                </div>
-
-                                <span class="input-group-addon btn btn-default btn-file">
-                                    <span class="fileinput-new">Unggah Foto</span>
-                                    <span class="fileinput-exists">Ubah</span>
-                                    <input type="file" name="photo" @error('photo') is-invalid @enderror ></span>
-                                <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Hapus</a>
-                                        @error('photo')
-                                            <span class="help-block m-b-none" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>                 
-                                        @enderror
-                            </div>
-
-                        </div> --}}
-
+                      
                         <div class="form-group">
                             <label class="col-lg-2 control-label">
                                 Deskripsi
@@ -88,12 +49,16 @@
 
 
 @push('js')
-<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+{{-- <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function(){
         $('.summernote').summernote({
             height:400
         })
 });
+</script> --}}
+<script src="https://cdn.ckeditor.com/4.17.1/full-all/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace( 'content_name' );
 </script>
 @endpush

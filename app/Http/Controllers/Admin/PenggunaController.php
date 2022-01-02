@@ -60,7 +60,7 @@ class PenggunaController extends Controller
                 'buyers.id'
             )
                 ->where([
-                    ['users.fullname', 'LIKE', "{$cari}%"],
+                    ['users.fullname', 'LIKE', "%{$cari}%"],
                     ['buyers.id', 3],
                 ])
                 ->paginate(20);
@@ -198,7 +198,7 @@ class PenggunaController extends Controller
                 ->where([
                     ['users.id_role', '=', 3],
                     ['buyers.buyer', 'reseller'],
-                    ['addresses.address_name', 'LIKE', "{$request->lokasi}%"],
+                    ['addresses.address_name', 'LIKE', "%{$request->lokasi}%"],
                 ])
                 ->paginate(20);
         } elseif ($cari) {
@@ -209,7 +209,7 @@ class PenggunaController extends Controller
                 'buyers.id'
             )
                 ->where([
-                    ['users.fullname', 'LIKE', "{$cari}"],
+                    ['users.fullname', 'LIKE', "%{$cari}%"],
                     ['buyers.id', 2],
                 ])
                 ->paginate(20);

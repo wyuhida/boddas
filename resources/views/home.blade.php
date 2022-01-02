@@ -32,19 +32,18 @@
           lg:w-1/2
           ">
           <h2 class="
-                      text-6xl 
-                      mt-10
+                      text-4xl 
+                      my-10
                       font-bold
                       text-center
-                      font-Inter
-                      lg:text-left 
+                      font-Inter-600
+                      lg:text-left capitalize
                       ">
-                      We're Serious For Food
+                      Pertama di Indonesia
+                      Minuman kolagen tanpa pewarna dan tanpa perasa
           </h2>
-          <p class="mt-4 text-gray-500 text-center my-5 dark:text-gray-400 lg:max-w-md">
-            We strive to provide a space where guests can connect with themselves and explore their full potential, offering a safe place.
-          </p>
-          <div class="flex mb-5 w-full justify-center lg:w-fit">
+        
+          {{-- <div class="flex mb-5 w-full justify-center lg:w-fit">
             <button type="button" 
                 class="
                     text-white bg-bg-tombol 
@@ -60,7 +59,7 @@
                 Choose plan
                 <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
             </button>
-          </div>
+          </div> --}}
       </div>
       <!-- Image -->
         <div class="
@@ -327,7 +326,7 @@
   <div class="sm:3/4 mx-auto">
       <h2 class="py-2 font-Inter text-sm text-center text-gray-500"></h2>
       <h1 class="text-3xl text-center text-gray-600 font-Inter">
-          Video Testimoni
+          Video
       </h1>
   </div>
   <div class="container 

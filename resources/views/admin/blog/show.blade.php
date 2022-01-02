@@ -61,7 +61,7 @@
                     <tbody>
                         <td>{{$key+1}}</td>
                         <td>
-                          <img src="{{ asset('image/artikel')}}/{{$blog->thumbnail}}"
+                          <img src="{{URL::asset('image/artikel')}}/{{$blog->thumbnail}}"
                            alt="" srcset="" style="width: 100px;" height="100px;">
                         </td>
                         <td>{{$blog->title}}</td>

@@ -11,6 +11,7 @@ use App\Models\Company_Identity;
 use App\Models\Content;
 use App\Models\Content_Status;
 use App\Models\Container;
+use App\Models\Kontak_us;
 use DB;
 use Auth;
 use Carbon\Carbon;
@@ -46,9 +47,22 @@ class AdminCompanyController extends Controller
             ->where('containers.container_name', 'histori')
             ->get();
 
+        $visimisi = DB::table('containers')
+            ->join('contents', 'containers.id', '=', 'contents.id_container')
+            ->join(
+                'content__statuses',
+                'content__statuses.id',
+                '=',
+                'contents.id_content_status'
+            )
+            ->where('containers.container_name', 'visidanmisi')
+            ->orderBy('containers.id', 'DESC')
+            ->first();
+
         return view('admin.tentang_kami.founder.show', [
             'item' => $item,
             'histori' => $histori,
+            'visimisi' => $visimisi,
         ]);
     }
 
@@ -82,18 +96,10 @@ class AdminCompanyController extends Controller
                     'updated_at' => Carbon::now(),
                 ]);
 
-                $st = DB::table('content__statuses')->insertGetId([
-                    'status_name' => 1,
-                    'id_user' => $ids,
-                    'update_by' => $ids,
-                    'created_at' => Carbon::now(),
-                    'updated_at' => Carbon::now(),
-                ]);
-
                 $containers = DB::table('contents')->insertGetId([
                     'content_name' => $request->content_name,
                     'id_container' => $containers,
-                    'id_content_status' => $st,
+                    'id_content_status' => 1,
                     'id_user' => $ids,
                     'update_by' => $ids,
                     'created_at' => Carbon::now(),
@@ -129,9 +135,6 @@ class AdminCompanyController extends Controller
 
     public function update_admin_tentangkami(Request $request, $id)
     {
-        // $this->validate($request, [
-        //     'content_name' => 'required',
-        // ]);
         $ids = auth()->user()->id;
 
         if (isset($request->photo)) {
@@ -152,24 +155,6 @@ class AdminCompanyController extends Controller
                         'update_by' => $ids,
                         'updated_at' => Carbon::now(),
                     ]);
-
-                // $st = DB::table('content__statuses')
-                //     ->where('status_name', 1)
-                //     ->update([
-                //         'status_name' => 1,
-                //         'id_user' => $ids,
-                //         'update_by' => $ids,
-                //         'updated_at' => Carbon::now(),
-                //     ]);
-
-                // $st = DB::table('content__statuses')
-                //     ->where('status_name', 1)
-                //     ->update([
-                //         'status_name' => 1,
-                //         'id_user' => $ids,
-                //         'update_by' => $ids,
-                //         'updated_at' => Carbon::now(),
-                //     ]);
 
                 $unl = DB::table('contents')
                     ->where('id_container', $id)
@@ -301,18 +286,10 @@ class AdminCompanyController extends Controller
             'updated_at' => Carbon::now(),
         ]);
 
-        $st = DB::table('content__statuses')->insertGetId([
-            'status_name' => 1,
-            'id_user' => $ids,
-            'update_by' => $ids,
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
-        ]);
-
         $ct = DB::table('contents')->insertGetId([
             'content_name' => $request->content_name,
             'id_container' => $containers,
-            'id_content_status' => $st,
+            'id_content_status' => 1,
             'id_user' => $ids,
             'update_by' => $ids,
             'created_at' => Carbon::now(),
@@ -356,20 +333,7 @@ class AdminCompanyController extends Controller
                 'update_by' => $ids,
                 'updated_at' => Carbon::now(),
             ]);
-        // $st = DB::table('content__statuses')
-        //     ->join(
-        //         'contents',
-        //         'content__statuses.id',
-        //         '=',
-        //         'contents.id_content_status'
-        //     )
-        //     ->where('contents.id_container', $id)
-        //     ->update([
-        //         'status_name' => 1,
-        //         'id_user' => $ids,
-        //         'update_by' => $ids,
-        //         'updated_at' => Carbon::now(),
-        //     ]);
+
         $contain = DB::table('contents')
             ->where('id_container', $id)
             ->update([
@@ -487,6 +451,124 @@ class AdminCompanyController extends Controller
         $kontak = Company_Identity::findOrFail($id);
         $kontak->delete();
         Toastr::success('successfully delete :)', 'Success');
+        return redirect()->back();
+    }
+
+    /**
+     * VISI MISI
+     */
+    public function create_admin_visimisi()
+    {
+        return view('admin.tentang_kami.visidanmisi.create');
+    }
+    public function store_admin_visimisi(Request $request)
+    {
+        $this->validate($request, [
+            'content_name' => 'required',
+        ]);
+        $ids = auth()->user()->id;
+        $containers = DB::table('containers')->insertGetId([
+            'container_name' => 'visidanmisi',
+            'id_user' => $ids,
+            'update_by' => $ids,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+
+        $ct = DB::table('contents')->insertGetId([
+            'content_name' => $request->content_name,
+            'id_container' => $containers,
+            'id_content_status' => 1,
+            'id_user' => $ids,
+            'update_by' => $ids,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+
+        Toastr::success('successfully save :)', 'Success');
+        return redirect()->route('admin.admin_tentangkami');
+    }
+    public function edit_admin_visimisi($id)
+    {
+        $edit_visimisi = DB::table('containers')
+            ->join('contents', 'containers.id', '=', 'contents.id_container')
+            ->join(
+                'content__statuses',
+                'content__statuses.id',
+                '=',
+                'contents.id_content_status'
+            )
+            ->where([
+                ['containers.container_name', 'visidanmisi'],
+                ['containers.id', $id],
+            ])
+            ->first();
+
+        return view('admin.tentang_kami.visidanmisi.edit', [
+            'edit_visimisi' => $edit_visimisi,
+        ]);
+    }
+    public function update_admin_visimisi(Request $request, $id)
+    {
+        $this->validate($request, [
+            'content_name' => 'required',
+        ]);
+        $ids = auth()->user()->id;
+        $containers = DB::table('containers')
+            ->where('id', $id)
+            ->update([
+                'container_name' => 'visidanmisi',
+                'id_user' => $ids,
+                'update_by' => $ids,
+                'updated_at' => Carbon::now(),
+            ]);
+        $contain = DB::table('contents')
+            ->where('id_container', $id)
+            ->update([
+                'content_name' => $request->content_name,
+                'id_container' => $id,
+                'id_user' => $ids,
+                'update_by' => $ids,
+                'updated_at' => Carbon::now(),
+            ]);
+        Toastr::success('successfully update :)', 'Success');
+        return redirect()->route('admin.admin_tentangkami');
+    }
+    public function delete_admin_visimisi($id)
+    {
+        $del_founder = DB::table('content__statuses')
+            ->join(
+                'contents',
+                'content__statuses.id',
+                '=',
+                'contents.id_content_status'
+            )
+
+            ->where([['contents.id_container', $id]]);
+        $del = $del_founder->delete();
+
+        $del_founder2 = DB::table('containers')
+            ->where('id', $id)
+            ->delete();
+        Toastr::success('successfully Hapus :)', 'Success');
+        return redirect()->back();
+    }
+
+    public function kontak_us()
+    {
+        $s_pesan = kontak_us::latest()->paginate(10);
+        $total = count(Kontak_us::latest()->get());
+        return view('admin.kotak_masuk.show', [
+            's_pesan' => $s_pesan,
+            'total' => $total,
+        ]);
+    }
+
+    public function delete_kontak_us($id)
+    {
+        $del = kontak_us::findOrFail($id);
+        $del->delete();
+        Toastr::success('successfully Hapus :)', 'Success');
         return redirect()->back();
     }
 }

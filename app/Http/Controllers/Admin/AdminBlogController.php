@@ -47,7 +47,7 @@ class AdminBlogController extends Controller
         ]);
         $add_artikel = new News();
         if (isset($request->photo)) {
-            $allowedfileExtension = ['pdf', 'jpg', 'png', 'docx'];
+            $allowedfileExtension = ['pdf', 'jpg', 'jpeg', 'png', 'docx'];
             $resources = $request->file('photo');
             $names = $resources->getClientOriginalName();
             $extension = $resources->getClientOriginalExtension();

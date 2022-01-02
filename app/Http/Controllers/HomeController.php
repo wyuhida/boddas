@@ -10,6 +10,9 @@ use App\Models\Company_Identity;
 use Illuminate\View\View;
 use DB;
 use App\Models\Item;
+use App\Models\Kontak_us;
+use Brian2694\Toastr\Facades\Toastr;
+use Session;
 class HomeController extends Controller
 {
     /**
@@ -204,10 +207,21 @@ class HomeController extends Controller
             )
             ->where('containers.container_name', 'histori')
             ->first();
+        $c_visimisi = DB::table('containers')
+            ->join('contents', 'containers.id', '=', 'contents.id_container')
+            ->join(
+                'content__statuses',
+                'content__statuses.id',
+                '=',
+                'contents.id_content_status'
+            )
+            ->where('containers.container_name', 'visidanmisi')
+            ->first();
 
         return view('pages.tentang_kami', [
             'c_founder' => $c_founder,
             'c_history' => $c_history,
+            'c_visimisi' => $c_visimisi,
         ]);
     }
 
@@ -225,5 +239,29 @@ class HomeController extends Controller
     {
         $fk = Company_Identity::orderBy('id', 'DESC')->first();
         $view->with('fk', $fk);
+    }
+
+    public function store_kontak_us(Request $request)
+    {
+        $this->validate(
+            $request,
+            [
+                'nama' => 'required',
+                'nomor_hp' => 'required',
+                'email' => 'required',
+                'pesan' => 'required',
+            ],
+            [
+                'required' => 'Wajib Diisi',
+            ]
+        );
+        $saved = new Kontak_us();
+        $saved->nama = $request->nama;
+        $saved->nomor_hp = $request->nomor_hp;
+        $saved->email = $request->email;
+        $saved->pesan = $request->pesan;
+        $saved->save();
+        Toastr::success('success', 'Pesan Terkirim');
+        return redirect()->route('home.index');
     }
 }

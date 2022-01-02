@@ -24,7 +24,7 @@ use App\Http\Controllers\Admin\AdminBlogController;
 use App\Http\Controllers\Admin\PenggunaController;
 use App\Http\Controllers\Admin\TransaksiController;
 use App\Http\Controllers\Admin\PromosiController;
-
+use App\Http\Controllers\Admin\BuyerDiskonController;
 /**
  * For Buyer
  */
@@ -58,16 +58,7 @@ use App\Http\Controllers\AuthController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('auth.login');
-// });
-
 Auth::routes();
-
-// Route::get('/home', [
-//     App\Http\Controllers\HomeController::class,
-//     'index',
-// ])->name('home');
 
 Route::get('/adminlogin', [AuthController::class, 'logins'])->name(
     'backend.login'
@@ -114,6 +105,14 @@ Route::post('proses_pembayaran', [
     ShopController::class,
     'proses_pembayaran',
 ])->name('proses_pembayaran');
+
+/**
+ * Kontak us
+ */
+Route::post('store_kontak_us', [
+    HomeController::class,
+    'store_kontak_us',
+])->name('store_kontak_us');
 
 /**
  * ADMIN GROUP
@@ -241,6 +240,46 @@ Route::group(
             AdminSettingsController::class,
             'admin_password_update',
         ])->name('admin.password.update');
+        /**
+         * Diskon
+         */
+        Route::get('show_buyer_diskon', [
+            BuyerDiskonController::class,
+            'show_buyer_diskon',
+        ])->name('show_buyer_diskon');
+
+        Route::get('create_buyer_diskon', [
+            BuyerDiskonController::class,
+            'create_buyer_diskon',
+        ])->name('create_buyer_diskon');
+        Route::post('store_buyer_diskon', [
+            BuyerDiskonController::class,
+            'store_buyer_diskon',
+        ])->name('store_buyer_diskon');
+        Route::get('edit_buyer_diskon/{id}/edit', [
+            BuyerDiskonController::class,
+            'edit_buyer_diskon',
+        ])->name('edit_buyer_diskon');
+        Route::put('update_buyer_diskon/{id}/update', [
+            BuyerDiskonController::class,
+            'update_buyer_diskon',
+        ])->name('update_buyer_diskon');
+        Route::delete('delete_buyer_diskon/{id}/delete', [
+            BuyerDiskonController::class,
+            'delete_buyer_diskon',
+        ])->name('delete_buyer_diskon');
+
+        /**
+         * KOntak us
+         */
+        Route::get('kontak_us', [
+            AdminCompanyController::class,
+            'kontak_us',
+        ])->name('kontak_us');
+        Route::delete('delete_kontak_us/{id}/delete', [
+            AdminCompanyController::class,
+            'delete_kontak_us',
+        ])->name('delete_kontak_us');
 
         /**
          * Tentang Kami (FOUNDER)
@@ -308,6 +347,39 @@ Route::group(
             AdminCompanyController::class,
             'delete_histori_admin_tentangkami',
         ])->name('delete_histori_admin_tentangkami');
+        /**
+         * VISI & MISI
+         */
+
+        Route::get('admin_visimisi', [
+            AdminCompanyController::class,
+            'admin_visimisi',
+        ])->name('admin_visimisi');
+
+        Route::get('create_admin_visimisi', [
+            AdminCompanyController::class,
+            'create_admin_visimisi',
+        ])->name('create_admin_visimisi');
+
+        Route::post('store_admin_visimisi', [
+            AdminCompanyController::class,
+            'store_admin_visimisi',
+        ])->name('store_admin_visimisi');
+
+        Route::get('edit_admin_visimisi/{id}/edit', [
+            AdminCompanyController::class,
+            'edit_admin_visimisi',
+        ])->name('edit_admin_visimisi');
+
+        Route::put('update_admin_visimisi/{id}/update', [
+            AdminCompanyController::class,
+            'update_admin_visimisi',
+        ])->name('update_admin_visimisi');
+
+        Route::delete('delete_admin_visimisi/{id}/delete', [
+            AdminCompanyController::class,
+            'delete_admin_visimisi',
+        ])->name('delete_admin_visimisi');
 
         // CMS KONTAK
 

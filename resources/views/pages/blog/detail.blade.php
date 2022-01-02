@@ -76,58 +76,58 @@
               
             </div>
 
-            <!-- side -->
-            <div class="space-y-3 lg:w-1/3 lg:px-2 lg:space-y-4 h-full bg-hero-color border">
-                <div class="flex items-center overflow-hidden rounded py-5 justify-center border mx-5">
-                    <img class="object-cover items-center w-full h-64 shadow-lg dark:bg-gray-800" 
-                    src="{{asset('images/bodas-cover.jpg')}}" alt="" srcset="">
+           <!-- side -->
+           <div class="space-y-3 lg:w-1/3 lg:px-2 lg:space-y-4 bg-hero-color border h-screen">
+            {{-- <div class="flex items-center overflow-hidden rounded py-5 justify-center border mx-5">
+                <img class="object-cover items-center w-full h-64 shadow-lg dark:bg-gray-800" 
+                src="{{asset('images/bodas-cover.jpg')}}" alt="" srcset="">
+            </div>
+            <p class="mx-5 text-left font-bold text-2xl">Boddas</p>
+            <p class="mx-5 text-left font-Inter text-sm">Satu-satunya minuman serbuk collagen tanpa perasa dan pewarna pertama di Indonesia.fdsfds</p> --}}
+            
+            <div class="flex flex-col my-3 divide-x relative">
+                <h1 class="text-lg font-bold font-Inter  w-fit">Lainnya</h1>
+                <div class="border-b top-0 border-gray-300 w-full"></div>
+
+            </div>
+            
+            @if($randomBlog != null)
+            @foreach($randomBlog as $key => $o_blog)
+            <div class="my-5 flex max-w-sm mx-auto overflow-hidden dark:bg-gray-800">
+                <div class="w-32 h-32 bg-cover ">
+                    <img class="w-24 h-24 px-2" src={{URL::asset("image/artikel/{$o_blog->thumbnail}")}} alt="" srcset="">
                 </div>
-                <p class="mx-5 text-left font-bold text-2xl">Boddas</p>
-                <p class="mx-5 text-left font-Inter text-sm">Satu-satunya minuman serbuk collagen tanpa perasa dan pewarna pertama di Indonesia.fdsfds</p>
-                
-                <div class="flex flex-col mx-5 divide-x relative">
-                    <h1 class="text-lg font-bold font-Inter  w-fit">Lainnya</h1>
-                    <div class="border-b top-0 border-gray-300 w-full"></div>
 
-                </div>
-                
-                @if($randomBlog != null)
-                @foreach($randomBlog as $key => $o_blog)
-                <div class="flex max-w-sm mx-auto overflow-hidden dark:bg-gray-800">
-                    <div class="w-32 h-32 bg-cover" 
-                        style="background-image: url('{{asset('image/artikel')}}/{{$o_blog->thumbnail}}')">
-                    </div>
+                <div class="w-full md:px-2 h-40">
+                    <h1 class="text-sm font-bold text-gray-800 dark:text-white">{{$o_blog->title}}</h1>
 
-                    <div class="w-full md:px-2 h-40">
-                        <h1 class="text-sm font-bold text-gray-800 dark:text-white">{{$o_blog->title}}</h1>
-
-                        <p class="text-sm text-gray-600 dark:text-gray-400 inline">
-                            {!! Str::limit($o_blog->body_news,'250','..') !!}
-                        </p>
-                        <a href=""><span class="text-bg-tombol text-sm font-bold inline">Baca Selengkapnya</span></a>
-                    </div>
-                </div>
-                @endforeach
-                @endif
-                               
-                
-                <div class="flex flex-col mx-5 divide-x relative">
-                    <h1 class="text-lg font-bold font-Inter  w-fit">Promo</h1>
-                    <div class="border-b top-0 border-gray-300 w-full"></div>
-
-                </div>
-                
-
-                <div class="rounded shadow  mx-5 dark:bg-gray-800 relative">
-                    <img class="object-cover w-full h-48 bg-center brightness-50 mb-10" 
-                    src="{{asset('images/bodas-cover.jpg')}}" alt="" srcset="">
-                    
-                    <div class="absolute  text-xl bottom-0 left-0 w-32 px-3 mb-3">
-                        <h1 class="text-white font-bold font-Inter">Discount 30% for all item</h1>
-                    </div>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 inline">
+                        {!! Str::limit($o_blog->body_news,'250','..') !!}
+                    </p>
+                    <a href="{{route('blog_detail',$o_blog->id)}}"><span class="text-bg-tombol text-sm font-bold inline">Baca Selengkapnya</span></a>
                 </div>
             </div>
-            <!-- side-->
+            @endforeach
+            @endif
+                           
+            
+            {{-- <div class="flex flex-col mx-5 divide-x relative">
+                <h1 class="text-lg font-bold font-Inter  w-fit">Promo</h1>
+                <div class="border-b top-0 border-gray-300 w-full"></div>
+
+            </div> --}}
+            
+
+            {{-- <div class="rounded shadow  mx-5 dark:bg-gray-800 relative">
+                <img class="object-cover w-full h-48 bg-center brightness-50 mb-10" 
+                src="{{asset('images/bodas-cover.jpg')}}" alt="" srcset="">
+                
+                <div class="absolute  text-xl bottom-0 left-0 w-32 px-3 mb-3">
+                    <h1 class="text-white font-bold font-Inter">Discount 30% for all item</h1>
+                </div>
+            </div> --}}
+        </div>
+        <!-- side-->
 
         </div>
     </div>
