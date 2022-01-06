@@ -23,6 +23,9 @@ use Cookie;
 
 class ProdukController extends Controller
 {
+    /**
+     * transaksi
+     */
     public function admin_transaksi(Request $request)
     {
         $items = DB::table('transaction__details')
@@ -65,13 +68,14 @@ class ProdukController extends Controller
                 ->join('addresses', 'users.id', '=', 'addresses.id_user')
                 ->orderBy('transaction__details.id', 'DESC')
                 ->where([
-                    ['items.item_name', 'LIKE', '%' . $request->search . '%'],
+                    ['items.item_name', 'LIKE', $request->search . '%'],
                     ['items.deleted_at', '=', null],
                 ])
                 ->get();
             $newItem = collect($items);
             $newItem->search($request->search);
-        } elseif (isset($request->status)) {
+        }
+        if (isset($request->status)) {
             if ($request->status == 'sudah-bayar') {
                 $items = DB::table('transaction__details')
                     ->join(
@@ -104,9 +108,9 @@ class ProdukController extends Controller
                     ->get();
 
                 $coll = collect($items);
-                // $newItem = $coll->where('id_transaction_status', '=', 1);
                 $newItem = $coll->groupBy('id_transaction');
-            } else {
+            }
+            if ($request->status == 'belum-bayar') {
                 $items = DB::table('transaction__details')
                     ->join(
                         'items',
@@ -138,7 +142,110 @@ class ProdukController extends Controller
                     ->get();
 
                 $coll = collect($items);
-                // $newItem = $coll->where('id_transaction_status', 2);
+                $newItem = $coll->groupBy('id_transaction');
+            }
+            if ($request->status == 'in-prepare') {
+                $items = DB::table('transaction__details')
+                    ->join(
+                        'items',
+                        'transaction__details.id_item',
+                        '=',
+                        'items.id'
+                    )
+                    ->join(
+                        'item__contents',
+                        'items.id',
+                        'item__contents.id_item'
+                    )
+                    ->join(
+                        'transactions',
+                        'transaction__details.id_transaction',
+                        '=',
+                        'transactions.id'
+                    )
+                    ->join(
+                        'transaction__statuses',
+                        'transactions.id_transaction_status',
+                        '=',
+                        'transaction__statuses.id'
+                    )
+                    ->join('users', 'transactions.id_user', '=', 'users.id')
+                    ->join('addresses', 'users.id', '=', 'addresses.id_user')
+                    ->orderBy('transaction__details.id', 'DESC')
+                    ->where('transactions.id_transaction_status', 4)
+                    ->get();
+
+                $coll = collect($items);
+                $newItem = $coll->groupBy('id_transaction');
+            }
+
+            if ($request->status == 'on-delivery') {
+                $items = DB::table('transaction__details')
+                    ->join(
+                        'items',
+                        'transaction__details.id_item',
+                        '=',
+                        'items.id'
+                    )
+                    ->join(
+                        'item__contents',
+                        'items.id',
+                        'item__contents.id_item'
+                    )
+                    ->join(
+                        'transactions',
+                        'transaction__details.id_transaction',
+                        '=',
+                        'transactions.id'
+                    )
+                    ->join(
+                        'transaction__statuses',
+                        'transactions.id_transaction_status',
+                        '=',
+                        'transaction__statuses.id'
+                    )
+                    ->join('users', 'transactions.id_user', '=', 'users.id')
+                    ->join('addresses', 'users.id', '=', 'addresses.id_user')
+                    ->orderBy('transaction__details.id', 'DESC')
+                    ->where('transactions.id_transaction_status', 5)
+                    ->get();
+
+                $coll = collect($items);
+                $newItem = $coll->groupBy('id_transaction');
+            }
+
+            if ($request->status == 'finished') {
+                $items = DB::table('transaction__details')
+                    ->join(
+                        'items',
+                        'transaction__details.id_item',
+                        '=',
+                        'items.id'
+                    )
+                    ->join(
+                        'item__contents',
+                        'items.id',
+                        'item__contents.id_item'
+                    )
+                    ->join(
+                        'transactions',
+                        'transaction__details.id_transaction',
+                        '=',
+                        'transactions.id'
+                    )
+                    ->join(
+                        'transaction__statuses',
+                        'transactions.id_transaction_status',
+                        '=',
+                        'transaction__statuses.id'
+                    )
+                    ->join('users', 'transactions.id_user', '=', 'users.id')
+                    ->join('addresses', 'users.id', '=', 'addresses.id_user')
+                    ->orderBy('transaction__details.id', 'DESC')
+                    ->where('transactions.id_transaction_status', 6)
+                    ->get();
+
+                $coll = collect($items);
                 $newItem = $coll->groupBy('id_transaction');
             }
         }
@@ -185,6 +292,9 @@ class ProdukController extends Controller
         return redirect()->back();
     }
 
+    /**
+     * produk
+     */
     public function create_admin_produk()
     {
         $cat = DB::table('category__items')->get();
@@ -214,7 +324,7 @@ class ProdukController extends Controller
                     'item__contents.id_item'
                 )
                 ->where([
-                    ['items.item_name', 'LIKE', '%' . $request->search . '%'],
+                    ['items.item_name', 'LIKE', $request->search . '%'],
                     ['items.deleted_at', '=', null],
                 ])
                 ->get();
@@ -285,7 +395,7 @@ class ProdukController extends Controller
         ]);
 
         if (isset($request->photo)) {
-            $allowedfileExtension = ['pdf', 'jpg', 'png', 'docx'];
+            $allowedfileExtension = ['pdf', 'jpg', 'jpeg', 'png', 'docx'];
             $resource = $request->file('photo');
 
             foreach ($resource as $key => $resources) {
@@ -396,7 +506,7 @@ class ProdukController extends Controller
     {
         $ids = auth()->user()->id;
         if (isset($request->photo)) {
-            $allowedfileExtension = ['pdf', 'jpg', 'png', 'docx'];
+            $allowedfileExtension = ['pdf', 'jpg', 'jpeg', 'png', 'docx'];
             $resource = $request->file('photo');
             $names = $resource->getClientOriginalName();
             $extension = $resource->getClientOriginalExtension();

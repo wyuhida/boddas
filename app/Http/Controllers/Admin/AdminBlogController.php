@@ -24,13 +24,14 @@ class AdminBlogController extends Controller
 {
     public function show_admin_blog()
     {
-        $show_blog = News::all();
+        $blog = [];
+        $blog['dataBlog'] = News::latest()->get();
+        // $cari = request()->query('cari');
+        // if ($cari) {
+        //     $show_blog = News::where('title', 'LIKE', "%{$cari}%")->get();
+        // }
 
-        $cari = request()->query('cari');
-        if ($cari) {
-            $show_blog = News::where('title', 'LIKE', "%{$cari}%")->get();
-        }
-        return view('admin.blog.show', ['show_blog' => $show_blog]);
+        return view('admin.blog.show', $blog);
     }
 
     public function create_admin_blog()

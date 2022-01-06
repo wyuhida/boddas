@@ -23,15 +23,20 @@ class AdminKategoriController extends Controller
 {
     public function show_admin_kategori()
     {
-        $cari = request()->query('cari');
-        if ($cari) {
-            $s_kat = Category_Item::where([
-                ['category_name', 'LIKE', "{$cari}"],
-            ])->paginate(10);
-        } else {
-            $s_kat = DB::table('category__items')->paginate(10);
-        }
-        return view('admin.kategori.show', ['s_kat' => $s_kat]);
+        // $cari = request()->query('cari');
+        // if ($cari) {
+        //     $s_kat = Category_Item::where([
+        //         ['category_name', 'LIKE', "{$cari}"],
+        //     ])->paginate(10);
+        // } else {
+        //     $s_kat = DB::table('category__items')->paginate(10);
+        // }
+        $s_kat = [];
+        $s_kat['dataKategori'] = DB::table('category__items')
+            ->orderBy('id', 'DESC')
+            ->get();
+
+        return view('admin.kategori.show', $s_kat);
     }
 
     public function create_admin_kategori()

@@ -49,6 +49,9 @@
                         </a>
                     </div>
                 </div> --}}
+                <div class="input-group col-lg-12">
+                  <input type="text" placeholder="Cari" class="input form-control search-data">
+                </div>
      
                 <div class="clients-list">
                   <table class="table table-striped table-hover dataTables-example">
@@ -64,77 +67,43 @@
                         
                       </tr>
                     </thead>
-                    @foreach($s_pesan as $key => $sps)
+                   
                       <tbody>
+                        @foreach($s_pesan as $key => $sps)
                         <tr>
-                        <td>{{$key+1}}</td>
-                         <td>{{$sps->nama}}</td>
-                         <td>{{$sps->email}}</td>
-                         <td>{{$sps->nomor_hp}}</td>
-                         <td>{{$sps->pesan}}</td>
-                         <td>
-                            <a class="btn btn-xs btn-danger"
-                            onclick="deletePesan({{$sps->id}})" >
-                            <i class="fa fa-trash"></i>
-                            Hapus
-                        </a>
-                        <form id="delete-form-{{$sps->id}}" 
-                            action="{{route('admin.delete_kontak_us',$sps->id)}}" 
-                            method="POST" style="display: none;">
-                            @csrf
-                            @method('DELETE')
-                        </form>
-                            {{-- <div class="btn-group">
-                                <button data-toggle="dropdown" 
-                                    class="btn dropdown-toggle">
-                                    
-                                    Atur 
-                                    <span class="caret">
-                                       
-                                    </span>
-                                  
-                                </button>
-                                <ul class="dropdown-menu text-center" >
-                                    <li>
-                                        <a href="{{route('admin.edit_admin_kategori',$sps->id)}}"
-                                            class="btn btn-xs">
-                                            <i class="fa fa-edit"></i>
-                                            Edit</a>
-                                    </li>
-                                    <li class="divider"></li>
-                                    <li>
-      
-                                      <a class="btn btn-xs"
-                                      onclick="deleteKategori({{$sps->id}})" >
-                                      <i class="fa fa-trash"></i>
-                                      Hapus
-                                  </a>
-                                  <form id="delete-form-{{$sps->id}}" 
-                                      action="{{route('admin.delete_admin_kategori',$sps->id)}}" 
-                                      method="POST" style="display: none;">
-                                      @csrf
-                                      @method('DELETE')
-                                  </form>
-                                        
-                                    </li>
-                                </ul>
-                            </div> --}}
-                         </td>
+                          <td>{{$key+1}}</td>
+                          <td>{{$sps->nama}}</td>
+                          <td>{{$sps->email}}</td>
+                          <td>{{$sps->nomor_hp}}</td>
+                          <td>{{$sps->pesan}}</td>
+                          <td>
+                              <a class="btn btn-xs btn-danger"
+                                onclick="deletePesan({{$sps->id}})" >
+                                <i class="fa fa-trash"></i>
+                                Hapus
+                              </a>
+                              <form id="delete-form-{{$sps->id}}" 
+                                  action="{{route('admin.delete_kontak_us',$sps->id)}}" 
+                                  method="POST" style="display: none;">
+                                  @csrf
+                                  @method('DELETE')
+                              </form>
+                          </td>
                         </tr>
+                        @endforeach
                       </tbody>
-                      @endforeach
+                    
                   </table>
                  
                 </div>
-                <div class="ibox">
+                {{-- <div class="ibox">
                   <div class="ibox-content">
                     <div class="text-center">
                       {!! $s_pesan->render('customPagination') !!}
                     </div>
                   </div>
                   
-                </div>
-               
+                </div> --}}
             </div>
         </div>
     </div>
@@ -145,6 +114,34 @@
 
 @push('js')
 
+
+ <!-- Page-Level Scripts -->
+ <script>
+  $(document).ready(function(){
+    let oTable = $('.dataTables-example').DataTable({
+           language: {
+              paginate: {
+                previous: '←',
+                next:     '→'
+              },
+            },
+          pageLength: 5,
+          responsive: true,
+          // dom: '<"html5buttons"B>lTfgitp',
+          bSort : false,
+          lengthChange: false,
+          info: false,
+          searching: true
+          
+      });
+
+      $('.dataTables_filter').closest('.row').hide();
+
+      $('.search-data').keyup(function(){
+        oTable.search($(this).val()).draw()
+      })
+  });
+</script>
 
 <script>
     function deletePesan(id){

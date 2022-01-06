@@ -34,20 +34,23 @@
                     Artikel List
                 </p>
                 <br />
-                <form action="{{ route('admin.show_admin_blog')}}" method="GET">
+                {{-- <form action="{{ route('admin.show_admin_blog')}}" method="GET">
                     <div class="input-group">
                         <input type="text" placeholder="Cari Nama" name="cari" class="input form-control" value="{{request()->query('cari')}}">
                         <span class="input-group-btn">
                                 <button type="submit" class="btn btn btn-primary"> <i class="fa fa-search"></i> Search</button>
                         </span>
                     </div>
-                </form>
+                </form> --}}
+
+                <div class="input-group col-lg-12">
+                  <input type="text" placeholder="Cari" class="input form-control search-data">
+                </div>
                
                 <div class="clients-list">
                   <table class="table table-hover dataTables-example table-responsive">
                     <thead>
                       <tr>
-                       
                         <th>No</th>
                         <th>Foto</th>
                         <th>Judul</th>
@@ -57,46 +60,45 @@
                       </tr>
                     </thead>
                     
-                    @forelse($show_blog as $key => $blog)
+                    
                     <tbody>
-                        <td>{{$key+1}}</td>
-                        <td>
-                          <img src="{{URL::asset('image/artikel')}}/{{$blog->thumbnail}}"
-                           alt="" srcset="" style="width: 100px;" height="100px;">
-                        </td>
-                        <td>{{$blog->title}}</td>
-                        
-                        <td>
-                          {{ 
-                            Str::limit(strip_tags(htmlspecialchars_decode($blog->body_news))) 
-                          }}
-                          <a href="{{route('admin.detail_admin_blog', $blog->id)}}">selengkapnya</a>
+                      @foreach($dataBlog as $key => $blog)
+                       <tr>
+                          <td>{{$key+1}}</td>
+                          <td>
+                            <img src="{{URL::asset('image/artikel')}}/{{$blog->thumbnail}}"
+                            alt="" srcset="" style="width: 100px;" height="100px;">
                           </td>
-                        <td>{{$blog->created_at}}</td>
-                        <td>
-                            <a type="button" href="{{route('admin.edit_admin_blog',$blog->id)}}"  
-                                class="btn btn-xs btn-warning">
-                                <i class="fa fa-refresh"></i> Ubah 
-                            </a> 
-                            <button class="btn btn-xs btn-danger" type="button" 
-                            onclick="deleteBlog({{$blog->id}})">
-                                <i class="fa fa-trash">Hapus</i>
-                            </button>
-                            <form id="delete-form-{{$blog->id}}" 
-                                action="{{route('admin.delete_admin_blog',$blog->id)}}" 
-                              method="POST" style="display: none;">
-                              @csrf
-                              @method('DELETE')
-                          </form>
-                        </td>
+                          <td>{{$blog->title}}</td>
+                          
+                          <td>
+                            {{ 
+                              Str::limit(strip_tags(htmlspecialchars_decode($blog->body_news))) 
+                            }}
+                            <a href="{{route('admin.detail_admin_blog', $blog->id)}}">selengkapnya</a>
+                            </td>
+                          <td>{{$blog->created_at}}</td>
+                          <td>
+                              <a type="button" href="{{route('admin.edit_admin_blog',$blog->id)}}"  
+                                  class="btn btn-xs btn-warning">
+                                  <i class="fa fa-refresh"></i> Ubah 
+                              </a> 
+                              <button class="btn btn-xs btn-danger" type="button" 
+                              onclick="deleteBlog({{$blog->id}})">
+                                  <i class="fa fa-trash">Hapus</i>
+                              </button>
+                              <form id="delete-form-{{$blog->id}}" 
+                                  action="{{route('admin.delete_admin_blog',$blog->id)}}" 
+                                method="POST" style="display: none;">
+                                @csrf
+                                @method('DELETE')
+                            </form>
+                          </td>
+                       </tr>
+                       @endforeach
                     </tbody> 
-                    @empty
-                       <tbody>
-                        <tr>
-                            <td colspan="6">Tidak Ada Data</td>
-                        </tr> 
-                       </tbody>
-                    @endforelse
+                   
+                   
                   </table>
 
                 </div>
@@ -109,6 +111,34 @@
 @endsection
 
 @push('js')
+
+ <!-- Page-Level Scripts -->
+ <script>
+  $(document).ready(function(){
+    let oTable = $('.dataTables-example').DataTable({
+           language: {
+              paginate: {
+                previous: '←',
+                next:     '→'
+              },
+            },
+          pageLength: 5,
+          responsive: true,
+          // dom: '<"html5buttons"B>lTfgitp',
+          bSort : false,
+          lengthChange: false,
+          info: false,
+          searching: true
+          
+      });
+
+      $('.dataTables_filter').closest('.row').hide();
+
+      $('.search-data').keyup(function(){
+        oTable.search($(this).val()).draw()
+      })
+  });
+</script>
 
 <script>
     function deleteBlog(id){

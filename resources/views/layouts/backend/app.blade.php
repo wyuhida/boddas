@@ -7,9 +7,9 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Boddas') }}</title>
 
-     <link href="{{ asset('assets/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('assets/css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{ asset('assets/font-awesome/css/font-awesome.css')}}" rel="stylesheet">
 
     <!-- Toastr style -->
@@ -18,17 +18,18 @@
     <!-- Gritter -->
     <link href="{{ asset('assets/js/plugins/gritter/jquery.gritter.css')}}" rel="stylesheet">
 
-    <link href="{{asset('assets/css/animate.css')}}" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@9.17.2/dist/sweetalert2.min.css">
     
-        <link href={{ asset('assets/css/plugins/sweetalert/sweetalert.css')}} rel="stylesheet">
+    {{-- <link href={{ asset('assets/css/plugins/sweetalert/sweetalert.css')}} rel="stylesheet"> --}}
          <!-- FooTable -->
+
     <link href="{{asset('assets/css/plugins/footable/footable.core.css')}}" rel="stylesheet">
     <link href="{{ asset('assets/css/plugins/jasny/jasny-bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('assets/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css')}}" rel="stylesheet">
     <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@9.17.2/dist/sweetalert2.min.css">
 
-
+         
+    <link href="{{asset('assets/css/animate.css')}}" rel="stylesheet">
     
     <link href="{{asset('assets/css/style.css')}}" rel="stylesheet">
 
@@ -55,20 +56,14 @@
      
     </div>
 
-    
-<!-- Mainly scripts -->
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" ></script>
-<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
- <!-- jQuery -->
-
-
-{{-- <script src="{{ asset('assets/js/jquery-3.1.1.min.js')}}"></script> --}}
+   <!-- Mainly scripts -->
+<script src="{{ asset('assets/js/jquery-3.1.1.min.js')}}"></script>
 <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
+<script src="{{ asset('assets/js/plugins/dataTables/datatables.min.js')}}"></script>
+<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+
 <script src="{{ asset('assets/js/plugins/metisMenu/jquery.metisMenu.js')}}"></script>
 <script src="{{ asset('assets/js/plugins/slimscroll/jquery.slimscroll.min.js')}}"></script>
-
-<script src="{{ asset('assets/js/plugins/dataTables/datatables.min.js')}}"></script>
 <script src="{{ asset('assets/js/plugins/jasny/jasny-bootstrap.min.js') }}"></script>
 
 <!-- Flot -->
@@ -104,6 +99,7 @@
 
 {{-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.17.2/dist/sweetalert2.min.js"></script> --}}
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.10/dist/sweetalert2.all.min.js"></script>
+
 
 <script>
     $(document).ready(function() {
@@ -198,6 +194,7 @@
 
 </script>
     
+
 
 @stack('js')
 </body>

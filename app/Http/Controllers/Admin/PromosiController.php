@@ -57,6 +57,7 @@ class PromosiController extends Controller
 
         $section_p = $base
             ->where('containers.container_name', 'section_pengenalan')
+            ->orderBy('containers.id', 'DESC')
             ->get();
 
         $section_t = DB::table('containers')
@@ -111,7 +112,7 @@ class PromosiController extends Controller
             )
             ->where('containers.container_name', 'section_video')
             ->orderBy('containers.id', 'DESC')
-            ->paginate(5);
+            ->get();
 
         return view('admin.section_promosi.show_pengenalan', [
             'section_p' => $section_p,
@@ -163,14 +164,6 @@ class PromosiController extends Controller
                     'updated_at' => Carbon::now(),
                 ]);
 
-                // $cst = DB::table('content__statuses')->insertGetId([
-                //     'status_name' => $is_active,
-                //     'id_user' => $ids,
-                //     'update_by' => $ids,
-                //     'created_at' => Carbon::now(),
-                //     'updated_at' => Carbon::now(),
-                // ]);
-
                 $ctr = DB::table('contents')->insertGetId([
                     'content_name' => $request->content_name,
                     'id_container' => $ctrs,
@@ -180,8 +173,8 @@ class PromosiController extends Controller
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now(),
                     'image' => $name,
+                    'link_url' => $request->link_url,
                 ]);
-
                 Toastr::success('successfully save :)', 'Success');
                 return redirect()->back();
             }
@@ -210,6 +203,7 @@ class PromosiController extends Controller
                 'contents.id as id_content',
                 'contents.content_name',
                 'contents.image',
+                'contents.link_url',
                 'contents.id_container as id_container',
                 'contents.id_content_status as id_content_status',
                 'content__statuses.id as id_status',
@@ -285,6 +279,7 @@ class PromosiController extends Controller
                         'update_by' => $ids,
                         'updated_at' => Carbon::now(),
                         'image' => $name,
+                        'link_url' => $request->link_url,
                     ]);
 
                 Toastr::success('Ubah Berhasil :)', 'Success');
@@ -307,6 +302,7 @@ class PromosiController extends Controller
                     'id_content_status' => $is_active,
                     'id_user' => $ids,
                     'update_by' => $ids,
+                    'link_url' => $request->link_url,
                     'updated_at' => Carbon::now(),
                 ]);
             Toastr::success('successfully update :)', 'Success');
@@ -547,79 +543,202 @@ class PromosiController extends Controller
         return redirect()->back();
     }
 
+    /**
+     * VIDEO
+     */
     public function store_video(Request $request)
     {
-        $url = $request->link_url;
-        $string = Str::of($url)->remove('https://www.youtube.com/watch?v=');
-        $url_link = 'https://www.youtube.com/embed/' . $string;
-        $this->validate(
-            $request,
-            [
-                'link_url' => 'required',
-            ],
-            [
-                'link_url.required' => 'Wajib Isi',
-            ]
-        );
-
-        $url = $ids = auth()->user()->id;
-        $ctrs = DB::table('containers')->insertGetId([
-            'container_name' => 'section_video',
-            'id_user' => $ids,
-            'update_by' => $ids,
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
-        ]);
-
-        $ctr = DB::table('contents')->insertGetId([
-            'id_container' => $ctrs,
-            'id_content_status' => 1,
-            'id_user' => $ids,
-            'update_by' => $ids,
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
-            'image' => '',
-            'link_url' => $url_link,
-        ]);
-        Toastr::success('Berhasil Simpan :)', 'Success');
-        return redirect()->back();
-    }
-
-    public function update_video(Request $request, $id)
-    {
-        $this->validate(
-            $request,
-            [
-                'link_url' => ['required', new EmbeddableUrl()],
-            ],
-            [
-                'link_url.required' => 'Wajib Isi',
-            ]
-        );
-
+        // $url = $request->link_url;
+        // $string = Str::of($url)->remove('https://www.youtube.com/watch?v=');
+        // $url_link = 'https://www.youtube.com/embed/' . $string;
         $ids = auth()->user()->id;
-        $ctrs = DB::table('containers')
-            ->where('id', $id)
-            ->update([
+
+        if (empty($request->link_url) && empty($request->video)) {
+            Toastr::error('Text Kosong', 'Error');
+            return redirect()->back();
+        }
+        $link = '';
+        if (!empty($request->link_url)) {
+            $link = $request->link_url;
+            $ctrs = DB::table('containers')->insertGetId([
+                'container_name' => 'section_video',
                 'id_user' => $ids,
                 'update_by' => $ids,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]);
 
-        $ctr = DB::table('contents')
-            ->where('id_container', $id)
-            ->update([
+            $ctr = DB::table('contents')->insertGetId([
+                'id_container' => $ctrs,
                 'id_content_status' => 1,
                 'id_user' => $ids,
                 'update_by' => $ids,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
                 'image' => '',
-                'link_url' => $request->link_url,
+                'link_url' => $link,
             ]);
-        Toastr::success('Berhasil Diubah :)', 'Success');
-        return redirect()->back();
+            Toastr::success('Berhasil Simpan :)', 'Success');
+            return redirect()->back();
+        }
+        if (!empty($request->video)) {
+            // $this->validate(
+            //     $request,
+            //     [
+            //         'video' => [
+            //             '
+            //         mimetypes:video,video/avi,video/mpeg,video/quicktime,
+            //         video/x-flv,video/mp4,application/x-mpegURL,
+            //         video/MP2T,video/3gpp,video/x-msvideo,video/x-ms-wmv
+            //         |max:102400',
+            //         ],
+            //     ],
+            //     [
+            //         'video.mimetypes' => 'format video salah',
+            //     ]
+            // );
+            $allowedfileExtension = [
+                'video',
+                'avi',
+                'mpeg',
+                'quicktime',
+                'x-flv',
+                'mp4',
+                'application/x-mpegURL',
+                'MP2T',
+                '3gpp',
+                'x-msvideo',
+                'x-ms-wmv',
+            ];
+            $link = $request->file('video');
+            $names = $link->getClientOriginalName();
+            $extension = $link->getClientOriginalExtension();
+            $name = $link->hashName();
+            $link->move(\base_path() . '/public/video/testimoni/', $name);
+            $newPath = URL::asset('/video/testimoni') . '/';
+            $check = in_array($extension, $allowedfileExtension);
+
+            if ($check) {
+                $ctrs = DB::table('containers')->insertGetId([
+                    'container_name' => 'section_video',
+                    'id_user' => $ids,
+                    'update_by' => $ids,
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
+                ]);
+
+                $ctr = DB::table('contents')->insertGetId([
+                    'id_container' => $ctrs,
+                    'id_content_status' => 1,
+                    'id_user' => $ids,
+                    'update_by' => $ids,
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
+                    'image' => $name,
+                    'link_url' => '',
+                ]);
+                Toastr::success('Berhasil Simpan :)', 'Success');
+                return redirect()->back();
+            } else {
+                Toastr::error('Format video Salah', 'Error');
+                return redirect()->back();
+            }
+        }
+    }
+
+    public function update_video(Request $request, $id)
+    {
+        $ids = auth()->user()->id;
+
+        if (empty($request->link_url) && empty($request->video)) {
+            Toastr::error('Text Kosong', 'Error');
+            return redirect()->back();
+        }
+        $link = '';
+        if (!empty($request->link_url)) {
+            $del = Content::where('id_container', $id)->first();
+            $file_path = public_path('video/testimoni') . '/' . $del->image;
+            if (File::exists($file_path)) {
+                File::delete($file_path);
+                // $d->delete(); //for deleting record and file try both
+            }
+            $link = $request->link_url;
+            $ctr = DB::table('contents')
+                ->where('id_container', $id)
+                ->update([
+                    'id_content_status' => 1,
+                    'id_user' => $ids,
+                    'update_by' => $ids,
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
+                    'image' => '',
+                    'link_url' => $link,
+                ]);
+            Toastr::success('Berhasil Simpan :)', 'Success');
+            return redirect()->back();
+        }
+        if (!empty($request->video)) {
+            // $this->validate(
+            //     $request,
+            //     [
+            //         'video' => [
+            //             '
+            //         mimetypes:video,video/avi,video/mpeg,video/quicktime,
+            //         video/x-flv,video/mp4,application/x-mpegURL,
+            //         video/MP2T,video/3gpp,video/x-msvideo,video/x-ms-wmv
+            //         |max:102400',
+            //         ],
+            //     ],
+            //     [
+            //         'video.mimetypes' => 'format video salah',
+            //     ]
+            // );
+            $allowedfileExtension = [
+                'video',
+                'avi',
+                'mpeg',
+                'quicktime',
+                'x-flv',
+                'mp4',
+                'application/x-mpegURL',
+                'MP2T',
+                '3gpp',
+                'x-msvideo',
+                'x-ms-wmv',
+            ];
+            $link = $request->file('video');
+            $names = $link->getClientOriginalName();
+            $extension = $link->getClientOriginalExtension();
+            $name = $link->hashName();
+            $link->move(\base_path() . '/public/video/testimoni/', $name);
+            $newPath = URL::asset('/video/testimoni') . '/';
+            $check = in_array($extension, $allowedfileExtension);
+
+            if ($check) {
+                $del = Content::where('id_container', $id)->first();
+                $file_path = public_path('video/testimoni') . '/' . $del->image;
+                if (File::exists($file_path)) {
+                    File::delete($file_path);
+                    // $d->delete(); //for deleting record and file try both
+                }
+                $ctr = DB::table('contents')
+                    ->where('id_container', $id)
+                    ->update([
+                        'id_content_status' => 1,
+                        'id_user' => $ids,
+                        'update_by' => $ids,
+                        'created_at' => Carbon::now(),
+                        'updated_at' => Carbon::now(),
+                        'image' => $name,
+                        'link_url' => '',
+                    ]);
+                Toastr::success('Berhasil Simpan :)', 'Success');
+                return redirect()->back();
+            } else {
+                Toastr::error('Format video Salah', 'Error');
+                return redirect()->back();
+            }
+        }
     }
 
     public function delete_video($id)
@@ -635,7 +754,7 @@ class PromosiController extends Controller
             ->where('contents.id_container', $id)
             ->get();
         foreach ($del_v as $key => $imgs) {
-            $file_path = public_path('image/testimoni') . '/' . $imgs->image;
+            $file_path = public_path('video/testimoni') . '/' . $imgs->image;
             if (File::exists($file_path)) {
                 File::delete($file_path);
             }

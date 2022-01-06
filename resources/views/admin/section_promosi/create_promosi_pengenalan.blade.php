@@ -37,8 +37,6 @@
                                
                                     <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Hapus</a>
                             </div>
-                            
-                            
 
                         </div>
 
@@ -47,7 +45,7 @@
                                 Deskripsi
                             </label>
                             <div class=" col-lg-8">
-                                <textarea name="content_name" class="summernote" 
+                                <textarea name="content_name"
                                 class="form-control" cols="50" rows="50" style="height: 200px; @error('content_name') is-invalid @enderror ">
                                 </textarea>
                                 @error('content_name')
@@ -56,24 +54,51 @@
                                     </span>                 
                                 @enderror
                             </div>
-                           
                         </div>
 
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">
+                                Link URL
+                            </label>
+                            <div class=" col-lg-8">
+                                <label for="" >Kosongkan jika tidak ingin menggunakan URL</label>
+                                <input type="text" name="link_url"  placeholder="Contoh:https://www.boddas.id/register"
+                                class="form-control @error('content_name') is-invalid @enderror ">
+                                @error('content_name')
+                                    <span class="help-block label label-danger m-b-none" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>                 
+                                @enderror
+                            </div>
+                        </div>
                         <div class="form-group">
                             <div class="col-lg-offset-2 col-lg-10">
                                 <input type="checkbox" id="publish" class="filled-in" name="status" value="1">
                                 <label for="publish">Aktifkan</label>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <div class="col-lg-offset-2 col-lg-10">
+                               <ul>
+                                   <li style="padding:1rem;"><label for="" class="label label-info" style="font-size: 1rem;">Link Register Reseller,</label> <strong>https://dev.boddas.id/registers</strong></li>
+                                   <li style="padding:1rem;"><label for="" class="label label-info" style="font-size: 1rem;">Link Register Distributor,</label> <strong>https://dev.boddas.id/registers</strong></li>
+                                   <li style="padding:1rem;"><label for="" class="label label-info" style="font-size: 1rem;">Link Register Semua Pengguna,</label> <strong>https://dev.boddas.id/registers</strong></li>
+                               </ul>
+                            </div>
+                        </div>
 
+                       
+                       
                         <div class="form-group">
                             <div class="col-lg-offset-2 col-lg-10">
                                 <button class="btn btn-md btn-primary" type="submit">Simpan</button>
                             </div>
                         </div>
-
+                        
                     </form>
+                    
                 </div>
+               
             </div>
         </div>
     </div>
@@ -83,7 +108,11 @@
 
 
 @push('js')
-<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+<script src="https://cdn.ckeditor.com/4.17.1/full-all/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace( 'content_name' );
+</script>
+{{-- <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function(){
         $('.summernote').summernote({
@@ -92,5 +121,5 @@
             fontSizeUnits: ['px', 'pt']          
         });
 });
-</script>
+</script> --}}
 @endpush

@@ -1,171 +1,170 @@
 @extends('layouts.backend.app')
 
 @section('title','Company')
+
 @push('css')
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
-
-<style>
-    form i {
-    margin-left: -30px;
-    cursor: pointer;
-
-      .ibox{
-        margin-bottom: 10px;
-      }
-      .ibox-tools a{
-        color : #fff;
-      }
-
-}
-</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote.min.css" integrity="sha256-n3YISYddrZmGqrUgvpa3xzwZwcvvyaZco0PdOyUKA18=" crossorigin="anonymous" />
 @endpush
 
 @section('content')
 <div class="row">
     <div class="col-sm-12">
         <div class="ibox">
-          <div class="ibox-title">
-            <h2>Kontak</h2>
-          </div>
             <div class="ibox-content">
-                
-                <div class="pull-right">
-                  <a type="button" href="{{route('admin.add_admin_kontak')}}" class="btn btn-sm btn-info"><i class="fa fa-plus"></i> Tambah</a> 
-                  {{-- <a type="button" href="" class="btn btn-sm btn-success"><i class="fa fa-plus"></i> Tambah Kategori</a> --}}
-                </div>
-               
-                <br />
-                <div class="input-group col-sm-8">
-                    <input type="text" placeholder="Search" class="input form-control search-data">
-                    {{-- <span class="input-group-btn">
-                            <button type="button" class="btn btn btn-primary"> <i class="fa fa-search"></i> Search</button>
-                    </span> --}}
-                </div>
+              {{-- <span class="text-muted small pull-right">Last modification: <i class="fa fa-clock-o"></i> 2:10 pm - 12.06.2014</span> --}}
+             
+              {{-- <a type="button" href="{{route('admin.admin_kontak')}}" 
+              class="btn btn-sm btn-warning pull-right"><i class="fa fa-arrow-left"></i> Kembali</a> --}}
+              <h2>Kontak</h2>
+             
+                <div class="ibox-content">
+                    <form class="form-horizontal" action="{{route('admin.update_admin_kontak',$admin_kontak->id)}}" method="POST">
+                        @csrf
+                        @method('PUT')
+                        {{-- <p>Isi Form.</p> --}}
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">
+                                company name
+                            </label>
+                            <div class="col-lg-10">
+                                <input type="text" 
+                                name="company_name" 
+                                value="{{$admin_kontak->company_name}}"
+                                class="form-control @error('fullname') is-invalid @enderror"> 
+                                    @error('fullname')
+                                        <span class="help-block m-b-none" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>                 
+                                    @enderror
+                            </div>
+                        </div>
 
-                <div class="clients-list">
-                  <table class="table table-striped table-hover dataTables-example table-responsive">
-                    <thead>
-                      <tr>
-                       
-                        <th>Perusahaan</th>
-                        <th>Alamat</th>
-                        <th>email</th>
-                        <th>facebook</th>
-                        <th>instagram</th>
-                        <th>youtube</th>
-                        <th>update by</th>
-                        <th>created_at</th>
-                        <th>updated_at</th>
-                        <th>action</th>
-                      </tr>
-                    </thead>
-                    @foreach ($admin_kontak as $key => $adk)
-                    <tbody>
-                  
-                        @if($admin_kontak == '' || null)
-                        <td colspan="10">
-                            <div class="text-center">No Data</div>
-                        </td>
-                    @else
-                    {{-- <td>{!! \Illuminate\Support\Str::limit($adk->desc_company, 20, '...')!!}</td> --}}
-                      <td>{{$adk->company_name}}</td>
-                      <td>{{$adk->address_name}}</td>
-                      <td>{{$adk->email}}</td>
-                      
-                      <td>{{$adk->facebook}}</td>
-                      <td>{{$adk->instagram}}</td>
-                      <td>{{$adk->youtube}}</td>
-                          @if($adk->update_by == auth()->user()->id_role)
-                                  <td>{{ auth()->user()->fullname }}</td>
-                          @else
-                              <td>unknow</td>
-                          @endif
-                      <td>{{$adk->created_at}}</td>
-                      <td>{{$adk->updated_at}}</td>
-                      <td>
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">
+                                no telp
+                            </label>
+                            <div class="col-lg-10">
+                                <input type="number" 
+                                name="num_phone" 
+                                value="{{$admin_kontak->num_phone}}"
+                                class="form-control @error('num_phone') is-invalid @enderror"> 
+                                    @error('num_phone')
+                                        <span class="help-block m-b-none" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>                 
+                                    @enderror
+                            </div>
+                        </div>
 
-                        <div class="btn-group">
-                          <button data-toggle="dropdown" 
-                              class="btn dropdown-toggle">
-                              
-                              Atur 
-                              <span class="caret">
-                                 
-                              </span>
-                            
-                          </button>
-                          <ul class="dropdown-menu text-center" >
-                              <li>
-                                  <a href="{{route('admin.edit_admin_kontak',$adk->id)}}"
-                                      class="btn btn-xs">
-                                      <i class="fa fa-edit"></i>
-                                      Edit</a>
-                              </li>
-                              <li class="divider"></li>
-                              <li>
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">
+                               email
+                            </label>
+                            <div class="col-lg-10">
+                                <input type="text" 
+                                name="email" 
+                                value="{{$admin_kontak->email}}"
+                                class="form-control @error('email') is-invalid @enderror"> 
+                                    @error('email')
+                                        <span class="help-block m-b-none" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>                 
+                                    @enderror
+                            </div>
+                        </div>
 
-                                  <a class="btn btn-xs"
-                                      onclick="deleteKontak({{$adk->id}})" >
-                                      <i class="fa fa-trash"></i>
-                                      Hapus
-                                  </a>
-                                  <form id="delete-form-{{$adk->id}}" 
-                                      action="{{route('admin.delete_admin_kontak',$adk->id)}}" 
-                                      method="POST" style="display: none;">
-                                      @csrf
-                                      @method('DELETE')
-                                  </form>
-                              </li>
-                          </ul>
-                      </div>
-
-                      </td>
-                    
-                        @endif
                         
-                    </tbody>
-                    @endforeach
-                  </table>
+
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">
+                                facebook
+                            </label>
+                            <div class="col-lg-10">
+                                <input type="text" 
+                                name="facebook" 
+                                value="{{$admin_kontak->facebook}}"
+                                class="form-control @error('facebok') is-invalid @enderror"> 
+                                    @error('facebook')
+                                        <span class="help-block m-b-none" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>                 
+                                    @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">
+                                instagram
+                            </label>
+                            <div class="col-lg-10">
+                                <input type="text" 
+                                name="instagram" 
+                                value="{{$admin_kontak->instagram}}"
+                                class="form-control @error('instagram') is-invalid @enderror"> 
+                                    @error('instagram')
+                                        <span class="help-block m-b-none" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>                 
+                                    @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">
+                                youtube
+                            </label>
+                            <div class="col-lg-10">
+                                <input type="text" 
+                                name="youtube" 
+                                value="{{$admin_kontak->youtube}}"
+                                class="form-control @error('youtube') is-invalid @enderror"> 
+                                    @error('youtube')
+                                        <span class="help-block m-b-none" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>                 
+                                    @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">
+                                Alamat
+                            </label>
+                            <div class="col-lg-10">
+                                <input type="text" 
+                                name="address_name" 
+                                value="{{$admin_kontak->address_name}}"
+                                class="form-control @error('address_name') is-invalid @enderror"> 
+                                    @error('address_name')
+                                        <span class="help-block m-b-none" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>                 
+                                    @enderror
+                            </div>
+                        </div>
+
+                        {{-- <div class="form-group">
+                            <div class="col-lg-offset-2 col-lg-10">
+                                <textarea name="desc_company" class="summernote" class="form-control" cols="50" rows="50" style="height: 200px;">{{$edt_adminkontak->desc_company}}</textarea>
+                            </div>
+                        </div> --}}
+
+                        <div class="form-group">
+                            <div class="col-lg-offset-2 col-lg-10">
+                                <button class="btn btn-md btn-primary" type="submit">Simpan</button>
+                            </div>
+                        </div>
+                    </form>
 
                 </div>
             </div>
         </div>
     </div>
-  </div>
-  
-  
+</div>
 @endsection
 
+
+
 @push('js')
-
-<script>
-    function deleteKontak(id){
-        Swal.fire({
-        title: 'Apa anda yakin?',
-        text: "Apakah anda yakin ingin menghapus ini!",
-        type: 'warning',
-        showCancelButton: true,
-        confirmButtonText: 'Ya, hapus!',
-        cancelButtonText: 'Tidak, batal!',
-        reverseButtons: false
-        }).then((result) => {
-            if (result.value) {
-            event.preventDefault();
-            document.getElementById('delete-form-' + id).submit();    
-        } else if (
-    // Read more about handling dismissals
-        result.dismiss === Swal.DismissReason.cancel
-        ) {
-        Swal.fire(
-        'Cancelled',
-        'Data tidak jadi terhapus :)',
-        'error'
-        )
-        }
-        })
-    }
-
-</script>
-
-    
+   
 @endpush

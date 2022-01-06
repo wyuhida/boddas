@@ -33,7 +33,7 @@
                                         <i class="fa fa-search"></i>
                                     </button> 
                                 </span> 
-                                <input type="text" class="form-control" name="cari" 
+                                <input type="text" class="form-control search-data" name="cari" 
                                 value="{{ request()->query('cari')}}">
                             </div>
                            
@@ -98,13 +98,15 @@
                         <th>Nama</th>
                         {{-- <th>Provinsi</th>
                         <th>Omset</th> --}}
+                        
                         <th>Detail</th>
                         <th>Status</th>
                         
                       </tr>
                     </thead>
-                    @forelse($s_show_reseller as $key => $s_se)
+                   
                       <tbody>
+                        @foreach($s_show_reseller as $key => $s_se)
                         <tr>
                           <td>{{$key + 1}}</td>
                           <td>{{$s_se->id}}</td>
@@ -112,6 +114,7 @@
                           {{-- <td></td>
                             
                           <td></td> --}}
+                         
                             <td>
                               <a href="{{route('admin.detail_reseller',$s_se->id)}}" class="btn btn-sm btn-info">Detail</a>
 
@@ -126,8 +129,9 @@
                           </td>
                          
                         </tr>
+                        @endforeach
                       </tbody>
-                      @empty
+                      {{-- @empty
                       <td colspan="6">
                         <div class="text-center">
                            Tidak Ada Data
@@ -136,9 +140,9 @@
                           </strong>
                         </div>
                       </td>
-                    @endforelse
+                    @endforelse --}}
                   </table>
-                  <div class="ibox">
+                  {{-- <div class="ibox">
                     <div class="ibox-content">
                       <div class="text-right">
                         {!! $s_show_reseller->render('customPagination') !!}
@@ -146,7 +150,7 @@
                       </div>
                     </div>
                     
-                  </div>
+                  </div> --}}
                   
                  
                 </div>
@@ -159,6 +163,35 @@
 @endsection
 
 @push('js')
+
+ <!-- Page-Level Scripts -->
+ <script>
+  $(document).ready(function(){
+    let oTable = $('.dataTables-example').DataTable({
+           language: {
+              paginate: {
+                previous: '←',
+                next:     '→'
+              },
+            },
+          pageLength: 10,
+          responsive: true,
+          // dom: '<"html5buttons"B>lTfgitp',
+          bSort : false,
+          lengthChange: false,
+          info: false,
+          searching: true
+          
+      });
+
+      $('.dataTables_filter').closest('.row').hide();
+
+      $('.search-data').keyup(function(){
+        oTable.search($(this).val()).draw()
+      })
+  });
+</script>
+
 <script>
   $(function() {
     $('.toggle-class').change(function() {

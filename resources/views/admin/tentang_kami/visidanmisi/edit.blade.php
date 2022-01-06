@@ -13,7 +13,7 @@
             <div class="ibox-content">
               {{-- <span class="text-muted small pull-right">Last modification: <i class="fa fa-clock-o"></i> 2:10 pm - 12.06.2014</span> --}}
              
-              <a type="button" href="#" 
+              <a type="button" href="{{route('admin.admin_tentangkami')}}" 
               class="btn btn-sm btn-warning pull-right"><i class="fa fa-arrow-left"></i> Kembali</a>
               <h2>Ubah Visi dan Misi</h2>
              

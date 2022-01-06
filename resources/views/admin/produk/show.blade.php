@@ -24,82 +24,51 @@
 <div class="ibox-content m-b-sm border-bottom">
     <form action="{{ route('admin.show_admin_produk')}}" method="GET" >
     <div class="row">
-        <div class="col-sm-4">
+        {{-- <div class="col-sm-4">
             <div class="form-group">
                     <label class="control-label" for="price">Nama Produk</label>
                 <input type="text" placeholder="Search" class="input form-control" 
                     name="search" value="{{ request()->query('search')}}">
             </div>
+        </div> --}}
+
+        <div class="col-sm-4">
+            <div class="form-group">
+                    <label class="control-label" for="price">Nama Produk</label>
+                <input type="text" placeholder="cari" class="input form-control search-data"
+                name="search" value="{{ request()->query('search')}}">
+            </div>
         </div>
-        {{-- <div class="col-sm-2">
-            <div class="form-group">
-                <label class="control-label" for="price">Price</label>
-                <input type="text" id="price" name="price" value="" placeholder="Price" class="form-control">
-            </div>
-        </div> --}}
-        {{-- <div class="col-sm-2">
-            <div class="form-group">
-                <label class="control-label" for="quantity">Quantity</label>
-                <input type="text" id="quantity" name="quantity" value="" placeholder="Quantity" class="form-control">
-            </div>
-        </div> --}}
 
         <div class="col-sm-4">
             <div class="form-group">
                     <label class="control-label" for="price">Filter Stok</label>
                     <select name="status" class="form-control">
                         <option value="">Stock Habis / Tersedia </a></option>
-                        <option value="out">Stok Habis</option>
-                        <option value="in">Tersedia</option>
+                        @if(request()->status == 'out')
+                        <option value="out" name="out" selected>Stok Habis</option>
+                        @else
+                        <option value="out" name="out">Stok Habis</option>
+                        @endif
+                        @if(request()->status == 'in')
+                        <option value="in" name="in" selected>Tersedia</option>
+                        @else
+                        <option value="in" name="in">Tersedia</option>
+                        @endif
                     </select>
             </div>
         </div>
 
-        {{-- <div class="col-sm-4"> --}}
-            {{-- <form action="{{ route('admin.show_admin_produk')}}" method="GET" > --}}
-
-            {{-- <div class="form-group">
-                <select name="status" class="form-control">
-                    <option value="out">Stok Habis</option>
-                    <option value="in">Tersedia</option>
-                </select>
-            </div> --}}
-
-            {{-- <div class="form-group">
-                <label class="control-label" for="status">Status</label>
-                <select name="status" id="status-filter" class="form-control filter">
-                    <option value="0">-- Filter stok --</option>
-                    <option name="instock" value="1">
-                        <a href="/?instock" name="instock">Stok Habis</a>
-                    </option>
-                    <option value="2">
-                        <a href="" name="">Tersedia</a>
-                    </option>
-                </select>
-            </div> --}}
-
-
-            {{-- </form> --}}
-        {{-- </div> --}}
-
-        {{-- <div class="col-sm-12">
-            <div class="form-group">
-                <form action="{{ route('admin.show_admin_produk')}}" method="GET" >
-                <input type="text" placeholder="Search" class="input form-control" 
-                    name="search" value="{{ request()->query('search')}}">
-                    <span class="input-group-btn">
-                        <button type="submit" class="btn btn btn-primary" style="margin-top: 10px;">
-                             <i class="fa fa-search"></i> Search</button>
-                    </span>
-                </form>
-            </div>
-        </div> --}}
-       
         <div class="col-sm-2">
            <div class="form-group">
-            <button type="submit" class="btn btn-sm btn-primary form-control" style="margin-top: 20px;"><i class="fa fa-filter"></i> Filter/Search</button>
+            <button type="submit" class="btn btn-sm btn-primary form-control" style="margin-top: 20px;"><i class="fa fa-filter"></i> Filter/Cari</button>
            </div>
         </div>
+        <div class="col-sm-2">
+            <div class="form-group">
+             <a href="{{route('admin.show_admin_produk')}}" class="btn btn-sm btn-primary form-control" style="margin-top: 20px;"><i class="fa fa-refresh"></i>Reset Filter</a>
+            </div>
+         </div>
     </div>
     </form>
 </div>
@@ -259,28 +228,28 @@
   <!-- Page-Level Scripts -->
   <script>
       $(document).ready(function(){
-   let oTable = $('.dataTables-example').DataTable({
-          language: {
-             paginate: {
-               previous: '←',
-               next:     '→'
-             },
-           },
-         pageLength: 5,
-         responsive: true,
-         // dom: '<"html5buttons"B>lTfgitp',
-         bSort : false,
-         lengthChange: false,
-         info: false,
-         searching: true
-         
-     });
+        let oTable = $('.dataTables-example').DataTable({
+            language: {
+                paginate: {
+                previous: '←',
+                next:     '→'
+                },
+            },
+            pageLength: 5,
+            responsive: true,
+            // dom: '<"html5buttons"B>lTfgitp',
+            bSort : false,
+            lengthChange: false,
+            info: false,
+            searching: true
+            
+        });
 
-     $('.dataTables_filter').closest('.row').hide();
+        $('.dataTables_filter').closest('.row').hide();
 
-     $('.search-data').keyup(function(){
-       oTable.search($(this).val()).draw()
-   })
+        $('.search-data').keyup(function(){
+        oTable.search($(this).val()).draw()
+    })
  });
   
     </script>

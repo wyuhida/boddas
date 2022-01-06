@@ -34,7 +34,7 @@
                                         <i class="fa fa-search"></i>
                                     </button> 
                                 </span> 
-                                <input type="text" class="form-control" name="cari" 
+                                <input type="text" class="form-control search-data" name="cari" 
                                 value="{{ request()->query('cari')}}">
                             </div>
                            
@@ -104,8 +104,9 @@
                         
                       </tr>
                     </thead>
-                    @forelse($s_show_afiliate as $key => $s_sa)
+                  
                       <tbody>
+                        @foreach($s_show_afiliate as $key => $s_sa)
                         <tr>
                           <td>{{$key + 1}}</td>
                           <td>{{$s_sa->id}}</td>
@@ -125,8 +126,9 @@
                           </td>
                          
                         </tr>
+                        @endforeach
                       </tbody>
-                      @empty
+                      {{-- @empty
                       <td colspan="6">
                         <div class="text-center">
                            Tidak Ada Data
@@ -135,18 +137,18 @@
                           </strong>
                         </div>
                       </td>
-                    @endforelse
+                    @endforelse --}}
                   </table>
                  
                 </div>
-                <div class="ibox">
+                {{-- <div class="ibox">
                   <div class="ibox-content">
                     <div class="text-right">
                       {!! $s_show_afiliate->render('customPagination') !!}
                     </div>
                   </div>
                   
-                </div>
+                </div> --}}
                
             </div>
         </div>
@@ -215,7 +217,7 @@
 
 
   <!-- Page-Level Scripts -->
-  {{-- <script>
+  <script>
     $(document).ready(function(){
       let oTable = $('.dataTables-example').DataTable({
              language: {
@@ -224,7 +226,7 @@
                   next:     '→'
                 },
               },
-            pageLength: 5,
+            pageLength: 10,
             responsive: true,
             // dom: '<"html5buttons"B>lTfgitp',
             bSort : false,
@@ -240,7 +242,7 @@
           oTable.search($(this).val()).draw()
         })
     });
-  </script> --}}
+  </script>
    <!-- iCheck -->
    <script src="{{asset('assets/js/plugins/iCheck/icheck.min.js')}}"></script>
    <script>

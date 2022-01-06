@@ -9,7 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Notifications\PasswordReset;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -62,6 +62,11 @@ class User extends Authenticatable
     public function content_statuses()
     {
         return $this->hasMany(Content_Status::class);
+    }
+
+    public function address()
+    {
+        return $this->hasMany(Address::class, 'user_id', 'user_id');
     }
 
     /**

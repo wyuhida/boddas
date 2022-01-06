@@ -1,126 +1,9 @@
 @extends('layouts.frontend.app')
 
 @section('content')
-{{-- <div class="row">
-    <div class="col-sm-12">
-        <div class="ibox">
-            <div class="ibox-title">
-                <h5>Omzet Seluruh penjualan</h5>
-            </div>
-            <div class="ibox-content">
-                    <h1 class="no-margins">10.000</h1>
-                    <div class="stat-percent font-bold text-success">98% <i class="fa fa-bolt"></i></div>
-                    <small>Omzet Penjualan</small>
-            </div>
-        </div>
-       
-    </div>
-</div>
-
-
-<div class="row">
-    <div class="col-sm-12">
-      
-        <div class="ibox">
-            <div class="ibox-title">
-                <span class="pull-right">(<strong>{{$newItem->count()}}</strong>) items</span>
-                <h5>Semua Transaksi</h5>
-            </div>
-            <div class="ibox-content">
-                <div class="table-responsive">
-                  
-                    <table class="table shoping-cart-table">
-                        @if($newItem->count() == null)
-                        
-                           <tbody>
-                               <td>tidak ada data</td>
-                           </tbody>
-                        
-                        @endif
-
-                        @foreach($newItem->groupBy('id_transaction') as $itm)
-                        @foreach($itm as $item)
-                        <tbody>
-                        <tr>
-                            <td width="90" height="90">
-                                    <img width="90"
-                                    src="{{asset('image/product')}}/{{$item[0]->photo}}" alt="" srcset="">
-                            </td>
-                            <td class="desc">
-                                <h3>
-                                <a href="#" class="text-navy">
-                                   {{$item[0]->item_name}}
-                                </a>
-                                @if($item[0]->id_transaction_status == 2 )
-                                    <p class="label label-warning">
-                                            status: {{$item[0]->status_name}}
-                                    </p>
-                                @endif
-                                @if($item[0]->id_transaction_status == 1 )
-                                    <p class="label label-info">
-                                            status: {{$item[0]->status_name}}
-                                    </p>
-                                @endif
-                                @if($item[0]->id_transaction_status == 3 )
-                                <p class="label label-danger">
-                                        status: {{$item[0]->status_name}}
-                                </p>
-                                @endif
-                                </h3>
-                                
-                                <p class="medium">
-                                    tanggal transaksi :
-                                    {{\Carbon\Carbon::parse($item[0]->created_at)->translatedFormat('l, d F Y - h:i:s')}}
-                                </p>
-                              
-
-                                <div class="m-t-sm">
-                                   @if($item[0]->id_transaction_status == 2)
-                                    <form action="{{route('buyer.update_pembayaran',$item[0]->id_transaction)}}" method="POST" enctype="multipart/form-data">
-                                        @csrf
-                                        @method('PUT')
-                                        <label title="Upload image file" for="inputImage" class="btn btn-sm btn-default">
-                                            <input type="file" accept="image/*" name="foto" id="inputImage" class="hide">
-                                            Unggah Bukti Pembayaran
-                                        </label>
-                                        <button 
-                                        id="unggah"
-                                        style="display: none;"
-                                        type="submit" class="btn btn-sm btn-primary"><i class="fa fa-trash"></i>upload</button>
-                                    </form>
-                                   @endif
-                                </div>
-                            </td>
-
-                           
-                            <td>
-                                <h4>
-                                   Rp. {{number_format($item[0]->total_price)}}
-                                </h4>
-                            </td>
-
-                            <td width="65">
-                                <input type="text" class="form-control" value="{{$item[0]->qty}}" disabled>
-                            </td>
-
-                           
-                        </tr>
-                        </tbody>
-                        @endforeach
-                        @endforeach
-                        
-                    </table>
-                    {{$newItem->render('customPagination')}}
-                </div>
-            </div>
-        </div>
-    </div>
-</div> --}}
-
-    <div class="
+<div class="
         flex flex-col
         w-full
-        mx-auto
         px-10
         md:flex-row
         gap-5
@@ -162,7 +45,7 @@
                             bg-blue-500 
                             over:bg-blue-light text-white font-bold
                             py-2 px-4
-                            w-full
+                          
                             inline-flex
                             w-full
                             ">
@@ -180,7 +63,7 @@
                             bg-blue-500 
                             over:bg-blue-light text-white font-bold
                             py-2 px-4
-                            w-full
+                           
                             inline-flex
                             justify-center
                             w-full"   
@@ -219,7 +102,7 @@
                 @method('PUT')
                 <div class="flex-col w-full">
                     <p class="px-3 text-lg font-Roboto text-bg-tombol font-semibold capitalize">Nama</p>
-                    <div class="flex w-full mx-auto px-2 block">
+                    <div class="flex w-full mx-auto px-2">
                         <input class="px-2 py-3 
                         w-full 
                         overflow-hidden border rounded-lg dark:border-gray-600 
@@ -236,7 +119,7 @@
 
                 <div class="flex-col w-full">
                     <p class="px-3 text-lg font-Roboto text-bg-tombol font-semibold capitalize">No hp / Whatsapp</p>
-                    <div class="flex w-full mx-auto px-2 block">
+                    <div class="flex w-full mx-auto px-2">
                         <input class="px-2 py-3 
                         w-full 
                         overflow-hidden border rounded-lg dark:border-gray-600
@@ -252,7 +135,7 @@
 
                 <div class="flex-col w-full">
                     <p class="px-3 text-lg font-Roboto text-bg-tombol font-semibold capitalize">email</p>
-                    <div class="flex w-full mx-auto px-2 block">
+                    <div class="flex w-full mx-auto px-2">
                         <input class="px-2 py-3 
                         w-full 
                         overflow-hidden border rounded-lg dark:border-gray-600 
@@ -268,7 +151,7 @@
                 
                 <div class="flex-col w-full">
                     <p class="px-3 text-lg font-Roboto text-bg-tombol font-semibold capitalize">alamat</p>
-                    <div class="flex w-full mx-auto px-2 block">
+                    <div class="flex w-full mx-auto px-2">
                         <textarea class="px-2 py-3 
                         w-full 
                         overflow-hidden border rounded-lg dark:border-gray-600
@@ -306,7 +189,7 @@
                 @method('PUT')
                 <div class="flex-col w-full">
                     <p class="px-3 text-lg font-Roboto text-bg-tombol font-semibold capitalize">Password Lama</p>
-                    <div class="flex w-full mx-auto px-2 block">
+                    <div class="flex w-full mx-auto px-2">
                         <input class="px-2 py-3 
                         w-full 
                         overflow-hidden border rounded-lg dark:border-gray-600
@@ -322,7 +205,7 @@
 
                 <div class="flex-col w-full">
                     <p class="px-3 text-lg font-Roboto text-bg-tombol font-semibold capitalize">Password Baru</p>
-                    <div class="flex w-full mx-auto px-2 block">
+                    <div class="flex w-full mx-auto px-2">
                         <input class="px-2 py-3 
                         w-full 
                         overflow-hidden border rounded-lg dark:border-gray-600
@@ -338,7 +221,7 @@
 
                 <div class="flex-col w-full">
                     <p class="px-3 text-lg font-Roboto text-bg-tombol font-semibold capitalize">Konfirmasi Password</p>
-                    <div class="flex w-full mx-auto px-2 block">
+                    <div class="flex w-full mx-auto px-2">
                         <input class="px-2 py-3 
                         w-full 
                         overflow-hidden border rounded-lg dark:border-gray-600 
@@ -367,6 +250,100 @@
 
         </div>
     </div>
+
+    <div class="px-11 grid grid-cols-1 md:grid-cols-3 border md:gap-3">
+        <div class="
+            flex
+            flex-col
+            my-2
+            bg-white
+            border border-gray-200
+            rounded
+            h-32
+            shadow-md
+            ">
+            <span class="px-2 font-Inter-500 text-gray-600 text-lg">Omzet (Finish) </span>
+        
+            <hr class="border-b border-bg-tombol w-full">
+            <div class="items-center justify-center mx-auto my-4">
+                @if($tot != null)
+                <h1 class="font-light font-Inter text-bg-tombol"> Rp. {{number_format($tot->total)}}</h1>
+                @else
+                <h1 class="font-light font-Inter text-bg-tombol"> Rp. 0</h1>
+                @endif
+            </div>
+        </div>
+
+        <div class="
+            flex
+            flex-col
+            my-2
+            bg-white
+            border border-gray-200
+            rounded
+            h-32
+            shadow-md
+            ">
+            <span class="px-2 font-Inter-500 text-gray-600 text-lg">Jumlah Pembelian Barang (Finish)</span>
+            <hr class="border-b border-bg-tombol w-full">
+            <div class="items-center justify-center mx-auto my-4">
+                @if($t_barang != null)
+                <h1 class="font-light font-Inter text-bg-tombol">{{$t_barang->total_barang}}</h1>
+                @else
+                <h1 class="font-light font-Inter text-bg-tombol">0</h1>
+                @endif
+            </div>
+
+        </div>
+        <!-- barang prepare -->
+        <div class="
+            flex
+            flex-col
+            my-2
+            bg-white
+            border border-gray-200
+            rounded
+            h-32
+            shadow-md
+            ">
+            <span class="px-2 font-Inter-500 text-gray-600 text-lg">Jumlah Pembelian Barang (in Prepare)</span>
+            <hr class="border-b border-bg-tombol w-full">
+            <div class="items-center justify-center mx-auto my-4">
+                @if($t_prepare != null)
+                <h1 class="font-light font-Inter text-bg-tombol">{{$t_barang->total_prepare}}</h1>
+                @else
+                <h1 class="font-light font-Inter text-bg-tombol">0</h1>
+                @endif
+            </div>
+
+        </div>
+        <!-- barang delivery -->
+        <div class="
+            flex
+            flex-col
+            my-2
+            bg-white
+            border border-gray-200
+            rounded
+            h-32
+            shadow-md
+            ">
+            <span class="px-2 font-Inter-500 text-gray-600 text-lg">Jumlah Pembelian Barang (Delivery)</span>
+            <hr class="border-b border-bg-tombol w-full">
+            <div class="items-center justify-center mx-auto my-4">
+                @if($t_delivery != null)
+                <h1 class="font-light font-Inter text-bg-tombol">{{$t_delivery->total_delivery}}</h1>
+                @else
+                <h1 class="font-light font-Inter text-bg-tombol">0</h1>
+                @endif
+            </div>
+
+        </div>
+
+    </div>
+       
+
+
    @if($profile->id_buyer != 1 | null)
         <div class="container mx-auto px-10 w-full bg-white">
             <div class="py-8">

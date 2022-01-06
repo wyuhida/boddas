@@ -29,26 +29,52 @@ use Illuminate\Pagination\LengthAwarePaginator;
 
 class ShopController extends Controller
 {
-    public function show_shop()
+    public function show_shop(Request $request)
     {
-        $item = Item::join(
-            'item__contents',
-            'items.id',
-            '=',
-            'item__contents.id_item'
-        )
-            ->join(
-                'category__items',
-                'items.id_category_item',
+        if (isset($request->search)) {
+            $item = Item::join(
+                'item__contents',
+                'items.id',
                 '=',
-                'category__items.id'
+                'item__contents.id_item'
             )
-            ->join('users', 'items.update_by', '=', 'users.id')
-            ->orderBy('items.id', 'DESC')
-            ->get();
+                ->join(
+                    'category__items',
+                    'items.id_category_item',
+                    '=',
+                    'category__items.id'
+                )
+                ->join('users', 'items.update_by', '=', 'users.id')
+                ->orderBy('items.id', 'DESC')
+                ->where([
+                    ['items.item_name', 'LIKE', '%' . $request->search . '%'],
+                    ['items.deleted_at', '=', null],
+                ])
+                ->get();
+            $coll = collect($item);
+            $coll->search($request->search);
+            $item = $coll->groupBy('id_item')->paginate(30);
+        } else {
+            $item = Item::join(
+                'item__contents',
+                'items.id',
+                '=',
+                'item__contents.id_item'
+            )
+                ->join(
+                    'category__items',
+                    'items.id_category_item',
+                    '=',
+                    'category__items.id'
+                )
+                ->join('users', 'items.update_by', '=', 'users.id')
+                ->orderBy('items.id', 'DESC')
+                ->get();
 
-        $coll = collect($item);
-        $item = $coll->groupBy('id_item')->paginate(8);
+            $coll = collect($item);
+            $item = $coll->groupBy('id_item')->paginate(30);
+        }
+
         // $sort = $coll->sortByDesc('id_item');
         // $item = $coll->groupBy('id_item')->paginate(8);
 

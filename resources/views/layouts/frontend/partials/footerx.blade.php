@@ -1,132 +1,247 @@
-
- <footer class="footer footer-standard pt50 pb20">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4 col-md-6 mb40">
-                <h3>About Us</h3>
-                <p>
-                    In eu libero ligula. Fusce eget metus lorem, ac viverra leo. Nullam convallis, arcu vel pellentesque sodales, nisi est varius diam, ac ultrices sem ante quis sem. Proin ultricies volutpat sapien, nec scelerisque ligula mollis lobortis.
-                </p>
-                <a href="#" class="btn btn-white-outline btn-sm">Learn More</a>
-            </div>
-
-            <div class="col-lg-3 col-md-6 mb40">
-                <h3>Alamat</h3>
-                <ul class="list-unstyled contact-list-item">
-                    <li>
-                        <i class="ti-home"></i>
-                        {{$fk->address_name}}
-                    </li>
-                    <li>
-                        <i class="ti-email"></i>
-                        {{$fk->email}}
-                    </li>
-                    <li>
-                        <i class="ti-mobile"></i>
-                       {{$fk->num_phone}}
-                    </li>
-                </ul>
-            </div>
-
-            {{-- <div class="col-lg-2 col-md-6 mb40">
-                <h3>Quick links</h3>
-                <ul class="list-unstyled ">
-                    <li>
-                        <a href="#" class="social-icon si-dark si-colored-facebook si-gray-round">
-                            <i class="fa fa-facebook"></i>
-                            <i class="fa fa-facebook"></i>
-                           
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="social-icon si-dark si-colored-facebook si-gray-round">
-                            <i class="fa fa-facebook"></i>
-                            <i class="fa fa-facebook"></i>
-                           
-                        </a>
-                    </li>
-
-
-
-                    {{-- <li>
-                        <a href="#">
-                            FAQS
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            Contact
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            Term & conditions
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            Privacy & policy
-                        </a>
-                    </li> 
-                </ul>
-            </div>--}}
-            {{-- <div class="col-lg-3 col-md-6 mb40">
-                <h3>Latest News</h3>
-                <ul class="list-unstyled latest-news">
-                    <li class="media">
-                        <a href="#"> <img class="d-flex mr-3 img-fluid" width="64" src="images/img1.jpg" alt="Generic placeholder image"></a>
-                        <div class="media-body">
-                            <h5 class="mt-0 mb-1"><a href="#">Beautiful Sofa lamp at low price</a></h5>
-                            April 05, 2017
-                        </div>
-                    </li>
-                    <li class="media my-3">
-                        <a href="#"> <img class="d-flex mr-3 img-fluid" width="64" src="images/img2.jpg" alt="Generic placeholder image"></a>
-                        <div class="media-body">
-                            <h5 class="mt-0 mb-1"><a href="#">Lorem ipsum dolor sit amet</a></h5>
-                            Jan 05, 2017
-                        </div>
-                    </li>
-                    <li class="media">
-                        <a href="#"> <img class="d-flex mr-3 img-fluid" width="64" src="images/img5.jpg" alt="Generic placeholder image"></a>
-                        <div class="media-body">
-                            <h5 class="mt-0 mb-1"><a href="#">New awesome features of bootstrap 4</a></h5>
-                            March 15, 2017
-                        </div>
-                    </li>
-                </ul>
-            </div> --}}
-            <div class="col-lg-3 col-md-6 mb40">
-                <h3>Headquarters</h3>
-                <img src="images/map-img.png" alt="" class="img-fluid">
-            </div>
-        </div>
-    </div>
-</footer><!--/footer-->
-
-<div class="footer-bottomAlt" style="width: 100%;">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-7">
-                <div class="clearfix">
-                    <a href="{{$fk->facebook}}" class="social-icon-sm si-dark si-facebook si-dark-round">
-                        <i class="fa fa-facebook"></i>
-                        <i class="fa fa-facebook"></i>
-                    </a>
-                    <a href="{{$fk->instagram}}" class="social-icon-sm si-dark si-twitter si-dark-round">
-                        <i class="fa fa-instagram"></i>
-                        <i class="fa fa-instagram"></i>
-                    </a>
-                    <a href="{{$fk->youtube}}" class="social-icon-sm si-dark si-g-plus si-dark-round">
-                        <i class="fa fa-youtube"></i>
-                        <i class="fa fa-youtube"></i>
-                    </a>
+@if($fk != null)
+<footer class="bg-bookmark-foot font-Poppins w-full">
+    <div class="container px-12 py-4 mx-auto">
+        <div class="lg:flex py-9">
+            <div class="w-full lg:w-2/5  gap-20">
+                <div class="px-6">
+                  
+                    <div>
+                      <img src="{{asset('images/boddas-foot.png')}}" alt="">
+                        {{-- <a href="#" class="text-xl font-bold text-white-800 dark:text-white hover:text-gray-700 dark:hover:text-gray-300">Brand</a> --}}
+                    </div>
+                   
+                      <p class="max-w-md mt-2 text-white">
+                        Address
+                      </p>
+                      <p class="max-w-md mt-2 text-white">
+                      
+                          {{$fk->address_name}}
+                      </p>
+                    
+                
                 </div>
             </div>
-            <div class="col-lg-5">
-                <span>&copy; Copyright 2017. All Right Reserved</span>
+
+            <div class="mt-6 lg:mt-0 lg:flex-1">
+                <div class="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-3">
+                    <div class="">
+                        <h3 class="
+                          text-white
+                          capitalize 
+                          font-Poppins 
+                          font-bold
+                          items-center
+                          mb-1
+                          text-2xl
+                          ">kontak kami</h3>
+                        <div class="block py-1">
+                          {{-- <span class="w-7 mt-10 text-white ">
+                          </span> --}}
+                           <p class="inline py-9 text-sm text-white font-Poppins">{{$fk->num_phone}}</p>
+                        </div>
+
+                        <div class="block py-1">
+                          <span class="w-7 mt-10 ">
+                             
+                          </span>
+                           <p class="inline py-9 text-sm text-white font-Poppins">{{$fk->email}}</p>
+                        </div>
+
+                       
+
+                    </div>
+
+                    <div class="">
+                        <h3 class="text-white capitalize font-Poppins font-bold
+                        mb-1
+                        text-2xl
+                        ">menu</h3>
+                        <a href="#" class="block mt-2 text-sm text-white hover:underline">Tec</a>
+                        <a href="#" class="block mt-2 text-sm text-white hover:underline">Music</a>
+                        <a href="#" class="block mt-2 text-sm text-white hover:underline">Videos</a>
+                    </div>
+
+                    <div class="">
+                        <h3 class="text-white Capitalize font-Poppins font-bold  mb-1
+                        text-2xl">Join Member</h3>
+                        <a href="#" class="block mt-2 text-sm text-white hover:underline">Mega cloud</a>
+                        <a href="#" class="block mt-2 text-sm text-white hover:underline">boddas </a>
+                        <a href="#" class="block mt-2 text-sm text-white hover:underline">boddas</a>
+                    </div>
+                  {{-- 
+                    <div>
+                        <h3 class="text-white-700 Capitalize font-Poppins font-bold">Contact</h3>
+                        <span class="block mt-2 text-sm text-white-600 dark:text-white-400 hover:underline">+1 526 654 8965</span>
+                        <span class="block mt-2 text-sm text-white-600 dark:text-white-400 hover:underline">example@email.com</span>
+                    </div> --}}
+                </div>
             </div>
+            
         </div>
+        <div class="text-center flex justify-center">
+           <a href="{{$fk->facebook}}">
+            <span class="text-center py-2 px-2 ">
+              <i class="stroke-2 fab fa-facebook-f text-bookmark-foot stroke-5 w-11 h-11 rounded-full 
+                items-center py-3 px-2 border border-white rounded-full bg-white"></i>  
+             </span>
+           </a>
+           <a href="{{$fk->instagram}}">
+            <span class="text-center py-2 px-2 ">
+              <i class="stroke-2 fab fa-instagram text-bookmark-foot stroke-5 w-11 h-11 rounded-full 
+                items-center py-3 px-2 border border-white rounded-full bg-white"></i>  
+          </span>
+           </a>
+
+            <a href="#">
+              <span class="text-center py-2 px-2 ">
+                <i class="stroke-2  fab fa-twitter text-bookmark-foot stroke-5 w-11 h-11 rounded-full 
+                  items-center py-3 px-2 border border-white rounded-full bg-white"></i>  
+            </span>
+            </a>
+
+            <a href="{{$fk->youtube}}">
+              <span class="text-center py-2 px-2 ">
+                <i class="stroke-2 fab fa-youtube text-bookmark-foot stroke-5 w-11 h-11 rounded-full 
+                  items-center py-3 px-2 border border-white rounded-full bg-white"></i>  
+            </span>
+            </a>
+           
+              
+              
+           
+           </div>
+            
+             
+           
+        {{-- <hr class="h-px my-6 bg-white-300 border-none dark:bg-white-700"> --}}
+
+        {{-- <div>
+            <p class="text-center text-gray-800 dark:text-white">© Brand 2020 - All rights reserved</p>
+        </div> --}}
     </div>
-</div><!--/footer bottom-->
-<!--back to top-->
+</footer>
+@else
+<footer class="bg-bookmark-foot font-Poppins w-full">
+  <div class="container px-12 py-4 mx-auto">
+      <div class="lg:flex py-9">
+          <div class="w-full lg:w-2/5  gap-20">
+              <div class="px-6">
+                
+                  <div>
+                    <img src="{{asset('images/boddas-foot.png')}}" alt="">
+                      {{-- <a href="#" class="text-xl font-bold text-white-800 dark:text-white hover:text-gray-700 dark:hover:text-gray-300">Brand</a> --}}
+                  </div>
+                 
+                    <p class="max-w-md mt-2 text-white">
+                      Address
+                    </p>
+                    <p class="max-w-md mt-2 text-white">
+                    
+                       
+                    </p>
+                  
+              
+              </div>
+          </div>
+
+          <div class="mt-6 lg:mt-0 lg:flex-1">
+              <div class="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-3">
+                  <div class="">
+                      <h3 class="
+                        text-white
+                        Capitalize 
+                        font-Poppins 
+                        font-bold
+                        items-center
+                        mb-1
+                        text-2xl
+                        ">Get In Touch</h3>
+                      <div class="block py-1">
+                        {{-- <span class="w-7 mt-10 text-white ">
+                        </span> --}}
+                         <p class="inline py-9 text-sm text-white font-Poppins"></p>
+                      </div>
+
+                      <div class="block py-1">
+                        <span class="w-7 mt-10 ">
+                           
+                        </span>
+                         <p class="inline py-9 text-sm text-white font-Poppins"></p>
+                      </div>
+                  </div>
+
+                  <div class="">
+                      <h3 class="text-white Capitalize font-Poppins font-bold
+                      mb-1
+                      text-2xl
+                      ">Join Members</h3>
+                      <a href="#" class="block mt-2 text-sm text-white hover:underline">Reseller</a>
+                      <a href="#" class="block mt-2 text-sm text-white hover:underline">Afiliate</a>
+                      <a href="#" class="block mt-2 text-sm text-white hover:underline">Videos</a>
+                  </div>
+
+                  <div class="">
+                      <h3 class="text-white Capitalize font-Poppins font-bold  mb-1
+                      text-2xl">Campaign</h3>
+                      <a href="#" class="block mt-2 text-sm text-white hover:underline">Mega cloud</a>
+                      <a href="#" class="block mt-2 text-sm text-white hover:underline">boddas </a>
+                      <a href="#" class="block mt-2 text-sm text-white hover:underline">boddas</a>
+                  </div>
+                {{-- 
+                  <div>
+                      <h3 class="text-white-700 Capitalize font-Poppins font-bold">Contact</h3>
+                      <span class="block mt-2 text-sm text-white-600 dark:text-white-400 hover:underline">+1 526 654 8965</span>
+                      <span class="block mt-2 text-sm text-white-600 dark:text-white-400 hover:underline">example@email.com</span>
+                  </div> --}}
+              </div>
+          </div>
+          
+      </div>
+      <div class="text-center flex justify-center">
+         <a href="">
+          <span class="text-center py-2 px-2 ">
+            <i class="stroke-2 fab fa-facebook-f text-bookmark-foot stroke-5 w-11 h-11 rounded-full 
+              items-center py-3 px-2 border border-white rounded-full bg-white"></i>  
+           </span>
+         </a>
+         <a href="">
+          <span class="text-center py-2 px-2 ">
+            <i class="stroke-2 fab fa-instagram text-bookmark-foot stroke-5 w-11 h-11 rounded-full 
+              items-center py-3 px-2 border border-white rounded-full bg-white"></i>  
+        </span>
+         </a>
+
+          <a href="#">
+            <span class="text-center py-2 px-2 ">
+              <i class="stroke-2  fab fa-twitter text-bookmark-foot stroke-5 w-11 h-11 rounded-full 
+                items-center py-3 px-2 border border-white rounded-full bg-white"></i>  
+          </span>
+          </a>
+
+          <a href="">
+            <span class="text-center py-2 px-2 ">
+              <i class="stroke-2 fab fa-youtube text-bookmark-foot stroke-5 w-11 h-11 rounded-full 
+                items-center py-3 px-2 border border-white rounded-full bg-white"></i>  
+          </span>
+          </a>
+         
+            
+            
+         
+         </div>
+          
+           
+         
+      {{-- <hr class="h-px my-6 bg-white-300 border-none dark:bg-white-700"> --}}
+
+      {{-- <div>
+          <p class="text-center text-gray-800 dark:text-white">© Brand 2020 - All rights reserved</p>
+      </div> --}}
+  </div>
+</footer>
+
+
+@endif
+  <!-- footer -->
+
+  

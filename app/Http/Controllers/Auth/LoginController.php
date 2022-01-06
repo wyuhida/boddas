@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Auth;
 use Session;
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
 class LoginController extends Controller
 {
     /*
@@ -22,6 +23,30 @@ class LoginController extends Controller
     */
 
     use AuthenticatesUsers;
+
+    public function __construct()
+    {
+    }
+
+    protected function sendFailedLoginResponse(Request $request)
+    {
+        throw ValidationException::withMessages([
+            'username' => [trans('auth.failed')],
+        ]);
+    }
+    public function username()
+    {
+        $login = request()->input('username');
+        if (is_numeric($login)) {
+            $field = 'phone_number';
+        } elseif (filter_var($login, FILTER_VALIDATE_EMAIL)) {
+            $field = 'email';
+        } else {
+            $field = 'username';
+        }
+        request()->merge([$field => $login]);
+        return $field;
+    }
 
     /**
      * Where to redirect users after login.
@@ -71,15 +96,15 @@ class LoginController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        // if (Auth::check() && Auth::user()->id_role == 1) {
-        //     $this->redirectTo = route('superadmin.dashboard');
-        // } elseif (Auth::check() && Auth::user()->id_role == 2) {
-        //     $this->redirectTo = route('admin.dashboard');
-        // } else {
-        //     $this->redirectTo = route('buyer.dashboard');
-        // }
-        // $this->middleware('guest')->except('logout');
-    }
+    // public function __construct()
+    // {
+    // if (Auth::check() && Auth::user()->id_role == 1) {
+    //     $this->redirectTo = route('superadmin.dashboard');
+    // } elseif (Auth::check() && Auth::user()->id_role == 2) {
+    //     $this->redirectTo = route('admin.dashboard');
+    // } else {
+    //     $this->redirectTo = route('buyer.dashboard');
+    // }
+    // $this->middleware('guest')->except('logout');
+    // }
 }

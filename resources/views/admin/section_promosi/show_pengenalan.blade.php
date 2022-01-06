@@ -3,7 +3,8 @@
 @push('css')
     <link href="{{asset('assets/css/plugins/dataTables/datatables.min.css')}}" rel="stylesheet">
     <link href="{{asset('assets/css/animate.css')}}" rel="stylesheet">
-    <x-embed-styles />
+    <link href="{{asset('assets/css/plugins/iCheck/custom.css')}}" rel="stylesheet">
+   
 @endpush
 @section('content')
 <div class="row">
@@ -225,7 +226,12 @@
                                 data-toggle="modal" data-target="#myModal"> Tambah </a>
                             </div>
                         </div>
-                        <table class="table table-hover dataTables-example" >
+                        <table class="table table-hover dataTables-example3" >
+                            @error('video')
+                                <span class="alert alert-danger" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>                 
+                            @enderror
                             <thead>
                             <tr>
                                 <th>No</th>
@@ -240,16 +246,31 @@
                                     <td>
                                         {{$key+1}}
                                     </td>
+                                    
                                     <td>
                                         {{-- <x-embed url="{{$sv->link_url}}"/> --}}
+                                            @if($sv->link_url != null)
                                             <iframe 
-                                           width="200px" height="200px"
-                                            src="{{$sv->link_url}}"
-                                            allow="accelerometer; autoplay; 
-                                              clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                            allowFullScreen
-                                            frameborder="0">
-                                          </iframe>
+                                                width="200px" height="200px"
+                                                src="{{$sv->link_url}}"
+                                                allow="accelerometer;
+                                                clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                allowFullScreen
+                                                frameborder="0">
+                                            </iframe>
+                                          @endif
+                                          @if($sv->image != null)
+                                          <iframe 
+                                                width="200px" height="200px"
+                                                src="{{URL::asset('video/testimoni')}}/{{$sv->image}}"
+                                                sandbox="";
+                                                allow="accelerometer;
+                                                clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                allowFullScreen
+                                                frameborder="0">
+                                            </iframe>
+                                            @endif
+                                         
                                        
                                     </td>
                                     <td>
@@ -303,10 +324,10 @@
                         </table>
                        
                         <div class="text-center">
-                            {{$section_v->render('customPagination')}}
+                            {{-- {{$section_v->render('customPagination')}} --}}
                         </div>
                         <!-- input video -->
-                        <form action="{{route('admin.store_video')}}" method="POST">
+                        <form action="{{route('admin.store_video')}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="modal inmodal" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
                                 <div class="modal-dialog">
@@ -316,13 +337,26 @@
                                             <i class="fa fa-laptop modal-icon"></i>
                                             <h4 class="modal-title">Unggah Video</h4>
                                             <small class="font-bold">Video akan ditampilkan di halaman beranda</small>
+                                           
+                                            <div class="font-bold  alert alert-success m-b-sm">
+                                                Cara Unggah Video
+                                                <div class="text-left">
+                                                    <p>Pilih tombol URL atau Gallery</p>
+                                                    <p>Untuk URL dari youtube, https://www.youtube.com/watch?v=AfX80iYcxuM menjadi <strong>https://www.youtube.com/embed/AfX80iYcxuM</strong> </p>
+                                                </div>
+                                            </div>
+                                            
                                         </div>
                                         <div class="modal-body">
-                                            <div class="form-group">
+                                            <button type="button" class="btn btn-info" id="url" name="url">URL</button>
+                                            <button type="button" class="btn btn-info" id="gallery" name="gallery" >Gallery</button>
+                                            <div class="form-group"  id="link_url"
+                                                style="display: none;">
                                                 <label>Masukan URL</label> 
                                                 <input type="text" 
                                                 name="link_url"
-                                                placeholder="https://www.youtube.com/5Vuxns6RILk" 
+                                                id="lnk"
+                                                placeholder="https://www.youtube.com/embed/5Vuxns6RILk" 
                                                 class="form-control @error('link_url') is-invalid @enderror ">
                                             </div>
                                             @error('link_url')
@@ -330,7 +364,24 @@
                                                     <strong>{{ $message }}</strong>
                                                 </span>                 
                                             @enderror
-                                        </div>
+
+                                            <div class="form-group"  id="link_gallery"
+                                            style="display: none;">
+                                            <label>Masukan URL</label> 
+                                            <input type="file" 
+                                            name="video"
+                                            id="poto"
+                                            placeholder="https://www.youtube.com/5Vuxns6RILk" 
+                                            class="form-control @error('video') is-invalid @enderror ">
+                                            </div>
+                                                @error('video')
+                                                    <span class="label label-danger" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>                 
+                                                @enderror
+
+                                            </div>
+                                       
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-white" data-dismiss="modal">Kembali</button>
                                             <button type="submit" class="btn btn-primary">Simpan</button>
@@ -344,7 +395,7 @@
                         <!-- update video -->
                         @foreach($section_v as $key => $sv)
                             <div class="modal inmodal" id="myModal6{{$sv->id_container}}" tabindex="-1" role="dialog" aria-hidden="true">
-                                <form action="{{route('admin.update_video', $sv->id_container)}}" method="POST">
+                                <form action="{{route('admin.update_video', $sv->id_container)}}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')
                                 <div class="modal-dialog">
@@ -354,14 +405,29 @@
                                             <i class="fa fa-laptop modal-icon"></i>
                                             <h4 class="modal-title">Ubah Video</h4>
                                             <small class="font-bold">Video akan ditampilkan di halaman beranda</small>
+                                            <div class="font-bold  alert alert-success m-b-sm">
+                                               
+                                                <div class="text-left">
+                                                    <p>Unggahan sebelumnya :</p>
+                                                    @if($sv->image != null)
+                                                    <p><strong>Dari Gallery</strong></p>
+                                                    @endif
+                                                    @if($sv->link_url != null)
+                                                    <p><strong>{{$sv->link_url}}</strong></p>
+                                                    @endif
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="modal-body">
-                                            <div class="form-group">
+                                            <button type="button" class="btn btn-info" id="urls" name="urls">URL</button>
+                                            <a class="btn btn-info" id="gallerys" name="gallerys" >Gallery</a>
+                                            <div class="form-group"  id="link_urls"
+                                                style="display: none;">
                                                 <label>Masukan URL</label> 
                                                 <input type="text" 
                                                 name="link_url"
-                                                placeholder="https://www.youtube.com/5Vuxns6RILk" 
-                                                value="{{$sv->link_url}}"
+                                                id="lnks"
+                                                placeholder="https://www.youtube.com/embed/5Vuxns6RILk" 
                                                 class="form-control @error('link_url') is-invalid @enderror ">
                                             </div>
                                             @error('link_url')
@@ -369,7 +435,19 @@
                                                     <strong>{{ $message }}</strong>
                                                 </span>                 
                                             @enderror
-                                        </div>
+
+                                            <div class="form-group"  id="link_gallerys"
+                                            style="display: none;">
+                                            <label>Masukan Video</label> 
+                                            <input type="file" 
+                                            name="video"
+                                            id="potos"
+                                            placeholder="https://www.youtube.com/5Vuxns6RILk" 
+                                            class="form-control @error('video') is-invalid @enderror ">
+                                            </div>
+                                              
+
+                                            </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-white" data-dismiss="modal">Kembali</button>
                                             <button type="submit" class="btn btn-primary">Simpan</button>
@@ -402,6 +480,61 @@
 <script src="{{asset('assets/js/plugins/metisMenu/jquery.metisMenu.js')}}"></script>
 <script src="{{asset('assets/js/plugins/slimscroll/jquery.slimscroll.min.js')}}"></script>
 <script src="{{asset('assets/js/plugins/pace/pace.min.js')}}"></script>
+<script>
+    $(document).ready(function(){
+        let oTable = $('.dataTables-example3').DataTable({
+                language: {
+                paginate: {
+                    previous: '←',
+                    next:     '→'
+                },
+                },
+            pageLength: 5,
+            responsive: true,
+            // dom: '<"html5buttons"B>lTfgitp',
+            bSort : false,
+            lengthChange: false,
+            info: false,
+            searching: true
+            
+        });
+
+        $('.dataTables_filter').closest('.row').hide();
+
+        $('.search-data').keyup(function(){
+            oTable.search($(this).val()).draw()
+        })
+    });
+
+</script>
+<script>
+    $(document).ready(function(){
+        $('#url').click(function(){
+            $('#link_url').show();
+            $('#link_gallery').hide();
+            $('#poto').val("");
+        });
+        $('#gallery').click(function(){
+            $('#link_url').hide();
+            $('#link_gallery').show();
+            $('#lnk').val("");
+        });
+    });
+ </script>
+ <script>
+     $(document).ready(function(){
+        $('#urls').click(function(){
+            $('#link_urls').show();
+            $('#link_gallerys').hide();
+            $('#potos').val("");
+        });
+        $('#gallerys').click(function(){
+            $('#link_gallerys').show();
+            $('#link_urls').hide();
+            $('#lnks').val("");
+        });
+     });
+ </script>
 
 <script>
     function deletest(id_container){
@@ -459,6 +592,17 @@
     }
   
 </script>
+
+ <!-- iCheck -->
+ <script src="{{asset('assets/js/plugins/iCheck/icheck.min.js')}}"></script>
+ <script>
+     $(document).ready(function () {
+         $('.i-checks').iCheck({
+             checkboxClass: 'icheckbox_square-green',
+             radioClass: 'iradio_square-green',
+         });
+     });
+ </script>
 
 <script>
     function deletesv(id_container){

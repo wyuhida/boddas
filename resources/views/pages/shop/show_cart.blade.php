@@ -95,32 +95,10 @@
                         <input type="hidden" name="id_transaction_status" value="{{$s_cart->id_transaction_status}}">
                         <input type="hidden" name="id_item" id="" value="{{$s_cart->id_item}}">
                         <input type="hidden" name="qty" value="{{$s_cart->qty}}">
-                        <div class="flex-col w-full">
-                            <p class="px-3 text-lg font-Roboto text-bg-tombol font-semibold capitalize">Bukti Transfer</p>
-                            <div class="flex w-full mx-auto px-2 block">
-                                <input class="px-2 py-3 
-                                w-full
-                                text-base
-                                font-normal
-                                text-gray-700
-                                bg-white bg-clip-padding
-                                border border-solid border-gray-300
-                                rounded
-                                transition
-                                ease-in-out
-                                m-0
-                                focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
-                                type="file" name="foto" placeholder="" aria-label="" @error('foto') is-invalid @enderror>
-                                @error('foto')
-                                    <div class="p-2 mb-2 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
-                                        <span class="font-medium">{{ $message }}</span>
-                                    </div>          
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="flex-col w-full">
+                       
+                        {{-- <div class="flex-col w-full">
                                 <p class="px-3 text-lg font-Roboto text-bg-tombol font-semibold capitalize">Provinsi</p>
-                                <div class="flex w-full mx-auto px-2 block">
+                                <div class="flex w-full mx-auto px-2">
                                     <input class="px-2 py-3 
                                     w-full 
                                     overflow-hidden border rounded-lg dark:border-gray-600 "
@@ -157,7 +135,7 @@
                                 overflow-hidden border rounded-lg dark:border-gray-600 "
                                 type="text" name="kelurahan" placeholder="Kelurahan" aria-label="">
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="flex-col w-full">
                             <p class="px-3 text-lg font-Roboto text-bg-tombol font-semibold capitalize">No telephone / Whatsapp</p>
                             <div class="flex w-full mx-auto px-2 py-2  block">
@@ -178,11 +156,17 @@
 
                         <div class="flex-col w-full">
                             <p class="px-3 text-lg font-Roboto text-bg-tombol font-semibold capitalize">alamat lengkap</p>
-                            <div class="flex w-full mx-auto px-2 py-2  block">
-                                <textarea class=" px-2 py-3 
+                            <div class="flex w-full mx-auto px-2 py-2">
+                                <textarea class="py-3 
                                 w-full
-                                overflow-hidden border rounded-lg dark:border-gray-600"
-                                type="text" name="alamat" placeholder="Alamat" aria-label=""  @error('alamat') is-invalid @enderror>
+                                overflow-y-scroll
+                                border rounded-lg dark:border-gray-600"
+                                type="text" name="alamat" placeholder="Provinsi : DKI Jakarta,
+                                Kota : Jakarta Barat,
+                                Kecamatan : Jakarta,
+                                Kelurahan :Jakarta, 
+                                kode pos : 112233" 
+                                aria-label=""  @error('alamat') is-invalid @enderror>
                                 {{(!empty($cek_alamat->address_name) ? $cek_alamat->address_name : '')}}
                             </textarea>
                             </div>
@@ -193,40 +177,66 @@
                             @enderror
                         </div>       
 
+                        <div class="flex-col w-full">
+                            <p class="px-3 text-lg font-Roboto text-bg-tombol font-semibold capitalize">Bukti Transfer</p>
+                            <div class="flex w-full mx-auto px-2">
+                                <input class="px-2 py-3 
+                                w-full
+                                text-base
+                                font-normal
+                                text-gray-700
+                                bg-white bg-clip-padding
+                                border border-solid border-gray-300
+                                rounded
+                                transition
+                                ease-in-out
+                                m-0
+                           
+                                focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
+                                type="file" name="foto" placeholder="" aria-label="" @error('foto') is-invalid @enderror>
+                                @error('foto')
+                                    <div class="p-2 mb-2 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
+                                        <span class="font-medium">{{ $message }}</span>
+                                    </div>          
+                                @enderror
+                            </div>
+                        </div>
                                       
                     </div>
 
+               
+
                     <div class="flex flex-col w-full lg:w-1/2 gap-3">
                         <div class="flex lg:flex-row overflow-x-auto w-full h-fit">
-                        <div class="flex-col w-full lg:w-1/2 mb-3 " >
-                            
-                                <p class="text-lg text-gray-800 py-2 font-roboto text-left font-semibold">Subtotal</p>
-                                <p class="text-lg text-gray-800 py-2 font-roboto text-left font-semibold">Shipping Free</p>
-                                <p class="text-lg text-bg-tombol py-2 font-roboto text-left font-semibold">Total</p>
-                            </div>
-                            <div class="flex flex-col w-full lg:w-1/2 h-fit mb-3 ">
-                                @if($s_cart->qty >= $limit)
-                                    <p class="text-lg text-gray-800 py-2 font-roboto text-center font-semibold">Rp {{number_format($s_cart->price-($total*$s_cart->price))}}</p>
-                                @else
-                                    <p class="text-lg text-gray-800 py-2 font-roboto text-center font-semibold">Rp {{number_format($s_cart->price)}}</p>
+                            <div class="flex-col w-full lg:w-1/2 mb-3 md:px-11 " >
+                                
+                                    <p class="text-lg text-gray-800 py-2 font-roboto text-left font-semibold">Subtotal</p>
+                                    <p class="text-lg text-gray-800 py-2 font-roboto text-left font-semibold">Shipping Free</p>
+                                    <p class="text-lg text-bg-tombol py-2 font-roboto text-left font-semibold">Total</p>
+                                </div>
+                                <div class="flex flex-col w-full lg:w-1/2 h-fit mb-3 ">
+                                    @if($s_cart->qty >= $limit)
+                                        <p class="text-lg text-gray-800 py-2 font-roboto text-center font-semibold">Rp {{number_format($s_cart->price-($total*$s_cart->price))}}</p>
+                                    @else
+                                        <p class="text-lg text-gray-800 py-2 font-roboto text-center font-semibold">Rp {{number_format($s_cart->price)}}</p>
 
-                                @endif
-                                <p class="text-lg text-gray-800 py-2 font-roboto text-center font-semibold">0</p>
-                                <p class="text-lg text-bg-tombol py-2 font-roboto text-center font-semibold">Rp.{{number_format($s_cart->total_price)}}</p>
-                            
+                                    @endif
+                                    <p class="text-lg text-gray-800 py-2 font-roboto text-center font-semibold">0</p>
+                                    <p class="text-lg text-bg-tombol py-2 font-roboto text-center font-semibold">Rp.{{number_format($s_cart->total_price)}}</p>
+                                
+                                </div>
+                                
                             </div>
+                            <div class="flex flex-col w-full mb-5">
+                                <button
                             
-                        </div>
-                        <div class="flex flex-col w-full mb-5">
-                            <button
-                         
-                             class="
-                                mx-auto text-white 
-                                bg-bg-tombol text-sm capitalize
-                                py-2 px-11 font-Roboto justify-center">
-                                check out
-                            </button>                           
-                        </div>
+                                class="
+                                    mx-auto text-white 
+                                    bg-bg-tombol text-sm capitalize
+                                    py-2 px-11 font-Roboto justify-center">
+                                    check out
+                                </button>                           
+                            </div>
                     </div>
                 </div>
             </form>

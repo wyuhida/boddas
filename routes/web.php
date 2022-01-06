@@ -58,7 +58,7 @@ use App\Http\Controllers\AuthController;
 |
 */
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('/adminlogin', [AuthController::class, 'logins'])->name(
     'backend.login'
@@ -70,6 +70,29 @@ Route::get('/registers', [AuthController::class, 'showRegister'])->name(
 Route::post('registers', [AuthController::class, 'registers'])->name(
     'registers'
 );
+
+/**
+ * Register Buyer
+ */
+Route::get('register_reseller', [
+    AuthController::class,
+    'register_reseller',
+])->name('register_reseller');
+
+Route::get('register_distributor', [
+    AuthController::class,
+    'register_distributor',
+])->name('register_distributor');
+
+Route::get('register_customer', [
+    AuthController::class,
+    'register_customer',
+])->name('register_customer');
+
+Route::post('register_buyer', [AuthController::class, 'register_buyer'])->name(
+    'register_buyer'
+);
+
 // coba
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
@@ -708,7 +731,7 @@ Route::group(
         'as' => 'buyer.',
         'prefix' => 'buyer',
         'namespace' => 'Buyer',
-        'middleware' => ['auth', 'buyer'],
+        'middleware' => ['auth', 'buyer', 'verified'],
     ],
     function () {
         Route::get('dashboard', [

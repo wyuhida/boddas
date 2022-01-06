@@ -89,9 +89,40 @@ class BuyerDashboardController extends Controller
             ->join('users', 'transactions.id_user', '=', 'users.id')
             ->join('items', 'transaction__details.id_item', '=', 'items.id');
 
+        //omzet finish
         $tot = $tots
             ->select(DB::raw('sum(total_price) as total'))
-            ->where('users.id', $ids)
+            ->where([
+                ['users.id', $ids],
+                ['transactions.id_transaction_status', 6],
+            ])
+            ->groupBy('users.id')
+            ->first();
+        //total barang finish
+        $t_barang = $tots
+            ->select(DB::raw('count(qty) as total_barang'))
+            ->where([
+                ['users.id', $ids],
+                ['transactions.id_transaction_status', 6],
+            ])
+            ->groupBy('users.id')
+            ->first();
+        //total barang prepare
+        $t_prepare = $tots
+            ->select(DB::raw('count(qty) as total_prepare'))
+            ->where([
+                ['users.id', $ids],
+                ['transactions.id_transaction_status', 4],
+            ])
+            ->groupBy('users.id')
+            ->first();
+        //total barang delivery
+        $t_delivery = $tots
+            ->select(DB::raw('count(qty) as total_delivery'))
+            ->where([
+                ['users.id', $ids],
+                ['transactions.id_transaction_status', 5],
+            ])
             ->groupBy('users.id')
             ->first();
 
@@ -99,6 +130,9 @@ class BuyerDashboardController extends Controller
             'newItem' => $newItem,
             'profile' => $profile,
             'tot' => $tot,
+            't_barang' => $t_barang,
+            't_prepare' => $t_prepare,
+            't_delivery' => $t_delivery,
         ]);
     }
 

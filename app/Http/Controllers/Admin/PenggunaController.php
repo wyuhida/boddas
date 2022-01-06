@@ -51,7 +51,7 @@ class PenggunaController extends Controller
                     ['buyers.id', 3],
                     ['addresses.address_name', 'LIKE', "{$request->lokasi}%"],
                 ])
-                ->paginate(20);
+                ->get();
         } elseif ($cari) {
             $s_show_afiliate = User::join(
                 'buyers',
@@ -60,7 +60,7 @@ class PenggunaController extends Controller
                 'buyers.id'
             )
                 ->where([
-                    ['users.fullname', 'LIKE', "%{$cari}%"],
+                    ['users.fullname', 'LIKE', "{$cari}%"],
                     ['buyers.id', 3],
                 ])
                 ->paginate(20);
@@ -80,8 +80,8 @@ class PenggunaController extends Controller
                     'addresses.address_name'
                 )
                 ->where([['buyers.id', '3']])
-                ->orderBy('users.created_at', 'DESC')
-                ->paginate(20);
+                ->orderBy('users.id', 'DESC')
+                ->get();
         }
 
         return view('admin.pengguna.show_afiliate', [
@@ -200,7 +200,7 @@ class PenggunaController extends Controller
                     ['buyers.buyer', 'reseller'],
                     ['addresses.address_name', 'LIKE', "%{$request->lokasi}%"],
                 ])
-                ->paginate(20);
+                ->get();
         } elseif ($cari) {
             $s_show_reseller = User::join(
                 'buyers',
@@ -212,7 +212,7 @@ class PenggunaController extends Controller
                     ['users.fullname', 'LIKE', "%{$cari}%"],
                     ['buyers.id', 2],
                 ])
-                ->paginate(20);
+                ->get();
         } else {
             $s_show_reseller = User::leftJoin(
                 'buyers',
@@ -230,7 +230,7 @@ class PenggunaController extends Controller
                 )
                 ->where([['buyers.id', 2]])
                 ->orderBy('users.created_at', 'DESC')
-                ->paginate(20);
+                ->get();
         }
 
         return view('admin.pengguna.show_reseller', [

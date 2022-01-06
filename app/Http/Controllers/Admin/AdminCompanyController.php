@@ -79,7 +79,7 @@ class AdminCompanyController extends Controller
 
         $ids = auth()->user()->id;
         if (isset($request->photo)) {
-            $allowedfileExtension = ['pdf', 'jpg', 'png', 'docx'];
+            $allowedfileExtension = ['pdf', 'jpg', 'png', 'jpeg', 'docx'];
             $resources = $request->file('photo');
             $names = $resources->getClientOriginalName();
             $extension = $resources->getClientOriginalExtension();
@@ -372,7 +372,9 @@ class AdminCompanyController extends Controller
      */
     public function admin_kontak()
     {
-        $admin_kontak = Company_Identity::all();
+        $admin_kontak = Company_Identity::latest()->first();
+
+        // $admin_contak = Company_Identity::where('id', $id)->firstOrFail();
         //$tentang_kami = DB::table('company__identities')->get();
         return view('admin.kontak.show', compact('admin_kontak'));
     }
@@ -442,7 +444,7 @@ class AdminCompanyController extends Controller
         $company->updated_at = Carbon::now();
         $company->created_at = Carbon::now();
         $company->save();
-        Toastr::success('successfully updated :)', 'Success');
+        Toastr::success('Ubah berhasil', 'Success');
         return redirect()->route('admin.admin_kontak');
     }
 
@@ -556,7 +558,7 @@ class AdminCompanyController extends Controller
 
     public function kontak_us()
     {
-        $s_pesan = kontak_us::latest()->paginate(10);
+        $s_pesan = kontak_us::latest()->get();
         $total = count(Kontak_us::latest()->get());
         return view('admin.kotak_masuk.show', [
             's_pesan' => $s_pesan,

@@ -93,7 +93,7 @@
                                 <textarea
                                 placeholder="detail_product"
                                 name="detail_product" 
-                                class="summernote" required></textarea>
+                                class="detail_product" required></textarea>
                                     <span class="help-block m-b-none"></span>
                             </div>
                         </div>
@@ -140,12 +140,18 @@
 
 
 @push('js')
-<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+
+
+<script src="https://cdn.ckeditor.com/4.17.1/full-all/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace( 'detail_product' );
+</script>
+{{-- <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function(){
         $('.summernote').summernote({
             height:400
         })
     });
-</script>
+</script> --}}
 @endpush

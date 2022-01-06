@@ -43,6 +43,8 @@
                                 @enderror
                             </div>
                         </div>
+
+                       
                         
                         <div class="form-group">
                             <label class="col-lg-2 control-label">Thumbnail</label>
@@ -51,7 +53,6 @@
                                     <i class="glyphicon glyphicon-file fileinput-exists"></i> 
                                     <span class="fileinput-filename"></span>
                                 </div>
-
                                 <span class="input-group-addon btn btn-default btn-file">
                                     <span class="fileinput-new">Unggah Foto</span>
                                     <span class="fileinput-exists">Ubah</span>
@@ -62,7 +63,7 @@
                         <div class="form-group">
                             <div class="col-lg-12 ">
                                 <textarea name="body" 
-                                class="summernote" class="form-control" 
+                                class="body" class="form-control" 
                                 ></textarea>
                             </div>
                         </div>
@@ -84,6 +85,12 @@
 
 @push('js')
 
+
+<script src="https://cdn.ckeditor.com/4.17.1/full-all/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace( 'body' );
+</script>
+{{-- 
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function(){
@@ -91,5 +98,5 @@
             height:400
         })
 });
-</script>
+</script> --}}
 @endpush

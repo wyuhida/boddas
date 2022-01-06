@@ -74,7 +74,7 @@
                         <div class="form-group">
                             <div class="col-lg-12 ">
                                 <textarea name="body" 
-                                class="summernote" class="form-control" 
+                                class="body" class="form-control" 
                                
                                 >{{ $edit_blog->body_news }}</textarea>
                             </div>
@@ -97,10 +97,14 @@
 
 @push('js')
 
-<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+<script src="https://cdn.ckeditor.com/4.17.1/full-all/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace( 'body' );
+</script>
+{{-- <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function(){
         $('.summernote').summernote()
 });
-</script>
+</script> --}}
 @endpush

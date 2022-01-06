@@ -12,4 +12,9 @@ class Address extends Model
     protected $fillable = [
         'address_name,latitute,longitute,id_user,created_at,updated_at,update_by,is_default',
     ];
+
+    public function users()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

@@ -26,54 +26,63 @@
 @section('content')
 
 <div class="ibox-content m-b-sm border-bottom">
-    <form action="{{ route('admin.admin_transaksi')}}" method="GET" >
+    
+   
         <div class="row">
-
             <div class="col-sm-4">
                 <div class="form-group">
-                    <label class="control-label" for="price">Nama Produk</label>
-                    <input type="text" placeholder="Search" class="input form-control" 
-                        name="search" value="{{ request()->query('search')}}">
+                    <label class="control-label" for="price">Cari Nama</label>
+                    <input type="text" placeholder="Cari" class="input form-control search-data" 
+                        name="search">
                 </div>
             </div>
+            <form action="{{ route('admin.admin_transaksi')}}" method="GET" >
+            
+
+            {{-- <div class="col-sm-4">
+                <div class="form-group">
+                    <label class="control-label" for="price">Nama Produk</label>
+                    <input type="text" placeholder="Cari" class="input form-control search-data" 
+                        name="search" value="{{ request()->query('search')}}">
+                </div>
+            </div> --}}
             <div class="col-sm-4">
                 <div class="form-group">
                         <label class="control-label" for="price">Status</label>
                         <select name="status" class="form-control">
                             <option value="">Semua</a></option>
-                            <option value="sudah-bayar">Sudah Bayar</option>
+                            @if(request()->status == 'sudah-bayar')
+                                <option value="sudah-bayar" selected>Sudah Bayar</option>
+                            @else
+                                <option value="sudah-bayar">Sudah Bayar</option>
+                            @endif
+                            @if(request()->status == 'belum-bayar')
+                                <option value="belum-bayar" selected>Belum Bayar</option>
+                            @else
                             <option value="belum-bayar">Belum Bayar</option>
+                            @endif
+                            @if(request()->status == 'in-prepare')
+                            <option value="in-prepare">in-prepare</option>
+                            @else
+                            <option value="in-prepare">in-prepare</option>
+                            @endif
+                            @if(request()->status == 'on-delivery')
+                            <option value="on-delivery" selected>on-delivery</option>
+                            @else
+                            <option value="on-delivery">on-delivery</option>
+                            @endif
+                            @if(request()->status == 'finished')
+                            <option value="finished" selected>finished</option>
+                            @else
+                            <option value="finished">finished</option>
+                            @endif
                         </select>
                 </div>
             </div>
-
-            {{-- <div class="col-sm-4">
-                <div class="form-group">
-                        <label class="control-label" for="price">Penjual</label>
-                        <select name="status" class="form-control">
-                            <option value="">Semua</a></option>
-                            <option value="reseler">Reseler</option>
-                            <option value="afiliate">Afiliate</option>
-                        </select>
-                </div>
-            </div> --}}
-            {{-- <div class="col-sm-4">
-                <div class="form-group">
-                    <div class="form-group" id="data_1">
-                        <label class="control-label" for="price">Tanggal</label>
-                        <div class="input-group date">
-                            <span class="input-group-addon">
-                                <i class="fa fa-calendar"></i>
-                            </span>
-                            <input type="text" class="form-control" value="">
-                        </div>
-                    </div>
-                </div>
-            </div> --}}
         
             <div class="col-sm-2">
                 <div class="form-group">
-                    <button type="submit" class="btn btn-sm btn-primary form-control" style="margin-top: 20px;"><i class="fa fa-filter"></i> Filter/Search</button>
+                    <button type="submit" class="btn btn-sm btn-primary form-control" style="margin-top: 20px;"><i class="fa fa-filter"></i> Filter / Cari</button>
                 </div>
                 
             </div>
@@ -83,9 +92,9 @@
                     <a href="{{route('admin.admin_transaksi')}}" class="btn btn-sm btn-primary form-control" style="margin-top: 20px;"><i class="fa fa-refresh"></i>Reset</a>
                 </div>
             </div>
-
+        </form>
         </div>
-    </form>
+    
 </div>
 
 <div class="wrapper wrapper-content animated fadeInRight">
@@ -104,11 +113,10 @@
                 <div class="ibox-content">
                   
                     <div class="table-responsive">
-                     
-                       
-                        <table class="table table-striped table-bordered table-hover dataTables-example" >
+                         <table class="table table-striped table-bordered table-hover dataTables-example" style="width: 100%">
                             <thead>
                                 <tr>
+                                    <th>No</th>
                                     <th>id</th>
                                     <th>Tanggal</th>
                                     <th>Produk</th>
@@ -122,8 +130,9 @@
                             </thead>
                             @foreach($newItem->groupBy('id_transaction') as $items)
                             <tbody>
-                                @forelse($items as $it)
+                                @foreach($items as $key => $it)
                                 <tr>
+                                    <td>{{$key+1}}</td>
                                     <td>
                                     {{$it[0]->id_transaction}}
                                     </td>
@@ -202,17 +211,35 @@
                                               
                                             </button>
                                             <ul class="dropdown-menu text-center" >
+                                          
+                                            <li>
+                                                @if($it[0]->id_transaction_status == 6)
+                                                <a href="{{route('admin.update_status_prepare',$it[0]->id_transaction)}}"
+                                                    class="btn btn-xs" disabled>
+                                                    <i class="fa fa-edit"></i>
+                                                    In Prepare</a>
+                                                @else
+                                                <a href="{{route('admin.update_status_prepare',$it[0]->id_transaction)}}"
+                                                    class="btn btn-xs">
+                                                    <i class="fa fa-edit"></i>
+                                                    In Prepare</a>
+                                                @endif
+                                            </li>
+                                            
+                                               
+                                          
                                                 <li>
-                                                    <a href="{{route('admin.update_status_prepare',$it[0]->id_transaction)}}"
-                                                        class="btn btn-xs">
+                                                    @if($it[0]->id_transaction_status == 6)
+                                                    <a href="{{route('admin.update_status_ondelivery',$it[0]->id_transaction)}}"
+                                                        class="btn btn-xs" disabled>
                                                         <i class="fa fa-edit"></i>
-                                                        In Prepare</a>
-                                                </li>
-                                                <li>
+                                                        On Delivery</a>
+                                                    @else
                                                     <a href="{{route('admin.update_status_ondelivery',$it[0]->id_transaction)}}"
                                                         class="btn btn-xs">
                                                         <i class="fa fa-edit"></i>
                                                         On Delivery</a>
+                                                    @endif
                                                 </li>
                                                 <li>
                                                     <a href="{{route('admin.update_status_finished',$it[0]->id_transaction)}}"
@@ -220,35 +247,20 @@
                                                         <i class="fa fa-edit"></i>
                                                         Finished</a>
                                                 </li>
-                                                {{-- <li class="divider"></li>
-                                                <li> --}}
-                  
-                                                    {{-- <a class="btn btn-xs"
-                                                        onclick="deleteKontak({{$adk->id}})" >
-                                                        <i class="fa fa-trash"></i>
-                                                        Hapus
-                                                    </a> --}}
-                                                    {{-- <form id="delete-form-{{$adk->id}}" 
-                                                        action="{{route('admin.delete_admin_kontak',$adk->id)}}" 
-                                                        method="POST" style="display: none;">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                    </form> --}}
+                                               
                                                 </li>
                                             </ul>
                                         </div>
         
                                     </td>
                                 </tr>
-                                @empty
-                                <tr>
-                                    <td></td>
-                                </tr>
-                                @endforelse
+                               
+                                @endforeach
                             </tbody>
                             @endforeach
                             <tfoot>
                                 <tr>
+                                    <th>No</th>
                                     <th>id</th>
                                     <th>Tanggal</th>
                                     <th>Produk</th>
