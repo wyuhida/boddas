@@ -78,6 +78,25 @@
                         </div>
 
                         <div class="form-group">
+                            <label class="col-lg-2 control-label">
+                                Target Penjualan<span class="text-danger">*</span>
+                            </label>
+                            <div class="col-lg-10">
+                                <input type="number" 
+                                name="target_penjualan" 
+                                value="{{$e_buyer_diskon->target_penjualan}}"
+                                
+                                class="form-control" @error('target_penjualan') is-invalid @enderror> 
+                                @error('target_penjualan')
+                                    <span class="label label-danger" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>                 
+                                @enderror
+                              
+                            </div>
+                        </div>
+
+                        <div class="form-group">
                             <div class="col-lg-offset-2 col-lg-10">
                                 <button class="btn btn-md btn-primary" type="submit">Simpan</button>
                                 <button class="btn btn-md btn-warning" type="reset">Batal</button>

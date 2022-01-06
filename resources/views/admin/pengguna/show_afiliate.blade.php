@@ -42,45 +42,6 @@
                     </div>
                 </form>
 
-               {{-- <form action="{{ route('admin.show_admin_afiliate')}}" method="GET">
-                  <div class="form-group">
-                      <div class="col-sm-3">
-                          <div class="form-group">
-                              <label class="control-label" for="price">Omset</label>
-                              <select name="omset" id="" class="form-control">
-                                  <option value="">Filter</option>
-                                  <option value="banyak">Omset Tertinggi</option>
-                                  <option value="sedikit">Omset Terendah</option>
-                              </select>
-                              
-                          </div>
-                      </div>
-                  </div>
-
-                  <div class="form-group">
-                      <div class="col-sm-3">
-                          <label class="control-label">Lokasi</label>
-                          <div class="input-group">
-                              <input type="text" 
-                              name="lokasi"
-                              value="{{ request()->query('lokasi')}}"
-                              class="form-control"> 
-                          </div>
-                      </div>
-                  </div>
-
-                  <div class="form-group">
-                      <div class="col-sm-3">
-                          <span class="input-group-btn"> 
-                              <button type="submit" class="btn" style="margin-top: 24px;">
-                              Filter
-                              </button> 
-                          </span>
-                      </div>
-                  </div>
-                    
-               </form> --}}
-
                 <div class="form-group">
                     <div class="col-sm-12">
                         <a href="{{route('admin.show_admin_afiliate')}}" 

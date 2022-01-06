@@ -58,6 +58,7 @@
                         <th>No</th>
                         <th>Nama</th>
                         <th>Minimal Stok</th>
+                        <th>Target Penjualan</th>
                         <th>Diskon</th>
                         <th>Aksi</th>
                       </tr>
@@ -68,6 +69,7 @@
                         <td>{{$key+1}}</td>
                          <td>{{$sb->buyer}}</td>
                          <td>{{$sb->stock_limit}}</td>
+                         <td>{{$sb->target_penjualan}}</td>
                          <td>{{$sb->discount_percentage * 100 }} %</td>
                          <td>
                             <div class="btn-group">

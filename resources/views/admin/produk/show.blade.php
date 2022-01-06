@@ -116,8 +116,7 @@
                                 {{$it[0]->created_at}}
                             </td>
                             <td>
-                                {{-- {{$it[0]->detail_product}} --}}
-                                {!! Str::limit($it[0]->detail_product,'200','..') !!}
+                                {!! Str::limit(strip_tags($it[0]->detail_product), $limit = 50, $end = '...') !!}
                             </td>
                             <td>
                                 {{$it[0]->updated_at}}

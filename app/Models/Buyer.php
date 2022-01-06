@@ -15,6 +15,13 @@ class Buyer extends Model
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     protected $table = 'buyers';
+    protected $fillable = [
+        'buyer',
+        'stock_limit',
+        'discount_percentage',
+        'update_by',
+        'target_penjualan',
+    ];
     public function user()
     {
         return $this->hasMany(User::class);

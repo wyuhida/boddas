@@ -58,6 +58,27 @@
                               
                             </div>
                         </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">
+                                Target Penjualan<span class="text-danger">*</span>
+                            </label>
+                            <div class="col-lg-10">
+                                <input type="number" 
+                                name="target_penjualan" 
+                                value="{{old('stock_limit')}}"
+                                min="1"
+                                placeholder="1"
+                                class="form-control" @error('target_penjualan') is-invalid @enderror> 
+                                @error('target_penjualan')
+                                    <span class="label label-danger" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>                 
+                                @enderror
+                              
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <label class="col-lg-2 control-label">
                                 Diskon<span class="text-danger">*</span>
